@@ -2,7 +2,7 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "darkonclassical"
+TEAM_ID = "german11"
 MAX_TOURNEYS = 100
 
 headers = {
