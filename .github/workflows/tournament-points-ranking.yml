@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:   # manuell startbar
+    paths:
+      - "scripts/auto/tournament_points_ranking.py"
 
 jobs:
   run-points-script:
