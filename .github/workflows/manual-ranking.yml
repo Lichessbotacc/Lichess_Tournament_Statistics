@@ -1,13 +1,10 @@
-name: Tournament Scripts
+name: Manual Tournament Ranking
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  workflow_dispatch:   # nur manuell starten
 
 jobs:
-  run-scripts:
+  run-manual:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,8 +16,5 @@ jobs:
 
       - run: pip install requests
 
-      - name: Manual Script (mit Turnier-ID)
+      - name: Manual Script ausführen
         run: python scripts/manual/tournament_games_ranking.py
-
-      - name: Auto Script (neuestes Turnier)
-        run: python scripts/auto/latest_tournament_ranking.py
