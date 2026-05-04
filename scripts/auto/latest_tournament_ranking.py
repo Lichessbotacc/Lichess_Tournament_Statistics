@@ -3,9 +3,9 @@ import json
 from collections import defaultdict
 
 TEAM_ID = "darkonteams"
-MAX_TOURNEYS = 100000000
+MAX_TOURNEYS = 10
 
-TOURNEY_KEYWORD = "Hourly Ultrabullet"  # 🔥 nur Turniere mit diesem Wort
+TOURNEY_KEYWORD = "SWISS"  # 🔥 nur Turniere mit diesem Wort
 
 headers = {
     "Accept": "application/x-ndjson"
