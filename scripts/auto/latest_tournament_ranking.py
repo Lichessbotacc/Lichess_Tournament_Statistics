@@ -5,7 +5,7 @@ from collections import defaultdict
 TEAM_ID = "darkonteams"
 MAX_TOURNEYS = 100
 
-TOURNEY_KEYWORD = "Hourly Ultrabullet"  # 🔥 nur Turniere mit diesem Wort
+TOURNEY_KEYWORD = "Liga"  # 🔥 nur Turniere mit diesem Wort
 
 headers = {
     "Accept": "application/x-ndjson"
