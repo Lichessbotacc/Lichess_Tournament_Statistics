@@ -2,8 +2,8 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "darkonteams"
-MAX_TOURNEYS = 5
+TEAM_ID = "solo-blitz-league"
+MAX_TOURNEYS = 35
 
 headers = {
     "Accept": "application/x-ndjson"
