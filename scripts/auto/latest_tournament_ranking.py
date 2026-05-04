@@ -3,7 +3,9 @@ import json
 from collections import defaultdict
 
 TEAM_ID = "darkonteams"
-MAX_TOURNEYS = 50
+MAX_TOURNEYS = 35
+
+TOURNEY_KEYWORD = "Hourly Ultrabullet"  # 🔥 nur Turniere mit diesem Wort
 
 headers = {
     "Accept": "application/x-ndjson"
@@ -29,16 +31,23 @@ if not tournaments:
     print("Keine Turniere gefunden")
     exit()
 
-selected_tourneys = tournaments[:MAX_TOURNEYS]
+# 🔥 FILTER nach Name
+filtered_tourneys = []
+for t in tournaments:
+    name = t["fullName"]
+    if TOURNEY_KEYWORD.lower() in name.lower():
+        filtered_tourneys.append(t)
+
+selected_tourneys = filtered_tourneys[:MAX_TOURNEYS]
 
 print(f"\n🏆 Team-Ranking für: {TEAM_ID}")
+print(f"Filter: '{TOURNEY_KEYWORD}'")
 print(f"Analysierte Turniere: {len(selected_tourneys)}\n")
 
-# 🔥 Tracking
 games_count = defaultdict(int)
 tournament_participation = defaultdict(set)
 
-# 🔎 2. Turniere durchgehen
+# 🔎 2. Games aus gefilterten Turnieren
 for t in selected_tourneys:
     tourney_id = t["id"]
     print(f"- {t['fullName']}")
@@ -65,21 +74,12 @@ for t in selected_tourneys:
         white_team = white.get("team")
         black_team = black.get("team")
 
-        # 🟢 FALL 1: Team ist sauber gesetzt (Team Battle / manche Events)
-        if white_team == TEAM_ID and white_user:
+        # 🟢 Team-Arena / fallback Logik (wie vorher stabil)
+        if white_user and (white_team == TEAM_ID or white_team is None):
             games_count[white_user] += 1
             tournament_participation[white_user].add(tourney_id)
 
-        if black_team == TEAM_ID and black_user:
-            games_count[black_user] += 1
-            tournament_participation[black_user].add(tourney_id)
-
-        # 🔵 FALL 2: Arena / kein Team-Feld → fallback (WICHTIG)
-        if white_user and white_team is None:
-            games_count[white_user] += 1
-            tournament_participation[white_user].add(tourney_id)
-
-        if black_user and black_team is None:
+        if black_user and (black_team == TEAM_ID or black_team is None):
             games_count[black_user] += 1
             tournament_participation[black_user].add(tourney_id)
 
@@ -87,8 +87,8 @@ for t in selected_tourneys:
 sorted_players = sorted(games_count.items(), key=lambda x: x[1], reverse=True)
 
 # 🏆 4. Ausgabe
-print(f"\n🏆 Rangliste – {TEAM_ID}\n")
+print(f"\n🏆 Rangliste – Filter: {TOURNEY_KEYWORD}\n")
 
 for i, (user, games) in enumerate(sorted_players, 1):
     tournaments_played = len(tournament_participation[user])
-    print(f"{i}. {user}: {games} games played ({tournaments_played}/{len(selected_tourneys)} tournaments)")
+    print(f"{i}. {user}: {games} games ({tournaments_played}/{len(selected_tourneys)} tournaments)")
