@@ -3,7 +3,7 @@ name: Tournament Games Ranking
 on:
   push:
     branches:
-      - main   # oder "master", je nach Repo
+      - main
   workflow_dispatch:
 
 jobs:
@@ -23,4 +23,4 @@ jobs:
         run: pip install requests
 
       - name: Script ausführen
-        run: python tournament_games_ranking.py
+        run: python scripts/tournament_games_ranking.py
