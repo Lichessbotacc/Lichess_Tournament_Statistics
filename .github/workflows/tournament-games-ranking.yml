@@ -1,4 +1,4 @@
-name: Tournament Games Ranking
+name: Tournament Scripts
 
 on:
   push:
@@ -7,20 +7,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-script:
+  run-scripts:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Repository auschecken
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Python einrichten
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Abhängigkeiten installieren
-        run: pip install requests
+      - run: pip install requests
 
-      - name: Script ausführen
-        run: python scripts/tournament_games_ranking.py
+      - name: Manual Script (mit Turnier-ID)
+        run: python scripts/manual/tournament_games_ranking.py
+
+      - name: Auto Script (neuestes Turnier)
+        run: python scripts/auto/latest_tournament_ranking.py
