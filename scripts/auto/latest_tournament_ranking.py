@@ -2,8 +2,8 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "darkondiscord"
-MAX_TOURNEYS = 100
+TEAM_ID = "darkonteams"
+MAX_TOURNEYS = 5
 
 headers = {
     "Accept": "application/x-ndjson"
@@ -31,11 +31,14 @@ if not tournaments:
 
 selected_tourneys = tournaments[:MAX_TOURNEYS]
 
-print(f"Analysiere die letzten {len(selected_tourneys)} Turniere:\n")
+print(f"\n🏆 Team-Ranking für Team: {TEAM_ID}")
+print(f"Analysierte Turniere: {len(selected_tourneys)}\n")
 
+# 🔥 Tracking
 games_count = defaultdict(int)
+tournament_participation = defaultdict(set)
 
-# 🔎 2. Games aus allen Turnieren
+# 🔎 2. Games aus Turnieren
 for t in selected_tourneys:
     tourney_id = t["id"]
     print(f"- {t['fullName']}")
@@ -62,18 +65,21 @@ for t in selected_tourneys:
         white_team = white.get("team")
         black_team = black.get("team")
 
-        # 🔥 WICHTIG: nur zählen wenn wirklich für dein Team gespielt wurde
+        # 🔥 nur echte Teamspiele zählen
         if white_team == TEAM_ID and white_user:
             games_count[white_user] += 1
+            tournament_participation[white_user].add(tourney_id)
 
         if black_team == TEAM_ID and black_user:
             games_count[black_user] += 1
+            tournament_participation[black_user].add(tourney_id)
 
 # 🔎 3. Sortieren
 sorted_players = sorted(games_count.items(), key=lambda x: x[1], reverse=True)
 
 # 🏆 4. Ausgabe
-print("\n🏆 Team-Rangliste (echte Teamspiele):\n")
+print(f"\n🏆 Rangliste – {TEAM_ID}\n")
 
 for i, (user, games) in enumerate(sorted_players, 1):
-    print(f"{i}. {user}: {games} Spiele")
+    tournaments_played = len(tournament_participation[user])
+    print(f"{i}. {user}: {games} games played and ({tournaments_played}/{len(selected_tourneys)} tournaments played!)")
