@@ -66,4 +66,4 @@ sorted_players = sorted(games_count.items(), key=lambda x: x[1], reverse=True)
 print("\n🏆 Gesamt-Rangliste (über mehrere Turniere):\n")
 
 for i, (user, games) in enumerate(sorted_players, 1):
-    print(f"{i}. {user}: {games} Spiele")
+    print(f"{i}. {user}: {games} Games played")
