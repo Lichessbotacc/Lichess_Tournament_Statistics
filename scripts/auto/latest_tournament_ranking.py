@@ -31,14 +31,14 @@ if not tournaments:
 
 selected_tourneys = tournaments[:MAX_TOURNEYS]
 
-print(f"\n🏆 Team-Ranking für Team: {TEAM_ID}")
+print(f"\n🏆 Team-Ranking für: {TEAM_ID}")
 print(f"Analysierte Turniere: {len(selected_tourneys)}\n")
 
 # 🔥 Tracking
 games_count = defaultdict(int)
 tournament_participation = defaultdict(set)
 
-# 🔎 2. Games aus Turnieren
+# 🔎 2. Turniere durchgehen
 for t in selected_tourneys:
     tourney_id = t["id"]
     print(f"- {t['fullName']}")
@@ -65,12 +65,21 @@ for t in selected_tourneys:
         white_team = white.get("team")
         black_team = black.get("team")
 
-        # 🔥 nur echte Teamspiele zählen
+        # 🟢 FALL 1: Team ist sauber gesetzt (Team Battle / manche Events)
         if white_team == TEAM_ID and white_user:
             games_count[white_user] += 1
             tournament_participation[white_user].add(tourney_id)
 
         if black_team == TEAM_ID and black_user:
+            games_count[black_user] += 1
+            tournament_participation[black_user].add(tourney_id)
+
+        # 🔵 FALL 2: Arena / kein Team-Feld → fallback (WICHTIG)
+        if white_user and white_team is None:
+            games_count[white_user] += 1
+            tournament_participation[white_user].add(tourney_id)
+
+        if black_user and black_team is None:
             games_count[black_user] += 1
             tournament_participation[black_user].add(tourney_id)
 
@@ -82,4 +91,4 @@ print(f"\n🏆 Rangliste – {TEAM_ID}\n")
 
 for i, (user, games) in enumerate(sorted_players, 1):
     tournaments_played = len(tournament_participation[user])
-    print(f"{i}. {user}: {games} games played and ({tournaments_played}/{len(selected_tourneys)} tournaments played!)")
+    print(f"{i}. {user}: {games} games played ({tournaments_played}/{len(selected_tourneys)} tournaments)")
