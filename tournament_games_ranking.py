@@ -1,35 +1,36 @@
 import requests
 import json
+from collections import defaultdict
 
-TOURNEY_ID = "Mu4COtPZ"  # <-- hier deine Turnier-ID einsetzen
+TOURNEY_ID = "Mu4COtPZ"  # deine Turnier-ID
 
-url = f"https://lichess.org/api/tournament/{TOURNEY_ID}/results"
+url = f"https://lichess.org/api/tournament/{TOURNEY_ID}/games"
 
 headers = {
     "Accept": "application/x-ndjson"
 }
 
-response = requests.get(url, headers=headers)
+response = requests.get(url, headers=headers, stream=True)
 
 if response.status_code != 200:
-    print("Fehler beim Abrufen der Daten:", response.status_code)
+    print("Fehler:", response.status_code)
     exit()
 
-games_count = {}
+games_count = defaultdict(int)
 
-for line in response.text.splitlines():
-    if not line.strip():
+for line in response.iter_lines():
+    if not line:
         continue
 
-    data = json.loads(line)  # ✅ statt eval
+    game = json.loads(line)
 
-    username = data.get("username")
-    games = data.get("games", 0)
+    white = game["players"]["white"]["user"]["name"]
+    black = game["players"]["black"]["user"]["name"]
 
-    if username:
-        games_count[username] = games
+    games_count[white] += 1
+    games_count[black] += 1
 
-# sortieren nach Anzahl Spiele (absteigend)
+# sortieren
 sorted_players = sorted(games_count.items(), key=lambda x: x[1], reverse=True)
 
 print("Rangliste nach gespielten Partien:")
