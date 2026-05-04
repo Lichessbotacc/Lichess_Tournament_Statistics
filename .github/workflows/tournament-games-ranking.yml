@@ -1,9 +1,10 @@
 name: Tournament Games Ranking
 
 on:
-  schedule:
-    - cron: "0 */4 * * *"  # alle 4 Stunden
-  workflow_dispatch:       # manuell starten möglich
+  push:
+    branches:
+      - main   # oder "master", je nach Repo
+  workflow_dispatch:
 
 jobs:
   run-script:
