@@ -37,5 +37,5 @@ print("Rangliste nach gespielten Partien:\n")
 
 for i, (user, games) in enumerate(sorted_players, 1):
     link = f"https://lichess.org/tournament/{TOURNEY_ID}?player={user}"
-    print(f"{i}. {user}: {games} Spiele")
+    print(f"{i}. {user}: {games} Games played")
     print(f"   {link}")
