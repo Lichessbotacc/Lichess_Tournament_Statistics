@@ -2,7 +2,7 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "DarkOnTeams"
+TEAM_ID = "darkonteams"
 MAX_TOURNEYS = 50
 TOURNEY_KEYWORD = "Hourly"  # leer = alle Turniere
 
