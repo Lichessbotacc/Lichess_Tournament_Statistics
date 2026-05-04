@@ -2,7 +2,7 @@ import requests
 import json
 from collections import defaultdict
 
-TOURNEY_ID = "Mu4COtPZ"  # deine Turnier-ID
+TOURNEY_ID = "dhpdDr8L"  # deine Turnier-ID
 
 url = f"https://lichess.org/api/tournament/{TOURNEY_ID}/games"
 
