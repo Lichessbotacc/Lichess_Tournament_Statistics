@@ -2,7 +2,7 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "darkonteams"  # dein Team
+TEAM_ID = "lmao-teamfights"  # dein Team
 
 headers = {
     "Accept": "application/x-ndjson"
