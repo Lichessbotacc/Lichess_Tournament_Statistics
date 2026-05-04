@@ -1,0 +1,23 @@
+name: Auto Latest Tournament Ranking
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:   # optional auch manuell
+
+jobs:
+  run-auto:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install requests
+
+      - name: Auto Script ausführen
+        run: python scripts/auto/latest_tournament_ranking.py
