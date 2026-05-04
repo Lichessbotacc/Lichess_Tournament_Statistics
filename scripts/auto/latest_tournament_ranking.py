@@ -3,7 +3,7 @@ import json
 from collections import defaultdict
 
 TEAM_ID = "darkonteams"
-MAX_TOURNEYS = 1000
+MAX_TOURNEYS = 100000000
 
 TOURNEY_KEYWORD = "Hourly Ultrabullet"  # 🔥 nur Turniere mit diesem Wort
 
