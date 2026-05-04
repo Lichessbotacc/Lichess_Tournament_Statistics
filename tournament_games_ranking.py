@@ -33,6 +33,9 @@ for line in response.iter_lines():
 # sortieren
 sorted_players = sorted(games_count.items(), key=lambda x: x[1], reverse=True)
 
-print("Rangliste nach gespielten Partien:")
+print("Rangliste nach gespielten Partien:\n")
+
 for i, (user, games) in enumerate(sorted_players, 1):
+    link = f"https://lichess.org/tournament/{TOURNEY_ID}?player={user}"
     print(f"{i}. {user}: {games} Spiele")
+    print(f"   {link}")
