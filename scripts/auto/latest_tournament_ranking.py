@@ -3,7 +3,7 @@ import json
 from collections import defaultdict
 
 TEAM_ID = "darkonblitz-dob"
-MAX_TOURNEYS = 30
+MAX_TOURNEYS = 100
 
 headers = {
     "Accept": "application/x-ndjson"
