@@ -2,8 +2,8 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "lmao-teamfights"
-MAX_TOURNEYS = 5   # 🔥 hier stellst du ein wie viele Turniere
+TEAM_ID = "solo-blitz-league"
+MAX_TOURNEYS = 35   # 🔥 hier stellst du ein wie viele Turniere
 
 headers = {
     "Accept": "application/x-ndjson"
