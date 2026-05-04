@@ -50,7 +50,7 @@ tournament_participation = defaultdict(set)
 # 🔎 2. Games aus gefilterten Turnieren
 for t in selected_tourneys:
     tourney_id = t["id"]
-    print(f"- {t['fullName']}")
+    print(f"- {t['fullName']} https://lichess.org/tournament/{t['id']}")
 
     games_url = f"https://lichess.org/api/tournament/{tourney_id}/games"
     response = requests.get(games_url, headers=headers, stream=True)
