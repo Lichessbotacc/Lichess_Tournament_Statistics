@@ -2,14 +2,14 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "lmao-teamfights"  # dein Team
-MAX_TOURNEYS = 5
+TEAM_ID = "lmao-teamfights"
+MAX_TOURNEYS = 5   # 🔥 hier stellst du ein wie viele Turniere
 
 headers = {
     "Accept": "application/x-ndjson"
 }
 
-# 🔎 1. Neuestes beendetes Turnier holen
+# 🔎 1. Turniere holen
 url = f"https://lichess.org/api/team/{TEAM_ID}/arena?status=finished"
 
 response = requests.get(url, headers=headers)
@@ -23,49 +23,47 @@ tournaments = []
 for line in response.text.splitlines():
     if not line.strip():
         continue
-    data = json.loads(line)
-    tournaments.append(data)
+    tournaments.append(json.loads(line))
 
 if not tournaments:
     print("Keine Turniere gefunden")
     exit()
 
-# 👉 NEUESTES Turnier
-tourney = tournaments[0]
-TOURNEY_ID = tourney["id"]
+selected_tourneys = tournaments[:MAX_TOURNEYS]
 
-print(f"Analysiere Turnier: {tourney['fullName']}")
-print(f"https://lichess.org/tournament/{TOURNEY_ID}\n")
-
-# 🔎 2. Spiele zählen
-games_url = f"https://lichess.org/api/tournament/{TOURNEY_ID}/games"
-
-response = requests.get(games_url, headers=headers, stream=True)
-
-if response.status_code != 200:
-    print("Fehler beim Laden der Spiele")
-    exit()
+print(f"Analysiere die letzten {len(selected_tourneys)} Turniere:\n")
 
 games_count = defaultdict(int)
 
-for line in response.iter_lines():
-    if not line:
+# 🔎 2. Alle Turniere durchgehen
+for t in selected_tourneys:
+    tourney_id = t["id"]
+    print(f"- {t['fullName']}")
+    
+    games_url = f"https://lichess.org/api/tournament/{tourney_id}/games"
+    response = requests.get(games_url, headers=headers, stream=True)
+
+    if response.status_code != 200:
+        print(f"Fehler bei Turnier {tourney_id}")
         continue
 
-    game = json.loads(line)
+    for line in response.iter_lines():
+        if not line:
+            continue
 
-    white = game["players"]["white"]["user"]["name"]
-    black = game["players"]["black"]["user"]["name"]
+        game = json.loads(line)
 
-    games_count[white] += 1
-    games_count[black] += 1
+        white = game["players"]["white"]["user"]["name"]
+        black = game["players"]["black"]["user"]["name"]
+
+        games_count[white] += 1
+        games_count[black] += 1
 
 # 🔎 3. Sortieren
 sorted_players = sorted(games_count.items(), key=lambda x: x[1], reverse=True)
 
 # 🏆 Ausgabe
-print("Rangliste nach gespielten Partien:\n")
+print("\n🏆 Gesamt-Rangliste (über mehrere Turniere):\n")
 
 for i, (user, games) in enumerate(sorted_players, 1):
-    link = f"https://lichess.org/tournament/{TOURNEY_ID}?player={user}"
-    print(f"{i}. {user}: {games} Spiele → {link}")
+    print(f"{i}. {user}: {games} Spiele")
