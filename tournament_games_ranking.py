@@ -1,7 +1,7 @@
 import requests
 import json
 
-TOURNEY_ID = "spring26"  # <-- hier deine Turnier-ID einsetzen
+TOURNEY_ID = "Mu4COtPZ"  # <-- hier deine Turnier-ID einsetzen
 
 url = f"https://lichess.org/api/tournament/{TOURNEY_ID}/results"
 
