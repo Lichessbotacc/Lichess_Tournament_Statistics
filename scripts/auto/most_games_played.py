@@ -3,12 +3,12 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
-USERNAME = "Nathanael01"
+USERNAME = "german11"
 
 # 🔧 FILTER
-KEYWORD = "Ultrabullet"     # z.B. "marathon", "bullet", "blitz" (None = kein Filter)
+KEYWORD = ""     # z.B. "marathon", "bullet", "blitz" (None = kein Filter)
 MIN_PLAYERS = 0          # z.B. 50
-SINCE_YEAR = 2017        # nur Turniere ab diesem Jahr
+SINCE_YEAR = 0       # nur Turniere ab diesem Jahr
 
 headers = {
     "Accept": "application/x-ndjson"
