@@ -12,7 +12,7 @@ TOURNEY_KEYWORD = ""
 
 ONLY_TEAM_MEMBERS = True
 
-MIN_GAMES_FOR_MVP = 20  # kleine Schwelle gegen Noise
+MIN_GAMES_FOR_MVP = 30  # kleine Schwelle gegen Noise
 
 headers = {
     "Accept": "application/x-ndjson"
