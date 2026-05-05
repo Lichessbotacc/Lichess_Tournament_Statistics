@@ -6,7 +6,7 @@ from datetime import datetime
 USERNAME = "darkoncrack"
 
 # 🔧 OPTIONAL FILTER
-KEYWORD = "solo blitz league"
+KEYWORD = "lmao"
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MIN_GAMES = 1   # 🔥 z.B. 20 für echte Rangliste
