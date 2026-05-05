@@ -1,0 +1,24 @@
+name: Most Games Played Ranking
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/name/most_games_played.py"
+
+jobs:
+  run-auto:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install requests
+
+      - name: Most games played script ausführen
+        run: python scripts/name/most_games_played.py
