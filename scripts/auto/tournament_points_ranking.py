@@ -2,10 +2,10 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "itachi-n-friends"   # <- hier dein Team eintragen
-MAX_TOURNEYS = 10
+TEAM_ID = "official-ultrabullet-teambattles"   # <- hier dein Team eintragen
+MAX_TOURNEYS = 1
 TOURNEY_KEYWORD = ""
-
+ONLY_TEAM_MEMBERS = False
 DEBUG = False
 
 headers = {
