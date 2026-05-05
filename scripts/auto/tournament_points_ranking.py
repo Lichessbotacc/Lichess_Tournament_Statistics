@@ -6,11 +6,11 @@ from collections import defaultdict
 # ⚙️ CONFIG
 # =========================
 
-TEAM_ID = "bharat-royals"
+TEAM_ID = "official-ultrabullet-teambattles"
 
-ONLY_TEAM_MEMBERS = True     # True = nur Team-Spieler, False = alle
+ONLY_TEAM_MEMBERS = False     # True = nur Team-Spieler, False = alle
 TOURNEY_KEYWORD = ""          # z.B. "8+0" oder "" für alle
-MAX_TOURNEYS = 101
+MAX_TOURNEYS = 500
 
 DEBUG = False
 
