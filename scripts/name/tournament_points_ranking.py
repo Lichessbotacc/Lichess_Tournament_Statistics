@@ -2,12 +2,18 @@ import requests
 import json
 from collections import defaultdict
 
+# =========================
+# ⚙️ CONFIG
+# =========================
+
 USERNAME = "DarkOnCrack"
 
 # 🔧 OPTIONAL FILTER
-KEYWORDS = ["Solo Rapid"]
-MIN_GAMES = 1
+KEYWORDS = ["Solo Rapid"]   # [] = alle Turniere
+MIN_PLAYERS = 0
+SINCE_YEAR = 0
 MAX_TOURNEYS = 500
+MIN_GAMES = 1   # 🔥 ADDED
 
 headers = {
     "Accept": "application/x-ndjson"
@@ -37,10 +43,22 @@ tournaments = [
 selected_tourneys = []
 for t in tournaments:
     name = t.get("fullName", "").lower()
+    created = t.get("created")
+
+    year = 0
+    if created:
+        year = int(created // 1000)
+        year = int(__import__("datetime").datetime.utcfromtimestamp(year).year)
 
     if KEYWORDS:
         if not any(k.lower() in name for k in KEYWORDS):
             continue
+
+    if MIN_PLAYERS and t.get("nbPlayers", 0) < MIN_PLAYERS:
+        continue
+
+    if SINCE_YEAR and year < SINCE_YEAR:
+        continue
 
     selected_tourneys.append(t)
 
@@ -55,7 +73,7 @@ print(f"TURNIERE: {len(selected_tourneys)}\n")
 
 points = defaultdict(float)
 player_tournament_participation = defaultdict(set)
-player_games_count = defaultdict(int)
+player_games_count = defaultdict(int)   # 🔥 ADDED
 
 # =========================
 # 🔎 2. TURNIERE DURCHGEHEN
@@ -66,12 +84,12 @@ for t in selected_tourneys:
     tid = t["id"]
 
     print("\n" + "=" * 55)
-    print(f"🏆 {t['fullName']}")
+    print(f"🏆 {t.get('fullName')}")
     print(f"🔗 https://lichess.org/tournament/{tid}")
     print("=" * 55)
 
     # =========================
-    # 🔵 RESULTS (SOURCE OF TRUTH)
+    # 🔵 OFFICIAL RESULTS
     # =========================
 
     results_url = f"https://lichess.org/api/tournament/{tid}/results"
@@ -94,13 +112,13 @@ for t in selected_tourneys:
 
         user = username.lower()
 
-        # 💰 Punkte
+        # 💰 Points
         points[user] += float(score)
 
-        # 📊 Teilnahme
+        # 📊 Participation
         player_tournament_participation[user].add(tid)
 
-        # 🔥 Games zählen (aus results = korrekt + stabil)
+        # 🔥 Games count (1 entry = 1 player in results)
         player_games_count[user] += 1
 
 # =========================
@@ -110,7 +128,7 @@ for t in selected_tourneys:
 sorted_players = sorted(points.items(), key=lambda x: x[1], reverse=True)
 
 print("\n" + "=" * 60)
-print("🏆 FINAL RANKING")
+print("🏆 FINAL RANKING (OFFICIAL LICHESS SCORE)")
 print("=" * 60 + "\n")
 
 total_tournaments = len(selected_tourneys)
