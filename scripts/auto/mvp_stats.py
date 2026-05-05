@@ -6,16 +6,17 @@ from collections import defaultdict
 # ⚙️ CONFIG
 # =========================
 
-TEAM_ID = "solo-blitz-league"
-MAX_TOURNEYS = 35
-TOURNEY_KEYWORD = ""
+TEAM_ID = "solo-ultrabullet-league"
 
 ONLY_TEAM_MEMBERS = True
+TOURNEY_KEYWORD = ""
+MAX_TOURNEYS = 100
 
-MIN_GAMES_FOR_MVP = 10  # kleine Schwelle gegen Noise
+MIN_GAMES_FOR_MVP = 5
 
 headers = {
-    "Accept": "application/x-ndjson"
+    "Accept": "application/x-ndjson",
+    "User-Agent": "mvp-stats-bot"
 }
 
 # =========================
@@ -26,27 +27,26 @@ url = f"https://lichess.org/api/team/{TEAM_ID}/arena?status=finished"
 response = requests.get(url, headers=headers)
 
 if response.status_code != 200:
-    print("Fehler beim Laden der Turniere")
+    print("❌ Fehler beim Laden der Turniere")
     exit()
 
-tournaments = [
-    json.loads(line)
-    for line in response.text.splitlines()
-    if line.strip()
-]
+tournaments = []
+for line in response.text.splitlines():
+    if line.strip():
+        try:
+            tournaments.append(json.loads(line))
+        except:
+            continue
 
 selected_tourneys = [
     t for t in tournaments
-    if TOURNEY_KEYWORD == "" or TOURNEY_KEYWORD.lower() in t["fullName"].lower()
+    if TOURNEY_KEYWORD.lower() in t.get("fullName", "").lower()
 ][:MAX_TOURNEYS]
 
-total_tournaments = len(selected_tourneys)
-
-print("\n" + "=" * 70)
-print(f"🏆 BALANCED MVP DASHBOARD – {TEAM_ID}")
-print("=" * 70)
-
-print(f"\n📊 Turniere: {total_tournaments} | Filter: {TOURNEY_KEYWORD or 'ALL'}\n")
+print("\n" + "=" * 60)
+print(f"🏆 MVP STATS – {TEAM_ID}")
+print(f"📊 Turniere: {len(selected_tourneys)}")
+print("=" * 60)
 
 # =========================
 # 📊 DATA
@@ -54,31 +54,37 @@ print(f"\n📊 Turniere: {total_tournaments} | Filter: {TOURNEY_KEYWORD or 'ALL'
 
 games = defaultdict(int)
 wins = defaultdict(int)
-tournament_participation = defaultdict(set)
+participation = defaultdict(set)
 
 # =========================
-# 🔎 2. DATA COLLECT
+# 🔎 2. TURNIERE ANALYSIEREN
 # =========================
 
 for t in selected_tourneys:
 
-    print(f"🏁 {t['fullName']}")
-    print(f"🔗 https://lichess.org/tournament/{t['id']}\n")
+    print(f"\n🏁 {t.get('fullName')}")
+    print(f"🔗 https://lichess.org/tournament/{t.get('id')}")
+
+    team_players = set()
 
     games_url = f"https://lichess.org/api/tournament/{t['id']}/games"
-    r = requests.get(games_url, headers=headers, stream=True)
+
+    r = requests.get(games_url, headers=headers)
 
     if r.status_code != 200:
         continue
 
-    for line in r.iter_lines():
+    for line in r.iter_lines(decode_unicode=True):
         if not line:
             continue
 
-        game = json.loads(line)
+        try:
+            game = json.loads(line)
+        except:
+            continue
 
-        white = game["players"]["white"]
-        black = game["players"]["black"]
+        white = game.get("players", {}).get("white", {})
+        black = game.get("players", {}).get("black", {})
 
         white_user = white.get("user", {}).get("name")
         black_user = black.get("user", {}).get("name")
@@ -89,49 +95,51 @@ for t in selected_tourneys:
         winner = game.get("winner")
 
         # WHITE
-        if white_user and (not ONLY_TEAM_MEMBERS or white_team == TEAM_ID):
+        if white_user:
             u = white_user.lower()
-
             games[u] += 1
-            tournament_participation[u].add(t["id"])
+            participation[u].add(t["id"])
 
             if winner == "white":
                 wins[u] += 1
 
-        # BLACK
-        if black_user and (not ONLY_TEAM_MEMBERS or black_team == TEAM_ID):
-            u = black_user.lower()
+            if white_team == TEAM_ID:
+                team_players.add(u)
 
+        # BLACK
+        if black_user:
+            u = black_user.lower()
             games[u] += 1
-            tournament_participation[u].add(t["id"])
+            participation[u].add(t["id"])
 
             if winner == "black":
                 wins[u] += 1
 
+            if black_team == TEAM_ID:
+                team_players.add(u)
+
 # =========================
-# 🧮 MVP CALCULATION
+# 🧠 MVP FORMEL
 # =========================
 
 def winrate(u):
-    g = games[u]
-    return (wins[u] / g) if g > 0 else 0
+    return wins[u] / games[u] if games[u] > 0 else 0
 
-def participation(u):
-    return len(tournament_participation[u]) / total_tournaments if total_tournaments > 0 else 0
+def activity(u):
+    return min(games[u] / 50, 1)
 
-def game_score(u):
-    # normalisieren (0–1 Bereich, damit fair)
-    return min(games[u] / 100, 1)
+def tourney_participation(u):
+    return len(participation[u]) / len(selected_tourneys) if selected_tourneys else 0
 
-def mvp(u):
+def mvp_score(u):
     return (
         winrate(u) * 0.6 +
-        game_score(u) * 0.25 +
-        participation(u) * 0.15
+        activity(u) * 0.25 +
+        tourney_participation(u) * 0.15
     ) * 100
 
 # =========================
-# 🔥 FILTER + SORT
+# 🏆 FILTER + SORT
 # =========================
 
 players = [
@@ -139,24 +147,26 @@ players = [
     if games[u] >= MIN_GAMES_FOR_MVP
 ]
 
-ranked = sorted(players, key=lambda u: mvp(u), reverse=True)
+ranked = sorted(players, key=mvp_score, reverse=True)
 
 # =========================
-# 🏆 OUTPUT
+# 📊 OUTPUT
 # =========================
 
-print("\n⚡ BALANCED MVP RANKING\n")
+print("\n" + "=" * 60)
+print("🏆 FINAL MVP RANKING")
+print("=" * 60 + "\n")
 
 for i, u in enumerate(ranked, 1):
 
     g = games[u]
     w = wins[u]
     wr = winrate(u) * 100
-    t = len(tournament_participation[u])
+    t = len(participation[u])
 
     print(
-        f"{i}. {u}: {mvp(u):.1f} MVP | "
+        f"{i}. {u}: {mvp_score(u):.1f} MVP | "
         f"{wr:.1f}% WR | "
         f"{g} games | "
-        f"{t}/{total_tournaments} tournaments"
+        f"{t}/{len(selected_tourneys)} tournaments"
     )
