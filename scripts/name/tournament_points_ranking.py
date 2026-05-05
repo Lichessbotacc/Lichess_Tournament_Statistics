@@ -5,8 +5,7 @@ from collections import defaultdict
 USERNAME = "DarkOnCrack"
 
 # 🔧 OPTIONAL FILTER
-KEYWORDS = ["Solo Rapid"]
-MIN_PLAYERS = 0
+KEYWORDS = ["Solo"]
 MIN_GAMES = 1
 MAX_TOURNEYS = 500
 
@@ -56,6 +55,7 @@ print(f"TURNIERE: {len(selected_tourneys)}\n")
 
 points = defaultdict(float)
 player_tournament_participation = defaultdict(set)
+player_games_count = defaultdict(int)
 
 # =========================
 # 🔎 2. TURNIERE DURCHGEHEN
@@ -94,11 +94,14 @@ for t in selected_tourneys:
 
         user = username.lower()
 
-        # 💰 Punkte (Lichess Score = korrekt inkl. berserk etc.)
+        # 💰 Punkte
         points[user] += float(score)
 
-        # 📊 Teilnahme = jeder im results endpoint ist Teilnehmer
+        # 📊 Teilnahme
         player_tournament_participation[user].add(tid)
+
+        # 🔥 Games zählen (aus results = korrekt + stabil)
+        player_games_count[user] += 1
 
 # =========================
 # 🏆 FINAL RANKING
@@ -114,6 +117,11 @@ total_tournaments = len(selected_tourneys)
 
 for i, (user, score) in enumerate(sorted_players, 1):
 
+    games = player_games_count[user]
+
+    if games < MIN_GAMES:
+        continue
+
     played = len(player_tournament_participation[user])
 
-    print(f"{i}. {user}: {score:.1f} points ({played}/{total_tournaments})")
+    print(f"{i}. {user}: {score:.1f} points | {games} games ({played}/{total_tournaments})")
