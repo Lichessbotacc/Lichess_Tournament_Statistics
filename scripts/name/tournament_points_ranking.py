@@ -2,14 +2,10 @@ import requests
 import json
 from collections import defaultdict
 
-# =========================
-# ⚙️ CONFIG
-# =========================
-
 USERNAME = "DarkOnCrack"
 
 # 🔧 OPTIONAL FILTER
-KEYWORDS = ["Solo Rapid"]   # [] = alle Turniere
+KEYWORDS = ["Solo"]
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MAX_TOURNEYS = 500
@@ -42,22 +38,10 @@ tournaments = [
 selected_tourneys = []
 for t in tournaments:
     name = t.get("fullName", "").lower()
-    created = t.get("created")
-
-    year = 0
-    if created:
-        year = int(created // 1000)
-        year = int(__import__("datetime").datetime.utcfromtimestamp(year).year)
 
     if KEYWORDS:
         if not any(k.lower() in name for k in KEYWORDS):
             continue
-
-    if MIN_PLAYERS and t.get("nbPlayers", 0) < MIN_PLAYERS:
-        continue
-
-    if SINCE_YEAR and year < SINCE_YEAR:
-        continue
 
     selected_tourneys.append(t)
 
@@ -82,12 +66,30 @@ for t in selected_tourneys:
     tid = t["id"]
 
     print("\n" + "=" * 55)
-    print(f"🏆 {t.get('fullName')}")
+    print(f"🏆 {t['fullName']}")
     print(f"🔗 https://lichess.org/tournament/{tid}")
     print("=" * 55)
 
     # =========================
-    # 🔵 OFFICIAL RESULTS (WICHTIG!)
+    # 🔥 FIX: PARTICIPATION (WICHTIG)
+    # =========================
+
+    users_url = f"https://lichess.org/api/tournament/{tid}/users"
+    u_response = requests.get(users_url, headers=headers, stream=True)
+
+    if u_response.status_code == 200:
+        for line in u_response.iter_lines():
+            if not line:
+                continue
+
+            data = json.loads(line)
+            username = data.get("username")
+
+            if username:
+                player_tournament_participation[username.lower()].add(tid)
+
+    # =========================
+    # 🔵 RESULTS (SCORES)
     # =========================
 
     results_url = f"https://lichess.org/api/tournament/{tid}/results"
@@ -109,10 +111,7 @@ for t in selected_tourneys:
             continue
 
         user = username.lower()
-
         points[user] += float(score)
-        player_tournament_participation[user].add(tid)
-
 
 # =========================
 # 🏆 FINAL RANKING
@@ -121,13 +120,11 @@ for t in selected_tourneys:
 sorted_players = sorted(points.items(), key=lambda x: x[1], reverse=True)
 
 print("\n" + "=" * 60)
-print("🏆 FINAL RANKING (OFFICIAL LICHESS SCORE)")
+print("🏆 FINAL RANKING")
 print("=" * 60 + "\n")
-
-total_tournaments = len(selected_tourneys)
 
 for i, (user, score) in enumerate(sorted_players, 1):
 
     played = len(player_tournament_participation[user])
 
-    print(f"{i}. {user}: {score:.1f} points ({played}/{total_tournaments})")
+    print(f"{i}. {user}: {score:.1f} points ({played}/{len(selected_tourneys)} tournaments)")
