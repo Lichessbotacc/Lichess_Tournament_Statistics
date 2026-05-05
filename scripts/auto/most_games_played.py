@@ -3,10 +3,10 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
-USERNAME = "paul_rieger"
+USERNAME = "darkoncrack"
 
 # 🔧 OPTIONAL FILTER
-KEYWORD = None
+KEYWORD = "solo blitz league"
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MIN_GAMES = 1   # 🔥 z.B. 20 für echte Rangliste
