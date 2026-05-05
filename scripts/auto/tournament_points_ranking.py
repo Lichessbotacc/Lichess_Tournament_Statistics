@@ -2,12 +2,12 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "official-ultrabullet-teambattles"
+TEAM_ID = "lmao-teamfights"
 
 # 🎛️ SETTINGS
 ONLY_TEAM_MEMBERS = False     # True = nur Team, False = alle Spieler
 TOURNEY_KEYWORD = ""       # "" = alle Turniere
-MAX_TOURNEYS = 10
+MAX_TOURNEYS = 100
 
 DEBUG = False
 
