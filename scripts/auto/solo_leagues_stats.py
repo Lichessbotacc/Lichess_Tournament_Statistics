@@ -15,7 +15,7 @@ TEAMS = {
 
 ONLY_TEAM_MEMBERS = True
 MAX_TOURNEYS = 10
-MIN_GAMES = 1
+MIN_GAMES = 50
 
 headers = {
     "Accept": "application/x-ndjson",
