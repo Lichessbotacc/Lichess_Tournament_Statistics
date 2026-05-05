@@ -2,9 +2,9 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "darkonteams"
-MAX_TOURNEYS = 10
-TOURNEY_KEYWORD = "8+0"
+TEAM_ID = "solo-bullet-league"
+MAX_TOURNEYS = 1
+TOURNEY_KEYWORD = "solo"
 
 headers = {
     "Accept": "application/x-ndjson"
