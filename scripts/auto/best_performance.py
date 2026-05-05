@@ -2,12 +2,11 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "darkonteams"
-MAX_TOURNEYS = 1000
-TOURNEY_KEYWORD = "Hourly Ultrabullet"
+TEAM_ID = "solo-blitz-league"
+MAX_TOURNEYS = 35
+TOURNEY_KEYWORD = ""
 
 MIN_GAMES = 20
-
 ONLY_TEAM_MEMBERS = False
 
 headers = {
@@ -38,6 +37,12 @@ filtered = [
 
 selected_tourneys = filtered[:MAX_TOURNEYS]
 
+print("\n" + "=" * 60)
+print(f"🏆 BEST PERFORMANCE DASHBOARD – {TEAM_ID}")
+print("=" * 60)
+
+print(f"\n📊 Turniere: {len(selected_tourneys)} | Filter: {TOURNEY_KEYWORD or 'ALL'}\n")
+
 # =========================
 # 📊 DATA
 # =========================
@@ -46,10 +51,12 @@ games = defaultdict(int)
 wins = defaultdict(int)
 
 # =========================
-# 🔎 2. TURNIERE DURCHGEHEN
+# 🔎 2. TURNIERE + LINKS
 # =========================
 
 for t in selected_tourneys:
+    print(f"🏁 {t['fullName']}")
+    print(f"🔗 https://lichess.org/tournament/{t['id']}\n")
 
     games_url = f"https://lichess.org/api/tournament/{t['id']}/games"
     r = requests.get(games_url, headers=headers, stream=True)
@@ -77,7 +84,6 @@ for t in selected_tourneys:
         # WHITE
         if white_user and (not ONLY_TEAM_MEMBERS or white_team == TEAM_ID):
             u = white_user.lower()
-
             games[u] += 1
             if winner == "white":
                 wins[u] += 1
@@ -85,7 +91,6 @@ for t in selected_tourneys:
         # BLACK
         if black_user and (not ONLY_TEAM_MEMBERS or black_team == TEAM_ID):
             u = black_user.lower()
-
             games[u] += 1
             if winner == "black":
                 wins[u] += 1
