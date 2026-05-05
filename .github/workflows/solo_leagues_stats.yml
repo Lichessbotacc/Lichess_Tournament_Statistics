@@ -1,0 +1,29 @@
+name: Solo Leagues Stats
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/auto/solo_leagues_stats.py"
+
+  workflow_dispatch:  # optional: manuell starten
+
+jobs:
+  run-solo-leagues-stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Abhängigkeiten installieren
+        run: pip install requests
+
+      - name: Script ausführen
+        run: python scripts/auto/solo_leagues_stats.py
