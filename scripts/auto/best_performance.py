@@ -4,7 +4,7 @@ from collections import defaultdict
 
 TEAM_ID = "darkonteams"
 MAX_TOURNEYS = 50
-TOURNEY_KEYWORD = ""
+TOURNEY_KEYWORD = "hourly ultrabullet"
 
 ONLY_TEAM_MEMBERS = False
 
