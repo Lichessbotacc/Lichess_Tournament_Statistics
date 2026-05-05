@@ -1,0 +1,27 @@
+name: Tournament Points Ranking
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/name/tournament_points_ranking.py"
+
+jobs:
+  run-points-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Abhängigkeiten installieren
+        run: pip install requests
+
+      - name: Points Script ausführen
+        run: python scripts/name/tournament_points_ranking.py
