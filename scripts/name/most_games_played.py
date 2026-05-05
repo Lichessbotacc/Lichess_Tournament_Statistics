@@ -6,7 +6,7 @@ from datetime import datetime
 USERNAME = "DarkOnCrack"
 
 # 🔧 OPTIONAL FILTER
-KEYWORD = "Solo Rapid"
+KEYWORD = "Solo"
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MIN_GAMES = 1
