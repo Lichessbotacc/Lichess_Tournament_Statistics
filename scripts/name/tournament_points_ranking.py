@@ -5,7 +5,7 @@ from collections import defaultdict
 USERNAME = "DarkOnCrack"
 
 # 🔧 OPTIONAL FILTER
-KEYWORDS = ["Solo"]
+KEYWORDS = ["Solo Rapid"]
 MIN_GAMES = 1
 MAX_TOURNEYS = 500
 
