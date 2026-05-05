@@ -6,7 +6,7 @@ from datetime import datetime
 USERNAME = "DarkOnCrack"
 
 # 🔧 OPTIONAL FILTER
-KEYWORD = "Solo Bullet"
+KEYWORD = "Solo Rapid"
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MIN_GAMES = 1
@@ -41,14 +41,17 @@ for line in response.iter_lines():
     if SINCE_YEAR and year < SINCE_YEAR:
         continue
 
-    tournament_ids.append(t["id"])
-    tournament_list.append((t["id"], t.get("fullName", "Unknown")))
+    tid = t["id"]
+    tournament_ids.append(tid)
+
+    # 🔥 Lichess Link statt ID
+    tournament_list.append((tid, t.get("fullName", "Unknown"), f"https://lichess.org/swiss/{tid}"))
 
 
-# 🔹 Games zählen + W/D/L
+# 🔹 Games + W/D/L
 stats = defaultdict(lambda: {"w": 0, "d": 0, "l": 0})
 
-for tid, _ in tournament_list:
+for tid, _, _ in tournament_list:
     url = f"https://lichess.org/api/tournament/{tid}/games"
     response = requests.get(url, headers=headers, stream=True)
 
@@ -64,19 +67,10 @@ for tid, _ in tournament_list:
         try:
             white = game["players"]["white"]["user"]["name"]
             black = game["players"]["black"]["user"]["name"]
-
-            wres = game["status"]  # win/loss/draw info kommt indirekt über status
             winner = game.get("winner")
-
         except:
             continue
 
-        # nur zählen wenn User beteiligt
-        for player in [white, black]:
-            if player not in stats:
-                stats[player] = {"w": 0, "d": 0, "l": 0}
-
-        # Ergebnis bestimmen
         if winner == "white":
             stats[white]["w"] += 1
             stats[black]["l"] += 1
@@ -88,7 +82,7 @@ for tid, _ in tournament_list:
             stats[black]["d"] += 1
 
 
-# 🔹 Filtern + Sortieren
+# 🔹 Filter + sort
 filtered = []
 for user, s in stats.items():
     games = s["w"] + s["d"] + s["l"]
@@ -100,13 +94,13 @@ sorted_players = sorted(filtered, key=lambda x: x[1], reverse=True)
 
 
 # 🔥 OUTPUT
-print("\n⚡ BEST PERFORMANCE (W/D/L + Winrate)\n")
+print("\n⚡ BEST PERFORMANCE (Games → W/D/L → Winrate)\n")
 
 print("📌 TURNIERE:\n")
-for tid, name in tournament_list:
-    print(f"- {name} ({tid})")
+for _, name, link in tournament_list:
+    print(f"- {name} | {link}")
 
 print("\n📊 SPIELER:\n")
 
 for i, (user, games, w, d, l, wr) in enumerate(sorted_players, 1):
-    print(f"{i}. {user}: {w}W {d}D {l}L | {wr:.2f}% | {games} games")
+    print(f"{i}. {user}: {games} games | {w}W {d}D {l}L | {wr:.2f}%")
