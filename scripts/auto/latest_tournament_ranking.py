@@ -3,9 +3,8 @@ import json
 from collections import defaultdict
 
 TEAM_ID = "darkonteams"
-MAX_TOURNEYS = 100
-
-TOURNEY_KEYWORD = "Liga"  # 🔥 nur Turniere mit diesem Wort
+MAX_TOURNEYS = 10
+TOURNEY_KEYWORD = "8+0"
 
 headers = {
     "Accept": "application/x-ndjson"
@@ -13,53 +12,43 @@ headers = {
 
 # 🔎 1. Turniere holen
 url = f"https://lichess.org/api/team/{TEAM_ID}/arena?status=finished"
-
 response = requests.get(url, headers=headers)
 
 if response.status_code != 200:
     print("Fehler beim Laden der Turniere")
     exit()
 
-tournaments = []
+tournaments = [json.loads(line) for line in response.text.splitlines() if line.strip()]
 
-for line in response.text.splitlines():
-    if not line.strip():
-        continue
-    tournaments.append(json.loads(line))
+# 🔥 Filter
+filtered = [
+    t for t in tournaments
+    if TOURNEY_KEYWORD == "" or TOURNEY_KEYWORD.lower() in t["fullName"].lower()
+]
 
-if not tournaments:
-    print("Keine Turniere gefunden")
-    exit()
+selected_tourneys = filtered[:MAX_TOURNEYS]
 
-# 🔥 FILTER nach Name
-filtered_tourneys = []
-for t in tournaments:
-    name = t["fullName"]
-    if TOURNEY_KEYWORD.lower() in name.lower():
-        filtered_tourneys.append(t)
+print(f"\n🏆 POINTS RANKING – Team: {TEAM_ID}")
+print(f"Turniere: {len(selected_tourneys)} | Filter: {TOURNEY_KEYWORD if TOURNEY_KEYWORD else 'ALL'}\n")
 
-selected_tourneys = filtered_tourneys[:MAX_TOURNEYS]
+points = defaultdict(float)
 
-print(f"\n🏆 Team-Ranking für: {TEAM_ID}")
-print(f"Filter: '{TOURNEY_KEYWORD}'")
-print(f"Analysierte Turniere: {len(selected_tourneys)}\n")
-
-games_count = defaultdict(int)
-tournament_participation = defaultdict(set)
-
-# 🔎 2. Games aus gefilterten Turnieren
+# 🔎 2. Turniere durchgehen
 for t in selected_tourneys:
     tourney_id = t["id"]
-    print(f"- {t['fullName']} https://lichess.org/tournament/{t['id']}")
+    print(f"- {t['fullName']} https://lichess.org/tournament/{tourney_id}")
+
+    # 🟢 STEP 1: Team-Spieler in diesem Turnier finden (über Games)
+    team_players_in_tourney = set()
 
     games_url = f"https://lichess.org/api/tournament/{tourney_id}/games"
-    response = requests.get(games_url, headers=headers, stream=True)
+    g_response = requests.get(games_url, headers=headers, stream=True)
 
-    if response.status_code != 200:
-        print(f"Fehler bei Turnier {tourney_id}")
+    if g_response.status_code != 200:
+        print(f"Fehler bei Games {tourney_id}")
         continue
 
-    for line in response.iter_lines():
+    for line in g_response.iter_lines():
         if not line:
             continue
 
@@ -74,21 +63,38 @@ for t in selected_tourneys:
         white_team = white.get("team")
         black_team = black.get("team")
 
-        # 🟢 Team-Arena / fallback Logik (wie vorher stabil)
         if white_user and (white_team == TEAM_ID or white_team is None):
-            games_count[white_user] += 1
-            tournament_participation[white_user].add(tourney_id)
+            team_players_in_tourney.add(white_user)
 
         if black_user and (black_team == TEAM_ID or black_team is None):
-            games_count[black_user] += 1
-            tournament_participation[black_user].add(tourney_id)
+            team_players_in_tourney.add(black_user)
+
+    # 🔵 STEP 2: echte Arena-Punkte holen
+    results_url = f"https://lichess.org/api/tournament/{tourney_id}/results"
+    r_response = requests.get(results_url, headers=headers)
+
+    if r_response.status_code != 200:
+        print(f"Fehler bei Results {tourney_id}")
+        continue
+
+    for line in r_response.text.splitlines():
+        if not line.strip():
+            continue
+
+        data = json.loads(line)
+
+        username = data.get("username")
+        score = data.get("score", 0)
+
+        # ✅ Nur zählen wenn Spieler fürs Team gespielt hat
+        if username in team_players_in_tourney:
+            points[username] += score
 
 # 🔎 3. Sortieren
-sorted_players = sorted(games_count.items(), key=lambda x: x[1], reverse=True)
+sorted_players = sorted(points.items(), key=lambda x: x[1], reverse=True)
 
 # 🏆 4. Ausgabe
-print(f"\n🏆 Rangliste – Filter: {TOURNEY_KEYWORD}\n")
+print("\n🏆 POINTS RANKING (ECHTE ARENA POINTS):\n")
 
-for i, (user, games) in enumerate(sorted_players, 1):
-    tournaments_played = len(tournament_participation[user])
-    print(f"{i}. {user}: {games} games ({tournaments_played}/{len(selected_tourneys)} tournaments)")
+for i, (user, score) in enumerate(sorted_players, 1):
+    print(f"{i}. {user}: {score} points")
