@@ -5,7 +5,7 @@ from collections import defaultdict
 USERNAME = "DarkOnCrack"
 
 # 🔧 OPTIONAL FILTER
-KEYWORDS = ["Hourly Ultrabullet"]
+KEYWORDS = ["Solo Rapid"]
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MIN_GAMES = 1
@@ -80,22 +80,43 @@ for t in selected_tourneys:
         try:
             white = game["players"]["white"]["user"]["name"]
             black = game["players"]["black"]["user"]["name"]
+
+            white_data = game["players"]["white"]
+            black_data = game["players"]["black"]
+
             winner = game.get("winner")
+
         except:
             continue
 
+        # Participation tracking
         if white:
             player_tournament_participation[white.lower()].add(t['id'])
         if black:
             player_tournament_participation[black.lower()].add(t['id'])
 
+        # =========================
+        # 🔥 ARENA SCORING LOGIK
+        # =========================
+
         if winner == "white":
-            points[white.lower()] += 1
+            points[white.lower()] += 2
+            points[black.lower()] += 0
+
         elif winner == "black":
-            points[black.lower()] += 1
+            points[black.lower()] += 2
+            points[white.lower()] += 0
+
         else:
-            points[white.lower()] += 0.5
-            points[black.lower()] += 0.5
+            points[white.lower()] += 1
+            points[black.lower()] += 1
+
+        # ⚡ BERSERK BONUS
+        if white_data.get("berserk"):
+            points[white.lower()] += 1
+
+        if black_data.get("berserk"):
+            points[black.lower()] += 1
 
 
 # =========================
@@ -105,7 +126,7 @@ for t in selected_tourneys:
 sorted_players = sorted(points.items(), key=lambda x: x[1], reverse=True)
 
 print("\n" + "=" * 60)
-print("🏆 FINAL RANKING")
+print("🏆 FINAL RANKING (Arena Scoring)")
 print("=" * 60 + "\n")
 
 total_tournaments = len(selected_tourneys)
