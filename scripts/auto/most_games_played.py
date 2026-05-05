@@ -7,9 +7,9 @@ from datetime import datetime
 # 🔧 INPUT
 # ======================
 INPUT_NAME = "german11"
-INPUT_TYPE = "team"   # "user" oder "team"
+INPUT_TYPE = "user"   # "user" oder "team"
 
-KEYWORD = "Hourly Ultrabullet"
+KEYWORD = ""
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MIN_GAMES = 1
