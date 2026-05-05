@@ -3,18 +3,17 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
-USERNAME = "german11"
+USERNAME = "Nathanael01"
 
-# 🔧 FILTER
-KEYWORD = ""     # z.B. "marathon", "bullet", "blitz" (None = kein Filter)
-MIN_PLAYERS = 0          # z.B. 50
-SINCE_YEAR = 0       # nur Turniere ab diesem Jahr
+# 🔧 OPTIONAL FILTER
+KEYWORD = None        # z.B. "marathon" oder None = ALLE
+MIN_PLAYERS = 0
+SINCE_YEAR = 0        # 0 = egal
 
 headers = {
     "Accept": "application/x-ndjson"
 }
 
-# 🔹 1. Turniere laden
 print("Lade Turniere...")
 
 tournament_ids = []
@@ -34,26 +33,30 @@ for line in response.iter_lines():
 
     name = t.get("fullName", "").lower()
     nb_players = t.get("nbPlayers", 0)
-    created = t.get("created")  # timestamp (ms)
+    created = t.get("created")
 
-    year = datetime.utcfromtimestamp(created / 1000).year if created else 0
+    # Jahr sicher berechnen
+    if created:
+        year = datetime.utcfromtimestamp(created / 1000).year
+    else:
+        year = 0
 
-    # 🔥 FILTER LOGIK
+    # 🔥 FILTER (nur wenn gesetzt!)
     if KEYWORD and KEYWORD.lower() not in name:
         continue
 
-    if nb_players < MIN_PLAYERS:
+    if MIN_PLAYERS and nb_players < MIN_PLAYERS:
         continue
 
-    if year < SINCE_YEAR:
+    if SINCE_YEAR and year < SINCE_YEAR:
         continue
 
     tournament_ids.append(t["id"])
 
-print(f"{len(tournament_ids)} Turniere nach Filter\n")
+print(f"{len(tournament_ids)} Turniere gefunden\n")
 
 
-# 🔹 2. Games sammeln
+# 🔹 Games sammeln
 games_count = defaultdict(int)
 
 for tid in tournament_ids:
@@ -72,17 +75,20 @@ for tid in tournament_ids:
 
         game = json.loads(line)
 
-        white = game["players"]["white"]["user"]["name"]
-        black = game["players"]["black"]["user"]["name"]
+        try:
+            white = game["players"]["white"]["user"]["name"]
+            black = game["players"]["black"]["user"]["name"]
+        except:
+            continue  # z.B. anonymous games skippen
 
         games_count[white] += 1
         games_count[black] += 1
 
 
-# 🔹 3. Ranking
+# 🔹 Ranking
 sorted_players = sorted(games_count.items(), key=lambda x: x[1], reverse=True)
 
-print("\n⚡ KOMBINIERTE RANGLISTE:\n")
+print("\n⚡ KOMBINIERTE RANGLISTE (Most Games Played):\n")
 
 for i, (user, games) in enumerate(sorted_players, 1):
     print(f"{i}. {user}: {games} Games")
