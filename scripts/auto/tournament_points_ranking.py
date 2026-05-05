@@ -8,7 +8,7 @@ from collections import defaultdict
 
 TEAM_ID = "lmao-teamfights"
 
-ONLY_TEAM_MEMBERS = False     # True = nur Team, False = alle Spieler
+ONLY_TEAM_MEMBERS = True     # True = nur Team, False = alle Spieler
 TOURNEY_KEYWORD = ""          # z.B. "8+0" oder "" für alle
 MAX_TOURNEYS = 1
 
