@@ -23,5 +23,5 @@ jobs:
       - name: Abhängigkeiten installieren
         run: pip install requests
 
-      - name: Points Script ausführen
-        run: python scripts/auto/tournament_points_ranking.py
+      - name: Best Performance Script ausführen
+        run: python scripts/auto/best_performance.py
