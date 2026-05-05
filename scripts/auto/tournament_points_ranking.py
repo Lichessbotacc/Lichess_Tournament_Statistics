@@ -3,10 +3,10 @@ import json
 from collections import defaultdict
 
 TEAM_ID = "darkonclassical"   # <- hier dein Team eintragen
-MAX_TOURNEYS = 1
+MAX_TOURNEYS = 10
 TOURNEY_KEYWORD = "rapid"
 
-DEBUG = True
+DEBUG = False
 
 headers = {
     "Accept": "application/x-ndjson"
