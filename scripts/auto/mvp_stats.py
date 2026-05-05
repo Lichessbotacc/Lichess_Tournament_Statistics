@@ -10,7 +10,7 @@ TEAM_ID = "solo-blitz-league"
 MAX_TOURNEYS = 35
 TOURNEY_KEYWORD = ""
 
-ONLY_TEAM_MEMBERS = False
+ONLY_TEAM_MEMBERS = True
 
 MIN_GAMES_FOR_MVP = 20  # kleine Schwelle gegen Noise
 
