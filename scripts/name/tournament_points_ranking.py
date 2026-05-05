@@ -9,7 +9,7 @@ from collections import defaultdict
 USERNAME = "DarkOnCrack"
 
 # 🔧 OPTIONAL FILTER
-KEYWORDS = ["Solo"]   # [] = alle Turniere
+KEYWORDS = ["Solo Rapid"]   # [] = alle Turniere
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MAX_TOURNEYS = 500
