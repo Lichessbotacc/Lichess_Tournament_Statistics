@@ -7,7 +7,7 @@ TEAM_ID = "lmao-teamfights"
 # 🎛️ SETTINGS
 ONLY_TEAM_MEMBERS = False     # True = nur Team, False = alle Spieler
 TOURNEY_KEYWORD = ""       # "" = alle Turniere
-MAX_TOURNEYS = 100
+MAX_TOURNEYS = 1000
 
 DEBUG = False
 
