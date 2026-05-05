@@ -1,0 +1,49 @@
+name: Auto Stats (All Scripts + Resume)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"  # jede Stunde
+
+jobs:
+  run-all:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+
+    steps:
+      - name: Repo klonen
+        uses: actions/checkout@v4
+
+      - name: Python installieren
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Dependencies installieren
+        run: pip install requests
+
+      # 🔥 SCRIPTS (ALLE DEINE)
+      - name: Best Performance
+        run: python scripts/auto/best_performance.py || true
+
+      - name: Most Games Played
+        run: python scripts/auto/most_games_played.py || true
+
+      - name: MVP Stats
+        run: python scripts/auto/mvp_stats.py || true
+
+      - name: Solo Leagues Stats
+        run: python scripts/auto/solo_leagues_stats.py || true
+
+      - name: Tournament Points Ranking
+        run: python scripts/auto/tournament_points_ranking.py || true
+
+      # 🔥 Fortschritt speichern
+      - name: Commit Progress
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+
+          git add *.json
+          git commit -m "update progress" || echo "nothing to commit"
+          git push
