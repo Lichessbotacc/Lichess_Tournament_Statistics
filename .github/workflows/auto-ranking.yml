@@ -1,11 +1,11 @@
-name: Auto Latest Tournament Ranking
+name: Most Games Played Ranking
 
 on:
   push:
     branches:
       - main
     paths:
-      - "scripts/auto/latest_tournament_ranking.py"
+      - "scripts/auto/most_games_played.py"
 
 jobs:
   run-auto:
@@ -20,5 +20,5 @@ jobs:
 
       - run: pip install requests
 
-      - name: Auto Script ausführen
-        run: python scripts/auto/latest_tournament_ranking.py
+      - name: Most games played script ausführen
+        run: python scripts/auto/most_games_played.py
