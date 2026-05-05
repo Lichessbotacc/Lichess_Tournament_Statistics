@@ -3,7 +3,7 @@ import json
 from collections import defaultdict
 
 TEAM_ID = "darkonteams"
-MAX_TOURNEYS = 50
+MAX_TOURNEYS = 100
 TOURNEY_KEYWORD = "hourly ultrabullet"
 
 ONLY_TEAM_MEMBERS = False
