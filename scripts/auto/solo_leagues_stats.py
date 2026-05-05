@@ -14,7 +14,7 @@ TEAMS = {
 }
 
 ONLY_TEAM_MEMBERS = True
-MAX_TOURNEYS = 100
+MAX_TOURNEYS = 10
 MIN_GAMES = 1
 
 headers = {
