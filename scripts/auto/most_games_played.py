@@ -3,13 +3,11 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
-# ======================
-# 🔧 INPUT
-# ======================
-INPUT_NAME = "german11"
-INPUT_TYPE = "user"   # "user" oder "team"
+# 🔧 INPUT: USER ODER TEAM
+INPUT_NAME = "DarkOnTeams"
+INPUT_TYPE = "team"   # "user" oder "team"
 
-KEYWORD = ""
+KEYWORD = "Hourly Ultrabullet"
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MIN_GAMES = 1
@@ -18,9 +16,7 @@ headers = {
     "Accept": "application/x-ndjson"
 }
 
-# ======================
-# 🔹 TURNIERE LADEN
-# ======================
+# 🔹 Turniere laden
 tournament_ids = []
 
 def add_if_valid(t):
@@ -41,7 +37,7 @@ def add_if_valid(t):
 
 
 # ======================
-# USER MODE
+# USER MODE (wie vorher)
 # ======================
 if INPUT_TYPE == "user":
     url = f"https://lichess.org/api/user/{INPUT_NAME}/tournament/created"
@@ -55,41 +51,31 @@ if INPUT_TYPE == "user":
 
 
 # ======================
-# TEAM MODE (robust + fallback)
+# TEAM MODE (ROBUST FIX)
 # ======================
 else:
-    # 1) Versuch: Team-API (nicht immer vollständig)
-    url = f"https://lichess.org/api/team/{INPUT_NAME}/arena"
-    response = requests.get(url, headers=headers, stream=True)
+    print("🔎 Team mode: scanning global tournaments...")
 
-    found_any = False
+    url = "https://lichess.org/api/tournament"
+    response = requests.get(url, headers=headers, stream=True)
 
     for line in response.iter_lines():
         if not line:
             continue
-        found_any = True
+
         t = json.loads(line)
-        add_if_valid(t)
 
-    # 2) FALLBACK: globale Suche (wichtig!)
-    if not found_any or len(tournament_ids) == 0:
-        print("⚠️ Team API leer → fallback search...")
+        # 🔥 Team-Erkennung (Lichess speichert das unterschiedlich)
+        creator = str(t.get("createdBy", "")).lower()
+        team = str(t.get("team", "")).lower()
+        full = json.dumps(t).lower()
 
-        url = "https://lichess.org/api/tournament"
-        response = requests.get(url, headers=headers, stream=True)
-
-        for line in response.iter_lines():
-            if not line:
-                continue
-            t = json.loads(line)
-
-            # Team-Name im Tournament Creator oder Description suchen
-            if INPUT_NAME.lower() in json.dumps(t).lower():
-                add_if_valid(t)
+        if INPUT_NAME.lower() in creator or INPUT_NAME.lower() in team or INPUT_NAME.lower() in full:
+            add_if_valid(t)
 
 
 # ======================
-# 🔹 GAMES ZÄHLEN
+# GAMES ZÄHLEN
 # ======================
 games_count = defaultdict(int)
 
@@ -119,7 +105,7 @@ for tid in tournament_ids:
 
 
 # ======================
-# 🔹 OUTPUT
+# OUTPUT
 # ======================
 filtered = [(u, g) for u, g in games_count.items() if g >= MIN_GAMES]
 sorted_players = sorted(filtered, key=lambda x: x[1], reverse=True)
@@ -127,7 +113,7 @@ sorted_players = sorted(filtered, key=lambda x: x[1], reverse=True)
 print("\n⚡ BEST PERFORMANCE (Most Games Played)\n")
 
 if not sorted_players:
-    print("Keine Daten gefunden – überprüfe KEYWORD oder INPUT_TYPE.")
+    print("Keine Daten gefunden.")
 else:
     for i, (user, games) in enumerate(sorted_players, 1):
         print(f"{i}. {user}: {games}")
