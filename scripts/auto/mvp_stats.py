@@ -10,7 +10,7 @@ TEAM_ID = "solo-ultrabullet-league"
 
 ONLY_TEAM_MEMBERS = True
 TOURNEY_KEYWORD = ""
-MAX_TOURNEYS = 100
+MAX_TOURNEYS = 35
 
 MIN_GAMES_FOR_MVP = 5
 
