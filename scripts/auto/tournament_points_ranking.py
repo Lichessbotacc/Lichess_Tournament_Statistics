@@ -8,9 +8,9 @@ from collections import defaultdict
 
 TEAM_ID = "darkonteams"
 
-ONLY_TEAM_MEMBERS = True     # True = nur Team, False = alle Spieler
-TOURNEY_KEYWORD = "League"          # z.B. "8+0" oder "" für alle
-MAX_TOURNEYS = 10
+ONLY_TEAM_MEMBERS = True     # True = nur Team-Spieler, False = alle
+TOURNEY_KEYWORD = "8+0"          # z.B. "8+0" oder "" für alle
+MAX_TOURNEYS = 3
 
 DEBUG = False
 
@@ -54,6 +54,7 @@ print(f"TURNIERE: {len(selected_tourneys)}\n")
 
 points = defaultdict(int)
 player_team_counts = defaultdict(lambda: defaultdict(int))
+player_tournament_participation = defaultdict(set)
 
 # =========================
 # 🔎 2. TURNIERE DURCHGEHEN
@@ -76,7 +77,6 @@ for t in selected_tourneys:
     g_response = requests.get(games_url, headers=headers, stream=True)
 
     if g_response.status_code != 200:
-        print("Fehler bei Games")
         continue
 
     for line in g_response.iter_lines():
@@ -94,7 +94,7 @@ for t in selected_tourneys:
         white_team = white.get("team")
         black_team = black.get("team")
 
-        # 🧠 Team-Historie speichern
+        # 🧠 Team history tracking
         if white_user:
             team_name = white_team if white_team else "unknown"
             player_team_counts[white_user.lower()][team_name] += 1
@@ -103,7 +103,7 @@ for t in selected_tourneys:
             team_name = black_team if black_team else "unknown"
             player_team_counts[black_user.lower()][team_name] += 1
 
-        # 🟢 Team-Erkennung
+        # 🟢 Team detection
         if white_user and white_team == TEAM_ID:
             team_players.add(white_user.lower())
 
@@ -125,7 +125,6 @@ for t in selected_tourneys:
     r_response = requests.get(results_url, headers=headers)
 
     if r_response.status_code != 200:
-        print("Fehler bei Results")
         continue
 
     matched = 0
@@ -152,18 +151,20 @@ for t in selected_tourneys:
                 points[user] += score
                 matched += 1
                 total_points += score
+                player_tournament_participation[user].add(t['id'])
             else:
                 ignored += 1
         else:
             points[user] += score
             matched += 1
             total_points += score
+            player_tournament_participation[user].add(t['id'])
 
     if DEBUG:
         print(f"Matched: {matched} | Ignored: {ignored} | Points: {total_points}")
 
 # =========================
-# 🧠 MAIN TEAM (optional)
+# 🧠 MAIN TEAM
 # =========================
 
 def get_main_team(user):
@@ -182,10 +183,14 @@ print("\n" + "=" * 60)
 print("🏆 FINAL RANKING")
 print("=" * 60 + "\n")
 
+total_tournaments = len(selected_tourneys)
+
 for i, (user, score) in enumerate(sorted_players, 1):
 
+    played = len(player_tournament_participation[user])
+
     if ONLY_TEAM_MEMBERS:
-        print(f"{i}. {user}: {score} points")
+        print(f"{i}. {user}: {score} points ({played}/{total_tournaments} tournaments)")
     else:
         team = get_main_team(user)
-        print(f"{i}. {user}: {score} points ({team})")
+        print(f"{i}. {user}: {score} points ({played}/{total_tournaments} tournaments) ({team})")
