@@ -7,15 +7,15 @@ from collections import defaultdict
 # =========================
 
 TEAMS = {
-    "ultrabullet": "team-ultrabullet-id",
-    "bullet": "team-bullet-id",
-    "blitz": "team-blitz-id",
-    "rapid": "team-rapid-id"
+    "ultrabullet": "solo-ultrabullet-league",
+    "bullet": "solo-bullet-league",
+    "blitz": "solo-blitz-league",
+    "rapid": "solo-rapid-league"
 }
 
 ONLY_TEAM_MEMBERS = True
-MAX_TOURNEYS = 50
-MIN_GAMES = 5
+MAX_TOURNEYS = 100
+MIN_GAMES = 1
 
 headers = {
     "Accept": "application/x-ndjson",
