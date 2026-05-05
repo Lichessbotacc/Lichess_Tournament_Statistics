@@ -45,7 +45,7 @@ for line in response.iter_lines():
     tournament_ids.append(tid)
 
     # 🔥 Lichess Link statt ID
-    tournament_list.append((tid, t.get("fullName", "Unknown"), f"https://lichess.org/swiss/{tid}"))
+    tournament_list.append((tid, t.get("fullName", "Unknown"), f"https://lichess.org/tournament/{tid}"))
 
 
 # 🔹 Games + W/D/L
