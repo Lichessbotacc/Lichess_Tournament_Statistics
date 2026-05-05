@@ -1,23 +1,37 @@
 import requests
 import json
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
+import os
 
 # =========================
 # ⚙️ CONFIG
 # =========================
 
 TEAM_ID = "darkonteams"
-
 ONLY_TEAM_MEMBERS = True
 TOURNEY_KEYWORD = "LMAO"
 MAX_TOURNEYS = 10
-
 MIN_GAMES_FOR_MVP = 50
 
 headers = {
     "Accept": "application/x-ndjson",
     "User-Agent": "mvp-stats-bot"
 }
+
+# =========================
+# 💾 CACHE (NEW)
+# =========================
+
+PROCESSED_FILE = "processed_games.json"
+
+if os.path.exists(PROCESSED_FILE):
+    with open(PROCESSED_FILE, "r") as f:
+        processed_games = set(json.load(f))
+else:
+    processed_games = set()
+
+cache = {}
 
 # =========================
 # 🔎 1. TURNIERE LADEN
@@ -57,7 +71,45 @@ wins = defaultdict(int)
 participation = defaultdict(set)
 
 # =========================
-# 🔎 2. TURNIERE ANALYSIEREN
+# ⚡ FAST GAME PROCESSING
+# =========================
+
+def process_game(game):
+    global processed_games
+
+    game_id = game.get("id")
+    if not game_id or game_id in processed_games:
+        return
+
+    white = game.get("players", {}).get("white", {})
+    black = game.get("players", {}).get("black", {})
+
+    white_user = white.get("user", {}).get("name")
+    black_user = black.get("user", {}).get("name")
+
+    white_team = white.get("team")
+    black_team = black.get("team")
+
+    winner = game.get("winner")
+
+    if white_user:
+        u = white_user.lower()
+        games[u] += 1
+        participation[u].add(game["tournamentId"])
+        if winner == "white":
+            wins[u] += 1
+
+    if black_user:
+        u = black_user.lower()
+        games[u] += 1
+        participation[u].add(game["tournamentId"])
+        if winner == "black":
+            wins[u] += 1
+
+    processed_games.add(game_id)
+
+# =========================
+# 🔎 2. TURNIERE ANALYSIEREN (PARALLEL)
 # =========================
 
 for t in selected_tourneys:
@@ -65,61 +117,35 @@ for t in selected_tourneys:
     print(f"\n🏁 {t.get('fullName')}")
     print(f"🔗 https://lichess.org/tournament/{t.get('id')}")
 
-    team_players = set()
-
     games_url = f"https://lichess.org/api/tournament/{t['id']}/games"
 
     r = requests.get(games_url, headers=headers)
-
     if r.status_code != 200:
         continue
+
+    game_list = []
 
     for line in r.iter_lines(decode_unicode=True):
         if not line:
             continue
-
         try:
-            game = json.loads(line)
+            game_list.append(json.loads(line))
         except:
             continue
 
-        white = game.get("players", {}).get("white", {})
-        black = game.get("players", {}).get("black", {})
-
-        white_user = white.get("user", {}).get("name")
-        black_user = black.get("user", {}).get("name")
-
-        white_team = white.get("team")
-        black_team = black.get("team")
-
-        winner = game.get("winner")
-
-        # WHITE
-        if white_user:
-            u = white_user.lower()
-            games[u] += 1
-            participation[u].add(t["id"])
-
-            if winner == "white":
-                wins[u] += 1
-
-            if white_team == TEAM_ID:
-                team_players.add(u)
-
-        # BLACK
-        if black_user:
-            u = black_user.lower()
-            games[u] += 1
-            participation[u].add(t["id"])
-
-            if winner == "black":
-                wins[u] += 1
-
-            if black_team == TEAM_ID:
-                team_players.add(u)
+    # 🔥 PARALLEL PROCESSING
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        ex.map(process_game, game_list)
 
 # =========================
-# 🧠 MVP FORMEL
+# 💾 SAVE STATE (NEW)
+# =========================
+
+with open(PROCESSED_FILE, "w") as f:
+    json.dump(list(processed_games), f)
+
+# =========================
+# 🧠 MVP FORMEL (unchanged)
 # =========================
 
 def winrate(u):
