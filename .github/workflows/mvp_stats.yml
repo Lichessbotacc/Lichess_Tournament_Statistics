@@ -1,0 +1,27 @@
+name: MVP Stats Ranking
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "auto/mvp_stats.py"
+
+jobs:
+  run-mvp-stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Abhängigkeiten installieren
+        run: pip install requests
+
+      - name: MVP Stats Script ausführen
+        run: python auto/mvp_stats.py
