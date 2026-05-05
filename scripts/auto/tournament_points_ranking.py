@@ -2,9 +2,11 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "solo-bullet-league"
+TEAM_ID = "solo-blitz-league"
 MAX_TOURNEYS = 1
 TOURNEY_KEYWORD = "solo"
+
+DEBUG = True  # 🔥 Debug an/aus
 
 headers = {
     "Accept": "application/x-ndjson"
@@ -33,19 +35,23 @@ print(f"Turniere: {len(selected_tourneys)} | Filter: {TOURNEY_KEYWORD if TOURNEY
 
 points = defaultdict(float)
 
-# 🔎 2. Games durchgehen (MIT TEAM CHECK)
+# 🔎 2. Turniere durchgehen
 for t in selected_tourneys:
     tourney_id = t["id"]
-    print(f"- {t['fullName']} https://lichess.org/tournament/{tourney_id}")
+    print(f"\n=== {t['fullName']} ===")
+    print(f"https://lichess.org/tournament/{tourney_id}")
+
+    # 🟢 STEP 1: Team-Spieler sammeln (aus Games)
+    team_players_in_tourney = set()
 
     games_url = f"https://lichess.org/api/tournament/{tourney_id}/games"
-    response = requests.get(games_url, headers=headers, stream=True)
+    g_response = requests.get(games_url, headers=headers, stream=True)
 
-    if response.status_code != 200:
-        print(f"Fehler bei Turnier {tourney_id}")
+    if g_response.status_code != 200:
+        print(f"Fehler bei Games {tourney_id}")
         continue
 
-    for line in response.iter_lines():
+    for line in g_response.iter_lines():
         if not line:
             continue
 
@@ -60,27 +66,61 @@ for t in selected_tourneys:
         white_team = white.get("team")
         black_team = black.get("team")
 
-        winner = game.get("winner")  # "white", "black", oder None
+        if white_user and white_team == TEAM_ID:
+            team_players_in_tourney.add(white_user.lower())
 
-        # 🟢 WHITE
-        if white_user and (white_team == TEAM_ID or white_team is None):
-            if winner == "white":
-                points[white_user] += 2
-            elif winner is None:
-                points[white_user] += 1
+        if black_user and black_team == TEAM_ID:
+            team_players_in_tourney.add(black_user.lower())
 
-        # 🔵 BLACK
-        if black_user and (black_team == TEAM_ID or black_team is None):
-            if winner == "black":
-                points[black_user] += 2
-            elif winner is None:
-                points[black_user] += 1
+    print(f"Team-Spieler im Turnier erkannt: {len(team_players_in_tourney)}")
+
+    # 🔵 STEP 2: Arena-Resultate holen
+    results_url = f"https://lichess.org/api/tournament/{tourney_id}/results"
+    r_response = requests.get(results_url, headers=headers)
+
+    if r_response.status_code != 200:
+        print(f"Fehler bei Results {tourney_id}")
+        continue
+
+    matched = 0
+    ignored = 0
+    total_points_this_tourney = 0
+
+    for line in r_response.text.splitlines():
+        if not line.strip():
+            continue
+
+        data = json.loads(line)
+
+        username = data.get("username")
+        score = data.get("score", 0)
+
+        if not username:
+            continue
+
+        username_lower = username.lower()
+
+        # ✅ MATCH
+        if username_lower in team_players_in_tourney:
+            points[username_lower] += score
+            matched += 1
+            total_points_this_tourney += score
+
+        # ❌ NICHT MATCHED
+        else:
+            ignored += 1
+            if DEBUG:
+                print(f"IGNORED: {username} ({score} pts)")
+
+    print(f"Matched Spieler: {matched}")
+    print(f"Ignored Spieler: {ignored}")
+    print(f"Gesammelte Punkte im Turnier: {total_points_this_tourney}")
 
 # 🔎 3. Sortieren
 sorted_players = sorted(points.items(), key=lambda x: x[1], reverse=True)
 
 # 🏆 4. Ausgabe
-print("\n🏆 POINTS RANKING:\n")
+print("\n🏆 FINAL POINTS RANKING:\n")
 
 for i, (user, score) in enumerate(sorted_players, 1):
     print(f"{i}. {user}: {score} points")
