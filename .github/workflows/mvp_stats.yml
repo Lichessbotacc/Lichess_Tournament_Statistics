@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "auto/mvp_stats.py"
+      - "scripts/auto/mvp_stats.py"
 
 jobs:
   run-mvp-stats:
@@ -24,4 +24,4 @@ jobs:
         run: pip install requests
 
       - name: MVP Stats Script ausführen
-        run: python auto/mvp_stats.py
+        run: python scripts/auto/mvp_stats.py
