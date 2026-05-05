@@ -71,25 +71,7 @@ for t in selected_tourneys:
     print("=" * 55)
 
     # =========================
-    # 🔥 FIX: PARTICIPATION (WICHTIG)
-    # =========================
-
-    users_url = f"https://lichess.org/api/tournament/{tid}/users"
-    u_response = requests.get(users_url, headers=headers, stream=True)
-
-    if u_response.status_code == 200:
-        for line in u_response.iter_lines():
-            if not line:
-                continue
-
-            data = json.loads(line)
-            username = data.get("username")
-
-            if username:
-                player_tournament_participation[username.lower()].add(tid)
-
-    # =========================
-    # 🔵 RESULTS (SCORES)
+    # 🔵 RESULTS (SOURCE OF TRUTH)
     # =========================
 
     results_url = f"https://lichess.org/api/tournament/{tid}/results"
@@ -111,7 +93,12 @@ for t in selected_tourneys:
             continue
 
         user = username.lower()
+
+        # 💰 Punkte (Lichess Score = korrekt inkl. berserk etc.)
         points[user] += float(score)
+
+        # 📊 Teilnahme = jeder im results endpoint ist Teilnehmer
+        player_tournament_participation[user].add(tid)
 
 # =========================
 # 🏆 FINAL RANKING
@@ -123,8 +110,10 @@ print("\n" + "=" * 60)
 print("🏆 FINAL RANKING")
 print("=" * 60 + "\n")
 
+total_tournaments = len(selected_tourneys)
+
 for i, (user, score) in enumerate(sorted_players, 1):
 
     played = len(player_tournament_participation[user])
 
-    print(f"{i}. {user}: {score:.1f} points ({played}/{len(selected_tourneys)} tournaments)")
+    print(f"{i}. {user}: {score:.1f} points ({played}/{total_tournaments})")
