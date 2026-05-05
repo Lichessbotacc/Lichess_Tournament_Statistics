@@ -3,8 +3,8 @@ import json
 from collections import defaultdict
 
 TEAM_ID = "darkonteams"
-MAX_TOURNEYS = 50
-TOURNEY_KEYWORD = "Hourly"  # leer = alle Turniere
+MAX_TOURNEYS = 10
+TOURNEY_KEYWORD = "8+0"  # leer = alle Turniere
 
 headers = {
     "Accept": "application/x-ndjson"
