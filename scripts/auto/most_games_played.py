@@ -2,11 +2,11 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "darkonteams"
-MAX_TOURNEYS = 100
-TOURNEY_KEYWORD = "Hourly Ultrabullet"
+TEAM_ID = "solo-blitz-league"
+MAX_TOURNEYS = 35
+TOURNEY_KEYWORD = ""
 
-ONLY_TEAM_MEMBERS = False   # True = nur Teamspieler
+ONLY_TEAM_MEMBERS = True   # True = nur Teamspieler
 
 headers = {
     "Accept": "application/x-ndjson"
