@@ -7,7 +7,7 @@ USERNAME = "DarkOnCrack"
 # 🔧 OPTIONAL FILTER
 KEYWORDS = ["Solo Rapid"]
 MIN_PLAYERS = 0
-SINCE_YEAR = 0
+MIN_GAMES = 1
 MAX_TOURNEYS = 500
 
 headers = {
