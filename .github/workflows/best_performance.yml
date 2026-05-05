@@ -8,7 +8,7 @@ on:
       - "scripts/auto/best_performance.py"
 
 jobs:
-  run-points-script:
+  run-best-performance-script:
     runs-on: ubuntu-latest
 
     steps:
