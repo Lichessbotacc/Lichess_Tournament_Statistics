@@ -2,12 +2,15 @@ import requests
 import json
 from collections import defaultdict
 
+# =========================
+# ⚙️ CONFIG
+# =========================
+
 TEAM_ID = "lmao-teamfights"
 
-# 🎛️ SETTINGS
 ONLY_TEAM_MEMBERS = False     # True = nur Team, False = alle Spieler
-TOURNEY_KEYWORD = ""       # "" = alle Turniere
-MAX_TOURNEYS = 1000
+TOURNEY_KEYWORD = ""          # z.B. "8+0" oder "" für alle
+MAX_TOURNEYS = 1
 
 DEBUG = False
 
@@ -15,7 +18,10 @@ headers = {
     "Accept": "application/x-ndjson"
 }
 
-# 🔎 1. Turniere holen
+# =========================
+# 🔎 1. TURNIERE LADEN
+# =========================
+
 url = f"https://lichess.org/api/team/{TEAM_ID}/arena?status=finished"
 response = requests.get(url, headers=headers)
 
@@ -29,35 +35,48 @@ tournaments = [
     if line.strip()
 ]
 
-# 🔥 FILTER (Keyword)
-filtered = []
+# 🔥 FILTER
+selected_tourneys = []
 for t in tournaments:
     if TOURNEY_KEYWORD == "" or TOURNEY_KEYWORD.lower() in t["fullName"].lower():
-        filtered.append(t)
+        selected_tourneys.append(t)
 
-selected_tourneys = filtered[:MAX_TOURNEYS]
+selected_tourneys = selected_tourneys[:MAX_TOURNEYS]
 
 print(f"\n🏆 TEAM: {TEAM_ID}")
 print(f"MODE: {'TEAM ONLY' if ONLY_TEAM_MEMBERS else 'ALL PLAYERS'}")
 print(f"KEYWORD: {TOURNEY_KEYWORD if TOURNEY_KEYWORD else 'ALL'}")
 print(f"TURNIERE: {len(selected_tourneys)}\n")
 
-points = defaultdict(int)
+# =========================
+# 📊 DATA
+# =========================
 
-# 🔥 für Team-Historie
+points = defaultdict(int)
 player_team_counts = defaultdict(lambda: defaultdict(int))
 
-# 🔎 2. Turniere durchgehen
+# =========================
+# 🔎 2. TURNIERE DURCHGEHEN
+# =========================
+
 for t in selected_tourneys:
-    print(f"▶ {t['fullName']}")
+
+    print("\n" + "=" * 55)
+    print(f"🏆 {t['fullName']}")
+    print(f"🔗 https://lichess.org/tournament/{t['id']}")
+    print("=" * 55)
 
     team_players = set()
 
+    # =========================
     # 🟢 GAMES
+    # =========================
+
     games_url = f"https://lichess.org/api/tournament/{t['id']}/games"
     g_response = requests.get(games_url, headers=headers, stream=True)
 
     if g_response.status_code != 200:
+        print("Fehler bei Games")
         continue
 
     for line in g_response.iter_lines():
@@ -75,7 +94,7 @@ for t in selected_tourneys:
         white_team = white.get("team")
         black_team = black.get("team")
 
-        # 🧠 Team history tracking
+        # 🧠 Team-Historie speichern
         if white_user:
             team_name = white_team if white_team else "unknown"
             player_team_counts[white_user.lower()][team_name] += 1
@@ -84,7 +103,7 @@ for t in selected_tourneys:
             team_name = black_team if black_team else "unknown"
             player_team_counts[black_user.lower()][team_name] += 1
 
-        # 🟢 Team detection
+        # 🟢 Team-Erkennung
         if white_user and white_team == TEAM_ID:
             team_players.add(white_user.lower())
 
@@ -98,12 +117,20 @@ for t in selected_tourneys:
         if fallback_all:
             print("⚠️ Fallback aktiv (kein Team-Feld gefunden)")
 
+    # =========================
     # 🔵 RESULTS
+    # =========================
+
     results_url = f"https://lichess.org/api/tournament/{t['id']}/results"
     r_response = requests.get(results_url, headers=headers)
 
     if r_response.status_code != 200:
+        print("Fehler bei Results")
         continue
+
+    matched = 0
+    ignored = 0
+    total_points = 0
 
     for line in r_response.text.splitlines():
         if not line.strip():
@@ -123,23 +150,37 @@ for t in selected_tourneys:
         if ONLY_TEAM_MEMBERS:
             if fallback_all or user in team_players:
                 points[user] += score
+                matched += 1
+                total_points += score
+            else:
+                ignored += 1
         else:
             points[user] += score
+            matched += 1
+            total_points += score
 
+    if DEBUG:
+        print(f"Matched: {matched} | Ignored: {ignored} | Points: {total_points}")
 
-# 🧠 Hauptteam bestimmen
+# =========================
+# 🧠 MAIN TEAM (optional)
+# =========================
+
 def get_main_team(user):
     teams = player_team_counts[user]
     if not teams:
         return "unknown"
     return max(teams.items(), key=lambda x: x[1])[0]
 
+# =========================
+# 🏆 FINAL RANKING
+# =========================
 
-# 🔎 3. Sortieren
 sorted_players = sorted(points.items(), key=lambda x: x[1], reverse=True)
 
-# 🏆 4. OUTPUT
-print("\n🏆 FINAL RANKING:\n")
+print("\n" + "=" * 60)
+print("🏆 FINAL RANKING")
+print("=" * 60 + "\n")
 
 for i, (user, score) in enumerate(sorted_players, 1):
 
