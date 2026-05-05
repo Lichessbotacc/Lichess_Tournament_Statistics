@@ -6,11 +6,11 @@ from collections import defaultdict
 # ⚙️ CONFIG
 # =========================
 
-TEAM_ID = "darkonteams"
+TEAM_ID = "solo-ultrabullet-league"
 
 ONLY_TEAM_MEMBERS = True     # True = nur Team-Spieler, False = alle
-TOURNEY_KEYWORD = "8+0"          # z.B. "8+0" oder "" für alle
-MAX_TOURNEYS = 3
+TOURNEY_KEYWORD = ""          # z.B. "8+0" oder "" für alle
+MAX_TOURNEYS = 100
 
 DEBUG = False
 
