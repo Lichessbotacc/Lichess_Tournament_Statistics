@@ -2,9 +2,9 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "darkonclassical"   # <- hier dein Team eintragen
+TEAM_ID = "itachi-n-friends"   # <- hier dein Team eintragen
 MAX_TOURNEYS = 10
-TOURNEY_KEYWORD = "rapid"
+TOURNEY_KEYWORD = ""
 
 DEBUG = False
 
