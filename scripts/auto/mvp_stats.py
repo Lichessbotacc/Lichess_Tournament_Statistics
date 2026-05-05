@@ -6,11 +6,11 @@ from collections import defaultdict
 # ⚙️ CONFIG
 # =========================
 
-TEAM_ID = "solo-ultrabullet-league"
+TEAM_ID = "darkonteams"
 
 ONLY_TEAM_MEMBERS = True
 TOURNEY_KEYWORD = ""
-MAX_TOURNEYS = 35
+MAX_TOURNEYS = 1
 
 MIN_GAMES_FOR_MVP = 5
 
