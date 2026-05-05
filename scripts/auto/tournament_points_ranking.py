@@ -2,9 +2,9 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "solo-ultrabullet-league"   # <- hier dein Team eintragen
+TEAM_ID = "darkonclassical"   # <- hier dein Team eintragen
 MAX_TOURNEYS = 1
-TOURNEY_KEYWORD = "solo"
+TOURNEY_KEYWORD = "rapid"
 
 DEBUG = True
 
