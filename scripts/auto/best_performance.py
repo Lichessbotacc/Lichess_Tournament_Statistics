@@ -3,7 +3,7 @@ import json
 from collections import defaultdict
 
 TEAM_ID = "solo-blitz-league"
-MAX_TOURNEYS = 35
+MAX_TOURNEYS = 36
 TOURNEY_KEYWORD = ""
 
 MIN_GAMES = 20
