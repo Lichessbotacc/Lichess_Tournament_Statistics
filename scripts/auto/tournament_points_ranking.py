@@ -6,9 +6,9 @@ from collections import defaultdict
 # ⚙️ CONFIG
 # =========================
 
-TEAM_ID = "solo-ultrabullet-league"
+TEAM_ID = "official-ultrabullet-teambattles"
 
-ONLY_TEAM_MEMBERS = True     # True = nur Team-Spieler, False = alle
+ONLY_TEAM_MEMBERS = False     # True = nur Team-Spieler, False = alle
 TOURNEY_KEYWORD = ""          # z.B. "8+0" oder "" für alle
 MAX_TOURNEYS = 100
 
