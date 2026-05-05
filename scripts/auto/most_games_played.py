@@ -6,7 +6,7 @@ from datetime import datetime
 # ======================
 # 🔧 INPUT
 # ======================
-INPUT_NAME = "DarkOnTeams"
+INPUT_NAME = "german11"
 INPUT_TYPE = "team"   # "user" oder "team"
 
 KEYWORD = "Hourly Ultrabullet"
