@@ -6,6 +6,8 @@ TEAM_ID = "darkonteams"
 MAX_TOURNEYS = 1000
 TOURNEY_KEYWORD = "Hourly Ultrabullet"
 
+ONLY_TEAM_MEMBERS = False   # True = nur Teamspieler, False = alle
+
 headers = {
     "Accept": "application/x-ndjson"
 }
@@ -18,7 +20,11 @@ if response.status_code != 200:
     print("Fehler beim Laden der Turniere")
     exit()
 
-tournaments = [json.loads(line) for line in response.text.splitlines() if line.strip()]
+tournaments = [
+    json.loads(line)
+    for line in response.text.splitlines()
+    if line.strip()
+]
 
 # 🔥 Filter
 filtered = [
@@ -28,19 +34,22 @@ filtered = [
 
 selected_tourneys = filtered[:MAX_TOURNEYS]
 
-print(f"\n🏆 POINTS RANKING – Team: {TEAM_ID}")
+print(f"\n🏆 GAMES RANKING – Team: {TEAM_ID}")
 print(f"Turniere: {len(selected_tourneys)} | Filter: {TOURNEY_KEYWORD if TOURNEY_KEYWORD else 'ALL'}\n")
 
-points = defaultdict(float)
+# 📊 DATA
+games_count = defaultdict(int)
+tournament_participation = defaultdict(set)
 
 # 🔎 2. Turniere durchgehen
 for t in selected_tourneys:
     tourney_id = t["id"]
+
     print(f"- {t['fullName']} https://lichess.org/tournament/{tourney_id}")
 
-    # 🟢 STEP 1: Team-Spieler in diesem Turnier finden (über Games)
     team_players_in_tourney = set()
 
+    # 🟢 GAMES holen
     games_url = f"https://lichess.org/api/tournament/{tourney_id}/games"
     g_response = requests.get(games_url, headers=headers, stream=True)
 
@@ -63,38 +72,24 @@ for t in selected_tourneys:
         white_team = white.get("team")
         black_team = black.get("team")
 
-        if white_user and (white_team == TEAM_ID or white_team is None):
-            team_players_in_tourney.add(white_user)
+        # 🟢 Team-Filter (optional)
+        if white_user and (not ONLY_TEAM_MEMBERS or white_team == TEAM_ID):
+            games_count[white_user.lower()] += 1
+            tournament_participation[white_user.lower()].add(tourney_id)
 
-        if black_user and (black_team == TEAM_ID or black_team is None):
-            team_players_in_tourney.add(black_user)
-
-    # 🔵 STEP 2: echte Arena-Punkte holen
-    results_url = f"https://lichess.org/api/tournament/{tourney_id}/results"
-    r_response = requests.get(results_url, headers=headers)
-
-    if r_response.status_code != 200:
-        print(f"Fehler bei Results {tourney_id}")
-        continue
-
-    for line in r_response.text.splitlines():
-        if not line.strip():
-            continue
-
-        data = json.loads(line)
-
-        username = data.get("username")
-        score = data.get("score", 0)
-
-        # ✅ Nur zählen wenn Spieler fürs Team gespielt hat
-        if username in team_players_in_tourney:
-            points[username] += score
+        if black_user and (not ONLY_TEAM_MEMBERS or black_team == TEAM_ID):
+            games_count[black_user.lower()] += 1
+            tournament_participation[black_user.lower()].add(tourney_id)
 
 # 🔎 3. Sortieren
-sorted_players = sorted(points.items(), key=lambda x: x[1], reverse=True)
+sorted_players = sorted(games_count.items(), key=lambda x: x[1], reverse=True)
 
-# 🏆 4. Ausgabe
-print("\n🏆 POINTS RANKING (ECHTE ARENA POINTS):\n")
+# 🏆 4. OUTPUT
+print("\n🏆 GAMES RANKING:\n")
 
-for i, (user, score) in enumerate(sorted_players, 1):
-    print(f"{i}. {user}: {score} points")
+total_tournaments = len(selected_tourneys)
+
+for i, (user, games) in enumerate(sorted_players, 1):
+    played_tournaments = len(tournament_participation[user])
+
+    print(f"{i}. {user}: {games} games ({played_tournaments}/{total_tournaments} tournaments)")
