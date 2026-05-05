@@ -6,11 +6,11 @@ from collections import defaultdict
 # ⚙️ CONFIG
 # =========================
 
-TEAM_ID = "lmao-teamfights"
+TEAM_ID = "darkonteams"
 
 ONLY_TEAM_MEMBERS = True     # True = nur Team, False = alle Spieler
-TOURNEY_KEYWORD = ""          # z.B. "8+0" oder "" für alle
-MAX_TOURNEYS = 1
+TOURNEY_KEYWORD = "League"          # z.B. "8+0" oder "" für alle
+MAX_TOURNEYS = 10
 
 DEBUG = False
 
