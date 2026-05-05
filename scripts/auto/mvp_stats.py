@@ -9,10 +9,10 @@ from collections import defaultdict
 TEAM_ID = "darkonteams"
 
 ONLY_TEAM_MEMBERS = True
-TOURNEY_KEYWORD = ""
-MAX_TOURNEYS = 1
+TOURNEY_KEYWORD = "LMAO"
+MAX_TOURNEYS = 10
 
-MIN_GAMES_FOR_MVP = 5
+MIN_GAMES_FOR_MVP = 50
 
 headers = {
     "Accept": "application/x-ndjson",
