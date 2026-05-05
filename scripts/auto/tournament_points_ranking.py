@@ -10,7 +10,7 @@ TEAM_ID = "bharat-royals"
 
 ONLY_TEAM_MEMBERS = True     # True = nur Team-Spieler, False = alle
 TOURNEY_KEYWORD = ""          # z.B. "8+0" oder "" für alle
-MAX_TOURNEYS = 100
+MAX_TOURNEYS = 101
 
 DEBUG = False
 
