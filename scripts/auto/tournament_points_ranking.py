@@ -7,7 +7,7 @@ TEAM_ID = "official-ultrabullet-teambattles"
 # 🎛️ SETTINGS
 ONLY_TEAM_MEMBERS = False     # True = nur Team, False = alle Spieler
 TOURNEY_KEYWORD = ""       # "" = alle Turniere
-MAX_TOURNEYS = 1
+MAX_TOURNEYS = 10
 
 DEBUG = False
 
