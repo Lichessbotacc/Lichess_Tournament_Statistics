@@ -2,10 +2,13 @@ import requests
 import json
 from collections import defaultdict
 
-TEAM_ID = "official-ultrabullet-teambattles"   # <- hier dein Team eintragen
+TEAM_ID = "official-ultrabullet-teambattles"
+
+# 🎛️ SETTINGS
+ONLY_TEAM_MEMBERS = False     # True = nur Team, False = alle Spieler
+TOURNEY_KEYWORD = ""       # "" = alle Turniere
 MAX_TOURNEYS = 1
-TOURNEY_KEYWORD = ""
-ONLY_TEAM_MEMBERS = False
+
 DEBUG = False
 
 headers = {
@@ -26,33 +29,35 @@ tournaments = [
     if line.strip()
 ]
 
-# 🔥 Filter
-filtered = [
-    t for t in tournaments
-    if TOURNEY_KEYWORD.lower() in t["fullName"].lower()
-]
+# 🔥 FILTER (Keyword)
+filtered = []
+for t in tournaments:
+    if TOURNEY_KEYWORD == "" or TOURNEY_KEYWORD.lower() in t["fullName"].lower():
+        filtered.append(t)
 
 selected_tourneys = filtered[:MAX_TOURNEYS]
 
-print(f"\n🏆 POINTS RANKING – Team: {TEAM_ID}")
-print(f"Turniere: {len(selected_tourneys)} | Filter: {TOURNEY_KEYWORD}\n")
+print(f"\n🏆 TEAM: {TEAM_ID}")
+print(f"MODE: {'TEAM ONLY' if ONLY_TEAM_MEMBERS else 'ALL PLAYERS'}")
+print(f"KEYWORD: {TOURNEY_KEYWORD if TOURNEY_KEYWORD else 'ALL'}")
+print(f"TURNIERE: {len(selected_tourneys)}\n")
 
 points = defaultdict(int)
 
+# 🔥 für Team-Historie
+player_team_counts = defaultdict(lambda: defaultdict(int))
+
 # 🔎 2. Turniere durchgehen
 for t in selected_tourneys:
-    tourney_id = t["id"]
-    print(f"\n=== {t['fullName']} ===")
-    print(f"https://lichess.org/tournament/{tourney_id}")
+    print(f"▶ {t['fullName']}")
 
-    # 🟢 STEP 1: Team-Spieler sammeln (Games)
     team_players = set()
 
-    games_url = f"https://lichess.org/api/tournament/{tourney_id}/games"
+    # 🟢 GAMES
+    games_url = f"https://lichess.org/api/tournament/{t['id']}/games"
     g_response = requests.get(games_url, headers=headers, stream=True)
 
     if g_response.status_code != 200:
-        print("Fehler bei Games")
         continue
 
     for line in g_response.iter_lines():
@@ -70,34 +75,35 @@ for t in selected_tourneys:
         white_team = white.get("team")
         black_team = black.get("team")
 
-        # ⚠️ nur echte Team-Zuordnung (kein None mehr!)
+        # 🧠 Team history tracking
+        if white_user:
+            team_name = white_team if white_team else "unknown"
+            player_team_counts[white_user.lower()][team_name] += 1
+
+        if black_user:
+            team_name = black_team if black_team else "unknown"
+            player_team_counts[black_user.lower()][team_name] += 1
+
+        # 🟢 Team detection
         if white_user and white_team == TEAM_ID:
             team_players.add(white_user.lower())
 
         if black_user and black_team == TEAM_ID:
             team_players.add(black_user.lower())
 
-    # 🔥 FALLBACK (wichtig!)
-    if len(team_players) == 0:
-        if DEBUG:
-            print("⚠️ Kein Team-Feld gefunden → Fallback: alle Spieler zählen")
-        fallback_all = True
-    else:
-        fallback_all = False
+    fallback_all = len(team_players) == 0
 
-    print(f"Team-Spieler erkannt: {len(team_players)}")
+    if DEBUG:
+        print(f"Team-Spieler erkannt: {len(team_players)}")
+        if fallback_all:
+            print("⚠️ Fallback aktiv (kein Team-Feld gefunden)")
 
-    # 🔵 STEP 2: Arena Results holen
-    results_url = f"https://lichess.org/api/tournament/{tourney_id}/results"
+    # 🔵 RESULTS
+    results_url = f"https://lichess.org/api/tournament/{t['id']}/results"
     r_response = requests.get(results_url, headers=headers)
 
     if r_response.status_code != 200:
-        print("Fehler bei Results")
         continue
-
-    matched = 0
-    ignored = 0
-    total = 0
 
     for line in r_response.text.splitlines():
         if not line.strip():
@@ -106,30 +112,39 @@ for t in selected_tourneys:
         data = json.loads(line)
 
         username = data.get("username")
-        score = data.get("score", 0)
+        score = int(data.get("score", 0))
 
         if not username:
             continue
 
         user = username.lower()
 
-        # ✅ LOGIC
-        if fallback_all or user in team_players:
-            points[user] += score
-            matched += 1
-            total += score
+        # 🔥 FILTER LOGIC
+        if ONLY_TEAM_MEMBERS:
+            if fallback_all or user in team_players:
+                points[user] += score
         else:
-            ignored += 1
-            if DEBUG:
-                print(f"IGNORED: {username} ({score})")
+            points[user] += score
 
-    print(f"Matched: {matched} | Ignored: {ignored} | Points: {total}")
+
+# 🧠 Hauptteam bestimmen
+def get_main_team(user):
+    teams = player_team_counts[user]
+    if not teams:
+        return "unknown"
+    return max(teams.items(), key=lambda x: x[1])[0]
+
 
 # 🔎 3. Sortieren
 sorted_players = sorted(points.items(), key=lambda x: x[1], reverse=True)
 
-# 🏆 4. Output
-print("\n🏆 FINAL POINTS RANKING:\n")
+# 🏆 4. OUTPUT
+print("\n🏆 FINAL RANKING:\n")
 
 for i, (user, score) in enumerate(sorted_players, 1):
-    print(f"{i}. {user}: {score} points")
+
+    if ONLY_TEAM_MEMBERS:
+        print(f"{i}. {user}: {score} points")
+    else:
+        team = get_main_team(user)
+        print(f"{i}. {user}: {score} points ({team})")
