@@ -37,7 +37,7 @@ selected_tourneys = filtered[:MAX_TOURNEYS]
 print(f"\n🏆 POINTS RANKING – Team: {TEAM_ID}")
 print(f"Turniere: {len(selected_tourneys)} | Filter: {TOURNEY_KEYWORD}\n")
 
-points = defaultdict(float)
+points = defaultdict(int)
 
 # 🔎 2. Turniere durchgehen
 for t in selected_tourneys:
