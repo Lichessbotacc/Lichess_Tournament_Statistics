@@ -6,7 +6,7 @@ TEAM_ID = "solo-blitz-league"
 MAX_TOURNEYS = 35
 TOURNEY_KEYWORD = ""
 
-ONLY_TEAM_MEMBERS = True   # True = nur Teamspieler
+ONLY_TEAM_MEMBERS = False   # True = nur Teamspieler
 
 headers = {
     "Accept": "application/x-ndjson"
