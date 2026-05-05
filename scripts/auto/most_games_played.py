@@ -3,11 +3,10 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
-# 🔧 INPUT: USER ODER TEAM
-INPUT_NAME = "DarkOnTeams"
-INPUT_TYPE = "team"   # "user" oder "team"
+USERNAME = "DarkOnCrack"
 
-KEYWORD = "Hourly Ultrabullet"
+# 🔧 OPTIONAL FILTER
+KEYWORD = "Solo Bullet"
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MIN_GAMES = 1
@@ -18,8 +17,17 @@ headers = {
 
 # 🔹 Turniere laden
 tournament_ids = []
+tournament_list = []
 
-def add_if_valid(t):
+url = f"https://lichess.org/api/user/{USERNAME}/tournament/created"
+response = requests.get(url, headers=headers, stream=True)
+
+for line in response.iter_lines():
+    if not line:
+        continue
+
+    t = json.loads(line)
+
     name = t.get("fullName", "").lower()
     nb_players = t.get("nbPlayers", 0)
     created = t.get("created")
@@ -27,61 +35,20 @@ def add_if_valid(t):
     year = datetime.utcfromtimestamp(created / 1000).year if created else 0
 
     if KEYWORD and KEYWORD.lower() not in name:
-        return
+        continue
     if MIN_PLAYERS and nb_players < MIN_PLAYERS:
-        return
+        continue
     if SINCE_YEAR and year < SINCE_YEAR:
-        return
+        continue
 
     tournament_ids.append(t["id"])
+    tournament_list.append((t["id"], t.get("fullName", "Unknown")))
 
 
-# ======================
-# USER MODE (wie vorher)
-# ======================
-if INPUT_TYPE == "user":
-    url = f"https://lichess.org/api/user/{INPUT_NAME}/tournament/created"
-    response = requests.get(url, headers=headers, stream=True)
+# 🔹 Games zählen + W/D/L
+stats = defaultdict(lambda: {"w": 0, "d": 0, "l": 0})
 
-    for line in response.iter_lines():
-        if not line:
-            continue
-        t = json.loads(line)
-        add_if_valid(t)
-
-
-# ======================
-# TEAM MODE (ROBUST FIX)
-# ======================
-else:
-    print("🔎 Team mode: scanning global tournaments...")
-
-    url = "https://lichess.org/api/tournament"
-    response = requests.get(url, headers=headers, stream=True)
-
-    for line in response.iter_lines():
-        if not line:
-            continue
-
-        t = json.loads(line)
-
-        # 🔥 Team-Erkennung (Lichess speichert das unterschiedlich)
-        creator = str(t.get("createdBy", "")).lower()
-        team = str(t.get("team", "")).lower()
-        full = json.dumps(t).lower()
-
-        if INPUT_NAME.lower() in creator or INPUT_NAME.lower() in team or INPUT_NAME.lower() in full:
-            add_if_valid(t)
-
-
-# ======================
-# GAMES ZÄHLEN
-# ======================
-games_count = defaultdict(int)
-
-print(f"DEBUG tournaments found: {len(tournament_ids)}")
-
-for tid in tournament_ids:
+for tid, _ in tournament_list:
     url = f"https://lichess.org/api/tournament/{tid}/games"
     response = requests.get(url, headers=headers, stream=True)
 
@@ -97,23 +64,49 @@ for tid in tournament_ids:
         try:
             white = game["players"]["white"]["user"]["name"]
             black = game["players"]["black"]["user"]["name"]
+
+            wres = game["status"]  # win/loss/draw info kommt indirekt über status
+            winner = game.get("winner")
+
         except:
             continue
 
-        games_count[white] += 1
-        games_count[black] += 1
+        # nur zählen wenn User beteiligt
+        for player in [white, black]:
+            if player not in stats:
+                stats[player] = {"w": 0, "d": 0, "l": 0}
+
+        # Ergebnis bestimmen
+        if winner == "white":
+            stats[white]["w"] += 1
+            stats[black]["l"] += 1
+        elif winner == "black":
+            stats[black]["w"] += 1
+            stats[white]["l"] += 1
+        else:
+            stats[white]["d"] += 1
+            stats[black]["d"] += 1
 
 
-# ======================
-# OUTPUT
-# ======================
-filtered = [(u, g) for u, g in games_count.items() if g >= MIN_GAMES]
+# 🔹 Filtern + Sortieren
+filtered = []
+for user, s in stats.items():
+    games = s["w"] + s["d"] + s["l"]
+    if games >= MIN_GAMES:
+        winrate = (s["w"] / games) * 100 if games > 0 else 0
+        filtered.append((user, games, s["w"], s["d"], s["l"], winrate))
+
 sorted_players = sorted(filtered, key=lambda x: x[1], reverse=True)
 
-print("\n⚡ BEST PERFORMANCE (Most Games Played)\n")
 
-if not sorted_players:
-    print("Keine Daten gefunden.")
-else:
-    for i, (user, games) in enumerate(sorted_players, 1):
-        print(f"{i}. {user}: {games}")
+# 🔥 OUTPUT
+print("\n⚡ BEST PERFORMANCE (W/D/L + Winrate)\n")
+
+print("📌 TURNIERE:\n")
+for tid, name in tournament_list:
+    print(f"- {name} ({tid})")
+
+print("\n📊 SPIELER:\n")
+
+for i, (user, games, w, d, l, wr) in enumerate(sorted_players, 1):
+    print(f"{i}. {user}: {w}W {d}D {l}L | {wr:.2f}% | {games} games")
