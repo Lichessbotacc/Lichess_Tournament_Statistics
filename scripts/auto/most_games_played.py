@@ -3,35 +3,27 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
-# ======================
 # 🔧 INPUT: USER ODER TEAM
-# ======================
-INPUT_NAME = "darkonteams"   # oder z.B. "lichess-team-name"
-INPUT_TYPE = "team"          # "user" oder "team"
+INPUT_NAME = "darkonteams"
+INPUT_TYPE = "team"   # "user" oder "team"
 
+# 🔧 OPTIONAL FILTER
 KEYWORD = "Hourly Ultrabullet"
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
-MIN_GAMES = 1
+MIN_GAMES = 1   # 🔥 z.B. 20 für echte Rangliste
 
 headers = {
     "Accept": "application/x-ndjson"
 }
 
-# ======================
-# 🔹 TOURNIERE LADEN
-# ======================
+# 🔹 Turniere laden
 tournament_ids = []
 
 if INPUT_TYPE == "user":
     url = f"https://lichess.org/api/user/{INPUT_NAME}/tournament/created"
-
-elif INPUT_TYPE == "team":
-    # Team-Turniere (created by team)
-    url = f"https://lichess.org/api/team/{INPUT_NAME}/arena"
-
 else:
-    raise ValueError("INPUT_TYPE muss 'user' oder 'team' sein")
+    url = f"https://lichess.org/api/team/{INPUT_NAME}/arena"
 
 response = requests.get(url, headers=headers, stream=True)
 
@@ -57,9 +49,7 @@ for line in response.iter_lines():
     tournament_ids.append(t["id"])
 
 
-# ======================
-# 🔹 GAMES ZÄHLEN
-# ======================
+# 🔹 Games zählen
 games_count = defaultdict(int)
 
 for tid in tournament_ids:
@@ -85,17 +75,13 @@ for tid in tournament_ids:
         games_count[black] += 1
 
 
-# ======================
-# 🔹 FILTER + SORT
-# ======================
+# 🔹 filtern + sortieren
 filtered = [(u, g) for u, g in games_count.items() if g >= MIN_GAMES]
 sorted_players = sorted(filtered, key=lambda x: x[1], reverse=True)
 
 
-# ======================
-# 🔥 OUTPUT
-# ======================
-print("\n⚡ Most Games Played\n")
+# 🔥 FINAL OUTPUT
+print("\n⚡ BEST PERFORMANCE (Most Games Played)\n")
 
 for i, (user, games) in enumerate(sorted_players, 1):
     print(f"{i}. {user}: {games}")
