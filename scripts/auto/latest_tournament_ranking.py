@@ -3,8 +3,8 @@ import json
 from collections import defaultdict
 
 TEAM_ID = "darkonteams"
-MAX_TOURNEYS = 10
-TOURNEY_KEYWORD = "8+0"
+MAX_TOURNEYS = 1000
+TOURNEY_KEYWORD = "Hourly Ultrabullet"
 
 headers = {
     "Accept": "application/x-ndjson"
