@@ -119,7 +119,8 @@ for t in selected_tourneys:
         player_tournament_participation[user].add(tid)
 
         # 🔥 Games count (1 entry = 1 player in results)
-        player_games_count[user] += 1
+        games = data.get("nb", 0)
+        player_games_count[user] += games
 
 # =========================
 # 🏆 FINAL RANKING
