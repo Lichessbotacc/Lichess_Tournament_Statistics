@@ -4,7 +4,6 @@ from collections import defaultdict
 
 USERNAME = "DarkOnCrack"
 
-# 🔧 OPTIONAL FILTER
 KEYWORDS = ["Solo Rapid"]
 MIN_GAMES = 1
 MAX_TOURNEYS = 500
@@ -18,7 +17,7 @@ headers = {
 # =========================
 
 url = f"https://lichess.org/api/user/{USERNAME}/tournament/created"
-response = requests.get(url, headers=headers, stream=True)
+response = requests.get(url, headers=headers)
 
 if response.status_code != 200:
     print("Fehler beim Laden der Turniere")
@@ -57,6 +56,9 @@ points = defaultdict(float)
 player_tournament_participation = defaultdict(set)
 player_games_count = defaultdict(int)
 
+# Cache damit wir Spieler nicht doppelt laden
+game_cache = {}
+
 # =========================
 # 🔎 2. TURNIERE DURCHGEHEN
 # =========================
@@ -69,10 +71,6 @@ for t in selected_tourneys:
     print(f"🏆 {t['fullName']}")
     print(f"🔗 https://lichess.org/tournament/{tid}")
     print("=" * 55)
-
-    # =========================
-    # 🔵 RESULTS (SOURCE OF TRUTH)
-    # =========================
 
     results_url = f"https://lichess.org/api/tournament/{tid}/results"
     r_response = requests.get(results_url, headers=headers)
@@ -100,8 +98,28 @@ for t in selected_tourneys:
         # 📊 Teilnahme
         player_tournament_participation[user].add(tid)
 
-        # 🔥 Games zählen (aus results = korrekt + stabil)
-        player_games_count[user] += 1
+        # =========================
+        # 🔥 ECHTE GAMES (PER USER API)
+        # =========================
+
+        cache_key = (user, tid)
+
+        if cache_key in game_cache:
+            games = game_cache[cache_key]
+        else:
+            games_url = f"https://lichess.org/api/user/{user}/games?tour={tid}&max=1000"
+
+            g_response = requests.get(games_url, headers=headers)
+
+            games = 0
+            if g_response.status_code == 200:
+                for g_line in g_response.text.splitlines():
+                    if g_line.strip():
+                        games += 1
+
+            game_cache[cache_key] = games
+
+        player_games_count[user] += games
 
 # =========================
 # 🏆 FINAL RANKING
