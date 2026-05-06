@@ -9,11 +9,11 @@ from collections import defaultdict
 USERNAME = "DarkOnCrack"
 
 # 🔧 OPTIONAL FILTER
-KEYWORDS = ["Solo Rapid"]   # [] = alle Turniere
+KEYWORDS = ["Crazyhouse"]   # [] = alle Turniere
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MAX_TOURNEYS = 500
-MIN_GAMES = 1   # 🔥 ADDED
+MIN_GAMES = 1
 
 headers = {
     "Accept": "application/x-ndjson"
@@ -73,7 +73,7 @@ print(f"TURNIERE: {len(selected_tourneys)}\n")
 
 points = defaultdict(float)
 player_tournament_participation = defaultdict(set)
-player_games_count = defaultdict(int)   # 🔥 ADDED
+player_games_count = defaultdict(int)
 
 # =========================
 # 🔎 2. TURNIERE DURCHGEHEN
@@ -118,8 +118,11 @@ for t in selected_tourneys:
         # 📊 Participation
         player_tournament_participation[user].add(tid)
 
-        # 🔥 Games count (1 entry = 1 player in results)
-        games = data.get("nb", 0)
+        # 🔥 FIX: echte Games aus "nb"
+        games = data.get("nb")
+        if games is None:
+            games = 0
+
         player_games_count[user] += games
 
 # =========================
