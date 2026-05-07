@@ -8,17 +8,13 @@ from collections import defaultdict
 
 USERNAME = "DarkOnCrack"
 
-# =========================
-# ♟ AVAILABLE PERF TYPES
-# =========================
-
-# ultraBullet
+# ♟ Available Lichess perfTypes:
 # bullet
 # blitz
 # rapid
 # classical
+# ultraBullet
 # correspondence
-
 # chess960
 # crazyhouse
 # antichess
@@ -29,8 +25,9 @@ USERNAME = "DarkOnCrack"
 # threeCheck
 
 PERF_TYPE = "antichess"
-MAX_GAMES = 10000000
-MIN_GAMES_VS = 50
+
+MAX_GAMES = 5000
+MIN_GAMES_VS = 1
 
 # =========================
 
@@ -104,7 +101,6 @@ for line in response.iter_lines():
 
         winner = game.get("winner")
 
-        # Gegner bestimmen
         if white.lower() == USERNAME.lower():
             opponent = black
             user_color = "white"
@@ -114,13 +110,10 @@ for line in response.iter_lines():
 
         games += 1
 
-        # Live Print
         print(f"⚡ Analyzing game {games}: vs {opponent}")
 
-        # Spiele zählen
         stats[opponent]["games"] += 1
 
-        # Ergebnis bestimmen
         if winner is None:
             stats[opponent]["draws"] += 1
 
@@ -134,44 +127,65 @@ for line in response.iter_lines():
         continue
 
 # =========================
-# SORTIEREN
+# FIXED OUTPUT (ONLY CHANGE)
 # =========================
 
+filtered_stats = {
+    opponent: s
+    for opponent, s in stats.items()
+    if s["games"] >= MIN_GAMES_VS
+}
+
 sorted_stats = sorted(
-    stats.items(),
+    filtered_stats.items(),
     key=lambda x: x[1]["games"],
     reverse=True
 )
-
-# =========================
-# OUTPUT
-# =========================
 
 print("\n" + "=" * 70)
 print(f"📊 MOST PLAYED OPPONENTS ({PERF_TYPE})")
 print("=" * 70)
 
-rank = 1
+if not sorted_stats:
+    print("❌ No opponents found.")
+else:
 
-for opponent, s in sorted_stats:
+    rank = 1
 
-    if s["games"] < MIN_GAMES_VS:
-        continue
+    best_opponent = None
+    worst_opponent = None
 
-    games_count = s["games"]
-    wins = s["wins"]
-    losses = s["losses"]
-    draws = s["draws"]
+    for opponent, s in sorted_stats:
 
-    winrate = (wins / games_count) * 100 if games_count > 0 else 0
+        games_count = s["games"]
+        wins = s["wins"]
+        losses = s["losses"]
+        draws = s["draws"]
 
-    print(
-        f"{rank}. {opponent} | "
-        f"{games_count} games | "
-        f"{wins}W {losses}L {draws}D | "
-        f"{winrate:.1f}% WR"
-    )
+        winrate = (wins / games_count) * 100 if games_count > 0 else 0
 
-    rank += 1
+        print(
+            f"{rank}. {opponent} | "
+            f"{games_count} games | "
+            f"{wins}W {losses}L {draws}D | "
+            f"{winrate:.1f}% WR"
+        )
+
+        if best_opponent is None or winrate > best_opponent[1]:
+            best_opponent = (opponent, winrate, games_count)
+
+        if games_count >= 5:
+            if worst_opponent is None or winrate < worst_opponent[1]:
+                worst_opponent = (opponent, winrate, games_count)
+
+        rank += 1
+
+    print("\n" + "=" * 70)
+
+    if best_opponent:
+        print(f"🔥 BEST MATCHUP: {best_opponent[0]} ({best_opponent[1]:.1f}% WR | {best_opponent[2]} games)")
+
+    if worst_opponent:
+        print(f"💀 WORST MATCHUP: {worst_opponent[0]} ({worst_opponent[1]:.1f}% WR | {worst_opponent[2]} games)")
 
 print("\n✅ Analysis complete.")
