@@ -8,53 +8,30 @@ from collections import defaultdict
 
 USERNAME = "DarkOnCrack"
 
-# ♟ Available Lichess perfTypes:
-# bullet
-# blitz
-# rapid
-# classical
-# ultraBullet
-# correspondence
-# chess960
-# crazyhouse
-# antichess
-# atomic
-# horde
-# kingOfTheHill
-# racingKings
-# threeCheck
+PERF_TYPE = "ultraBullet"
 
-PERF_TYPE = "antichess"
-
-MAX_GAMES = 5000000
-MIN_GAMES_VS = 1
+MAX_GAMES = 500000
+MIN_GAMES_VS = 50
 
 # =========================
-# START INFO
+
+url = f"https://lichess.org/api/games/user/{USERNAME}"
+
+headers = {
+    "Accept": "application/x-ndjson"
+}
+
+print(f"\n📥 Lade {PERF_TYPE} Partien von {USERNAME}...\n")
+
+# =========================
+# PAGINATION (ONLY ADDITION)
 # =========================
 
-print("\n" + "=" * 60)
-print(f"👤 Analyzing user: {USERNAME}")
-print(f"♟ Variant: {PERF_TYPE}")
-print(f"🎮 Max games: {MAX_GAMES}")
-print("=" * 60)
-
-# =========================
-# FETCH (PAGINATION + LIVE STREAM)
-# =========================
-
-def fetch_games():
-
-    url = f"https://lichess.org/api/games/user/{USERNAME}"
-
-    headers = {
-        "Accept": "application/x-ndjson"
-    }
-
-    games_loaded = 0
+def fetch_all_games():
+    games = []
     until = None
 
-    while games_loaded < MAX_GAMES:
+    while len(games) < MAX_GAMES:
 
         params = {
             "max": 10000,
@@ -76,7 +53,6 @@ def fetch_games():
         last_id = None
 
         for line in response.iter_lines():
-
             if not line:
                 continue
 
@@ -87,83 +63,59 @@ def fetch_games():
         if not batch:
             break
 
-        games_loaded += len(batch)
+        games.extend(batch)
 
-        print(f"📦 Loaded {games_loaded} games so far...")
-
-        yield batch   # 🔥 LIVE STREAM
+        print(f"📦 {len(games)} Spiele geladen...")
 
         if len(batch) < 10000:
             break
 
         until = last_id
 
+    return games
+
+
 # =========================
-# STATS
+# LOAD
 # =========================
 
-stats = defaultdict(lambda: {
-    "games": 0,
-    "wins": 0,
-    "losses": 0,
-    "draws": 0
-})
+all_games = fetch_all_games()
+
+# =========================
+# ANALYSE (UNCHANGED LOGIC)
+# =========================
+
+opponents = defaultdict(int)
 
 games = 0
 
-# =========================
-# ANALYSE
-# =========================
+for game in all_games:
 
-for batch in fetch_games():
+    try:
+        white = game["players"]["white"]["user"]["name"]
+        black = game["players"]["black"]["user"]["name"]
 
-    for game in batch:
+        if white.lower() == USERNAME.lower():
+            opponent = black
+        else:
+            opponent = white
 
-        try:
-            white = game["players"]["white"]["user"]["name"]
-            black = game["players"]["black"]["user"]["name"]
+        opponents[opponent] += 1
+        games += 1
 
-            winner = game.get("winner")
+        if games % 100 == 0:
+            print(f"⚡ {games} Spiele analysiert...")
 
-            if white.lower() == USERNAME.lower():
-                opponent = black
-                user_color = "white"
-            else:
-                opponent = white
-                user_color = "black"
-
-            games += 1
-
-            # 🔥 LIVE PRINT
-            print(f"⚡ Analyzing game {games}: vs {opponent}")
-
-            stats[opponent]["games"] += 1
-
-            if winner is None:
-                stats[opponent]["draws"] += 1
-
-            elif winner == user_color:
-                stats[opponent]["wins"] += 1
-
-            else:
-                stats[opponent]["losses"] += 1
-
-        except:
-            continue
+    except:
+        continue
 
 # =========================
-# FILTER + SORT
+# SORT
 # =========================
 
-filtered_stats = {
-    opponent: s
-    for opponent, s in stats.items()
-    if s["games"] >= MIN_GAMES_VS
-}
-
-sorted_stats = sorted(
-    filtered_stats.items(),
-    key=lambda x: x[1]["games"],
+sorted_opponents = sorted(
+    opponents.items(),
+    key=lambda x: x[1],
     reverse=True
 )
 
@@ -171,50 +123,18 @@ sorted_stats = sorted(
 # OUTPUT
 # =========================
 
-print("\n" + "=" * 70)
+print("\n" + "=" * 50)
 print(f"📊 MOST PLAYED OPPONENTS ({PERF_TYPE})")
-print("=" * 70)
+print("=" * 50)
 
-if not sorted_stats:
-    print("❌ No opponents found.")
-else:
+rank = 1
 
-    rank = 1
+for opponent, count in sorted_opponents:
 
-    best_opponent = None
-    worst_opponent = None
+    if count < MIN_GAMES_VS:
+        continue
 
-    for opponent, s in sorted_stats:
+    print(f"{rank}. {opponent}: {count} games")
+    rank += 1
 
-        games_count = s["games"]
-        wins = s["wins"]
-        losses = s["losses"]
-        draws = s["draws"]
-
-        winrate = (wins / games_count) * 100 if games_count > 0 else 0
-
-        print(
-            f"{rank}. {opponent} | "
-            f"{games_count} games | "
-            f"{wins}W {losses}L {draws}D | "
-            f"{winrate:.1f}% WR"
-        )
-
-        if best_opponent is None or winrate > best_opponent[1]:
-            best_opponent = (opponent, winrate, games_count)
-
-        if games_count >= 5:
-            if worst_opponent is None or winrate < worst_opponent[1]:
-                worst_opponent = (opponent, winrate, games_count)
-
-        rank += 1
-
-    print("\n" + "=" * 70)
-
-    if best_opponent:
-        print(f"🔥 BEST MATCHUP: {best_opponent[0]} ({best_opponent[1]:.1f}% WR | {best_opponent[2]} games)")
-
-    if worst_opponent:
-        print(f"💀 WORST MATCHUP: {worst_opponent[0]} ({worst_opponent[1]:.1f}% WR | {worst_opponent[2]} games)")
-
-print("\n✅ Analysis complete.")
+print("\n✅ Fertig.")
