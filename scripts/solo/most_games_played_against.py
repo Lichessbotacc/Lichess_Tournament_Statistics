@@ -69,7 +69,7 @@ def game_stream():
             game = json.loads(line)
 
             batch_count += 1
-            last_id = game.get("id")
+            last_created_at = game.get("createdAt")
 
             yield game   # 🔥 WICHTIG: LIVE STREAM BLEIBT
 
@@ -80,7 +80,7 @@ def game_stream():
         if batch_count < 10000:
             break
 
-        until = last_id
+        until = last_created_at
 
 
 # =========================
