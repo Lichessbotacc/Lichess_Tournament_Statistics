@@ -24,7 +24,7 @@ USERNAME = "DarkOnCrack"
 # racingKings
 # threeCheck
 
-PERF_TYPE = "ultraBullet"
+PERF_TYPE = "antichess"
 
 MAX_GAMES = 5000000
 MIN_GAMES_VS = 1
