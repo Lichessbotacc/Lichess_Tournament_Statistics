@@ -14,7 +14,7 @@ USERNAME = "heallan"
 
 PERF_TYPE = "ultrabullet"
 
-MAX_GAMES = 1000000
+MAX_GAMES = 10000000
 MIN_GAMES_VS = 50
 
 # =========================
