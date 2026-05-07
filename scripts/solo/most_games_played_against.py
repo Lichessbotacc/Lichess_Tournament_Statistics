@@ -6,7 +6,7 @@ from collections import defaultdict
 # ⚙️ SETTINGS
 # =========================
 
-USERNAME = "DarkOnCrack"
+USERNAME = "heallan"
 
 # ♟ Available Lichess perfTypes:
 # bullet
@@ -24,10 +24,10 @@ USERNAME = "DarkOnCrack"
 # racingKings
 # threeCheck
 
-PERF_TYPE = "antichess"
+PERF_TYPE = "ultraBullet"
 
-MAX_GAMES = 5000
-MIN_GAMES_VS = 1
+MAX_GAMES = 1000000
+MIN_GAMES_VS = 50
 
 # =========================
 
