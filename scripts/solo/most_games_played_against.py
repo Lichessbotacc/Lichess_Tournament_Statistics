@@ -6,7 +6,7 @@ from collections import defaultdict
 # ⚙️ SETTINGS
 # =========================
 
-USERNAME = "heallan"
+USERNAME = "DarkOnCrack"
 
 # ♟ Available Lichess perfTypes:
 # bullet
@@ -30,21 +30,6 @@ MAX_GAMES = 1000000
 MIN_GAMES_VS = 50
 
 # =========================
-
-url = f"https://lichess.org/api/games/user/{USERNAME}"
-
-params = {
-    "max": MAX_GAMES,
-    "perfType": PERF_TYPE,
-    "moves": False,
-    "pgnInJson": False
-}
-
-headers = {
-    "Accept": "application/x-ndjson"
-}
-
-# =========================
 # START INFO
 # =========================
 
@@ -54,22 +39,70 @@ print(f"♟ Variant: {PERF_TYPE}")
 print(f"🎮 Max games: {MAX_GAMES}")
 print("=" * 60)
 
-print(f"\n📥 Lade {PERF_TYPE} Partien von {USERNAME}...\n")
 
 # =========================
-# API REQUEST
+# ONLY CHANGE: REQUEST LOGIC (PAGINATION)
 # =========================
 
-response = requests.get(
-    url,
-    params=params,
-    headers=headers,
-    stream=True
-)
+def fetch_games():
+    url = f"https://lichess.org/api/games/user/{USERNAME}"
 
-if response.status_code != 200:
-    print("❌ Fehler beim Laden:", response.status_code)
-    exit()
+    headers = {
+        "Accept": "application/x-ndjson"
+    }
+
+    games = []
+    until = None
+
+    while len(games) < MAX_GAMES:
+
+        params = {
+            "max": 10000,
+            "perfType": PERF_TYPE,
+            "moves": False,
+            "pgnInJson": False
+        }
+
+        if until:
+            params["until"] = until
+
+        response = requests.get(url, params=params, headers=headers, stream=True)
+
+        if response.status_code != 200:
+            print("❌ Fehler beim Laden:", response.status_code)
+            break
+
+        batch = []
+        last_id = None
+
+        for line in response.iter_lines():
+            if not line:
+                continue
+
+            game = json.loads(line)
+            batch.append(game)
+            last_id = game.get("id")
+
+        if not batch:
+            break
+
+        games.extend(batch)
+
+        print(f"📦 Loaded {len(games)} games so far...")
+
+        if len(batch) < 10000:
+            break
+
+        until = last_id
+
+    return games
+
+
+# =========================
+# LOAD GAMES
+# =========================
+
+all_games = fetch_games()
 
 # =========================
 # STATS
@@ -88,14 +121,9 @@ games = 0
 # ANALYSE
 # =========================
 
-for line in response.iter_lines():
-
-    if not line:
-        continue
+for game in all_games:
 
     try:
-        game = json.loads(line)
-
         white = game["players"]["white"]["user"]["name"]
         black = game["players"]["black"]["user"]["name"]
 
@@ -127,7 +155,7 @@ for line in response.iter_lines():
         continue
 
 # =========================
-# FIXED OUTPUT (ONLY CHANGE)
+# OUTPUT
 # =========================
 
 filtered_stats = {
