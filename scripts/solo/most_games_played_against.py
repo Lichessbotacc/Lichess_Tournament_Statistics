@@ -6,7 +6,7 @@ from collections import defaultdict
 # ⚙️ SETTINGS
 # =========================
 
-USERNAME = "heallan"
+USERNAME = "DarkOnCrack"
 
 # =========================
 # ♟ AVAILABLE PERF TYPES
@@ -28,7 +28,7 @@ USERNAME = "heallan"
 # racingKings
 # threeCheck
 
-PERF_TYPE = "ultraBullet"
+PERF_TYPE = "antichess"
 MAX_GAMES = 10000000
 MIN_GAMES_VS = 50
 
