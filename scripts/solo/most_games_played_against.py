@@ -6,32 +6,41 @@ from collections import defaultdict
 # ⚙️ SETTINGS
 # =========================
 
-USERNAME = "DarkOnCrack"
+USERNAME = "heallan"
 
-PERF_TYPE = "ultraBullet"
+PERF_TYPE = "ultrabullet"
 
-MAX_GAMES = 500000
+MAX_GAMES = 10000000
 MIN_GAMES_VS = 50
 
 # =========================
+# START INFO
+# =========================
 
-url = f"https://lichess.org/api/games/user/{USERNAME}"
-
-headers = {
-    "Accept": "application/x-ndjson"
-}
+print("\n" + "=" * 60)
+print(f"👤 Analyzing user: {USERNAME}")
+print(f"♟ Variant: {PERF_TYPE}")
+print(f"🎮 Max games: {MAX_GAMES}")
+print("=" * 60)
 
 print(f"\n📥 Lade {PERF_TYPE} Partien von {USERNAME}...\n")
 
 # =========================
-# PAGINATION (ONLY ADDITION)
+# ONLY CHANGE: REQUEST (PAGINATION ADDED)
 # =========================
 
-def fetch_all_games():
-    games = []
-    until = None
+def game_stream():
 
-    while len(games) < MAX_GAMES:
+    url = f"https://lichess.org/api/games/user/{USERNAME}"
+
+    headers = {
+        "Accept": "application/x-ndjson"
+    }
+
+    until = None
+    total = 0
+
+    while total < MAX_GAMES:
 
         params = {
             "max": 10000,
@@ -49,73 +58,90 @@ def fetch_all_games():
             print("❌ Fehler beim Laden:", response.status_code)
             break
 
-        batch = []
+        batch_count = 0
         last_id = None
 
         for line in response.iter_lines():
+
             if not line:
                 continue
 
             game = json.loads(line)
-            batch.append(game)
+
+            batch_count += 1
             last_id = game.get("id")
 
-        if not batch:
-            break
+            yield game   # 🔥 WICHTIG: LIVE STREAM BLEIBT
 
-        games.extend(batch)
+        total += batch_count
 
-        print(f"📦 {len(games)} Spiele geladen...")
+        print(f"📦 {total} games geladen...")
 
-        if len(batch) < 10000:
+        if batch_count < 10000:
             break
 
         until = last_id
 
-    return games
-
 
 # =========================
-# LOAD
+# STATS
 # =========================
 
-all_games = fetch_all_games()
+stats = defaultdict(lambda: {
+    "games": 0,
+    "wins": 0,
+    "losses": 0,
+    "draws": 0
+})
+
+games = 0
 
 # =========================
 # ANALYSE (UNCHANGED LOGIC)
 # =========================
 
-opponents = defaultdict(int)
-
-games = 0
-
-for game in all_games:
+for game in game_stream():
 
     try:
         white = game["players"]["white"]["user"]["name"]
         black = game["players"]["black"]["user"]["name"]
 
+        winner = game.get("winner")
+
+        # Gegner bestimmen
         if white.lower() == USERNAME.lower():
             opponent = black
+            user_color = "white"
         else:
             opponent = white
+            user_color = "black"
 
-        opponents[opponent] += 1
         games += 1
 
-        if games % 100 == 0:
-            print(f"⚡ {games} Spiele analysiert...")
+        # Live Print (UNCHANGED)
+        print(f"⚡ Analyzing game {games}: vs {opponent}")
+
+        stats[opponent]["games"] += 1
+
+        if winner is None:
+            stats[opponent]["draws"] += 1
+
+        elif winner == user_color:
+            stats[opponent]["wins"] += 1
+
+        else:
+            stats[opponent]["losses"] += 1
 
     except:
         continue
 
 # =========================
-# SORT
+# SORTIEREN
 # =========================
 
-sorted_opponents = sorted(
-    opponents.items(),
-    key=lambda x: x[1],
+sorted_stats = sorted(
+    stats.items(),
+    key=lambda x: x[1]["games"],
     reverse=True
 )
 
@@ -123,18 +149,31 @@ sorted_opponents = sorted(
 # OUTPUT
 # =========================
 
-print("\n" + "=" * 50)
+print("\n" + "=" * 70)
 print(f"📊 MOST PLAYED OPPONENTS ({PERF_TYPE})")
-print("=" * 50)
+print("=" * 70)
 
 rank = 1
 
-for opponent, count in sorted_opponents:
+for opponent, s in sorted_stats:
 
-    if count < MIN_GAMES_VS:
+    if s["games"] < MIN_GAMES_VS:
         continue
 
-    print(f"{rank}. {opponent}: {count} games")
+    games_count = s["games"]
+    wins = s["wins"]
+    losses = s["losses"]
+    draws = s["draws"]
+
+    winrate = (wins / games_count) * 100 if games_count > 0 else 0
+
+    print(
+        f"{rank}. {opponent} | "
+        f"{games_count} games | "
+        f"{wins}W {losses}L {draws}D | "
+        f"{winrate:.1f}% WR"
+    )
+
     rank += 1
 
-print("\n✅ Fertig.")
+print("\n✅ Analysis complete.")
