@@ -6,7 +6,7 @@ from collections import defaultdict
 # ⚙️ SETTINGS
 # =========================
 
-USERNAME = "heallan"
+USERNAME = "DarkOnCrack"
 
 # ♟ Available Lichess perfTypes:
 # bullet
@@ -26,8 +26,8 @@ USERNAME = "heallan"
 
 PERF_TYPE = "ultraBullet"
 
-MAX_GAMES = 1000000
-MIN_GAMES_VS = 50
+MAX_GAMES = 5000000
+MIN_GAMES_VS = 1
 
 # =========================
 # START INFO
@@ -39,22 +39,22 @@ print(f"♟ Variant: {PERF_TYPE}")
 print(f"🎮 Max games: {MAX_GAMES}")
 print("=" * 60)
 
-
 # =========================
-# ONLY CHANGE: REQUEST LOGIC (PAGINATION)
+# FETCH (PAGINATION + LIVE STREAM)
 # =========================
 
 def fetch_games():
+
     url = f"https://lichess.org/api/games/user/{USERNAME}"
 
     headers = {
         "Accept": "application/x-ndjson"
     }
 
-    games = []
+    games_loaded = 0
     until = None
 
-    while len(games) < MAX_GAMES:
+    while games_loaded < MAX_GAMES:
 
         params = {
             "max": 10000,
@@ -76,6 +76,7 @@ def fetch_games():
         last_id = None
 
         for line in response.iter_lines():
+
             if not line:
                 continue
 
@@ -86,23 +87,16 @@ def fetch_games():
         if not batch:
             break
 
-        games.extend(batch)
+        games_loaded += len(batch)
 
-        print(f"📦 Loaded {len(games)} games so far...")
+        print(f"📦 Loaded {games_loaded} games so far...")
+
+        yield batch   # 🔥 LIVE STREAM
 
         if len(batch) < 10000:
             break
 
         until = last_id
-
-    return games
-
-
-# =========================
-# LOAD GAMES
-# =========================
-
-all_games = fetch_games()
 
 # =========================
 # STATS
@@ -121,41 +115,44 @@ games = 0
 # ANALYSE
 # =========================
 
-for game in all_games:
+for batch in fetch_games():
 
-    try:
-        white = game["players"]["white"]["user"]["name"]
-        black = game["players"]["black"]["user"]["name"]
+    for game in batch:
 
-        winner = game.get("winner")
+        try:
+            white = game["players"]["white"]["user"]["name"]
+            black = game["players"]["black"]["user"]["name"]
 
-        if white.lower() == USERNAME.lower():
-            opponent = black
-            user_color = "white"
-        else:
-            opponent = white
-            user_color = "black"
+            winner = game.get("winner")
 
-        games += 1
+            if white.lower() == USERNAME.lower():
+                opponent = black
+                user_color = "white"
+            else:
+                opponent = white
+                user_color = "black"
 
-        print(f"⚡ Analyzing game {games}: vs {opponent}")
+            games += 1
 
-        stats[opponent]["games"] += 1
+            # 🔥 LIVE PRINT
+            print(f"⚡ Analyzing game {games}: vs {opponent}")
 
-        if winner is None:
-            stats[opponent]["draws"] += 1
+            stats[opponent]["games"] += 1
 
-        elif winner == user_color:
-            stats[opponent]["wins"] += 1
+            if winner is None:
+                stats[opponent]["draws"] += 1
 
-        else:
-            stats[opponent]["losses"] += 1
+            elif winner == user_color:
+                stats[opponent]["wins"] += 1
 
-    except:
-        continue
+            else:
+                stats[opponent]["losses"] += 1
+
+        except:
+            continue
 
 # =========================
-# OUTPUT
+# FILTER + SORT
 # =========================
 
 filtered_stats = {
@@ -169,6 +166,10 @@ sorted_stats = sorted(
     key=lambda x: x[1]["games"],
     reverse=True
 )
+
+# =========================
+# OUTPUT
+# =========================
 
 print("\n" + "=" * 70)
 print(f"📊 MOST PLAYED OPPONENTS ({PERF_TYPE})")
