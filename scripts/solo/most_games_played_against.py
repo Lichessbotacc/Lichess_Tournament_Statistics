@@ -8,12 +8,27 @@ from collections import defaultdict
 
 USERNAME = "heallan"
 
-# Varianten:
-# bullet, blitz, rapid, classical,
-# ultraBullet, correspondence, chess960 usw.
+# =========================
+# ♟ AVAILABLE PERF TYPES
+# =========================
 
-PERF_TYPE = "ultrabullet"
+# ultraBullet
+# bullet
+# blitz
+# rapid
+# classical
+# correspondence
 
+# chess960
+# crazyhouse
+# antichess
+# atomic
+# horde
+# kingOfTheHill
+# racingKings
+# threeCheck
+
+PERF_TYPE = "ultraBullet"
 MAX_GAMES = 10000000
 MIN_GAMES_VS = 50
 
