@@ -6,13 +6,13 @@ from collections import defaultdict
 # ⚙️ SETTINGS
 # =========================
 
-USERNAME = "Ozgur3838"
+USERNAME = "Paul_Rieger"
 
-PERF_TYPE = "rapid"
+PERF_TYPE = ""
 
 MAX_GAMES = 10000000
-MIN_GAMES_VS = 0
-LIVE_PRINTS = True
+MIN_GAMES_VS = 5
+LIVE_PRINTS = False
 
 # =========================
 # START INFO
