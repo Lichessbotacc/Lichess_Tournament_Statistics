@@ -12,7 +12,7 @@ PERF_TYPE = "ultraBullet"
 
 MAX_GAMES = 10000000
 MIN_GAMES_VS = 50
-LIVE_PRINTS = False
+LIVE_PRINTS = True
 
 # =========================
 # START INFO
