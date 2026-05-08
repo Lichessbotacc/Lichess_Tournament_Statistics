@@ -1,6 +1,5 @@
 import requests
 import json
-import time
 from collections import defaultdict
 
 # =========================
@@ -9,23 +8,19 @@ from collections import defaultdict
 
 USERNAME = "DarkOnCrack"
 
-RATED_ONLY = True
+PERF_TYPE = "rapid"   # "blitz", "bullet", "ultrabullet", "" = all
 
-# Beispiele:
-# "ultrabullet"
-# "bullet"
-# "blitz"
-# "rapid"
-# "" = alle Varianten
-GAME_TYPE = "rapid"
-
-chunk_size = 5000
-
+MAX_GAMES = 10000000
 LIVE_PRINTS = True
 
-headers = {
-    "Accept": "application/x-ndjson"
-}
+# =========================
+# START INFO
+# =========================
+
+print("\n" + "=" * 60)
+print(f"⚡ Rating Analysis for: {USERNAME}")
+print(f"♟ Variant: {PERF_TYPE if PERF_TYPE else 'ALL'}")
+print("=" * 60)
 
 # =========================
 # DATA
@@ -34,189 +29,125 @@ headers = {
 rating_balance = defaultdict(int)
 games_count = defaultdict(int)
 
-total_analyzed_games = 0
-total_fetched_games = 0
+total_games = 0
 
 # =========================
-# PAGING SETUP
+# STREAM
 # =========================
 
-BASE_URL = f"https://lichess.org/api/games/user/{USERNAME}"
+def game_stream():
 
-last_created_at = None
+    url = f"https://lichess.org/api/games/user/{USERNAME}"
+    headers = {"Accept": "application/x-ndjson"}
 
-print("\n" + "=" * 60)
-print(f"⚡ Rating Analysis for: {USERNAME}")
-print(f"🎮 Game type: {GAME_TYPE if GAME_TYPE else 'ALL'}")
-print(f"📦 Chunk size: {chunk_size}")
-print("=" * 60)
+    until = None
+    fetched = 0
 
-# =========================
-# DOWNLOAD + ANALYZE LOOP
-# =========================
+    while fetched < MAX_GAMES:
 
-while True:
+        params = {
+            "max": 1000,
+            "moves": False,
+            "pgnInJson": False
+        }
 
-    params = {
-        "max": chunk_size,
-        "moves": False,
-        "pgnInJson": False,
-    }
+        if PERF_TYPE:
+            params["perfType"] = PERF_TYPE
 
-    if RATED_ONLY:
-        params["rated"] = True
+        if until:
+            params["until"] = until
 
-    if last_created_at:
-        params["until"] = last_created_at - 1
+        response = requests.get(url, params=params, headers=headers, stream=True)
 
-    print(f"\n📥 Fetching chunk... (analyzed: {total_analyzed_games})")
+        if response.status_code != 200:
+            print("❌ Error:", response.status_code)
+            break
 
-    response = requests.get(
-        BASE_URL,
-        headers=headers,
-        params=params,
-        stream=True
-    )
+        batch = 0
+        last_created_at = None
 
-    if response.status_code != 200:
-        print(f"❌ Error fetching games: {response.status_code}")
-        break
+        for line in response.iter_lines():
 
-    lines_in_chunk = 0
-    last_created_at_in_chunk = None
-
-    for line in response.iter_lines():
-
-        if not line:
-            continue
-
-        try:
-            game = json.loads(line)
-
-        except Exception as e:
-            print("JSON Error:", e)
-            continue
-
-        lines_in_chunk += 1
-        total_fetched_games += 1
-
-        # Für Pagination
-        last_created_at_in_chunk = game.get("createdAt")
-
-        # =========================
-        # FILTER GAME TYPE
-        # =========================
-
-        perf = game.get("perf", "").lower()
-
-        if GAME_TYPE:
-            if perf != GAME_TYPE.lower():
+            if not line:
                 continue
 
-        # =========================
-        # PLAYERS
-        # =========================
+            try:
+                game = json.loads(line)
+            except:
+                continue
 
-        players = game.get("players", {})
+            batch += 1
+            fetched += 1
 
-        white = players.get("white", {})
-        black = players.get("black", {})
+            last_created_at = game.get("createdAt")
 
-        white_user = white.get("user", {}).get("name", "")
-        black_user = black.get("user", {}).get("name", "")
+            yield game
 
-        # =========================
-        # DETERMINE SIDE
-        # =========================
+        if batch == 0:
+            break
 
-        if white_user.lower() == USERNAME.lower():
+        until = last_created_at
 
-            me = white
-            opponent_name = black_user
+        print(f"📦 Loaded: {fetched} games")
 
-        elif black_user.lower() == USERNAME.lower():
 
-            me = black
-            opponent_name = white_user
+# =========================
+# ANALYSIS
+# =========================
 
+for game in game_stream():
+
+    try:
+        white = game["players"]["white"]["user"]["name"]
+        black = game["players"]["black"]["user"]["name"]
+
+        winner = game.get("winner")
+
+        white_data = game["players"]["white"]
+        black_data = game["players"]["black"]
+
+        if white.lower() == USERNAME.lower():
+            opponent = black
+            me = white_data
+            color = "white"
         else:
-            continue
+            opponent = white
+            me = black_data
+            color = "black"
 
-        if not opponent_name:
-            continue
+        total_games += 1
 
         # =========================
-        # FILTER VALID GAMES
+        # RATING DIFF FIX
         # =========================
 
         rating_diff = me.get("ratingDiff", 0)
-
-        
-
-        # =========================
-        # APPLY STATS
-        # =========================
-
-        rating_balance[opponent_name] += rating_diff
-        games_count[opponent_name] += 1
-
-        total_analyzed_games += 1
 
         # =========================
         # LIVE PRINT
         # =========================
 
         if LIVE_PRINTS:
-
-            game_id = game.get("id", "")
-            game_link = f"https://lichess.org/{game_id}"
-
             sign = "+" if rating_diff > 0 else ""
-
             print(
-                f"⚡ Game {total_analyzed_games} | "
-                f"vs {opponent_name} | "
+                f"⚡ Game {total_games} vs {opponent} | "
                 f"{sign}{rating_diff} | "
-                f"{game_link}"
+                f"https://lichess.org/{game.get('id')}"
             )
 
-    # =========================
-    # STOP CONDITIONS
-    # =========================
+        rating_balance[opponent] += rating_diff
+        games_count[opponent] += 1
 
-    if lines_in_chunk == 0:
-        print("\n✅ No more games found.")
-        break
+    except:
+        continue
 
-    if not last_created_at_in_chunk:
-        print("\n✅ Reached end of games.")
-        break
-
-    last_created_at = last_created_at_in_chunk
-
-    print(
-        f"📦 Chunk complete | "
-        f"Fetched: {total_fetched_games} | "
-        f"Analyzed: {total_analyzed_games}"
-    )
-
-    # Anti rate-limit
-    time.sleep(0.3)
 
 # =========================
-# SORT RESULTS
+# SORT
 # =========================
 
-best = sorted(
-    rating_balance.items(),
-    key=lambda x: x[1],
-    reverse=True
-)
-
-worst = sorted(
-    rating_balance.items(),
-    key=lambda x: x[1]
-)
+best = sorted(rating_balance.items(), key=lambda x: x[1], reverse=True)
+worst = sorted(rating_balance.items(), key=lambda x: x[1])
 
 # =========================
 # OUTPUT
@@ -230,16 +161,13 @@ rank = 1
 
 for opponent, score in best[:25]:
 
-    if score <= 0:
+    if games_count[opponent] < 5:
         continue
 
-    games = games_count[opponent]
-
     print(
-        f"{rank}. {opponent}: "
+        f"{rank}. {opponent} | "
         f"+{score} rating | "
-        f"{games} games | "
-        f"https://lichess.org/@/{opponent}"
+        f"{games_count[opponent]} games"
     )
 
     rank += 1
@@ -252,29 +180,15 @@ rank = 1
 
 for opponent, score in worst[:25]:
 
-    if score >= 0:
+    if games_count[opponent] < 5:
         continue
 
-    games = games_count[opponent]
-
     print(
-        f"{rank}. {opponent}: "
+        f"{rank}. {opponent} | "
         f"{score} rating | "
-        f"{games} games | "
-        f"https://lichess.org/@/{opponent}"
+        f"{games_count[opponent]} games"
     )
 
     rank += 1
 
-# =========================
-# FINAL SUMMARY
-# =========================
-
-print("\n" + "=" * 60)
-print("📊 FINAL SUMMARY")
-print("=" * 60)
-
-print(f"🎮 Total fetched games: {total_fetched_games}")
-print(f"✅ Total analyzed games: {total_analyzed_games}")
-
-print("\n✅ Analysis complete.\n")
+print("\n✅ Done")
