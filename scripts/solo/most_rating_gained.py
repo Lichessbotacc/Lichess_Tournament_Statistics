@@ -65,7 +65,7 @@ while True:
         params["rated"] = True
 
     if last_created_at:
-        params["until"] = last_created_at
+        params["until"] = last_created_at - 1
 
     print(f"\n📥 Fetching chunk... (analyzed: {total_analyzed_games})")
 
