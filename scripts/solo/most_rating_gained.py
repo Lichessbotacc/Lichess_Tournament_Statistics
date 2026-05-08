@@ -25,6 +25,7 @@ headers = {
 
 rating_balance = defaultdict(int)
 games_count = defaultdict(int)
+total_analyzed_games = 0
 
 # =========================
 # DOWNLOAD GAMES
@@ -100,6 +101,7 @@ for line in response.iter_lines():
 
     rating_balance[opponent_name] += rating_diff
     games_count[opponent_name] += 1
+    total_analyzed_games += 1
 
 # =========================
 # SORT
@@ -157,3 +159,5 @@ for opponent, score in worst[:25]:
     )
 
     rank += 1
+
+print(f"\n📊 Total analyzed games: {total_analyzed_games}\n")
