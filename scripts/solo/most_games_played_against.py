@@ -8,7 +8,7 @@ from collections import defaultdict
 
 USERNAME = "Ozgur3838"
 
-PERF_TYPE = ""
+PERF_TYPE = "rapid"
 
 MAX_GAMES = 10000000
 MIN_GAMES_VS = 0
