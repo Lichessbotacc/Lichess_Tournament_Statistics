@@ -12,10 +12,12 @@ USERNAME = "DarkOnCrack"
 RATED_ONLY = True
 
 # Beispiele:
-# ["ultrabullet"]
-# ["bullet", "blitz"]
-# [] = alle Varianten
-GAME_TYPES = ["rapid"]
+# "ultrabullet"
+# "bullet"
+# "blitz"
+# "rapid"
+# "" = alle Varianten
+GAME_TYPE = "rapid"
 
 chunk_size = 5000
 
@@ -45,7 +47,7 @@ last_created_at = None
 
 print("\n" + "=" * 60)
 print(f"⚡ Rating Analysis for: {USERNAME}")
-print(f"🎮 Game types: {GAME_TYPES if GAME_TYPES else 'ALL'}")
+print(f"🎮 Game type: {GAME_TYPE if GAME_TYPE else 'ALL'}")
 print(f"📦 Chunk size: {chunk_size}")
 print("=" * 60)
 
@@ -91,7 +93,8 @@ while True:
         try:
             game = json.loads(line)
 
-        except:
+        except Exception as e:
+            print("JSON Error:", e)
             continue
 
         lines_in_chunk += 1
@@ -106,10 +109,8 @@ while True:
 
         speed = game.get("speed", "").lower()
 
-        if GAME_TYPES:
-            allowed = [g.lower() for g in GAME_TYPES]
-
-            if speed not in allowed:
+        if GAME_TYPE:
+            if speed != GAME_TYPE.lower():
                 continue
 
         # =========================
@@ -151,9 +152,6 @@ while True:
         rating_diff = me.get("ratingDiff")
 
         if rating_diff is None:
-            continue
-
-        if me.get("provisional"):
             continue
 
         # =========================
