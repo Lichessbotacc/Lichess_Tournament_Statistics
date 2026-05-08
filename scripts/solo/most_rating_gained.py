@@ -15,11 +15,11 @@ RATED_ONLY = True
 # ["ultrabullet"]
 # ["bullet", "blitz"]
 # [] = alle Varianten
-GAME_TYPES = "ultraBullet"
+GAME_TYPES = ["ultraBullet"]
 
 chunk_size = 5000
 
-LIVE_PRINTS = False
+LIVE_PRINTS = True
 
 headers = {
     "Accept": "application/x-ndjson"
