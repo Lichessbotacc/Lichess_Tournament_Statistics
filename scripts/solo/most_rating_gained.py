@@ -6,12 +6,12 @@ from collections import defaultdict
 # CONFIG
 # =========================
 
-USERNAME = "DarkOnCrack"
+USERNAME = "SeherHavva"
 MAX_GAMES = 10000
 
 # Optional:
 RATED_ONLY = True
-GAME_TYPES = "rapid"
+GAME_TYPES = "ultraBullet"
 # Beispiel:
 # GAME_TYPES = ["bullet", "blitz"]
 
