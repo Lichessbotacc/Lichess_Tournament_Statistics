@@ -11,7 +11,7 @@ USERNAME = "SeherHavva"
 MAX_GAMES = 5000
 
 RATED_ONLY = True
-GAME_TYPES = [classical]  # z.B. ["bullet", "blitz"]
+GAME_TYPES = [rapid]  # z.B. ["bullet", "blitz"]
 
 headers = {
     "Accept": "application/x-ndjson"
