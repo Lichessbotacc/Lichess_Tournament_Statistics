@@ -59,7 +59,7 @@ def game_stream():
             break
 
         batch_count = 0
-        last_id = None
+        last_created_at = None
 
         for line in response.iter_lines():
 
