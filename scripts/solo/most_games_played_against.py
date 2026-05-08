@@ -12,6 +12,7 @@ PERF_TYPE = "ultraBullet"
 
 MAX_GAMES = 10000000
 MIN_GAMES_VS = 50
+LIVE_PRINTS = False
 
 # =========================
 # START INFO
@@ -118,15 +119,16 @@ for game in game_stream():
 
         games += 1
 
-        # Live Print (UNCHANGED)
-        game_id = game.get("id")
-        game_link = f"https://lichess.org/{game_id}"
+        # Live Print Toggle
+        if LIVE_PRINTS:
+            game_id = game.get("id")
+            game_link = f"https://lichess.org/{game_id}"
 
-        print(
-            f"⚡ Analyzing game {games}: "
-            f"vs {opponent} | "
-            f"{game_link}"
-        )
+            print(
+                f"⚡ Analyzing game {games}: "
+                f"vs {opponent} | "
+                f"{game_link}"
+            )
 
         stats[opponent]["games"] += 1
 
