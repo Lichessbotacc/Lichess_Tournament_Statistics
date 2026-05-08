@@ -7,20 +7,17 @@ from collections import defaultdict
 # =========================
 
 USERNAME = "DarkOnCrack"
+MAX_GAMES = 100000
 
-PERF_TYPE = "rapid"   # "blitz", "bullet", "ultrabullet", "" = all
+# Optional:
+RATED_ONLY = True
+GAME_TYPES = "classical"
+# Beispiel:
+# GAME_TYPES = ["bullet", "blitz"]
 
-MAX_GAMES = 10000000
-LIVE_PRINTS = True
-
-# =========================
-# START INFO
-# =========================
-
-print("\n" + "=" * 60)
-print(f"⚡ Rating Analysis for: {USERNAME}")
-print(f"♟ Variant: {PERF_TYPE if PERF_TYPE else 'ALL'}")
-print("=" * 60)
+headers = {
+    "Accept": "application/x-ndjson"
+}
 
 # =========================
 # DATA
@@ -29,166 +26,134 @@ print("=" * 60)
 rating_balance = defaultdict(int)
 games_count = defaultdict(int)
 
-total_games = 0
-
 # =========================
-# STREAM
+# DOWNLOAD GAMES
 # =========================
 
-def game_stream():
+url = (
+    f"https://lichess.org/api/games/user/{USERNAME}"
+    f"?max={MAX_GAMES}"
+    f"&rated={'true' if RATED_ONLY else 'false'}"
+    f"&moves=false"
+    f"&pgnInJson=false"
+)
 
-    url = f"https://lichess.org/api/games/user/{USERNAME}"
-    headers = {"Accept": "application/x-ndjson"}
+print("⚡ Downloading games...\n")
 
-    until = None
-    fetched = 0
+response = requests.get(url, headers=headers, stream=True)
 
-    while fetched < MAX_GAMES:
-
-        params = {
-            "max": 1000,
-            "moves": False,
-            "pgnInJson": False
-        }
-
-        if PERF_TYPE:
-            params["perfType"] = PERF_TYPE
-
-        if until:
-            params["until"] = until
-
-        response = requests.get(url, params=params, headers=headers, stream=True)
-
-        if response.status_code != 200:
-            print("❌ Error:", response.status_code)
-            break
-
-        batch = 0
-        last_created_at = None
-
-        for line in response.iter_lines():
-
-            if not line:
-                continue
-
-            try:
-                game = json.loads(line)
-            except:
-                continue
-
-            batch += 1
-            fetched += 1
-
-            last_created_at = game.get("createdAt")
-
-            yield game
-
-        if batch == 0:
-            break
-
-        until = last_created_at
-
-        print(f"📦 Loaded: {fetched} games")
-
+if response.status_code != 200:
+    print("❌ Error downloading games")
+    exit()
 
 # =========================
-# ANALYSIS
+# ANALYZE
 # =========================
 
-for game in game_stream():
-
-    try:
-        white = game["players"]["white"]["user"]["name"]
-        black = game["players"]["black"]["user"]["name"]
-
-        winner = game.get("winner")
-
-        white_data = game["players"]["white"]
-        black_data = game["players"]["black"]
-
-        if white.lower() == USERNAME.lower():
-            opponent = black
-            me = white_data
-            color = "white"
-        else:
-            opponent = white
-            me = black_data
-            color = "black"
-
-        total_games += 1
-
-        # =========================
-        # RATING DIFF FIX
-        # =========================
-
-        rating_diff = me.get("ratingDiff", 0)
-
-        # =========================
-        # LIVE PRINT
-        # =========================
-
-        if LIVE_PRINTS:
-            sign = "+" if rating_diff > 0 else ""
-            print(
-                f"⚡ Game {total_games} vs {opponent} | "
-                f"{sign}{rating_diff} | "
-                f"https://lichess.org/{game.get('id')}"
-            )
-
-        rating_balance[opponent] += rating_diff
-        games_count[opponent] += 1
-
-    except:
+for line in response.iter_lines():
+    if not line:
         continue
 
+    game = json.loads(line)
+
+    speed = game.get("speed", "unknown")
+
+    if GAME_TYPES and speed not in GAME_TYPES:
+        continue
+
+    players = game.get("players", {})
+
+    white = players.get("white", {})
+    black = players.get("black", {})
+
+    white_user = white.get("user", {}).get("name", "")
+    black_user = black.get("user", {}).get("name", "")
+
+    # =========================
+    # DETERMINE SIDE
+    # =========================
+
+    if white_user.lower() == USERNAME.lower():
+        me = white
+        opponent = black
+        opponent_name = black_user
+
+    elif black_user.lower() == USERNAME.lower():
+        me = black
+        opponent = white
+        opponent_name = white_user
+
+    else:
+        continue
+
+    if not opponent_name:
+        continue
+
+    rating_diff = me.get("ratingDiff")
+
+    if rating_diff is None:
+        continue
+
+    # Ignore provisional / unstable games
+    if me.get("provisional"):
+        continue
+
+    rating_balance[opponent_name] += rating_diff
+    games_count[opponent_name] += 1
 
 # =========================
 # SORT
 # =========================
 
-best = sorted(rating_balance.items(), key=lambda x: x[1], reverse=True)
-worst = sorted(rating_balance.items(), key=lambda x: x[1])
+best = sorted(
+    rating_balance.items(),
+    key=lambda x: x[1],
+    reverse=True
+)
+
+worst = sorted(
+    rating_balance.items(),
+    key=lambda x: x[1]
+)
 
 # =========================
 # OUTPUT
 # =========================
 
-print("\n" + "=" * 70)
-print("🏆 BEST RATING FARM")
-print("=" * 70)
+print("\n🏆 BEST RATING FARM\n")
 
 rank = 1
 
 for opponent, score in best[:25]:
-
-    if games_count[opponent] < 5:
+    if score <= 0:
         continue
 
+    games = games_count[opponent]
+
     print(
-        f"{rank}. {opponent} | "
+        f"{rank}. {opponent}: "
         f"+{score} rating | "
-        f"{games_count[opponent]} games"
+        f"{games} games | "
+        f"https://lichess.org/@/{opponent}"
     )
 
     rank += 1
 
-print("\n" + "=" * 70)
-print("💀 WORST MATCHUPS")
-print("=" * 70)
+print("\n💀 WORST MATCHUPS\n")
 
 rank = 1
 
 for opponent, score in worst[:25]:
-
-    if games_count[opponent] < 5:
+    if score >= 0:
         continue
 
+    games = games_count[opponent]
+
     print(
-        f"{rank}. {opponent} | "
+        f"{rank}. {opponent}: "
         f"{score} rating | "
-        f"{games_count[opponent]} games"
+        f"{games} games | "
+        f"https://lichess.org/@/{opponent}"
     )
 
     rank += 1
-
-print("\n✅ Done")
