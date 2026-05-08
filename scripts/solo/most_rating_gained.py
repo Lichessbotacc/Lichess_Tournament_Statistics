@@ -15,7 +15,7 @@ RATED_ONLY = True
 # ["ultrabullet"]
 # ["bullet", "blitz"]
 # [] = alle Varianten
-GAME_TYPES = ["ultraBullet"]
+GAME_TYPES = ["blitz"]
 
 chunk_size = 5000
 
