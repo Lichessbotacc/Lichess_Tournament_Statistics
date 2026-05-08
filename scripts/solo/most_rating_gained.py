@@ -7,7 +7,7 @@ from collections import defaultdict
 # CONFIG
 # =========================
 
-USERNAME = "DarkOCrack"
+USERNAME = "DarkOnCrack"
 
 RATED_ONLY = True
 
