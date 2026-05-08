@@ -149,10 +149,9 @@ while True:
         # FILTER VALID GAMES
         # =========================
 
-        rating_diff = me.get("ratingDiff")
+        rating_diff = me.get("ratingDiff", 0)
 
-        if rating_diff is None:
-            continue
+        
 
         # =========================
         # APPLY STATS
