@@ -94,6 +94,10 @@ for line in response.iter_lines():
     if rating_diff is None:
         continue
 
+    # Ignore provisional / unstable games
+    if me.get("provisional"):
+        continue
+
     rating_balance[opponent_name] += rating_diff
     games_count[opponent_name] += 1
 
