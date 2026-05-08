@@ -7,7 +7,7 @@ from collections import defaultdict
 # CONFIG
 # =========================
 
-USERNAME = "DarkOnCrack"
+USERNAME = "DarkOCrack"
 
 RATED_ONLY = True
 
@@ -15,7 +15,7 @@ RATED_ONLY = True
 # ["ultrabullet"]
 # ["bullet", "blitz"]
 # [] = alle Varianten
-GAME_TYPES = ["blitz"]
+GAME_TYPES = ["rapid"]
 
 chunk_size = 5000
 
