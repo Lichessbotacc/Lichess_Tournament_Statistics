@@ -1,4 +1,3 @@
-
 import requests
 import json
 from collections import defaultdict
@@ -7,11 +6,14 @@ from collections import defaultdict
 # CONFIG
 # =========================
 
-USERNAME = "Haticek06"
-MAX_GAMES = 5000
+USERNAME = "DarkOnCrack"
+MAX_GAMES = 100000
 
+# Optional:
 RATED_ONLY = True
-GAME_TYPES = "ultraBullet"  # z.B. ["bullet", "blitz"]
+GAME_TYPES = "ultraBullet"
+# Beispiel:
+# GAME_TYPES = ["bullet", "blitz"]
 
 headers = {
     "Accept": "application/x-ndjson"
@@ -36,7 +38,6 @@ url = (
     f"&pgnInJson=false"
 )
 
-print(f"\n⚡ Rating Analysis for: {USERNAME}\n")
 print("⚡ Downloading games...\n")
 
 response = requests.get(url, headers=headers, stream=True)
@@ -68,13 +69,20 @@ for line in response.iter_lines():
     white_user = white.get("user", {}).get("name", "")
     black_user = black.get("user", {}).get("name", "")
 
+    # =========================
     # DETERMINE SIDE
+    # =========================
+
     if white_user.lower() == USERNAME.lower():
         me = white
+        opponent = black
         opponent_name = black_user
+
     elif black_user.lower() == USERNAME.lower():
         me = black
+        opponent = white
         opponent_name = white_user
+
     else:
         continue
 
@@ -82,10 +90,11 @@ for line in response.iter_lines():
         continue
 
     rating_diff = me.get("ratingDiff")
+
     if rating_diff is None:
         continue
 
-    # Ignore provisional games
+    # Ignore provisional / unstable games
     if me.get("provisional"):
         continue
 
@@ -96,8 +105,16 @@ for line in response.iter_lines():
 # SORT
 # =========================
 
-best = sorted(rating_balance.items(), key=lambda x: x[1], reverse=True)
-worst = sorted(rating_balance.items(), key=lambda x: x[1])
+best = sorted(
+    rating_balance.items(),
+    key=lambda x: x[1],
+    reverse=True
+)
+
+worst = sorted(
+    rating_balance.items(),
+    key=lambda x: x[1]
+)
 
 # =========================
 # OUTPUT
@@ -106,23 +123,37 @@ worst = sorted(rating_balance.items(), key=lambda x: x[1])
 print("\n🏆 BEST RATING FARM\n")
 
 rank = 1
+
 for opponent, score in best[:25]:
     if score <= 0:
         continue
 
     games = games_count[opponent]
 
-    print(f"{rank}. {opponent}: +{score} rating | {games} games | https://lichess.org/@/{opponent}")
+    print(
+        f"{rank}. {opponent}: "
+        f"+{score} rating | "
+        f"{games} games | "
+        f"https://lichess.org/@/{opponent}"
+    )
+
     rank += 1
 
 print("\n💀 WORST MATCHUPS\n")
 
 rank = 1
+
 for opponent, score in worst[:25]:
     if score >= 0:
         continue
 
     games = games_count[opponent]
 
-    print(f"{rank}. {opponent}: {score} rating | {games} games | https://lichess.org/@/{opponent}")
+    print(
+        f"{rank}. {opponent}: "
+        f"{score} rating | "
+        f"{games} games | "
+        f"https://lichess.org/@/{opponent}"
+    )
+
     rank += 1
