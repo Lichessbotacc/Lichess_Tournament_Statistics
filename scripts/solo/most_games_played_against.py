@@ -6,9 +6,9 @@ from collections import defaultdict
 # ⚙️ SETTINGS
 # =========================
 
-USERNAME = "kubak5"
+USERNAME = "checknight1"
 
-PERF_TYPE = ""
+PERF_TYPE = "ultraBullet"
 
 MAX_GAMES = 10000000
 MIN_GAMES_VS = 5
