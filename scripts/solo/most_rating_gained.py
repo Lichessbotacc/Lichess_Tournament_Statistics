@@ -11,7 +11,7 @@ MAX_GAMES = 100000
 
 # Optional:
 RATED_ONLY = True
-GAME_TYPES = "classical"
+GAME_TYPES = "ultraBullet"
 # Beispiel:
 # GAME_TYPES = ["bullet", "blitz"]
 
