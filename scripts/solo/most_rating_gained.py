@@ -7,11 +7,11 @@ from collections import defaultdict
 # CONFIG
 # =========================
 
-USERNAME = "SeherHavva"
+USERNAME = "Haticek06"
 MAX_GAMES = 5000
 
 RATED_ONLY = True
-GAME_TYPES = "rapid"  # z.B. ["bullet", "blitz"]
+GAME_TYPES = "ultraBullet"  # z.B. ["bullet", "blitz"]
 
 headers = {
     "Accept": "application/x-ndjson"
