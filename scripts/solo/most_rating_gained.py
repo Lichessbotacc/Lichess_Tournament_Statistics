@@ -107,10 +107,10 @@ while True:
         # FILTER GAME TYPE
         # =========================
 
-        speed = game.get("speed", "").lower()
+        perf = game.get("perf", "").lower()
 
         if GAME_TYPE:
-            if speed != GAME_TYPE.lower():
+            if perf != GAME_TYPE.lower():
                 continue
 
         # =========================
