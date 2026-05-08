@@ -119,7 +119,14 @@ for game in game_stream():
         games += 1
 
         # Live Print (UNCHANGED)
-        print(f"⚡ Analyzing game {games}: vs {opponent}")
+        game_id = game.get("id")
+        game_link = f"https://lichess.org/{game_id}"
+
+        print(
+            f"⚡ Analyzing game {games}: "
+            f"vs {opponent} | "
+            f"{game_link}"
+        )
 
         stats[opponent]["games"] += 1
 
