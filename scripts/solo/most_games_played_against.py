@@ -6,7 +6,7 @@ from collections import defaultdict
 # ⚙️ SETTINGS
 # =========================
 
-USERNAME = "DarkOnCrack"
+USERNAME = "heallan"
 
 PERF_TYPE = "ultraBullet"
 
