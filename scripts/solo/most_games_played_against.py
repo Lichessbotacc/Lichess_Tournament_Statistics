@@ -8,7 +8,7 @@ from collections import defaultdict
 
 USERNAME = "DarkOnCrack"
 
-PERF_TYPE = "Blitz"
+PERF_TYPE = "blitz"
 
 MAX_GAMES = 10000000
 MIN_GAMES_VS = 10
