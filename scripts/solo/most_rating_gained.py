@@ -1,5 +1,6 @@
 import requests
 import json
+import time
 from collections import defaultdict
 
 # =========================
@@ -7,13 +8,11 @@ from collections import defaultdict
 # =========================
 
 USERNAME = "DarkOnCrack"
-MAX_GAMES = 100000
 
-# Optional:
 RATED_ONLY = True
-GAME_TYPES = "ultraBullet"
-# Beispiel:
-# GAME_TYPES = ["bullet", "blitz"]
+GAME_TYPES = "ultraBullet"  # z.B. ["bullet", "blitz"]
+
+chunk_size = 5000
 
 headers = {
     "Accept": "application/x-ndjson"
@@ -25,98 +24,126 @@ headers = {
 
 rating_balance = defaultdict(int)
 games_count = defaultdict(int)
+
 total_analyzed_games = 0
+games_fetched = 0
 
 # =========================
-# DOWNLOAD GAMES
+# PAGING SETUP
 # =========================
 
-url = (
-    f"https://lichess.org/api/games/user/{USERNAME}"
-    f"?max={MAX_GAMES}"
-    f"&rated={'true' if RATED_ONLY else 'false'}"
-    f"&moves=false"
-    f"&pgnInJson=false"
-)
+BASE_URL = f"https://lichess.org/api/games/user/{USERNAME}"
 
-print("⚡ Downloading games...\n")
+last_game_id = None
 
-response = requests.get(url, headers=headers, stream=True)
-
-if response.status_code != 200:
-    print("❌ Error downloading games")
-    exit()
+print(f"\n⚡ Rating Analysis for: {USERNAME}\n")
 
 # =========================
-# ANALYZE
+# DOWNLOAD + ANALYZE LOOP
 # =========================
 
-for line in response.iter_lines():
-    if not line:
-        continue
+while True:
 
-    game = json.loads(line)
+    params = {
+        "max": chunk_size,
+        "rated": "true" if RATED_ONLY else "false",
+        "moves": "false",
+        "pgnInJson": "false",
+    }
 
-    speed = game.get("speed", "unknown")
+    if last_game_id:
+        params["until"] = last_game_id
 
-    if GAME_TYPES and speed not in GAME_TYPES:
-        continue
+    print(f"⚡ Fetching chunk... (total analyzed: {total_analyzed_games})")
 
-    players = game.get("players", {})
+    response = requests.get(BASE_URL, headers=headers, params=params, stream=True)
 
-    white = players.get("white", {})
-    black = players.get("black", {})
+    if response.status_code != 200:
+        print("❌ Error fetching games")
+        break
 
-    white_user = white.get("user", {}).get("name", "")
-    black_user = black.get("user", {}).get("name", "")
+    lines_in_chunk = 0
+    last_id_in_chunk = None
 
-    # =========================
-    # DETERMINE SIDE
-    # =========================
+    for line in response.iter_lines():
+        if not line:
+            continue
 
-    if white_user.lower() == USERNAME.lower():
-        me = white
-        opponent = black
-        opponent_name = black_user
+        game = json.loads(line)
+        lines_in_chunk += 1
 
-    elif black_user.lower() == USERNAME.lower():
-        me = black
-        opponent = white
-        opponent_name = white_user
+        last_id_in_chunk = game.get("id")
 
-    else:
-        continue
+        # =========================
+        # FILTER GAME TYPE
+        # =========================
 
-    if not opponent_name:
-        continue
+        speed = game.get("speed", "unknown")
 
-    rating_diff = me.get("ratingDiff")
+        if GAME_TYPES and speed not in GAME_TYPES:
+            continue
 
-    if rating_diff is None:
-        continue
+        players = game.get("players", {})
 
-    # Ignore provisional / unstable games
-    if me.get("provisional"):
-        continue
+        white = players.get("white", {})
+        black = players.get("black", {})
 
-    rating_balance[opponent_name] += rating_diff
-    games_count[opponent_name] += 1
-    total_analyzed_games += 1
+        white_user = white.get("user", {}).get("name", "")
+        black_user = black.get("user", {}).get("name", "")
+
+        # =========================
+        # DETERMINE SIDE
+        # =========================
+
+        if white_user.lower() == USERNAME.lower():
+            me = white
+            opponent_name = black_user
+        elif black_user.lower() == USERNAME.lower():
+            me = black
+            opponent_name = white_user
+        else:
+            continue
+
+        if not opponent_name:
+            continue
+
+        # =========================
+        # FILTER VALID GAMES
+        # =========================
+
+        rating_diff = me.get("ratingDiff")
+        if rating_diff is None:
+            continue
+
+        if me.get("provisional"):
+            continue
+
+        # =========================
+        # APPLY STATS
+        # =========================
+
+        rating_balance[opponent_name] += rating_diff
+        games_count[opponent_name] += 1
+
+        total_analyzed_games += 1
+        games_fetched += 1
+
+    if lines_in_chunk == 0:
+        break
+
+    if not last_id_in_chunk:
+        break
+
+    last_game_id = last_id_in_chunk
+
+    time.sleep(0.3)
 
 # =========================
-# SORT
+# SORT RESULTS
 # =========================
 
-best = sorted(
-    rating_balance.items(),
-    key=lambda x: x[1],
-    reverse=True
-)
-
-worst = sorted(
-    rating_balance.items(),
-    key=lambda x: x[1]
-)
+best = sorted(rating_balance.items(), key=lambda x: x[1], reverse=True)
+worst = sorted(rating_balance.items(), key=lambda x: x[1])
 
 # =========================
 # OUTPUT
@@ -125,39 +152,29 @@ worst = sorted(
 print("\n🏆 BEST RATING FARM\n")
 
 rank = 1
-
 for opponent, score in best[:25]:
     if score <= 0:
         continue
 
     games = games_count[opponent]
 
-    print(
-        f"{rank}. {opponent}: "
-        f"+{score} rating | "
-        f"{games} games | "
-        f"https://lichess.org/@/{opponent}"
-    )
-
+    print(f"{rank}. {opponent}: +{score} rating | {games} games | https://lichess.org/@/{opponent}")
     rank += 1
 
 print("\n💀 WORST MATCHUPS\n")
 
 rank = 1
-
 for opponent, score in worst[:25]:
     if score >= 0:
         continue
 
     games = games_count[opponent]
 
-    print(
-        f"{rank}. {opponent}: "
-        f"{score} rating | "
-        f"{games} games | "
-        f"https://lichess.org/@/{opponent}"
-    )
-
+    print(f"{rank}. {opponent}: {score} rating | {games} games | https://lichess.org/@/{opponent}")
     rank += 1
+
+# =========================
+# FINAL SUMMARY
+# =========================
 
 print(f"\n📊 Total analyzed games: {total_analyzed_games}\n")
