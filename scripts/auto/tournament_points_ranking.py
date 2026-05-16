@@ -6,7 +6,7 @@ from collections import defaultdict
 # ⚙️ CONFIG
 # =========================
 
-TEAM_ID = "DarkOnTeams"
+TEAM_ID = "darkonteams"
 
 ONLY_TEAM_MEMBERS = True     # True = nur Team-Spieler, False = alle
 TOURNEY_KEYWORD = "Lichess Liga"          # z.B. "8+0" oder "" für alle
