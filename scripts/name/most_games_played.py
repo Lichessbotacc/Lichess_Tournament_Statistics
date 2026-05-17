@@ -3,10 +3,10 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
-USERNAME = "DarkOnCrack"
+USERNAME = "Garry1304"
 
 # 🔧 OPTIONAL FILTER
-KEYWORD = "Solo"
+KEYWORD = ""
 MIN_PLAYERS = 0
 SINCE_YEAR = 0
 MIN_GAMES = 1
