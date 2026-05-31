@@ -9,8 +9,8 @@ from collections import defaultdict
 # =========================
 
 VARIANT = "ultrabullet"
-MAX_TEAMS = 200          # wie viele Teams maximal gecrawlt werden
-MAX_TOURNEYS = 50        # pro Team
+MAX_TEAMS = 10000         # wie viele Teams maximal gecrawlt werden
+MAX_TOURNEYS = 10000        # pro Team
 
 DATA_FILE = "global_team_db.json"
 
