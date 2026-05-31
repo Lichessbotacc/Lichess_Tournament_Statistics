@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 import requests
+import re
 import json
-import time
+from collections import defaultdict
 
 CREATOR = "ajedrezconzeta"
 TOP_N = 5
@@ -12,117 +13,89 @@ session.headers.update({"User-Agent": "Mozilla/5.0"})
 
 
 # =========================
-# GET USER TOURNAMENTS (REAL API WAY)
+# 1. GET CREATOR TOURNAMENT IDS (HTML SEED)
 # =========================
 
-def get_user_tournaments(user, max_pages=20):
-    """
-    IMPORTANT:
-    Lichess does NOT give full creator history via HTML.
-    We use tournament search endpoint instead.
-    """
+print("Lade Creator Seite...")
 
-    all_tournaments = []
+url = f"https://lichess.org/@/{CREATOR}/tournaments/created"
+html = session.get(url).text
 
-    for page in range(max_pages):
+tournament_ids = list(set(
+    re.findall(r"/tournament/([A-Za-z0-9]{8})", html)
+))
 
-        url = "https://lichess.org/api/tournament"
-
-        params = {
-            "page": page,
-            "status": "finished",
-            "user": user
-        }
-
-        try:
-            r = session.get(url, params=params, timeout=10)
-
-            if r.status_code != 200:
-                break
-
-            data = r.json()
-
-            if not isinstance(data, list) or not data:
-                break
-
-            all_tournaments.extend(data)
-
-            time.sleep(0.2)
-
-        except:
-            break
-
-    return all_tournaments
+print(f"Gefunden (HTML): {len(tournament_ids)} Turniere")
 
 
 # =========================
-# SAFE RESULTS PARSER
+# 2. SAFE FETCH TOURNAMENT INFO
 # =========================
 
-def get_results(tid):
-    url = f"https://lichess.org/api/tournament/{tid}/results"
-
+def get_json(url):
     try:
         r = session.get(url, timeout=10)
         if r.status_code != 200:
-            return []
-
-        return [
-            json.loads(line)
-            for line in r.text.splitlines()
-            if line.strip()
-        ]
-
+            return None
+        return r.json()
     except:
-        return []
+        return None
 
 
 # =========================
-# MAIN
+# 3. CHECK TEAM BATTLES
 # =========================
 
-print("Lade Creator Turniere...")
+team_battles = []
 
-tournaments = get_user_tournaments(CREATOR, max_pages=30)
+for tid in tournament_ids:
 
-print(f"Gefunden: {len(tournaments)} Turniere")
+    info = get_json(f"https://lichess.org/api/tournament/{tid}")
+    if not info:
+        continue
 
-# =========================
-# FILTER TEAM BATTLES
-# =========================
-
-team_battles = [
-    t for t in tournaments
-    if isinstance(t, dict) and t.get("teamBattle") is True
-]
+    if info.get("teamBattle") is True:
+        team_battles.append(info)
 
 print(f"Team Battles: {len(team_battles)}")
 
+
 # =========================
-# ANALYZE
+# 4. ANALYZE RESULTS
 # =========================
 
 records = []
 
 for t in team_battles:
 
-    tid = t.get("id")
+    tid = t["id"]
     name = t.get("fullName", tid)
 
     print(f"Analysiere: {name}")
 
-    results = get_results(tid)
+    r = session.get(
+        f"https://lichess.org/api/tournament/{tid}/results",
+        headers={"Accept": "application/x-ndjson"}
+    )
+
+    if r.status_code != 200:
+        continue
 
     best_user = None
     best_score = -1
 
-    for r in results:
+    for line in r.text.splitlines():
 
-        if not isinstance(r, dict):
+        try:
+            data = json.loads(line)
+        except:
             continue
 
-        user = r.get("username")
-        score = r.get("score", 0)
+        if not isinstance(data, dict):
+            continue
+
+        user = data.get("username")
+        score = data.get("score", 0)
 
         if user and score > best_score:
             best_user = user
@@ -136,18 +109,19 @@ for t in team_battles:
             "url": f"https://lichess.org/tournament/{tid}"
         })
 
+
 # =========================
-# OUTPUT
+# 5. OUTPUT
 # =========================
 
 if not records:
-    print("\n❌ Keine Team Battles vom User gefunden.")
+    print("\n❌ Keine Team Battles gefunden (wahrscheinlich keine im HTML sichtbar).")
     exit()
 
 records.sort(key=lambda x: x["score"], reverse=True)
 
 print("\n" + "=" * 60)
-print("🏆 CREATOR TEAM BATTLE ANALYSIS")
+print("🏆 FINAL TEAM BATTLE SCANNER")
 print("=" * 60)
 
 top = records[0]
