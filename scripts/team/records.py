@@ -9,7 +9,7 @@ from collections import defaultdict
 # =========================
 
 CREATOR = "ajedrezconzeta"
-TOP_N = 5
+TOP_N = 10
 
 # =========================
 # HELPERS
