@@ -25,8 +25,8 @@ url = f"https://lichess.org/@/{CREATOR}/tournaments/created"
 r = requests.get(url)
 
 if r.status_code != 200:
-print("Fehler beim Laden der Creator-Seite")
-exit()
+    print("Fehler beim Laden der Creator-Seite")
+    raise SystemExit(1)
 
 html = r.text
 
