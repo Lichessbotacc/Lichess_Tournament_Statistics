@@ -2,115 +2,146 @@
 import requests
 import json
 import os
-
-TEAM_ID = "ANY"  # optional Filter (z.B. nur bestimmte Team-Events)
-VARIANT = "ultrabullet"  # ultrabullet, bullet, blitz, rapid
-MAX_TOURNEYS = 200000
-
-headers = {
-    "Accept": "application/x-ndjson"
-}
+from collections import defaultdict
 
 # =========================
-# 1. TEAM BATTLE TURNIERE LADEN
+# ⚙️ CONFIG
 # =========================
 
-url = "https://lichess.org/api/team/battle"
+VARIANT = "ultrabullet"
+MAX_TOURNEYS_PER_SOURCE = 80
 
-response = requests.get(url, headers=headers)
+DATA_FILE = "team_db.json"
+SOURCES_FILE = "team_sources.json"
 
-if response.status_code != 200:
-    print("Fehler beim Laden der Team Battles")
-    exit()
-
-tournaments = [
-    json.loads(line)
-    for line in response.text.splitlines()
-    if line.strip()
-]
+headers = {"Accept": "application/x-ndjson"}
 
 # =========================
-# 2. FILTER (VARIANT)
+# 💾 LOAD DB
 # =========================
 
-filtered = []
-
-for t in tournaments:
-    perf = str(t.get("perf", "")).lower()
-
-    if VARIANT == "all" or VARIANT in perf:
-        filtered.append(t)
-
-filtered = filtered[:MAX_TOURNEYS]
-
-print(f"\n🏆 TEAM BATTLE ANALYSIS")
-print(f"VARIANT: {VARIANT}")
-print(f"TURNIERE: {len(filtered)}\n")
+if os.path.exists(DATA_FILE):
+    with open(DATA_FILE, "r", encoding="utf-8") as f:
+        db = json.load(f)
+else:
+    db = {
+        "teams": {},
+        "seen_tournaments": []
+    }
 
 # =========================
-# 3. REKORD-SUCHE
+# 🔎 HELPERS
 # =========================
 
-best_score = 0
-best_team = None
-best_tournament = None
-
-for t in filtered:
-
-    tid = t["id"]
-
-    # Team standings direkt aus API
-    url = f"https://lichess.org/api/tournament/{tid}/results"
-
+def load_team_events(team_id):
+    url = f"https://lichess.org/api/team/{team_id}/arena?status=finished"
     r = requests.get(url, headers=headers)
     if r.status_code != 200:
-        continue
+        return []
 
-    teams = {}
+    return [json.loads(l) for l in r.text.splitlines() if l.strip()]
 
-    for line in r.text.splitlines():
-        if not line.strip():
-            continue
 
-        data = json.loads(line)
+def get_results(tid):
+    url = f"https://lichess.org/api/tournament/{tid}/results"
+    r = requests.get(url, headers=headers)
+    if r.status_code != 200:
+        return []
 
-        team = data.get("team")
-        score = data.get("score", 0)
+    return [json.loads(l) for l in r.text.splitlines() if l.strip()]
 
-        if not team:
-            continue
-
-        teams[team] = teams.get(team, 0) + score
-
-    if not teams:
-        continue
-
-    # bestes Team im Turnier
-    top_team = max(teams.items(), key=lambda x: x[1])
-
-    team_name, team_score = top_team
-
-    print(f"{t['fullName']}")
-    print(f"🥇 {team_name}: {team_score}\n")
-
-    # global record check
-    if team_score > best_score:
-        best_score = team_score
-        best_team = team_name
-        best_tournament = t
 
 # =========================
-# 4. OUTPUT
+# 🔥 TEAM SOURCES (AUTO EXPANSION)
 # =========================
 
-print("\n" + "=" * 50)
-print("🏆 ULTRABULLET TEAM SCORE WORLD RECORD")
-print("=" * 50)
+# Start-Seed (wird automatisch erweitert!)
+if "sources" not in db:
+    db["sources"] = [
+        "chesslandia-fan-club-only-under-of-18-years"
+    ]
 
-if best_team:
-    print(f"Team: {best_team}")
-    print(f"Score: {best_score}")
-    print(f"Turnier: https://lichess.org/tournament/{best_tournament['id']}")
-    print(f"Name: {best_tournament['fullName']}")
-else:
-    print("Keine Daten gefunden.")
+sources = db["sources"]
+
+# =========================
+# 🚀 DISCOVER NEW TOURNAMENTS
+# =========================
+
+new_tournaments = []
+
+for team in sources:
+
+    events = load_team_events(team)[:MAX_TOURNEYS_PER_SOURCE]
+
+    for t in events:
+
+        tid = t["id"]
+
+        if tid in db["seen_tournaments"]:
+            continue
+
+        name = t.get("fullName", "").lower()
+
+        if VARIANT != "all" and VARIANT not in name:
+            continue
+
+        new_tournaments.append(tid)
+        db["seen_tournaments"].append(tid)
+
+# =========================
+# 🧠 PROCESS TOURNAMENTS
+# =========================
+
+for tid in new_tournaments:
+
+    results = get_results(tid)
+
+    team_scores = defaultdict(int)
+
+    for r in results:
+        team = r.get("team")
+        score = r.get("score", 0)
+
+        if team:
+            team_scores[team] += score
+
+    if not team_scores:
+        continue
+
+    best_team, best_score = max(team_scores.items(), key=lambda x: x[1])
+
+    # =========================
+    # 📊 STORE IN DB
+    # =========================
+
+    if best_team not in db["teams"]:
+        db["teams"][best_team] = {
+            "score": 0,
+            "events": 0
+        }
+
+    db["teams"][best_team]["score"] += best_score
+    db["teams"][best_team]["events"] += 1
+
+# =========================
+# 🏆 RANKING
+# =========================
+
+sorted_teams = sorted(
+    db["teams"].items(),
+    key=lambda x: x[1]["score"],
+    reverse=True
+)[:500]
+
+print("\n🏆 TOP 500 TEAM RANKING")
+print(f"VARIANT: {VARIANT}\n")
+
+for i, (team, data) in enumerate(sorted_teams, 1):
+    print(f"{i}. {team} — {data['score']} pts ({data['events']} events)")
+
+# =========================
+# 💾 SAVE DB
+# =========================
+
+with open(DATA_FILE, "w", encoding="utf-8") as f:
+    json.dump(db, f, indent=2)
