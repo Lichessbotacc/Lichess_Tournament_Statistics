@@ -10,6 +10,7 @@ TEAM_ID = "chesslandia-fan-club-only-under-of-18-years"
 
 ONLY_TEAM_MEMBERS = True     # True = nur Team-Spieler, False = alle
 TOURNEY_KEYWORD = "Ultrabullet"          # z.B. "8+0" oder "" für alle
+VARIANT = "ultrabullet"
 MAX_TOURNEYS = 1000
 
 DEBUG = False
@@ -37,9 +38,29 @@ tournaments = [
 
 # 🔥 FILTER
 selected_tourneys = []
+
 for t in tournaments:
-    if TOURNEY_KEYWORD == "" or TOURNEY_KEYWORD.lower() in t["fullName"].lower():
+
+    name = t.get("fullName", "")
+
+    # Keyword prüfen
+    keyword_ok = (
+        TOURNEY_KEYWORD == ""
+        or TOURNEY_KEYWORD.lower() in name.lower()
+    )
+
+    # Variante prüfen
+    perf = str(t.get("perf", {}).get("key", "")).lower()
+
+    variant_ok = (
+        VARIANT == "all"
+        or perf == VARIANT
+    )
+
+    if keyword_ok and variant_ok:
         selected_tourneys.append(t)
+
+selected_tourneys = selected_tourneys[:MAX_TOURNEYS]
 
 selected_tourneys = selected_tourneys[:MAX_TOURNEYS]
 
@@ -182,7 +203,8 @@ sorted_players = sorted(points.items(), key=lambda x: x[1], reverse=True)
 print("\n" + "=" * 60)
 print("🏆 FINAL RANKING")
 print("=" * 60 + "\n")
-
+print(f"VARIANT: {VARIANT}")
+print(f"KEYWORD: {TOURNEY_KEYWORD if TOURNEY_KEYWORD else 'ALL'}")
 total_tournaments = len(selected_tourneys)
 
 for i, (user, score) in enumerate(sorted_players, 1):
