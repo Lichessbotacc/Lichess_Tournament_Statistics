@@ -12,7 +12,7 @@ from collections import defaultdict
 
 CREATOR = "ajedrezconzeta"
 KEYWORD = "Teamkampf"      # "" = alle
-TOP_N = 10
+TOP_N = 5
 
 # =====================================
 
