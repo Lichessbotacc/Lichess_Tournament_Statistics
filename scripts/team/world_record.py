@@ -5,7 +5,7 @@ import os
 
 TEAM_ID = "ANY"  # optional Filter (z.B. nur bestimmte Team-Events)
 VARIANT = "ultrabullet"  # ultrabullet, bullet, blitz, rapid
-MAX_TOURNEYS = 200
+MAX_TOURNEYS = 200000
 
 headers = {
     "Accept": "application/x-ndjson"
