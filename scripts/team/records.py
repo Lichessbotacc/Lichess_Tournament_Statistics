@@ -3,122 +3,115 @@
 import requests
 import json
 import time
-from collections import defaultdict
 
-BASE = "https://lichess.org"
+CREATOR = "ajedrezconzeta"
 TOP_N = 5
 
 session = requests.Session()
-session.headers.update({
-    "User-Agent": "Mozilla/5.0 (TeamBattleScanner)"
-})
-
-# =========================
-# SAFE REQUEST
-# =========================
-
-def safe_get_json(url, params=None):
-    try:
-        r = session.get(url, params=params, timeout=12)
-
-        if r.status_code != 200:
-            return None
-
-        return r.json()
-
-    except:
-        return None
-
-
-def safe_get_text(url):
-    try:
-        r = session.get(url, timeout=12)
-
-        if r.status_code != 200:
-            return None
-
-        return r.text
-
-    except:
-        return None
+session.headers.update({"User-Agent": "Mozilla/5.0"})
 
 
 # =========================
-# LOAD ALL TOURNAMENTS (PAGED)
+# GET USER TOURNAMENTS (REAL API WAY)
 # =========================
 
-def load_tournaments(max_pages=20):
+def get_user_tournaments(user, max_pages=20):
+    """
+    IMPORTANT:
+    Lichess does NOT give full creator history via HTML.
+    We use tournament search endpoint instead.
+    """
+
     all_tournaments = []
 
     for page in range(max_pages):
 
-        data = safe_get_json(
-            f"{BASE}/api/tournament",
-            params={"page": page, "status": "finished"}
-        )
+        url = "https://lichess.org/api/tournament"
 
-        if not data:
-            break
+        params = {
+            "page": page,
+            "status": "finished",
+            "user": user
+        }
 
-        if isinstance(data, list):
+        try:
+            r = session.get(url, params=params, timeout=10)
+
+            if r.status_code != 200:
+                break
+
+            data = r.json()
+
+            if not isinstance(data, list) or not data:
+                break
+
             all_tournaments.extend(data)
 
-        time.sleep(0.2)  # mild rate-limit protection
+            time.sleep(0.2)
+
+        except:
+            break
 
     return all_tournaments
 
 
 # =========================
-# FILTER TEAM BATTLES SAFELY
+# SAFE RESULTS PARSER
 # =========================
 
-def is_team_battle(t):
-    return (
-        isinstance(t, dict)
-        and t.get("teamBattle") is True
-    )
+def get_results(tid):
+    url = f"https://lichess.org/api/tournament/{tid}/results"
 
+    try:
+        r = session.get(url, timeout=10)
+        if r.status_code != 200:
+            return []
 
-# =========================
-# PARSE RESULTS SAFE (NDJSON)
-# =========================
+        return [
+            json.loads(line)
+            for line in r.text.splitlines()
+            if line.strip()
+        ]
 
-def parse_results(tid):
-    text = safe_get_text(f"{BASE}/api/tournament/{tid}/results")
-
-    if not text:
+    except:
         return []
 
-    results = []
-
-    for line in text.splitlines():
-
-        if not line.strip():
-            continue
-
-        try:
-            obj = json.loads(line)
-        except:
-            continue
-
-        if isinstance(obj, dict):
-            results.append(obj)
-
-    return results
-
 
 # =========================
-# PROCESS ONE TOURNAMENT
+# MAIN
 # =========================
 
-def process_tournament(t):
+print("Lade Creator Turniere...")
+
+tournaments = get_user_tournaments(CREATOR, max_pages=30)
+
+print(f"Gefunden: {len(tournaments)} Turniere")
+
+# =========================
+# FILTER TEAM BATTLES
+# =========================
+
+team_battles = [
+    t for t in tournaments
+    if isinstance(t, dict) and t.get("teamBattle") is True
+]
+
+print(f"Team Battles: {len(team_battles)}")
+
+# =========================
+# ANALYZE
+# =========================
+
+records = []
+
+for t in team_battles:
+
     tid = t.get("id")
     name = t.get("fullName", tid)
 
-    if not tid:
-        return None
+    print(f"Analysiere: {name}")
 
-    results = parse_results(tid)
+    results = get_results(tid)
 
     best_user = None
     best_score = -1
@@ -129,68 +122,32 @@ def process_tournament(t):
             continue
 
         user = r.get("username")
-        score = r.get("score")
+        score = r.get("score", 0)
 
-        if not user or not isinstance(score, (int, float)):
-            continue
-
-        if score > best_score:
-            best_score = score
+        if user and score > best_score:
             best_user = user
+            best_score = score
 
-    if not best_user:
-        return None
-
-    return {
-        "player": best_user,
-        "score": best_score,
-        "id": tid,
-        "name": name,
-        "url": f"{BASE}/tournament/{tid}"
-    }
-
-
-# =========================
-# MAIN
-# =========================
-
-print("Lade Turniere...")
-
-tournaments = load_tournaments(max_pages=25)
-
-print(f"Total geladen: {len(tournaments)}")
-
-team_battles = [t for t in tournaments if is_team_battle(t)]
-
-print(f"Team Battles: {len(team_battles)}")
-
-records = []
-
-print("Analysiere...")
-
-for i, t in enumerate(team_battles):
-
-    res = process_tournament(t)
-
-    if res:
-        records.append(res)
-
-    if i % 10 == 0:
-        time.sleep(0.1)
-
+    if best_user:
+        records.append({
+            "player": best_user,
+            "score": best_score,
+            "name": name,
+            "url": f"https://lichess.org/tournament/{tid}"
+        })
 
 # =========================
 # OUTPUT
 # =========================
 
 if not records:
-    print("\n❌ Keine Daten gefunden (oder keine öffentlichen Team Battles vorhanden).")
+    print("\n❌ Keine Team Battles vom User gefunden.")
     exit()
 
 records.sort(key=lambda x: x["score"], reverse=True)
 
 print("\n" + "=" * 60)
-print("🏆 BULLETPROOF TEAM BATTLE WORLD SCANNER")
+print("🏆 CREATOR TEAM BATTLE ANALYSIS")
 print("=" * 60)
 
 top = records[0]
