@@ -6,11 +6,11 @@ from collections import defaultdict
 # ⚙️ CONFIG
 # =========================
 
-TEAM_ID = "darkonteams"
+TEAM_ID = "chesslandia-fan-club-only-under-of-18-years"
 
 ONLY_TEAM_MEMBERS = True     # True = nur Team-Spieler, False = alle
-TOURNEY_KEYWORD = "Lichess Liga"          # z.B. "8+0" oder "" für alle
-MAX_TOURNEYS = 5
+TOURNEY_KEYWORD = "Ultrabullet"          # z.B. "8+0" oder "" für alle
+MAX_TOURNEYS = 1000
 
 DEBUG = False
 
