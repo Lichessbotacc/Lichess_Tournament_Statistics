@@ -9,7 +9,7 @@ from collections import defaultdict
 TEAM_ID = "chesslandia-fan-club-only-under-of-18-years"
 
 ONLY_TEAM_MEMBERS = True     # True = nur Team-Spieler, False = alle
-TOURNEY_KEYWORD = "Ultrabullet"          # z.B. "8+0" oder "" für alle
+TOURNEY_KEYWORD = ""          # z.B. "8+0" oder "" für alle
 VARIANT = "ultrabullet"
 MAX_TOURNEYS = 1000
 
