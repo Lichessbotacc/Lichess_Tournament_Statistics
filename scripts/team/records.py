@@ -1,139 +1,133 @@
-#!/usr/bin/env python3
-
 import requests
-import re
 import json
 from collections import defaultdict
+from datetime import datetime
 
-CREATOR = "ajedrezconzeta"
-TOP_N = 5
+USERNAME = "DarkOnCrack"
 
-session = requests.Session()
-session.headers.update({"User-Agent": "Mozilla/5.0"})
+KEYWORD = "Solo Rapid"
+MIN_PLAYERS = 0
+SINCE_YEAR = 0
 
-
-# =========================
-# 1. GET CREATOR TOURNAMENT IDS (HTML SEED)
-# =========================
-
-print("Lade Creator Seite...")
-
-url = f"https://lichess.org/@/{CREATOR}/tournaments/created"
-html = session.get(url).text
-
-tournament_ids = list(set(
-    re.findall(r"/tournament/([A-Za-z0-9]{8})", html)
-))
-
-print(f"Gefunden (HTML): {len(tournament_ids)} Turniere")
-
+headers = {
+    "Accept": "application/x-ndjson"
+}
 
 # =========================
-# 2. SAFE FETCH TOURNAMENT INFO
+# 🔹 LOAD TOURNAMENTS (DEIN STYLE)
 # =========================
 
-def get_json(url):
-    try:
-        r = session.get(url, timeout=10)
-        if r.status_code != 200:
-            return None
-        return r.json()
-    except:
-        return None
+tournament_list = []
 
+url = f"https://lichess.org/api/user/{USERNAME}/tournament/created"
+response = requests.get(url, headers=headers, stream=True)
 
-# =========================
-# 3. CHECK TEAM BATTLES
-# =========================
-
-team_battles = []
-
-for tid in tournament_ids:
-
-    info = get_json(f"https://lichess.org/api/tournament/{tid}")
-    if not info:
+for line in response.iter_lines():
+    if not line:
         continue
 
-    if info.get("teamBattle") is True:
-        team_battles.append(info)
+    t = json.loads(line)
 
-print(f"Team Battles: {len(team_battles)}")
+    name = t.get("fullName", "").lower()
+    nb_players = t.get("nbPlayers", 0)
+    created = t.get("created")
 
+    year = datetime.utcfromtimestamp(created / 1000).year if created else 0
 
-# =========================
-# 4. ANALYZE RESULTS
-# =========================
-
-records = []
-
-for t in team_battles:
+    if KEYWORD and KEYWORD.lower() not in name:
+        continue
+    if MIN_PLAYERS and nb_players < MIN_PLAYERS:
+        continue
+    if SINCE_YEAR and year < SINCE_YEAR:
+        continue
 
     tid = t["id"]
-    name = t.get("fullName", tid)
+    tournament_list.append((tid, t.get("fullName", "Unknown")))
 
-    print(f"Analysiere: {name}")
+# =========================
+# 🏆 WORLD RECORD LOGIC
+# =========================
 
-    r = session.get(
-        f"https://lichess.org/api/tournament/{tid}/results",
-        headers={"Accept": "application/x-ndjson"}
-    )
+world_record = {
+    "team": None,
+    "score": -1,
+    "tournament": None,
+    "url": None
+}
 
-    if r.status_code != 200:
+# =========================
+# 🔹 ANALYSE ALL TEAM BATTLES
+# =========================
+
+for tid, name in tournament_list:
+
+    url = f"https://lichess.org/api/tournament/{tid}/games"
+    response = requests.get(url, headers=headers, stream=True)
+
+    if response.status_code != 200:
         continue
 
-    best_user = None
-    best_score = -1
+    team_scores = defaultdict(int)
 
-    for line in r.text.splitlines():
+    for line in response.iter_lines():
+        if not line:
+            continue
+
+        game = json.loads(line)
 
         try:
-            data = json.loads(line)
+            white = game["players"]["white"]["user"]["name"]
+            black = game["players"]["black"]["user"]["name"]
+            winner = game.get("winner")
         except:
             continue
 
-        if not isinstance(data, dict):
-            continue
+        # =========================
+        # TEAM NAME FALLBACK
+        # =========================
+        white_team = game["players"]["white"]["user"].get("team", white)
+        black_team = game["players"]["black"]["user"].get("team", black)
 
-        user = data.get("username")
-        score = data.get("score", 0)
+        # =========================
+        # SCORE SYSTEM
+        # =========================
+        if winner == "white":
+            team_scores[white_team] += 2
+        elif winner == "black":
+            team_scores[black_team] += 2
+        else:
+            team_scores[white_team] += 1
+            team_scores[black_team] += 1
 
-        if user and score > best_score:
-            best_user = user
-            best_score = score
+    if not team_scores:
+        continue
 
-    if best_user:
-        records.append({
-            "player": best_user,
+    best_team, best_score = max(team_scores.items(), key=lambda x: x[1])
+
+    # =========================
+    # 🏆 WORLD RECORD CHECK
+    # =========================
+    if best_score > world_record["score"]:
+        world_record = {
+            "team": best_team,
             "score": best_score,
-            "name": name,
+            "tournament": name,
             "url": f"https://lichess.org/tournament/{tid}"
-        })
-
+        }
 
 # =========================
-# 5. OUTPUT
+# 🔥 OUTPUT
 # =========================
 
-if not records:
-    print("\n❌ Keine Team Battles gefunden (wahrscheinlich keine im HTML sichtbar).")
+if world_record["team"] is None:
+    print("❌ Kein Team Battle Rekord gefunden.")
     exit()
 
-records.sort(key=lambda x: x["score"], reverse=True)
-
 print("\n" + "=" * 60)
-print("🏆 FINAL TEAM BATTLE SCANNER")
+print("🏆 TEAM WORLD RECORD (MOST POINTS IN A TOURNAMENT)")
 print("=" * 60)
 
-top = records[0]
-
-print(f"Best Player: {top['player']}")
-print(f"Score      : {top['score']}")
-print(f"Tournament : {top['name']}")
-print(f"Link       : {top['url']}")
-
-print("\nTOP LIST\n")
-
-for i, r in enumerate(records[:TOP_N], 1):
-    print(f"{i}. {r['player']} - {r['score']} Punkte")
-    print(f"   {r['name']}")
-    print(f"   {r['url']}")
+print(f"Team        : {world_record['team']}")
+print(f"Score       : {world_record['score']}")
+print(f"Tournament  : {world_record['tournament']}")
+print(f"Link        : {world_record['url']}")
