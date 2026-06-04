@@ -4,18 +4,8 @@ from collections import defaultdict
 
 # 🔥 HIER mehrere Turniere eintragen
 TOURNEY_IDS = [
-    "spring17", "summer17", "autumn17", "winter17",
-    "spring18", "summer18", "autumn18", "winter18",
-    "spring19", "summer19", "autumn19", "winter19",
-    "spring20", "summer20", "autumn20", "winter20",
-    "spring21", "summer21", "autumn21", "winter21",
-    "spring22", "summer22", "autumn22", "winter22",
-    "spring23", "summer23", "autumn23", "winter23",
-    "spring24", "summer24", "autumn24", "winter24",
-    "spring25", "summer25", "autumn25", "winter25",
-    "spring26"
+   "NusPHswC", "HIXCR6LX", "9XFd45HW", "O2vmpqJB"
 ]
-
 headers = {
     "Accept": "application/x-ndjson"
 }
