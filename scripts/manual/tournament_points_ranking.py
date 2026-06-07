@@ -3,10 +3,7 @@ from collections import defaultdict
 
 # Turniere
 TOURNEY_IDS = [
-    "NusPHswC",
-    "HIXCR6LX",
-    "9XFd45HW",
-    "O2vmpqJB"
+    "cWTnOS4Q"
 ]
 
 # Team-ID aus der URL:
