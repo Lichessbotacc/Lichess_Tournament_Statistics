@@ -1,4 +1,4 @@
-name: Manual Tournament Points Ranking
+name: Manual Points Ranking
 
 on:
 push:
@@ -9,7 +9,7 @@ jobs:
 run-ranking:
 runs-on: ubuntu-latest
 
-```
+
 steps:
   - name: Checkout repository
     uses: actions/checkout@v4
@@ -23,7 +23,7 @@ steps:
     run: |
       pip install requests
 
-  - name: Run script
+  - name: Run tournament points ranking
     run: |
       python scripts/manual/tournament_points_ranking.py
-```
+
