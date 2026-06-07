@@ -1,22 +1,22 @@
 name: Manual Points Ranking
 
 on:
-push:
-paths:
-- 'scripts/manual/tournament_points_ranking.py'
-workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/manual/tournament_points_ranking.py'
+  workflow_dispatch:
 
 jobs:
-run-ranking:
-runs-on: ubuntu-latest
+  run-ranking:
+    runs-on: ubuntu-latest
 
-steps:
-  - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
-  - uses: actions/setup-python@v5
-    with:
-      python-version: '3.11'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-  - run: pip install requests
+      - run: pip install requests
 
-  - run: python scripts/manual/tournament_points_ranking.py
+      - run: python scripts/manual/tournament_points_ranking.py
