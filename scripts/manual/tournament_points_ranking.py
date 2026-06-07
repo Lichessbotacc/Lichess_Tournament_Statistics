@@ -1,105 +1,48 @@
 import requests
+import json
 from collections import defaultdict
 
-# Turniere
 TOURNEY_IDS = [
     "cWTnOS4Q"
 ]
 
-# Team-ID aus der URL:
-# https://lichess.org/team/darkonteams
-TEAM_ID = "darkonteams"
-
-# -----------------------------------------
-# Teammitglieder laden
-# -----------------------------------------
-
-print("Lade Teammitglieder...")
-
-team_members = set()
-
-page = 1
-
-while True:
-    url = f"https://lichess.org/api/team/{TEAM_ID}/users?page={page}"
-
-    response = requests.get(url)
-
-    if response.status_code != 200:
-        print("Fehler beim Laden der Teammitglieder.")
-        break
-
-    data = response.json()
-
-    users = data.get("currentPageResults", [])
-
-    if not users:
-        break
-
-    for user in users:
-        team_members.add(user["name"])
-
-    page += 1
-
-print(f"{len(team_members)} Teammitglieder gefunden.")
-
-# -----------------------------------------
-# Punkte sammeln
-# -----------------------------------------
-
 points = defaultdict(int)
-tournaments_played = defaultdict(int)
 
 for tid in TOURNEY_IDS:
 
-    print(f"Lade Turnier {tid}...")
+    print(f"\nLade Turnier {tid}...\n")
 
-    page = 1
+    url = f"https://lichess.org/api/tournament/{tid}/results"
 
-    while True:
+    response = requests.get(
+        url,
+        headers={"Accept": "application/x-ndjson"},
+        stream=True
+    )
 
-        url = f"https://lichess.org/api/tournament/{tid}/results?nb=200&page={page}"
+    if response.status_code != 200:
+        print(f"Fehler bei {tid}")
+        continue
 
-        response = requests.get(url)
+    for line in response.iter_lines():
 
-        if response.status_code != 200:
-            print(f"Fehler bei Turnier {tid}")
-            break
+        if not line:
+            continue
 
-        data = response.json()
+        player = json.loads(line)
 
-        if not data:
-            break
+        username = player["username"]
+        score = player["score"]
 
-        for player in data:
+        # 🔥 LIVE OUTPUT PRO EINTRAG
+        print(f"{tid} | {username} +{score}")
 
-            username = player["username"]
+        points[username] += score
 
-            if username in team_members:
-
-                points[username] += player["score"]
-                tournaments_played[username] += 1
-
-        page += 1
-
-# -----------------------------------------
 # Ranking
-# -----------------------------------------
+ranking = sorted(points.items(), key=lambda x: x[1], reverse=True)
 
-ranking = sorted(
-    points.items(),
-    key=lambda x: x[1],
-    reverse=True
-)
-
-print("\n🏆 DARKONTEAMS ARENA PUNKTE\n")
+print("\n🏆 GESAMTRANKING\n")
 
 for pos, (user, score) in enumerate(ranking, 1):
-
-    played = tournaments_played[user]
-
-    print(
-        f"{pos}. {user} | "
-        f"Points: {score} | "
-        f"Tournaments: {played}"
-    )
+    print(f"{pos}. {user}: {score}")
