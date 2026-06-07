@@ -1,7 +1,9 @@
 name: Manual Tournament Points Ranking
 
 on:
-workflow_dispatch:
+push:
+paths:
+- 'scripts/manual/tournament_points_ranking.py'
 
 jobs:
 run-ranking:
