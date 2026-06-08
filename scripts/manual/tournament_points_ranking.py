@@ -4,7 +4,7 @@ from collections import defaultdict
 
 # 🔥 SETTINGS
 TARGET_TEAM = "darkonteams"
-TOURNEY_IDS = ["cWTnOS4Q"]
+TOURNEY_IDS = ["cWTnOS4Q", "4DzfnhBJ"]
 
 session = requests.Session()
 session.headers.update({
