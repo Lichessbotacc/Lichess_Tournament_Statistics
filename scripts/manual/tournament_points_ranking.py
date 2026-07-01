@@ -94,15 +94,22 @@ for idx, tid in enumerate(TOURNEY_IDS, 1):
     for player in iter_ndjson(r):
         username = player.get("username")
         score = player.get("score", 0)
+        played_for_team = player.get("team")  # nur bei Team-Battle-Turnieren gesetzt
         if not username:
             continue
 
         key = username.lower()
-        # 🔥 Team-Filter (case-insensitive)
-        if key not in team_members:
-            continue
 
-        print(f"  {username} +{score}")
+        if played_for_team is not None:
+            # 🔥 Team-Battle-Turnier: nur zählen, wenn er FÜR dieses Team gespielt hat
+            if played_for_team.lower() != TARGET_TEAM.lower():
+                continue
+        else:
+            # 🔥 Normales Arena-Turnier: nur über aktuelle Team-Mitgliedschaft filtern
+            if key not in team_members:
+                continue
+
+        print(f"  {username} +{score}" + (f"  [team: {played_for_team}]" if played_for_team else ""))
         points[key] += score
         tournaments_played[key] += 1
         display_name[key] = username  # Original-Schreibweise aus den Turnierdaten
