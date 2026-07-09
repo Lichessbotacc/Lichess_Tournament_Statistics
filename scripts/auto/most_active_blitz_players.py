@@ -314,7 +314,20 @@ def load_leaderboard() -> dict:
 
 
 def save_leaderboard(leaderboard: dict) -> None:
-    LEADERBOARD_FILE.write_text(json.dumps(leaderboard, indent=2, sort_keys=True))
+    """
+    Speichert das Leaderboard. Neben den rohen "counts" (unsortiertes
+    username -> Anzahl-Dict, das ist die eigentliche Speicherform) wird
+    zusaetzlich ein sortiertes "ranking"-Feld mit Lichess-Profil-Links
+    mitgespeichert, damit man auch direkt in blitz_leaderboard.json eine
+    fertig sortierte Rangliste sieht, statt nur das rohe Dict.
+    """
+    counts = leaderboard.get("counts", {})
+    ranking = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)
+    leaderboard["ranking"] = [
+        {"rank": i, "username": name, "games": cnt, "profile": profile_url(name)}
+        for i, (name, cnt) in enumerate(ranking, start=1)
+    ]
+    LEADERBOARD_FILE.write_text(json.dumps(leaderboard, indent=2, sort_keys=True, ensure_ascii=False))
 
 
 # ---------------------------------------------------------------------------
