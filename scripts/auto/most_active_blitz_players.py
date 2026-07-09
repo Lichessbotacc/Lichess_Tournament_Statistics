@@ -129,12 +129,32 @@ KNOWN_PLAYERS_FILE = Path("known_players.json")
 LEADERBOARD_FILE = Path("blitz_leaderboard.json")
 KNOWN_TOURNAMENTS_FILE = Path("known_tournaments.json")
 
+# ---------------------------------------------------------------------------
+# WICHTIG: Alle Ausgabe-Ordner/-Dateien werden bewusst NICHT relativ zum
+# aktuellen Arbeitsverzeichnis (CWD) angelegt, sondern relativ zum eigenen
+# Speicherort dieser Datei. Grund: je nachdem, wie genau der GitHub-Actions-
+# Workflow das Skript aufruft (z.B. "python3 scripts/auto/datei.py" aus dem
+# Repo-Root vs. mit gesetztem working-directory), kann sich das CWD
+# unterscheiden - und die Ordner tauchten dann mal hier, mal dort auf oder
+# schienen "gar nicht erstellt" zu werden.
+#
+# Stattdessen: dieses Skript liegt unter <repo>/scripts/auto/dieses_skript.py
+# -> zwei Verzeichnisse hoch = Repo-Root. Dort (und NICHT im scripts-Ordner)
+# werden status/, known_players.json etc. IMMER angelegt, egal von wo aus
+# das Skript gestartet wird.
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent.parent  # scripts/auto -> scripts -> Repo-Root
+
+KNOWN_PLAYERS_FILE = REPO_ROOT / "known_players.json"
+LEADERBOARD_FILE = REPO_ROOT / "blitz_leaderboard.json"
+KNOWN_TOURNAMENTS_FILE = REPO_ROOT / "known_tournaments.json"
+
 # Eigener Ordner fuer den "immer aktuellen" Top-10-Schnappschuss. Diese
 # Dateien werden bei JEDEM einzelnen Live-Update ueberschrieben, sodass
 # man dort jederzeit (auch waehrend das Skript noch laeuft) den aktuellen
 # Stand sehen kann - unabhaengig von der Konsolen-/Log-Ausgabe, die z.B.
 # in GitHub Actions nach dem Lauf schnell unuebersichtlich wird.
-STATUS_DIR = Path("status")
+STATUS_DIR = REPO_ROOT / "status"
 TOP10_JSON_FILE = STATUS_DIR / "top100.json"
 TOP10_MD_FILE = STATUS_DIR / "top100.md"
 TOP_N_LIVE = 100
@@ -496,6 +516,12 @@ def main() -> None:
     leaderboard = load_leaderboard()
     counts = leaderboard.get("counts", {})
     since_ms = int((datetime.now(timezone.utc) - timedelta(days=SINCE_DAYS)).timestamp() * 1000)
+
+    # Sofort ganz am Anfang schreiben, damit status/top100.md/.json IMMER
+    # existiert - unabhaengig davon, ob spaeter irgendeine Quelle (Top-
+    # Liste, Turniere, Teams) leer zurueckkommt oder fehlschlaegt. Ab hier
+    # wird die Datei danach bei jedem einzelnen Live-Update ueberschrieben.
+    write_top10_snapshot(counts)
 
     pool = set(known_players)
     updated_this_run = set()  # verhindert Mehrfach-Abfragen im selben Lauf
