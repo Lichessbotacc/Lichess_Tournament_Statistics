@@ -4,13 +4,11 @@ on:
   schedule:
     # Alle 6 Stunden (UTC). Passe das bei Bedarf an.
     - cron: "0 */6 * * *"
-  workflow_dispatch:
-    inputs:
-      perf_type:
-        description: "Nur bei manuellem Start: EIN einzelner Modus, der zusaetzlich zur Matrix laeuft (leer lassen fuer 'nichts zusaetzlich')"
-        required: false
-        default: ""
-        type: string
+  # Manuelles Anstoßen über den "Run workflow"-Button auf GitHub.
+  # Es gibt bewusst KEIN Eingabefeld fuer den Modus mehr: die Matrix
+  # unten laeuft IMMER fuer alle gelisteten Modi, egal ob der Workflow
+  # per Cron oder manuell gestartet wurde.
+  workflow_dispatch: {}
 
 # Damit die Jobs am Ende per "git push" ins Repo schreiben duerfen.
 permissions:
@@ -58,6 +56,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main  # WICHTIG: sonst landet der Runner im detached HEAD
+                     # (kein echter Branch) und "git pull --rebase" /
+                     # "git push" im Skript schlagen mit "You are not
+                     # currently on a branch" fehl. Falls dein Standard-
+                     # Branch anders heisst (z.B. "master"), hier anpassen.
           persist-credentials: true  # noetig, damit "git push" aus dem Skript heraus funktioniert
 
       - name: Python einrichten
