@@ -90,6 +90,7 @@ Ausfuehren (einmaliger Durchlauf):
 
 import json
 import os
+import random
 import subprocess
 import sys
 import time
@@ -192,13 +193,14 @@ def swiss_matches_perf_type(row: dict) -> bool:
 EXTRA_TEAM_IDS = [
      "darkonblitz-dob",
      "darkonteams",
+     "--elite-chess-players-union--"
 ]
 
 SINCE_DAYS = 7
 MAX_GAMES_PER_QUERY = 10000
-TOP_N = 200
+TOP_N = 100
 REQUEST_DELAY_SECONDS = 1.0
-MAX_TEAM_TOURNAMENTS = 100
+MAX_TEAM_TOURNAMENTS = 1000
 
 # ---------------------------------------------------------------------------
 # WICHTIG: Alle Ausgabe-Ordner/-Dateien werden bewusst NICHT relativ zum
@@ -253,6 +255,41 @@ LIVE_GIT_PUSH = os.environ.get("GITHUB_ACTIONS", "").lower() == "true"
 GIT_PUSH_MIN_INTERVAL_SECONDS = 30
 _last_git_push_ts = 0.0
 
+# Da bis zu 13 Matrix-Jobs PARALLEL gegen denselben main-Branch pushen
+# koennen, kollidieren gelegentlich zwei Pushes ("cannot lock ref" /
+# "remote rejected", weil zwischen deinem "pull --rebase" und deinem
+# "push" ein anderer Job schneller war). Das ist normal bei parallelen
+# Pushes und kein Bug - deshalb: bei einem fehlgeschlagenen Push einfach
+# erneut "pull --rebase" + "push" versuchen, mit kurzer zufaelliger
+# Wartezeit dazwischen (verhindert, dass mehrere Jobs immer wieder exakt
+# gleichzeitig erneut versuchen).
+GIT_PUSH_MAX_RETRIES = 8
+GIT_PUSH_RETRY_BASE_DELAY_SECONDS = 3
+
+
+def ensure_on_branch() -> None:
+    """
+    Sicherheitsnetz gegen "You are not currently on a branch": Falls der
+    Checkout (aus welchem Grund auch immer) im detached HEAD gelandet ist,
+    wechselt diese Funktion explizit auf den Branch, der laut GitHub-
+    Actions-Umgebungsvariable GITHUB_REF_NAME aktuell laeuft (z.B. "main").
+    Ohne echten Branch koennen "git pull --rebase" und "git push" nicht
+    wissen, wogegen sie arbeiten sollen.
+    """
+    check = subprocess.run(
+        ["git", "symbolic-ref", "-q", "HEAD"],
+        cwd=REPO_ROOT, capture_output=True, text=True,
+    )
+    if check.returncode == 0:
+        return  # wir sind schon auf einem echten Branch
+
+    branch = os.environ.get("GITHUB_REF_NAME") or "main"
+    print(f"  [GIT] Detached HEAD erkannt - wechsle explizit auf Branch '{branch}'...")
+    subprocess.run(
+        ["git", "checkout", "-B", branch, f"origin/{branch}"],
+        cwd=REPO_ROOT, check=True, capture_output=True, text=True,
+    )
+
 
 def git_commit_and_push(message: str) -> bool:
     """
@@ -264,6 +301,8 @@ def git_commit_and_push(message: str) -> bool:
     if not LIVE_GIT_PUSH:
         return False
     try:
+        ensure_on_branch()
+
         # Nur Pfade zum "git add" geben, die tatsaechlich existieren.
         # known_players.json/known_tournaments.json werden aktuell erst
         # am Ende des Laufs geschrieben - wuerden sie hier trotzdem
@@ -291,18 +330,44 @@ def git_commit_and_push(message: str) -> bool:
             ["git", "commit", "-m", message],
             cwd=REPO_ROOT, check=True, capture_output=True, text=True,
         )
-        # Vor dem Push nochmal den neuesten Stand ziehen, falls
-        # zwischenzeitlich etwas anderes gepusht wurde.
-        subprocess.run(
-            ["git", "pull", "--rebase"],
-            cwd=REPO_ROOT, check=True, capture_output=True, text=True,
-        )
-        subprocess.run(
-            ["git", "push"],
-            cwd=REPO_ROOT, check=True, capture_output=True, text=True,
-        )
-        print(f"  [GIT] Live-Push durchgefuehrt: {message}")
-        return True
+
+        # pull --rebase + push mit Retry: bei parallelen Matrix-Jobs kann
+        # das push kollidieren ("cannot lock ref" / "remote rejected"),
+        # weil ein anderer Job zwischen unserem pull und unserem push
+        # etwas anderes gepusht hat. Das ist normal bei paralleler
+        # Nutzung desselben Branches - einfach erneut pull+push statt
+        # aufzugeben.
+        last_error = None
+        for attempt in range(1, GIT_PUSH_MAX_RETRIES + 1):
+            try:
+                subprocess.run(
+                    ["git", "pull", "--rebase"],
+                    cwd=REPO_ROOT, check=True, capture_output=True, text=True,
+                )
+                subprocess.run(
+                    ["git", "push"],
+                    cwd=REPO_ROOT, check=True, capture_output=True, text=True,
+                )
+                print(f"  [GIT] Live-Push durchgefuehrt: {message}")
+                return True
+            except subprocess.CalledProcessError as exc:
+                last_error = exc
+                if attempt < GIT_PUSH_MAX_RETRIES:
+                    # Exponentiell wachsende Wartezeit + Zufalls-Jitter,
+                    # damit nicht alle kollidierenden Jobs exakt
+                    # gleichzeitig erneut versuchen.
+                    delay = GIT_PUSH_RETRY_BASE_DELAY_SECONDS * (2 ** (attempt - 1))
+                    delay += random.uniform(0, delay * 0.5)
+                    delay = min(delay, 60)
+                    print(f"  [GIT] Push kollidiert (Versuch {attempt}/"
+                          f"{GIT_PUSH_MAX_RETRIES}), warte {delay:.1f}s und "
+                          f"versuche erneut...")
+                    time.sleep(delay)
+
+        stderr = last_error.stderr if last_error and hasattr(last_error, "stderr") else str(last_error)
+        print(f"  [WARNUNG] Git-Push nach {GIT_PUSH_MAX_RETRIES} Versuchen "
+              f"weiterhin fehlgeschlagen: {stderr}")
+        return False
     except subprocess.CalledProcessError as exc:
         stderr = exc.stderr if hasattr(exc, "stderr") else str(exc)
         print(f"  [WARNUNG] Git-Commit/Push fehlgeschlagen: {stderr}")
