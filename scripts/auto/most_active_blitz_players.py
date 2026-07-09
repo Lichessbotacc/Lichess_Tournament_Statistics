@@ -187,9 +187,21 @@ def git_commit_and_push(message: str) -> bool:
     if not LIVE_GIT_PUSH:
         return False
     try:
+        # Nur Pfade zum "git add" geben, die tatsaechlich existieren.
+        # known_players.json/known_tournaments.json werden aktuell erst
+        # am Ende des Laufs geschrieben - wuerden sie hier trotzdem
+        # gelistet, obwohl sie noch nicht existieren, bricht "git add"
+        # mit "did not match any files" fuer den GESAMTEN Aufruf ab
+        # (auch fuer status/, das eigentlich schon da waere).
+        candidate_paths = [
+            STATUS_DIR, KNOWN_PLAYERS_FILE, KNOWN_TOURNAMENTS_FILE, LEADERBOARD_FILE,
+        ]
+        existing_paths = [str(p) for p in candidate_paths if p.exists()]
+        if not existing_paths:
+            return False
+
         subprocess.run(
-            ["git", "add", "-f", "status", "known_players.json",
-             "known_tournaments.json", "blitz_leaderboard.json"],
+            ["git", "add", "-f", "--ignore-errors", *existing_paths],
             cwd=REPO_ROOT, check=True, capture_output=True, text=True,
         )
         diff_check = subprocess.run(
@@ -602,17 +614,28 @@ def main() -> None:
     # Liste, Turniere, Teams) leer zurueckkommt oder fehlschlaegt. Ab hier
     # wird die Datei danach bei jedem einzelnen Live-Update ueberschrieben.
     write_top10_snapshot(counts)
-    # ... und sofort erzwungen ins Repo pushen, damit der Ordner von der
-    # ersten Sekunde an auch tatsaechlich auf GitHub sichtbar ist.
-    maybe_live_push(force=True)
 
     pool = set(known_players)
     updated_this_run = set()  # verhindert Mehrfach-Abfragen im selben Lauf
+
+    # Auch known_players.json/known_tournaments.json schon frueh (leer
+    # bzw. mit dem bisherigen Stand) anlegen, damit sie ab der ersten
+    # Sekunde existieren - WICHTIG: das muss VOR dem ersten Push passieren,
+    # sonst versucht git, einen zu diesem Zeitpunkt noch nicht existierenden
+    # Pfad hinzuzufuegen.
+    save_json_set(KNOWN_PLAYERS_FILE, pool)
+    save_json_set(KNOWN_TOURNAMENTS_FILE, known_tournaments)
+
+    # ... und erst JETZT, wo alle vier Dateien garantiert existieren,
+    # erzwungen ins Repo pushen, damit der Ordner von der ersten Sekunde
+    # an auch tatsaechlich auf GitHub sichtbar ist.
+    maybe_live_push(force=True)
 
     try:
         # 1) Top-200 nach Rating - sofort live verarbeiten
         top_players = get_top_blitz_players()
         pool |= top_players
+        save_json_set(KNOWN_PLAYERS_FILE, pool)
         update_players_live(top_players, updated_this_run, counts, since_ms, leaderboard)
         time.sleep(REQUEST_DELAY_SECONDS)
 
@@ -647,12 +670,15 @@ def main() -> None:
                       f"({new_count} davon neu im Pool).")
             update_players_live(participants, updated_this_run, counts, since_ms, leaderboard)
             known_tournaments.add(t_id)
+            save_json_set(KNOWN_PLAYERS_FILE, pool)
+            save_json_set(KNOWN_TOURNAMENTS_FILE, known_tournaments)
 
         # 4) Zusaetzliche Team-Mitgliederlisten - ebenfalls sofort live
         for team_id in EXTRA_TEAM_IDS:
             time.sleep(REQUEST_DELAY_SECONDS)
             members = get_team_members(team_id.lower())
             pool |= members
+            save_json_set(KNOWN_PLAYERS_FILE, pool)
             update_players_live(members, updated_this_run, counts, since_ms, leaderboard)
 
     except RateLimitError as exc:
