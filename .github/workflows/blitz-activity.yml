@@ -1,25 +1,30 @@
-name: Blitz Activity Scan
+name: Blitz Activity Leaderboard
 
 on:
   schedule:
-    # Alle 6 Stunden (UTC): 00:00, 06:00, 12:00, 18:00
+    # Alle 6 Stunden (UTC). Passe das bei Bedarf an.
     - cron: "0 */6 * * *"
-  workflow_dispatch: {}
-  # Manuelles Auslösen über den "Run workflow"-Button in GitHub
+  workflow_dispatch: {}  # erlaubt manuelles Anstoßen über die GitHub-UI
 
+# Damit der Job am Ende per "git push" ins Repo schreiben darf.
 permissions:
   contents: write
 
+concurrency:
+  # Verhindert, dass zwei Läufe gleichzeitig laufen und sich beim Commit
+  # gegenseitig in die Quere kommen.
+  group: blitz-activity
+  cancel-in-progress: false
+
 jobs:
-  scan:
+  update-leaderboard:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: scripts/auto
 
     steps:
       - name: Repo auschecken
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Python einrichten
         uses: actions/setup-python@v5
@@ -28,17 +33,25 @@ jobs:
 
       - name: Skript ausführen
         env:
-          PYTHONUNBUFFERED: "1"
-        run: python3 -u most_active_blitz_players.py
+          LICHESS_TOKEN: ${{ secrets.LICHESS_TOKEN }}
+        run: python3 most_active_blitz_players.py
 
       - name: Ergebnisse zurück ins Repo committen
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add known_players.json blitz_leaderboard.json
-          if git diff --cached --quiet; then
-            echo "Keine Änderungen an known_players.json / blitz_leaderboard.json."
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Vor dem Commit nochmal den neuesten Stand ziehen, falls
+          # zwischenzeitlich (z.B. manuell) etwas anderes gepusht wurde.
+          git pull --rebase
+
+          git add status/ known_players.json known_tournaments.json blitz_leaderboard.json
+
+          # Nur committen, wenn sich tatsächlich etwas geändert hat -
+          # sonst schlägt "git commit" ohne Änderungen fehl.
+          if git diff --staged --quiet; then
+            echo "Keine Änderungen - nichts zu committen."
           else
-            git commit -m "Update Blitz-Aktivitäts-Ranking [skip ci]"
+            git commit -m "Update Blitz-Leaderboard [skip ci]"
             git push
           fi
