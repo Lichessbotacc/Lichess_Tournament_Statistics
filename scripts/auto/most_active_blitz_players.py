@@ -195,10 +195,10 @@ EXTRA_TEAM_IDS = [
 ]
 
 SINCE_DAYS = 7
-MAX_GAMES_PER_QUERY = 1000
+MAX_GAMES_PER_QUERY = 10000
 TOP_N = 100
-REQUEST_DELAY_SECONDS = 1.0
-MAX_TEAM_TOURNAMENTS = 100
+REQUEST_DELAY_SECONDS = 0
+MAX_TEAM_TOURNAMENTS = 1000
 
 # ---------------------------------------------------------------------------
 # WICHTIG: Alle Ausgabe-Ordner/-Dateien werden bewusst NICHT relativ zum
