@@ -90,6 +90,7 @@ Ausfuehren (einmaliger Durchlauf):
 
 import json
 import os
+import subprocess
 import sys
 import time
 import urllib.error
@@ -158,6 +159,81 @@ STATUS_DIR = REPO_ROOT / "status"
 TOP10_JSON_FILE = STATUS_DIR / "top100.json"
 TOP10_MD_FILE = STATUS_DIR / "top100.md"
 TOP_N_LIVE = 100
+
+# ---------------------------------------------------------------------------
+# LIVE GIT PUSH
+# ---------------------------------------------------------------------------
+# Nur automatisch committen/pushen, wenn wir tatsaechlich in einer GitHub
+# Action laufen (dort ist GITHUB_ACTIONS=true gesetzt). Bei einem lokalen
+# Testlauf soll NICHT versucht werden, ins Repo zu pushen.
+LIVE_GIT_PUSH = os.environ.get("GITHUB_ACTIONS", "").lower() == "true"
+
+# Mindestabstand zwischen zwei Live-Pushes. Ohne diesen Deckel wuerde bei
+# JEDEM einzelnen verarbeiteten Spieler ein eigener Commit+Push passieren -
+# das waeren potenziell hunderte Mini-Commits pro Lauf. Mit dem Deckel gibt
+# es trotzdem regelmaessig (alle ~30s) einen Push WAEHREND das Skript noch
+# rechnet, nicht erst ganz am Ende.
+GIT_PUSH_MIN_INTERVAL_SECONDS = 30
+_last_git_push_ts = 0.0
+
+
+def git_commit_and_push(message: str) -> bool:
+    """
+    Committet und pusht status/ + die Tracking-Dateien direkt aus dem
+    laufenden Skript heraus. Dadurch aktualisiert sich das Ranking im
+    Repo schon WAEHREND das Skript noch rechnet - nicht erst danach in
+    einem separaten Workflow-Schritt.
+    """
+    if not LIVE_GIT_PUSH:
+        return False
+    try:
+        subprocess.run(
+            ["git", "add", "-f", "status", "known_players.json",
+             "known_tournaments.json", "blitz_leaderboard.json"],
+            cwd=REPO_ROOT, check=True, capture_output=True, text=True,
+        )
+        diff_check = subprocess.run(
+            ["git", "diff", "--staged", "--quiet"], cwd=REPO_ROOT
+        )
+        if diff_check.returncode == 0:
+            return False  # nichts hat sich geaendert
+
+        subprocess.run(
+            ["git", "commit", "-m", message],
+            cwd=REPO_ROOT, check=True, capture_output=True, text=True,
+        )
+        # Vor dem Push nochmal den neuesten Stand ziehen, falls
+        # zwischenzeitlich etwas anderes gepusht wurde.
+        subprocess.run(
+            ["git", "pull", "--rebase"],
+            cwd=REPO_ROOT, check=True, capture_output=True, text=True,
+        )
+        subprocess.run(
+            ["git", "push"],
+            cwd=REPO_ROOT, check=True, capture_output=True, text=True,
+        )
+        print(f"  [GIT] Live-Push durchgefuehrt: {message}")
+        return True
+    except subprocess.CalledProcessError as exc:
+        stderr = exc.stderr if hasattr(exc, "stderr") else str(exc)
+        print(f"  [WARNUNG] Git-Commit/Push fehlgeschlagen: {stderr}")
+        return False
+
+
+def maybe_live_push(force: bool = False) -> None:
+    """
+    Throttled Aufruf von git_commit_and_push. 'force=True' erzwingt den
+    Push unabhaengig vom letzten Zeitpunkt - genutzt ganz am Anfang (damit
+    der Ordner sofort im Repo sichtbar wird) und ganz am Ende des Laufs.
+    """
+    global _last_git_push_ts
+    now = time.time()
+    if not force and (now - _last_git_push_ts) < GIT_PUSH_MIN_INTERVAL_SECONDS:
+        return
+    _last_git_push_ts = now
+    git_commit_and_push(
+        f"Live-Update Blitz-Leaderboard {datetime.now(timezone.utc).isoformat()} [skip ci]"
+    )
 
 BASE_URL = "https://lichess.org"
 HEADERS = {"Authorization": f"Bearer {TOKEN}"} if TOKEN else {}
@@ -497,6 +573,10 @@ def update_players_live(usernames: set, already_updated: set, counts: dict,
         # sehen kann, auch waehrend das Skript noch weiterlaeuft.
         write_top10_snapshot(counts)
 
+        # Throttled Live-Push: pusht regelmaessig (alle ~30s) waehrend das
+        # Skript noch rechnet, nicht erst am Ende des kompletten Laufs.
+        maybe_live_push()
+
 
 # ---------------------------------------------------------------------------
 # MAIN
@@ -522,6 +602,9 @@ def main() -> None:
     # Liste, Turniere, Teams) leer zurueckkommt oder fehlschlaegt. Ab hier
     # wird die Datei danach bei jedem einzelnen Live-Update ueberschrieben.
     write_top10_snapshot(counts)
+    # ... und sofort erzwungen ins Repo pushen, damit der Ordner von der
+    # ersten Sekunde an auch tatsaechlich auf GitHub sichtbar ist.
+    maybe_live_push(force=True)
 
     pool = set(known_players)
     updated_this_run = set()  # verhindert Mehrfach-Abfragen im selben Lauf
@@ -586,6 +669,9 @@ def main() -> None:
     leaderboard["updated_at"] = datetime.now(timezone.utc).isoformat()
     save_leaderboard(leaderboard)
     write_top10_snapshot(counts)
+    # Am Ende (oder bei Abbruch durch Rate Limit) auf jeden Fall erzwungen
+    # pushen, damit garantiert der letzte Stand im Repo landet.
+    maybe_live_push(force=True)
 
     new_players_total = len(pool - known_players)
     print()
