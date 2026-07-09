@@ -113,6 +113,80 @@ except AttributeError:
 # ---------------------------------------------------------------------------
 TOKEN = os.environ.get("LICHESS_TOKEN", "")
 
+# ---------------------------------------------------------------------------
+# SPIELMODUS / VARIANTE AUSWAEHLEN
+# ---------------------------------------------------------------------------
+# Ueber die Umgebungsvariable PERF_TYPE (oder als Default hier direkt im
+# Code) waehlst du aus, welchen Modus das Skript trackt. Alles andere im
+# Skript verhaelt sich exakt gleich - nur Bedenkzeit-Filter, API-Parameter
+# und Ausgabe-Ordner passen sich automatisch an.
+#
+# Erlaubte Werte:
+#   - Bedenkzeit-basiert (klassische Zeitkontrollen):
+#       "ultraBullet", "bullet", "blitz", "rapid", "classical"
+#   - Varianten (eigene Regeln, unabhaengig von der Bedenkzeit):
+#       "chess960", "crazyhouse", "antichess", "atomic", "horde",
+#       "kingOfTheHill", "racingKings", "threeCheck"
+#
+# Beispiel lokal:      PERF_TYPE=rapid python3 most_active_blitz_players.py
+# Beispiel in Actions: env: PERF_TYPE: rapid  (siehe Workflow-Datei)
+CLOCK_BASED_PERF_TYPES = {"ultraBullet", "bullet", "blitz", "rapid", "classical"}
+VARIANT_PERF_TYPES = {
+    "chess960", "crazyhouse", "antichess", "atomic",
+    "horde", "kingOfTheHill", "racingKings", "threeCheck",
+}
+ALLOWED_PERF_TYPES = CLOCK_BASED_PERF_TYPES | VARIANT_PERF_TYPES
+
+PERF_TYPE = os.environ.get("PERF_TYPE", "blitz").strip()
+if PERF_TYPE not in ALLOWED_PERF_TYPES:
+    sys.exit(
+        f"Ungueltiger PERF_TYPE '{PERF_TYPE}'. Erlaubt sind: "
+        f"{', '.join(sorted(ALLOWED_PERF_TYPES))}"
+    )
+
+
+def classify_clock_seconds(total_estimated_seconds: float) -> str:
+    """
+    Ordnet eine geschaetzte Partiedauer (limit + 40*increment, in Sekunden)
+    einer Lichess-Bedenkzeit-Kategorie zu - dieselbe Formel/Schwellenwerte,
+    die auch Lichess selbst zur Klassifizierung verwendet. Wird gebraucht,
+    weil Swiss-Turniere (anders als Arenen) keinen direkten "perf"-Schluessel
+    mitliefern, sondern nur clock.limit/clock.increment.
+    """
+    if total_estimated_seconds < 29:
+        return "ultraBullet"
+    if total_estimated_seconds < 179:
+        return "bullet"
+    if total_estimated_seconds < 479:
+        return "blitz"
+    if total_estimated_seconds < 1499:
+        return "rapid"
+    return "classical"
+
+
+def swiss_matches_perf_type(row: dict) -> bool:
+    """
+    Prueft, ob ein Swiss-Turnier zum aktuell gewaehlten PERF_TYPE passt.
+    Bei Bedenkzeit-basierten Typen (blitz, rapid, ...) muss die Variante
+    "standard" sein und die Bedenkzeit in die passende Kategorie fallen.
+    Bei echten Varianten (atomic, chess960, ...) muss variant.key exakt
+    dem PERF_TYPE entsprechen - die Bedenkzeit spielt dann keine Rolle.
+    """
+    variant = row.get("variant", {})
+    variant_key = variant.get("key") if isinstance(variant, dict) else None
+
+    if PERF_TYPE in VARIANT_PERF_TYPES:
+        return variant_key == PERF_TYPE
+
+    if variant_key != "standard":
+        return False
+    clock = row.get("clock", {})
+    limit = clock.get("limit", 0) if isinstance(clock, dict) else 0
+    increment = clock.get("increment", 0) if isinstance(clock, dict) else 0
+    total = limit + 40 * increment
+    return classify_clock_seconds(total) == PERF_TYPE
+
+
 # Zusaetzliche Teams, deren Mitglieder ebenfalls in den Spieler-Pool
 # aufgenommen werden sollen (Team-Slugs, klein geschrieben). Kann leer sein.
 EXTRA_TEAM_IDS = [
@@ -126,10 +200,6 @@ TOP_N = 100
 REQUEST_DELAY_SECONDS = 1.0
 MAX_TEAM_TOURNAMENTS = 100
 
-KNOWN_PLAYERS_FILE = Path("known_players.json")
-LEADERBOARD_FILE = Path("blitz_leaderboard.json")
-KNOWN_TOURNAMENTS_FILE = Path("known_tournaments.json")
-
 # ---------------------------------------------------------------------------
 # WICHTIG: Alle Ausgabe-Ordner/-Dateien werden bewusst NICHT relativ zum
 # aktuellen Arbeitsverzeichnis (CWD) angelegt, sondern relativ zum eigenen
@@ -141,21 +211,28 @@ KNOWN_TOURNAMENTS_FILE = Path("known_tournaments.json")
 #
 # Stattdessen: dieses Skript liegt unter <repo>/scripts/auto/dieses_skript.py
 # -> zwei Verzeichnisse hoch = Repo-Root. Dort (und NICHT im scripts-Ordner)
-# werden status/, known_players.json etc. IMMER angelegt, egal von wo aus
-# das Skript gestartet wird.
+# werden data/<perf_type>/ und status/<perf_type>/ IMMER angelegt, egal von
+# wo aus das Skript gestartet wird.
+#
+# JEDER PERF_TYPE BEKOMMT SEINEN EIGENEN ORDNER: Wechselst du z.B. von
+# "blitz" auf "rapid", legt das Skript automatisch data/rapid/ und
+# status/rapid/ an - die bestehenden blitz-Daten unter data/blitz/ und
+# status/blitz/ bleiben davon komplett unberuehrt.
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent.parent  # scripts/auto -> scripts -> Repo-Root
 
-KNOWN_PLAYERS_FILE = REPO_ROOT / "known_players.json"
-LEADERBOARD_FILE = REPO_ROOT / "blitz_leaderboard.json"
-KNOWN_TOURNAMENTS_FILE = REPO_ROOT / "known_tournaments.json"
+DATA_DIR = REPO_ROOT / "data" / PERF_TYPE
+KNOWN_PLAYERS_FILE = DATA_DIR / "known_players.json"
+LEADERBOARD_FILE = DATA_DIR / "leaderboard.json"
+KNOWN_TOURNAMENTS_FILE = DATA_DIR / "known_tournaments.json"
 
-# Eigener Ordner fuer den "immer aktuellen" Top-10-Schnappschuss. Diese
-# Dateien werden bei JEDEM einzelnen Live-Update ueberschrieben, sodass
-# man dort jederzeit (auch waehrend das Skript noch laeuft) den aktuellen
-# Stand sehen kann - unabhaengig von der Konsolen-/Log-Ausgabe, die z.B.
-# in GitHub Actions nach dem Lauf schnell unuebersichtlich wird.
-STATUS_DIR = REPO_ROOT / "status"
+# Eigener Ordner (pro PERF_TYPE) fuer den "immer aktuellen" Top-100-
+# Schnappschuss. Diese Dateien werden bei JEDEM einzelnen Live-Update
+# ueberschrieben, sodass man dort jederzeit (auch waehrend das Skript
+# noch laeuft) den aktuellen Stand sehen kann - unabhaengig von der
+# Konsolen-/Log-Ausgabe, die z.B. in GitHub Actions nach dem Lauf schnell
+# unuebersichtlich wird.
+STATUS_DIR = REPO_ROOT / "status" / PERF_TYPE
 TOP10_JSON_FILE = STATUS_DIR / "top100.json"
 TOP10_MD_FILE = STATUS_DIR / "top100.md"
 TOP_N_LIVE = 100
@@ -299,6 +376,7 @@ def load_json_set(path: Path) -> set:
 
 
 def save_json_set(path: Path, values: set) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(sorted(values), indent=2))
 
 
@@ -327,6 +405,7 @@ def save_leaderboard(leaderboard: dict) -> None:
         {"rank": i, "username": name, "games": cnt, "profile": profile_url(name)}
         for i, (name, cnt) in enumerate(ranking, start=1)
     ]
+    LEADERBOARD_FILE.parent.mkdir(parents=True, exist_ok=True)
     LEADERBOARD_FILE.write_text(json.dumps(leaderboard, indent=2, sort_keys=True, ensure_ascii=False))
 
 
@@ -336,11 +415,12 @@ def save_leaderboard(leaderboard: dict) -> None:
 def get_visible_blitz_tournament_ids() -> list:
     """
     Holt aktuell sichtbare offizielle Turniere (erstellt/laufend/kuerzlich
-    beendet) und filtert auf Blitz. Liefert Liste von (id, "arena")-Tupeln.
-    Das ist nur eine Momentaufnahme - siehe get_team_tournament_ids fuer
-    zusaetzliche, auch vergangene Turniere.
+    beendet) und filtert auf den aktuell gewaehlten PERF_TYPE. Liefert
+    Liste von (id, "arena")-Tupeln. Das ist nur eine Momentaufnahme -
+    siehe get_team_tournament_ids fuer zusaetzliche, auch vergangene
+    Turniere.
     """
-    print("Suche aktuell sichtbare Blitz-Arenen...")
+    print(f"Suche aktuell sichtbare {PERF_TYPE}-Arenen...")
     try:
         data = fetch_json(f"{BASE_URL}/api/tournament")
     except (RateLimitError, urllib.error.URLError, urllib.error.HTTPError) as exc:
@@ -352,10 +432,10 @@ def get_visible_blitz_tournament_ids() -> list:
         for t in data.get(bucket, []):
             perf = t.get("perf", {})
             perf_key = perf.get("key") if isinstance(perf, dict) else None
-            if perf_key == "blitz" and t.get("id"):
+            if perf_key == PERF_TYPE and t.get("id"):
                 ids.append((t["id"], "arena"))
 
-    print(f"  {len(ids)} Blitz-Arena(n) gefunden.")
+    print(f"  {len(ids)} {PERF_TYPE}-Arena(n) gefunden.")
     return ids
 
 
@@ -364,7 +444,8 @@ def get_team_tournament_ids(team_id: str) -> list:
     Holt die komplette Arena- UND Swiss-Turnierhistorie eines Teams
     (auch VERGANGENE, bereits laengst beendete Turniere - anders als
     /api/tournament, das nur die aktuelle Momentaufnahme zeigt) und
-    filtert auf Blitz. Liefert Liste von (id, "arena"/"swiss")-Tupeln.
+    filtert auf den aktuell gewaehlten PERF_TYPE. Liefert Liste von
+    (id, "arena"/"swiss")-Tupeln.
     """
     found = []
 
@@ -374,26 +455,21 @@ def get_team_tournament_ids(team_id: str) -> list:
         for row in fetch_ndjson(url):
             perf = row.get("perf", {})
             perf_key = perf.get("key") if isinstance(perf, dict) else None
-            if perf_key == "blitz" and row.get("id"):
+            if perf_key == PERF_TYPE and row.get("id"):
                 found.append((row["id"], "arena"))
     except RateLimitError:
         raise
     except (urllib.error.URLError, urllib.error.HTTPError) as exc:
         print(f"  [WARNUNG] Arena-Historie von Team '{team_id}' nicht ladbar: {exc}")
 
-    # Swiss-Turniere des Teams
+    # Swiss-Turniere des Teams. Swiss-Turniere haben anders als Arenen
+    # KEIN direktes "perf"-Feld - die Zuordnung passiert ueber
+    # swiss_matches_perf_type() (Bedenkzeit-Formel bzw. Variantenname,
+    # je nachdem was PERF_TYPE gerade ist).
     url = f"{BASE_URL}/api/team/{team_id}/swiss?max={MAX_TEAM_TOURNAMENTS}"
     try:
         for row in fetch_ndjson(url):
-            variant = row.get("variant", {})
-            variant_key = variant.get("key") if isinstance(variant, dict) else None
-            clock = row.get("clock", {})
-            # Swiss-Turniere haben kein "perf"-Feld wie Arenen, aber ueber
-            # die Bedenkzeit laesst sich Blitz (3-8min als Basiszeit)
-            # identifizieren; zur Sicherheit zusaetzlich variant == standard.
-            limit = clock.get("limit", 0) if isinstance(clock, dict) else 0
-            is_blitz_clock = 180 <= limit <= 480
-            if variant_key == "standard" and is_blitz_clock and row.get("id"):
+            if swiss_matches_perf_type(row) and row.get("id"):
                 found.append((row["id"], "swiss"))
     except RateLimitError:
         raise
@@ -441,9 +517,9 @@ def get_team_members(team_id: str) -> set:
 
 
 def get_top_blitz_players() -> set:
-    print("Hole Top-200 Blitz-Spieler nach Rating...")
+    print(f"Hole Top-200 {PERF_TYPE}-Spieler nach Rating...")
     try:
-        data = fetch_json(f"{BASE_URL}/api/player/top/200/blitz")
+        data = fetch_json(f"{BASE_URL}/api/player/top/200/{PERF_TYPE}")
         users = {u["username"].lower() for u in data.get("users", [])}
         print(f"  {len(users)} Spieler aus Top-Liste.")
         return users
@@ -453,18 +529,20 @@ def get_top_blitz_players() -> set:
 
 
 # ---------------------------------------------------------------------------
-# PARTIEN ZAEHLEN (nur Blitz, egal aus welchem Turnier der Spieler kam)
+# PARTIEN ZAEHLEN (nur der gewaehlte PERF_TYPE, egal aus welchem Turnier
+# der Spieler urspruenglich kam)
 # ---------------------------------------------------------------------------
 def count_recent_blitz_games(username: str, since_ms: int) -> int:
     """
-    Zaehlt NUR Blitz-Partien eines Spielers seit since_ms (gedeckelt).
-    perfType=blitz sorgt dafuer, dass ausschliesslich Blitz-Partien
-    gezaehlt werden - unabhaengig davon, ob der Spieler urspruenglich aus
-    einer Blitz-Arena, einem Blitz-Swiss oder der Top-Liste stammt.
+    Zaehlt NUR Partien des aktuell gewaehlten PERF_TYPE eines Spielers seit
+    since_ms (gedeckelt). perfType=<PERF_TYPE> sorgt dafuer, dass
+    ausschliesslich passende Partien gezaehlt werden - unabhaengig davon,
+    ob der Spieler urspruenglich aus einer Arena, einem Swiss-Turnier oder
+    der Top-Liste stammt.
     """
     params = urllib.parse.urlencode({
         "since": since_ms,
-        "perfType": "blitz",
+        "perfType": PERF_TYPE,
         "max": MAX_GAMES_PER_QUERY,
         "moves": "false",
         "tags": "false",
@@ -513,7 +591,7 @@ def write_top10_snapshot(counts: dict) -> None:
     status/top100.md - wird bei JEDEM Live-Update ueberschrieben, sodass
     dort immer der aktuelle Stand steht (nicht erst am Ende des Laufs).
     """
-    STATUS_DIR.mkdir(exist_ok=True)
+    STATUS_DIR.mkdir(parents=True, exist_ok=True)
     ranking = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:TOP_N_LIVE]
     now_iso = datetime.now(timezone.utc).isoformat()
 
@@ -528,7 +606,7 @@ def write_top10_snapshot(counts: dict) -> None:
     TOP10_JSON_FILE.write_text(json.dumps(snapshot, indent=2, ensure_ascii=False))
 
     lines = [
-        f"# Top {TOP_N_LIVE} aktivste Blitz-Spieler (letzte {SINCE_DAYS} Tage)",
+        f"# Top {TOP_N_LIVE} aktivste {PERF_TYPE}-Spieler (letzte {SINCE_DAYS} Tage)",
         "",
         f"_Zuletzt aktualisiert: {now_iso}_",
         "",
@@ -544,7 +622,7 @@ def print_top(counts: dict, n: int = TOP_N) -> list:
     ranking = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:n]
     print()
     print("=" * 70)
-    print(f"  TOP {n} AKTIVSTE BLITZ-SPIELER (letzte {SINCE_DAYS} Tage)")
+    print(f"  TOP {n} AKTIVSTE {PERF_TYPE.upper()}-SPIELER (letzte {SINCE_DAYS} Tage)")
     print("=" * 70)
     for i, (name, cnt) in enumerate(ranking, start=1):
         print(f"  {i:>3}. {name:<20} {cnt:>5} Partien   {profile_url(name)}")
@@ -652,15 +730,15 @@ def main() -> None:
         update_players_live(top_players, updated_this_run, counts, since_ms, leaderboard)
         time.sleep(REQUEST_DELAY_SECONDS)
 
-        # 2) Alle erreichbaren Blitz-Turniere sammeln: aktuell sichtbare +
+        # 2) Alle erreichbaren PERF_TYPE-Turniere sammeln: aktuell sichtbare +
         #    komplette Team-Historie (auch vergangene Turniere)
         tournament_sources = list(get_visible_blitz_tournament_ids())
         time.sleep(REQUEST_DELAY_SECONDS)
 
         for team_id in EXTRA_TEAM_IDS:
-            print(f"Suche Blitz-Turnierhistorie von Team '{team_id}' (auch vergangene)...")
+            print(f"Suche {PERF_TYPE}-Turnierhistorie von Team '{team_id}' (auch vergangene)...")
             team_tournaments = get_team_tournament_ids(team_id.lower())
-            print(f"  {len(team_tournaments)} Blitz-Turnier(e) in der Historie gefunden.")
+            print(f"  {len(team_tournaments)} {PERF_TYPE}-Turnier(e) in der Historie gefunden.")
             tournament_sources.extend(team_tournaments)
             time.sleep(REQUEST_DELAY_SECONDS)
 
