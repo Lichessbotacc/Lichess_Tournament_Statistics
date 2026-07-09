@@ -195,10 +195,10 @@ EXTRA_TEAM_IDS = [
 ]
 
 SINCE_DAYS = 7
-MAX_GAMES_PER_QUERY = 10000
+MAX_GAMES_PER_QUERY = 1000
 TOP_N = 100
-REQUEST_DELAY_SECONDS = 0
-MAX_TEAM_TOURNAMENTS = 1000
+REQUEST_DELAY_SECONDS = 1.0
+MAX_TEAM_TOURNAMENTS = 100
 
 # ---------------------------------------------------------------------------
 # WICHTIG: Alle Ausgabe-Ordner/-Dateien werden bewusst NICHT relativ zum
@@ -423,7 +423,7 @@ def get_visible_blitz_tournament_ids() -> list:
     print(f"Suche aktuell sichtbare {PERF_TYPE}-Arenen...")
     try:
         data = fetch_json(f"{BASE_URL}/api/tournament")
-    except (RateLimitError, urllib.error.URLError, urllib.error.HTTPError) as exc:
+    except (RateLimitError, urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
         print(f"  [WARNUNG] Turnierliste konnte nicht geladen werden: {exc}")
         return []
 
@@ -459,7 +459,7 @@ def get_team_tournament_ids(team_id: str) -> list:
                 found.append((row["id"], "arena"))
     except RateLimitError:
         raise
-    except (urllib.error.URLError, urllib.error.HTTPError) as exc:
+    except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
         print(f"  [WARNUNG] Arena-Historie von Team '{team_id}' nicht ladbar: {exc}")
 
     # Swiss-Turniere des Teams. Swiss-Turniere haben anders als Arenen
@@ -473,7 +473,7 @@ def get_team_tournament_ids(team_id: str) -> list:
                 found.append((row["id"], "swiss"))
     except RateLimitError:
         raise
-    except (urllib.error.URLError, urllib.error.HTTPError) as exc:
+    except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
         print(f"  [WARNUNG] Swiss-Historie von Team '{team_id}' nicht ladbar: {exc}")
 
     return found
@@ -494,7 +494,7 @@ def get_tournament_participants(tournament_id: str, kind: str) -> set:
                 users.add(name.lower())
     except RateLimitError:
         raise
-    except (urllib.error.URLError, urllib.error.HTTPError) as exc:
+    except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
         print(f"  [WARNUNG] Teilnehmer von Turnier {tournament_id} nicht ladbar: {exc}")
     return users
 
@@ -510,7 +510,7 @@ def get_team_members(team_id: str) -> set:
                 users.add(name.lower())
     except RateLimitError:
         raise
-    except (urllib.error.URLError, urllib.error.HTTPError) as exc:
+    except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
         print(f"  [WARNUNG] Mitglieder von Team '{team_id}' nicht ladbar: {exc}")
     print(f"  {len(users)} Mitglieder gefunden.")
     return users
@@ -523,7 +523,7 @@ def get_top_blitz_players() -> set:
         users = {u["username"].lower() for u in data.get("users", [])}
         print(f"  {len(users)} Spieler aus Top-Liste.")
         return users
-    except (RateLimitError, urllib.error.URLError, urllib.error.HTTPError, KeyError) as exc:
+    except (RateLimitError, urllib.error.URLError, urllib.error.HTTPError, OSError, KeyError) as exc:
         print(f"  [WARNUNG] Top-Liste konnte nicht geladen werden: {exc}")
         return set()
 
@@ -652,7 +652,7 @@ def update_players_live(usernames: set, already_updated: set, counts: dict,
             new_count = count_recent_blitz_games(username, since_ms)
         except RateLimitError:
             raise
-        except (urllib.error.URLError, urllib.error.HTTPError) as exc:
+        except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
             print(f"  [WARNUNG] '{username}' konnte nicht abgefragt werden: {exc}")
             continue
 
