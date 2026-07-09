@@ -62,12 +62,22 @@ Ausfuehren (einmaliger Durchlauf):
 
 import json
 import os
+import sys
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+
+# Python puffert print()-Ausgaben, wenn stdout kein echtes Terminal ist
+# (z.B. in GitHub Actions) - dadurch wirken Ausgaben nicht "live", sondern
+# kommen erst gebuendelt am Ende an. Fix: stdout auf Line-Buffering
+# umstellen, damit jede Zeile sofort ausgegeben wird.
+try:
+    sys.stdout.reconfigure(line_buffering=True)
+except AttributeError:
+    pass
 
 # ---------------------------------------------------------------------------
 # CONFIG
@@ -79,14 +89,12 @@ TOKEN = os.environ.get("LICHESS_TOKEN", "")
 EXTRA_TEAM_IDS = [
      "darkonblitz-dob",
      "darkonteams",
-     "online-world-chess-lovers"
-     "zhigalko_sergei-fan-club"
 ]
 
 SINCE_DAYS = 7
-MAX_GAMES_PER_QUERY = 10000
+MAX_GAMES_PER_QUERY = 1000
 TOP_N = 100
-REQUEST_DELAY_SECONDS = 0
+REQUEST_DELAY_SECONDS = 1.0
 
 KNOWN_PLAYERS_FILE = Path("known_players.json")
 LEADERBOARD_FILE = Path("blitz_leaderboard.json")
