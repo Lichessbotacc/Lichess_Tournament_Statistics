@@ -1,0 +1,44 @@
+name: Blitz Activity Scan
+
+on:
+  schedule:
+    # Alle 6 Stunden (UTC): 00:00, 06:00, 12:00, 18:00
+    - cron: "0 */6 * * *"
+  workflow_dispatch: {}
+  # Manuelles Auslösen über den "Run workflow"-Button in GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Scripts/Auto
+
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Skript ausführen
+        env:
+          LICHESS_TOKEN: ${{ secrets.LICHESS_TOKEN }}
+        run: python3 most_active_blitz_players.py
+
+      - name: Ergebnisse zurück ins Repo committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add known_players.json blitz_leaderboard.json
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen an known_players.json / blitz_leaderboard.json."
+          else
+            git commit -m "Update Blitz-Aktivitäts-Ranking [skip ci]"
+            git push
+          fi
