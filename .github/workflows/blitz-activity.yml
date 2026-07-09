@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: Scripts/Auto
+        working-directory: scripts/auto
 
     steps:
       - name: Repo auschecken
