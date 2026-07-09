@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: scripts/auto
+        working-directory: Scripts/Auto
 
     steps:
       - name: Repo auschecken
@@ -27,7 +27,9 @@ jobs:
           python-version: "3.12"
 
       - name: Skript ausführen
-        run: python3 most_active_blitz_players.py
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python3 -u most_active_blitz_players.py
 
       - name: Ergebnisse zurück ins Repo committen
         run: |
