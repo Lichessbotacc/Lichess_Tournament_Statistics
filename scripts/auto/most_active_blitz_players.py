@@ -129,6 +129,16 @@ KNOWN_PLAYERS_FILE = Path("known_players.json")
 LEADERBOARD_FILE = Path("blitz_leaderboard.json")
 KNOWN_TOURNAMENTS_FILE = Path("known_tournaments.json")
 
+# Eigener Ordner fuer den "immer aktuellen" Top-10-Schnappschuss. Diese
+# Dateien werden bei JEDEM einzelnen Live-Update ueberschrieben, sodass
+# man dort jederzeit (auch waehrend das Skript noch laeuft) den aktuellen
+# Stand sehen kann - unabhaengig von der Konsolen-/Log-Ausgabe, die z.B.
+# in GitHub Actions nach dem Lauf schnell unuebersichtlich wird.
+STATUS_DIR = Path("status")
+TOP10_JSON_FILE = STATUS_DIR / "top100.json"
+TOP10_MD_FILE = STATUS_DIR / "top100.md"
+TOP_N_LIVE = 100
+
 BASE_URL = "https://lichess.org"
 HEADERS = {"Authorization": f"Bearer {TOKEN}"} if TOKEN else {}
 NDJSON_HEADERS = {**HEADERS, "Accept": "application/x-ndjson"}
@@ -376,6 +386,39 @@ def flashy_new_entry_banner(rank: int, name: str, count: int) -> None:
     print("  " + "*" * 60)
 
 
+def write_top10_snapshot(counts: dict) -> None:
+    """
+    Schreibt den aktuellen Top-100-Stand in status/top100.json und
+    status/top100.md - wird bei JEDEM Live-Update ueberschrieben, sodass
+    dort immer der aktuelle Stand steht (nicht erst am Ende des Laufs).
+    """
+    STATUS_DIR.mkdir(exist_ok=True)
+    ranking = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:TOP_N_LIVE]
+    now_iso = datetime.now(timezone.utc).isoformat()
+
+    snapshot = {
+        "updated_at": now_iso,
+        "since_days": SINCE_DAYS,
+        "top10": [
+            {"rank": i, "username": name, "games": cnt, "profile": profile_url(name)}
+            for i, (name, cnt) in enumerate(ranking, start=1)
+        ],
+    }
+    TOP10_JSON_FILE.write_text(json.dumps(snapshot, indent=2, ensure_ascii=False))
+
+    lines = [
+        f"# Top {TOP_N_LIVE} aktivste Blitz-Spieler (letzte {SINCE_DAYS} Tage)",
+        "",
+        f"_Zuletzt aktualisiert: {now_iso}_",
+        "",
+        "| Platz | Spieler | Partien | Profil |",
+        "|---|---|---|---|",
+    ]
+    for i, (name, cnt) in enumerate(ranking, start=1):
+        lines.append(f"| {i} | {name} | {cnt} | [{name}]({profile_url(name)}) |")
+    TOP10_MD_FILE.write_text("\n".join(lines) + "\n")
+
+
 def print_top(counts: dict, n: int = TOP_N) -> list:
     ranking = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:n]
     print()
@@ -428,6 +471,11 @@ def update_players_live(usernames: set, already_updated: set, counts: dict,
         leaderboard["counts"] = counts
         leaderboard["updated_at"] = datetime.now(timezone.utc).isoformat()
         save_leaderboard(leaderboard)
+
+        # Top-100-Schnappschuss (status/top100.json + .md) IMMER aktuell
+        # halten - das ist der Ort, an dem man "konstant" die Top 100
+        # sehen kann, auch waehrend das Skript noch weiterlaeuft.
+        write_top10_snapshot(counts)
 
 
 # ---------------------------------------------------------------------------
@@ -511,6 +559,7 @@ def main() -> None:
     leaderboard["counts"] = counts
     leaderboard["updated_at"] = datetime.now(timezone.utc).isoformat()
     save_leaderboard(leaderboard)
+    write_top10_snapshot(counts)
 
     new_players_total = len(pool - known_players)
     print()
