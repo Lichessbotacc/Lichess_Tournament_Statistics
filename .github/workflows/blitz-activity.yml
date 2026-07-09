@@ -27,8 +27,6 @@ jobs:
           python-version: "3.12"
 
       - name: Skript ausführen
-        env:
-          LICHESS_TOKEN: ${{ secrets.LICHESS_TOKEN }}
         run: python3 most_active_blitz_players.py
 
       - name: Ergebnisse zurück ins Repo committen
