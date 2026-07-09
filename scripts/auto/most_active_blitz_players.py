@@ -195,8 +195,8 @@ EXTRA_TEAM_IDS = [
 ]
 
 SINCE_DAYS = 7
-MAX_GAMES_PER_QUERY = 1000
-TOP_N = 100
+MAX_GAMES_PER_QUERY = 10000
+TOP_N = 200
 REQUEST_DELAY_SECONDS = 1.0
 MAX_TEAM_TOURNAMENTS = 100
 
@@ -336,14 +336,55 @@ class RateLimitError(Exception):
 # ---------------------------------------------------------------------------
 # HTTP HELPERS
 # ---------------------------------------------------------------------------
+# Bei einem Rate Limit (HTTP 429) soll das Skript NICHT mehr abbrechen,
+# sondern automatisch warten und es danach einfach erneut versuchen - das
+# Skript soll durchlaufen (24/7-Cron), nicht bei jedem 429 aufgeben.
+#
+# RATE_LIMIT_INITIAL_BACKOFF_SECONDS: Start-Wartezeit, falls Lichess keinen
+#   "Retry-After"-Header mitschickt.
+# RATE_LIMIT_MAX_BACKOFF_SECONDS: Deckel, damit die Wartezeit bei
+#   wiederholten 429s nicht ins Unermessliche waechst (Exponential-Backoff,
+#   verdoppelt sich bei jedem weiteren 429, aber nie mehr als dieser Wert).
+# RATE_LIMIT_MAX_TOTAL_WAIT_SECONDS: Absolutes Sicherheitsnetz PRO
+#   Einzelanfrage - falls Lichess ueber so lange Zeit (Summe aller
+#   Wartezeiten fuer diese eine Anfrage) durchgehend 429 zurueckgibt, gibt
+#   das Skript fuer DIESEN Lauf auf (speichert alles) statt endlos zu
+#   haengen und damit das GitHub-Actions-Zeitlimit des Jobs zu verschwenden.
+RATE_LIMIT_INITIAL_BACKOFF_SECONDS = 20
+RATE_LIMIT_MAX_BACKOFF_SECONDS = 300
+RATE_LIMIT_MAX_TOTAL_WAIT_SECONDS = 1800
+
+
 def _request(url: str, headers: dict, timeout: int = 30):
-    req = urllib.request.Request(url, headers=headers)
-    try:
-        return urllib.request.urlopen(req, timeout=timeout)
-    except urllib.error.HTTPError as exc:
-        if exc.code == 429:
-            raise RateLimitError(f"Rate Limit bei {url}") from exc
-        raise
+    backoff = RATE_LIMIT_INITIAL_BACKOFF_SECONDS
+    total_waited = 0.0
+    while True:
+        req = urllib.request.Request(url, headers=headers)
+        try:
+            return urllib.request.urlopen(req, timeout=timeout)
+        except urllib.error.HTTPError as exc:
+            if exc.code != 429:
+                raise
+
+            retry_after_header = exc.headers.get("Retry-After") if exc.headers else None
+            try:
+                wait_s = float(retry_after_header)
+            except (TypeError, ValueError):
+                wait_s = backoff
+            wait_s = max(wait_s, 1.0)
+
+            if total_waited + wait_s > RATE_LIMIT_MAX_TOTAL_WAIT_SECONDS:
+                raise RateLimitError(
+                    f"Rate Limit bei {url} - trotz {total_waited:.0f}s Warten "
+                    f"weiterhin 429, gebe fuer diesen Lauf auf"
+                ) from exc
+
+            print(f"  [RATE LIMIT] 429 bei {url} - warte {wait_s:.0f}s und "
+                  f"versuche es dann automatisch erneut (insgesamt schon "
+                  f"{total_waited:.0f}s gewartet)...")
+            time.sleep(wait_s)
+            total_waited += wait_s
+            backoff = min(backoff * 2, RATE_LIMIT_MAX_BACKOFF_SECONDS)
 
 
 def fetch_json(url: str) -> dict:
