@@ -639,6 +639,7 @@
     "alex_kadr": 0,
     "alex_roshchenko": 0,
     "alex_vt": 0,
+    "alexander-trap": 0,
     "alexander_baez": 0,
     "alexandersebastian": 0,
     "alexandraakhmetova": 0,
@@ -868,6 +869,7 @@
     "artem2804": 0,
     "artem_guznyaev": 0,
     "artem_kudryavtsev": 0,
+    "artem_medvedev-04": 0,
     "artem_plekhanov": 1,
     "artemeee1": 0,
     "artemsmirniv": 0,
@@ -2348,6 +2350,7 @@
     "j7227": 0,
     "jackson132": 0,
     "jacobfitton": 1,
+    "jacobo_asse": 0,
     "jacobsubervi": 0,
     "jadthebear": 0,
     "jaeyoon8290": 0,
@@ -2822,6 +2825,7 @@
     "mihail_ad": 1,
     "mihail_ivanovich": 0,
     "mihir2107": 0,
+    "mike_lindros": 0,
     "mikefilonov": 0,
     "mikhail_ya_24": 130,
     "mikola_chess": 0,
@@ -3079,6 +3083,7 @@
     "peppeagropoli2": 0,
     "percevalb79": 1,
     "percy_jackson14": 2,
+    "perrytheply": 0,
     "pesfilipes63": 0,
     "petrov_ivan_12": 0,
     "peyman60": 0,
@@ -3175,6 +3180,7 @@
     "recodayi": 0,
     "redeemer_d": 0,
     "redh": 0,
+    "regularbattery": 0,
     "remont1": 0,
     "remy0129": 0,
     "renatooooooooooooooo": 0,
@@ -4534,6 +4540,7 @@
     "alex_kadr": "2026-07-10T01:06:34.090600+00:00",
     "alex_roshchenko": "2026-07-10T06:55:12.711738+00:00",
     "alex_vt": "2026-07-10T01:06:35.371980+00:00",
+    "alexander-trap": "2026-07-10T09:34:28.126290+00:00",
     "alexander_baez": "2026-07-10T03:50:54.016941+00:00",
     "alexandersebastian": "2026-07-10T06:27:49.800728+00:00",
     "alexandraakhmetova": "2026-07-10T01:06:36.661332+00:00",
@@ -4748,6 +4755,7 @@
     "artem2804": "2026-07-10T01:10:51.701611+00:00",
     "artem_guznyaev": "2026-07-10T07:44:20.510918+00:00",
     "artem_kudryavtsev": "2026-07-10T07:07:03.113620+00:00",
+    "artem_medvedev-04": "2026-07-10T09:34:10.095269+00:00",
     "artem_plekhanov": "2026-07-10T03:45:56.285181+00:00",
     "artemeee1": "2026-07-10T05:04:04.946167+00:00",
     "artemsmirniv": "2026-07-10T06:01:51.002451+00:00",
@@ -5637,6 +5645,7 @@
     "j4yyu5_lckb": "2026-07-10T03:24:33.574163+00:00",
     "j7227": "2026-07-10T02:53:12.300811+00:00",
     "jackson132": "2026-07-10T06:03:25.133435+00:00",
+    "jacobo_asse": "2026-07-10T09:34:13.111486+00:00",
     "jacobsubervi": "2026-07-10T07:39:01.540287+00:00",
     "jadthebear": "2026-07-10T07:07:39.289307+00:00",
     "jaeyoon8290": "2026-07-10T06:40:06.678322+00:00",
@@ -6059,6 +6068,7 @@
     "migueeelbs": "2026-07-10T09:04:37.945298+00:00",
     "mihail_ad": "2026-07-10T07:31:48.431764+00:00",
     "mihir2107": "2026-07-10T06:19:47.751253+00:00",
+    "mike_lindros": "2026-07-10T09:34:16.111551+00:00",
     "mikefilonov": "2026-07-10T03:55:56.833628+00:00",
     "mikhail_ya_24": "2026-07-10T03:31:36.295955+00:00",
     "mikola_chess": "2026-07-10T05:49:17.112322+00:00",
@@ -6286,6 +6296,7 @@
     "pempekkulit": "2026-07-10T05:30:49.475243+00:00",
     "peppeagropoli2": "2026-07-10T02:49:45.125823+00:00",
     "percevalb79": "2026-07-10T05:11:41.306687+00:00",
+    "perrytheply": "2026-07-10T09:33:55.123733+00:00",
     "pesfilipes63": "2026-07-10T08:36:05.112099+00:00",
     "petrov_ivan_12": "2026-07-10T02:03:11.982985+00:00",
     "peyman60": "2026-07-10T06:08:35.047310+00:00",
@@ -6373,6 +6384,7 @@
     "recodayi": "2026-07-10T06:23:48.336309+00:00",
     "redeemer_d": "2026-07-10T06:16:42.337113+00:00",
     "redh": "2026-07-10T08:05:43.850315+00:00",
+    "regularbattery": "2026-07-10T09:33:58.106073+00:00",
     "remont1": "2026-07-10T02:02:42.056127+00:00",
     "remy0129": "2026-07-10T05:27:43.017708+00:00",
     "renatooooooooooooooo": "2026-07-10T02:57:47.429658+00:00",
@@ -34300,7 +34312,49 @@
       "rank": 3899,
       "source": "Lobby-Crawl",
       "username": "pasha2909"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/perrytheply",
+      "rank": 3900,
+      "source": "Lobby-Crawl",
+      "username": "perrytheply"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/regularbattery",
+      "rank": 3901,
+      "source": "Lobby-Crawl",
+      "username": "regularbattery"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/artem_medvedev-04",
+      "rank": 3902,
+      "source": "Lobby-Crawl",
+      "username": "artem_medvedev-04"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/jacobo_asse",
+      "rank": 3903,
+      "source": "Lobby-Crawl",
+      "username": "jacobo_asse"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/mike_lindros",
+      "rank": 3904,
+      "source": "Lobby-Crawl",
+      "username": "mike_lindros"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/alexander-trap",
+      "rank": 3905,
+      "source": "Lobby-Crawl",
+      "username": "alexander-trap"
     }
   ],
-  "updated_at": "2026-07-10T09:33:46.269588+00:00"
+  "updated_at": "2026-07-10T09:34:28.126311+00:00"
 }
