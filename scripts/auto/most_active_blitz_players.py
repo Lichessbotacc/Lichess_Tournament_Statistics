@@ -17,18 +17,16 @@ Stattdessen sammelt dieses Skript den Pool aus mehreren Quellen und
 SPEICHERT ihn dauerhaft in KNOWN_PLAYERS_FILE - der Pool waechst also mit
 jedem Lauf weiter:
 
-  1. Top-200 Blitz-Spieler nach Rating (/api/player/top/200/blitz).
-  2. Mitglieder aus konfigurierten Teams (EXTRA_TEAM_IDS).
-  3. Teilnehmer aus ALLEN erreichbaren Blitz-Arenen/Swiss-Turnieren
+  1. Teilnehmer aus ALLEN erreichbaren Blitz-Arenen/Swiss-Turnieren
      (aktuell sichtbar + komplette Team-Turnierhistorie, auch
      VERGANGENE Turniere).
-  4. SNOWBALL-CRAWL ueber die Partien-Gegner ("Lobby"-Ausbreitung), siehe
+  2. SNOWBALL-CRAWL ueber die Partien-Gegner ("Lobby"-Ausbreitung), siehe
      Abschnitt "SNOWBALL-CRAWL" weiter unten.
 
-Jeder Spieler bekommt sich eine "Quelle" gemerkt (top100 / team / turnier
-/ lobby) - also woher er urspruenglich in den Pool gekommen ist. Diese
-Quelle taucht ueberall in der Ausgabe (Banner, Top-1000-Tabelle,
-status/top1000.json/.md) mit auf.
+Jeder Spieler bekommt sich eine "Quelle" gemerkt (turnier / lobby) - also
+woher er urspruenglich in den Pool gekommen ist. Diese Quelle taucht
+ueberall in der Ausgabe (Banner, Top-1000-Tabelle, status/top1000.json/.md)
+mit auf.
 
 -------------------------------------------------------------------
 WARUM EIN LAUF NICHT MEHR "BEI NULL" ANFAENGT (COOLDOWNS)
@@ -38,7 +36,6 @@ Ein bereits bekannter Spieler wird nur dann erneut auf seine Partienzahl
 geprueft, wenn CHECK_COOLDOWN_HOURS seit der letzten Abfrage vergangen
 sind - ein komplett NEUER Spieler wird dagegen immer sofort abgefragt.
 Dasselbe Prinzip gilt fuer:
-  - Team-Mitgliederlisten (TEAM_SYNC_COOLDOWN_HOURS).
   - Den Snowball-Crawl (RECRAWL_COOLDOWN_HOURS) - ein Spieler, dessen
     letzte Partien schon einmal nach Gegnern durchsucht wurden, wird
     erst nach Ablauf dieser Frist erneut als Crawl-Seed benutzt.
@@ -80,7 +77,7 @@ LIVE-RANKING WAEHREND DER SUCHE
 Das Skript wartet NICHT, bis der komplette Spieler-Pool gesammelt ist,
 bevor es Partien zaehlt. Jede Quelle wird sofort nach dem Einlesen
 verarbeitet, das Leaderboard sofort aktualisiert, und bei einem
-Top-100-Einstieg erscheint sofort ein auffaelliger Banner (inkl. Quelle).
+Top-Ranking-Einstieg erscheint sofort ein auffaelliger Banner (inkl. Quelle).
 
 -------------------------------------------------------------------
 SNOWBALL-CRAWL (Gegner-basierte Pool-Erweiterung)
@@ -105,11 +102,11 @@ SNOWBALL-CRAWL (Gegner-basierte Pool-Erweiterung)
   - Fuer jeden Seed werden die letzten CRAWL_GAMES_PER_SEED Partien
     angesehen und beide Spielernamen extrahiert. Neue Gegner werden
     sofort live verarbeitet UND ans Ende der Crawl-Queue gehaengt.
-    Diese neuen Gegner koennen VOELLIG unabhaengig von Top-100/Team/
-    Turnier sein - genau das ist der Mechanismus, der echte "nur
-    Lobby"-Spieler findet: ein Top-100- oder Team-Spieler spielt in der
-    freien Lobby gegen jemanden, der in keiner anderen Quelle je
-    auftaucht, und dieser Gegner wird hier aufgenommen (source="lobby").
+    Diese neuen Gegner koennen VOELLIG unabhaengig von Turnieren sein -
+    genau das ist der Mechanismus, der echte "nur Lobby"-Spieler findet:
+    ein Turnier-Spieler spielt in der freien Lobby gegen jemanden, der in
+    keiner anderen Quelle je auftaucht, und dieser Gegner wird hier
+    aufgenommen (source="lobby").
 
 -------------------------------------------------------------------
 KONFIGURATION
@@ -126,8 +123,6 @@ MAX_TEAM_TOURNAMENTS: Obergrenze vergangene Turniere pro Team/Typ.
 
 CHECK_COOLDOWN_HOURS (Standard 18h): Wie lange ein bekannter Spieler
 nicht erneut auf seine Partienzahl geprueft wird.
-TEAM_SYNC_COOLDOWN_HOURS (Standard 12h): Wie lange eine Team-
-Mitgliederliste nicht erneut komplett abgerufen wird.
 RECRAWL_COOLDOWN_HOURS (Standard 72h): Wartezeit vor erneutem Crawl
 eines bereits gecrawlten Spielers.
 
@@ -250,11 +245,9 @@ MAX_TEAM_TOURNAMENTS = int(os.environ.get("MAX_TEAM_TOURNAMENTS", "200"))
 
 # --- Cooldowns ----------------------------------------------------------
 CHECK_COOLDOWN_HOURS = float(os.environ.get("CHECK_COOLDOWN_HOURS", "18"))
-TEAM_SYNC_COOLDOWN_HOURS = float(os.environ.get("TEAM_SYNC_COOLDOWN_HOURS", "12"))
 RECRAWL_COOLDOWN_HOURS = float(os.environ.get("RECRAWL_COOLDOWN_HOURS", "72"))
 
 CHECK_COOLDOWN_SECONDS = CHECK_COOLDOWN_HOURS * 3600
-TEAM_SYNC_COOLDOWN_SECONDS = TEAM_SYNC_COOLDOWN_HOURS * 3600
 RECRAWL_COOLDOWN_SECONDS = RECRAWL_COOLDOWN_HOURS * 3600
 
 # --- Snowball-Crawl -------------------------------------------------------
@@ -266,14 +259,13 @@ CRAWL_GAMES_PER_SEED = int(os.environ.get("CRAWL_GAMES_PER_SEED", "10"))
 CRAWL_BOOTSTRAP_SAMPLE_SIZE = int(os.environ.get("CRAWL_BOOTSTRAP_SAMPLE_SIZE", "30"))
 
 # Bei jedem (Wieder-)Einstieg in die Lobby-Crawl-Phase (v.a. nach einem
-# Turnier-Block) werden DIVERSE_SEED_COUNT zufaellige Spieler aus anderen
-# Quellen (Turnier-Teilnehmer, Top-100) vorne an die Crawl-Kette gehaengt.
+# Turnier-Block) werden DIVERSE_SEED_COUNT zufaellige Spieler aus den
+# Turnier-Teilnehmern vorne an die Crawl-Kette gehaengt.
 # Grund: reines Gegner-Ketten-Verzweigen bleibt fast immer im gleichen
 # Rating-Band haengen (Lichess matcht aehnliche Ratings gegeneinander) -
-# ein 1600er fuehrt so praktisch nie zu einem 2300er. Turniere und die
-# Top-100-Liste decken dagegen ein breites Rating-Spektrum ab, wodurch der
-# Crawl bei jedem Wechsel quasi zufaellig auf einem neuen Rating-Niveau
-# neu ansetzt.
+# ein 1600er fuehrt so praktisch nie zu einem 2300er. Turniere decken
+# dagegen ein breites Rating-Spektrum ab, wodurch der Crawl bei jedem
+# Wechsel quasi zufaellig auf einem neuen Rating-Niveau neu ansetzt.
 DIVERSE_SEED_COUNT = int(os.environ.get("DIVERSE_SEED_COUNT", "4"))
 
 # --- Abwechselnde Zeitscheiben Crawl <-> Turniere -------------------------
@@ -298,8 +290,6 @@ MAX_TOTAL_RUNTIME_SECONDS = float(os.environ.get("MAX_TOTAL_RUNTIME_SECONDS", "1
 
 # --- Herkunfts-Label (wo ein Spieler zuerst gefunden wurde) --------------
 SOURCE_LABELS = {
-    "top100": "Top-100",
-    "team": "Team",
     "turnier": "Turnier",
     "lobby": "Lobby-Crawl",
 }
@@ -315,8 +305,7 @@ KNOWN_TOURNAMENTS_FILE = DATA_DIR / "known_tournaments.json"
 
 CRAWL_QUEUE_FILE = DATA_DIR / "crawl_queue.json"
 KNOWN_CRAWLED_FILE = DATA_DIR / "known_crawled.json"       # username -> ISO-Zeitstempel
-TEAM_SYNC_STATE_FILE = DATA_DIR / "team_sync_state.json"   # team_id  -> ISO-Zeitstempel
-SOURCE_MAP_FILE = DATA_DIR / "player_source.json"          # username -> Quelle (top100/team/turnier/lobby)
+SOURCE_MAP_FILE = DATA_DIR / "player_source.json"          # username -> Quelle (turnier/lobby)
 BOT_STATUS_FILE = DATA_DIR / "bot_status.json"              # username -> true (Bot) / false (Mensch), dauerhafter Cache
 
 STATUS_DIR = REPO_ROOT / "status" / PERF_TYPE
@@ -359,7 +348,7 @@ def git_commit_and_push(message: str) -> bool:
         candidate_paths = [
             STATUS_DIR, KNOWN_PLAYERS_FILE, KNOWN_TOURNAMENTS_FILE,
             LEADERBOARD_FILE, CRAWL_QUEUE_FILE, KNOWN_CRAWLED_FILE,
-            TEAM_SYNC_STATE_FILE, SOURCE_MAP_FILE,
+            SOURCE_MAP_FILE,
         ]
         existing_paths = [str(p) for p in candidate_paths if p.exists()]
         if not existing_paths:
@@ -717,31 +706,6 @@ def get_tournament_participants(tournament_id: str, kind: str) -> set:
     return users
 
 
-def get_team_members(team_id: str) -> set:
-    url = f"{BASE_URL}/api/team/{team_id}/users"
-    users = set()
-    try:
-        for row in fetch_ndjson(url):
-            name = row.get("username") or row.get("id")
-            if name:
-                users.add(name.lower())
-    except RateLimitError:
-        raise
-    except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
-        print(f"     [WARNUNG] Mitglieder von Team '{team_id}' nicht ladbar: {exc}")
-    return users
-
-
-def get_top_blitz_players() -> set:
-    try:
-        data = fetch_json(f"{BASE_URL}/api/player/top/200/{PERF_TYPE}")
-        users = {u["username"].lower() for u in data.get("users", [])}
-        return users
-    except (RateLimitError, urllib.error.URLError, urllib.error.HTTPError, OSError, KeyError) as exc:
-        print(f"  [WARNUNG] Top-Liste konnte nicht geladen werden: {exc}")
-        return set()
-
-
 # ---------------------------------------------------------------------------
 # BOT-FILTER
 # ---------------------------------------------------------------------------
@@ -921,8 +885,8 @@ def inject_diverse_crawl_seeds(source_map: dict, count: int = DIVERSE_SEED_COUNT
     """
     Haengt bis zu `count` zufaellige Spieler VORNE (nicht hinten!) an die
     Crawl-Queue, damit sie als naechstes dran sind. Die Kandidaten kommen
-    bewusst aus Turnier- und Top-100-Quellen statt aus dem Lobby-Pool
-    selbst, weil diese ein viel breiteres Rating-Spektrum abdecken als
+    bewusst aus der Turnier-Quelle statt aus dem Lobby-Pool selbst, weil
+    Turnier-Teilnehmer ein viel breiteres Rating-Spektrum abdecken als
     Partien-Gegner-Ketten (die durch Lichess' Matchmaking fast immer im
     gleichen Rating-Band bleiben).
     """
@@ -935,25 +899,15 @@ def inject_diverse_crawl_seeds(source_map: dict, count: int = DIVERSE_SEED_COUNT
                 if src == label and u not in known_crawled and u not in queue_set]
 
     turnier_candidates = candidates("turnier")
-    top_candidates = candidates("top100")
     random.shuffle(turnier_candidates)
-    random.shuffle(top_candidates)
 
-    # Mischung: mehrheitlich Turnier-Spieler (breite Streuung ueber alle
-    # Rating-Baender), mindestens 1 Top-100-Spieler (deckt das obere Ende
-    # ab, das ueber reine Gegner-Ketten kaum je erreicht wird).
-    top_share = max(1, count // 3) if top_candidates else 0
-    turnier_share = count - top_share
-
-    picks = turnier_candidates[:turnier_share] + top_candidates[:top_share]
-    random.shuffle(picks)
-    picks = picks[:count]
+    picks = turnier_candidates[:count]
 
     if not picks:
         return
 
-    print(f"  [DIVERSITAET] {len(picks)} zufaellige Spieler aus anderen Rating-Bereichen "
-          f"(Turnier/Top-100) werden vorne an die Kette gehaengt: {picks}")
+    print(f"  [DIVERSITAET] {len(picks)} zufaellige Spieler aus Turnieren "
+          f"werden vorne an die Kette gehaengt: {picks}")
     new_queue = picks + [q for q in queue if q not in picks]
     save_json_list(CRAWL_QUEUE_FILE, new_queue)
 
@@ -1252,7 +1206,6 @@ def main() -> None:
     known_tournaments = load_json_set(KNOWN_TOURNAMENTS_FILE)
     crawl_queue_len = len(load_json_list(CRAWL_QUEUE_FILE))
     known_crawled_len = len(load_json_dict(KNOWN_CRAWLED_FILE))
-    team_sync_state = load_json_dict(TEAM_SYNC_STATE_FILE)
     source_map = load_json_dict(SOURCE_MAP_FILE)
     bot_status = load_json_dict(BOT_STATUS_FILE)
     bot_status = {k: (v is True or v == "true") for k, v in bot_status.items()}
@@ -1263,7 +1216,6 @@ def main() -> None:
     print_stat("Crawl-Queue-Laenge", crawl_queue_len)
     print_stat("Bereits gecrawlte Spieler", known_crawled_len)
     print_stat("Cooldown Spieler-Refresh", f"{CHECK_COOLDOWN_HOURS:.0f}h")
-    print_stat("Cooldown Team-Roster-Refresh", f"{TEAM_SYNC_COOLDOWN_HOURS:.0f}h")
     print_stat("Cooldown Recrawl", f"{RECRAWL_COOLDOWN_HOURS:.0f}h")
     print_stat("Zeitscheibe Crawl/Turniere", f"{PHASE_SLICE_SECONDS:.0f}s")
     print_stat("Gesamt-Zeitbudget Crawl/Turniere", f"{MAX_TOTAL_RUNTIME_SECONDS:.0f}s")
@@ -1283,61 +1235,17 @@ def main() -> None:
     save_json_set(KNOWN_TOURNAMENTS_FILE, known_tournaments)
     save_json_list(CRAWL_QUEUE_FILE, load_json_list(CRAWL_QUEUE_FILE))
     save_json_dict(KNOWN_CRAWLED_FILE, load_json_dict(KNOWN_CRAWLED_FILE))
-    save_json_dict(TEAM_SYNC_STATE_FILE, team_sync_state)
     save_json_dict(SOURCE_MAP_FILE, source_map)
     maybe_live_push(force=True)
 
     overall_stats = {"checked": 0, "skipped_cooldown": 0, "new": 0, "failed": 0, "seeds_crawled": 0}
 
     try:
-        # --- Phase 1: Top-Liste nach Rating -------------------------------
-        print_section("1/4 Top-Liste nach Rating")
-        top_players = get_top_blitz_players()
-        top_players = check_and_filter_bots(top_players, bot_status)
-        new_in_top = len(top_players - pool)
-        pool |= top_players
-        tag_source(source_map, top_players, "top100")
-        save_json_set(KNOWN_PLAYERS_FILE, pool)
-        save_json_dict(SOURCE_MAP_FILE, source_map)
-        print_stat("Gefunden", f"{len(top_players)} Spieler ({new_in_top} neu im Pool)")
-        before = dict(overall_stats)
-        update_players_live(top_players, updated_this_run, counts, last_checked,
-                             source_map, since_ms, leaderboard, overall_stats)
-        print_stat("Neu geprueft", overall_stats["new"] - before["new"])
-        print_stat("Cooldown-Refresh geprueft",
-                    (overall_stats["checked"] - before["checked"]) - (overall_stats["new"] - before["new"]))
-        print_stat("Uebersprungen (Cooldown)", overall_stats["skipped_cooldown"] - before["skipped_cooldown"])
-
-        # --- Phase 2: Team-Mitgliederlisten (mit Sync-Cooldown) -----------
-        print_section("2/4 Team-Mitgliederlisten")
-        for team_id in EXTRA_TEAM_IDS:
-            tid = team_id.lower()
-            last_sync = team_sync_state.get(tid, "")
-            if not is_due(last_sync, TEAM_SYNC_COOLDOWN_SECONDS):
-                remaining_h = (TEAM_SYNC_COOLDOWN_SECONDS - seconds_since(last_sync)) / 3600
-                print(f"  '{team_id}': uebersprungen (Roster erst vor "
-                      f"{seconds_since(last_sync) / 3600:.1f}h geholt, "
-                      f"noch {remaining_h:.1f}h Cooldown).")
-                continue
-
-            members = get_team_members(tid)
-            members = check_and_filter_bots(members, bot_status)
-            new_count = len(members - pool)
-            pool |= members
-            tag_source(source_map, members, "team")
-            team_sync_state[tid] = now_iso()
-            save_json_dict(TEAM_SYNC_STATE_FILE, team_sync_state)
-            save_json_dict(SOURCE_MAP_FILE, source_map)
-            save_json_set(KNOWN_PLAYERS_FILE, pool)
-            print(f"  '{team_id}': {len(members)} Mitglieder ({new_count} neu im Pool).")
-            update_players_live(members, updated_this_run, counts, last_checked,
-                                 source_map, since_ms, leaderboard, overall_stats)
-
         # --- Bootstrap: Crawl-Queue animpfen, falls noch nie gecrawlt -----
         bootstrap_crawl_queue_if_empty(pool)
 
-        # --- Phase 3+4: Lobby-Crawl & Turniere im Wechsel, CRAWL ZUERST ---
-        print_section("3/4 + 4/4 Lobby-Crawl & Turniere (abwechselnd, Crawl hat Prioritaet)")
+        # --- Lobby-Crawl & Turniere im Wechsel, CRAWL ZUERST --------------
+        print_section("Lobby-Crawl & Turniere (abwechselnd, Crawl hat Prioritaet)")
 
         tournament_sources = list(get_visible_blitz_tournament_ids())
         for team_id in EXTRA_TEAM_IDS:
