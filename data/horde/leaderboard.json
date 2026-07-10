@@ -3968,6 +3968,7 @@
     "goldenbye": 3,
     "goldenchess10": 0,
     "goldendrgonfly": 0,
+    "goldenfaster": 0,
     "goldenheart1": 0,
     "goldpartymaxwin": 0,
     "golfisboring": 0,
@@ -4986,6 +4987,7 @@
     "joaquin21": 0,
     "joaquin_urbano": 0,
     "jocokacm": 0,
+    "jodaswisher": 0,
     "joddle": 1,
     "joel45_72": 1,
     "joelsant": 0,
@@ -7219,6 +7221,7 @@
     "nithyan35": 3,
     "nithyavallika": 0,
     "nitin2015": 0,
+    "nitinprakash": 0,
     "nitneroc1983": 0,
     "nivankotak": 0,
     "nivashnie_dlca": 0,
@@ -8604,6 +8607,7 @@
     "satvikpattanaik": 0,
     "satyajit2012": 0,
     "sau-777": 25,
+    "saul_rivera": 0,
     "sav_18": 0,
     "savamilin": 0,
     "savchink_2042": 0,
@@ -8934,6 +8938,7 @@
     "smithds2": 1,
     "smolko_igor": 0,
     "smoosh99": 0,
+    "smotrys": 0,
     "smp_moasheri": 0,
     "smurfy": 0,
     "smytheton": 19,
@@ -14276,6 +14281,7 @@
     "goldenbye": "2026-07-10T13:18:16.182679+00:00",
     "goldenchess10": "2026-07-10T17:07:34.272870+00:00",
     "goldendrgonfly": "2026-07-10T17:07:37.271024+00:00",
+    "goldenfaster": "2026-07-10T22:14:24.280295+00:00",
     "goldenheart1": "2026-07-10T17:07:40.285533+00:00",
     "goldpartymaxwin": "2026-07-10T09:00:07.575267+00:00",
     "golfisboring": "2026-07-10T12:58:01.869608+00:00",
@@ -15293,6 +15299,7 @@
     "joaquin21": "2026-07-10T18:59:48.896887+00:00",
     "joaquin_urbano": "2026-07-10T21:54:28.756863+00:00",
     "jocokacm": "2026-07-10T08:49:56.674168+00:00",
+    "jodaswisher": "2026-07-10T22:14:03.297119+00:00",
     "joddle": "2026-07-10T00:51:08.216840+00:00",
     "joel45_72": "2026-07-10T09:48:10.021428+00:00",
     "joelsant": "2026-07-10T11:46:34.597196+00:00",
@@ -17015,6 +17022,7 @@
     "nithil132016": "2026-07-10T17:56:44.748622+00:00",
     "nithyan35": "2026-07-10T04:32:14.793352+00:00",
     "nithyavallika": "2026-07-10T15:50:16.800910+00:00",
+    "nitinprakash": "2026-07-10T22:14:06.348638+00:00",
     "nitneroc1983": "2026-07-10T16:25:42.864644+00:00",
     "nivedbinod": "2026-07-10T20:26:51.122355+00:00",
     "nivhal": "2026-07-10T21:02:43.034056+00:00",
@@ -18024,6 +18032,7 @@
     "satvikpattanaik": "2026-07-10T20:06:32.269608+00:00",
     "satyajit2012": "2026-07-10T14:37:59.200750+00:00",
     "sau-777": "2026-07-10T05:26:08.125356+00:00",
+    "saul_rivera": "2026-07-10T22:14:09.281397+00:00",
     "savamilin": "2026-07-10T05:06:54.350220+00:00",
     "savchink_2042": "2026-07-10T20:30:48.504433+00:00",
     "savio17": "2026-07-10T21:20:46.675477+00:00",
@@ -18310,6 +18319,7 @@
     "smithds2": "2026-07-10T11:39:12.986865+00:00",
     "smolko_igor": "2026-07-10T19:13:16.147880+00:00",
     "smoosh99": "2026-07-10T04:58:01.384893+00:00",
+    "smotrys": "2026-07-10T22:14:12.272559+00:00",
     "smp_moasheri": "2026-07-10T21:19:36.649218+00:00",
     "smurfy": "2026-07-10T07:14:27.804006+00:00",
     "smytheton": "2026-07-10T11:52:04.902827+00:00",
@@ -91857,7 +91867,42 @@
       "rank": 10310,
       "source": "Lobby-Crawl",
       "username": "hordingholdor"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/jodaswisher",
+      "rank": 10311,
+      "source": "Lobby-Crawl",
+      "username": "jodaswisher"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/nitinprakash",
+      "rank": 10312,
+      "source": "Lobby-Crawl",
+      "username": "nitinprakash"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/saul_rivera",
+      "rank": 10313,
+      "source": "Lobby-Crawl",
+      "username": "saul_rivera"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/smotrys",
+      "rank": 10314,
+      "source": "Lobby-Crawl",
+      "username": "smotrys"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/goldenfaster",
+      "rank": 10315,
+      "source": "Lobby-Crawl",
+      "username": "goldenfaster"
     }
   ],
-  "updated_at": "2026-07-10T22:13:54.252549+00:00"
+  "updated_at": "2026-07-10T22:14:24.280315+00:00"
 }
