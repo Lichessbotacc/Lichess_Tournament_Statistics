@@ -27,8 +27,8 @@ jedem Lauf weiter:
 
 Jeder Spieler bekommt sich eine "Quelle" gemerkt (top100 / team / turnier
 / lobby) - also woher er urspruenglich in den Pool gekommen ist. Diese
-Quelle taucht ueberall in der Ausgabe (Banner, Top-100-Tabelle,
-status/top100.json/.md) mit auf.
+Quelle taucht ueberall in der Ausgabe (Banner, Top-1000-Tabelle,
+status/top1000.json/.md) mit auf.
 
 -------------------------------------------------------------------
 WARUM EIN LAUF NICHT MEHR "BEI NULL" ANFAENGT (COOLDOWNS)
@@ -236,8 +236,8 @@ EXTRA_TEAM_IDS = [
 ]
 
 SINCE_DAYS = 7
-MAX_GAMES_PER_QUERY = 100000
-TOP_N = 100
+MAX_GAMES_PER_QUERY = 10000
+TOP_N = 1000
 
 # --- Rate-Limit-Schutz ----------------------------------------------------
 # REQUEST_DELAY_SECONDS bleibt als zusaetzliche, lokale Pause an manchen
@@ -302,11 +302,12 @@ CRAWL_QUEUE_FILE = DATA_DIR / "crawl_queue.json"
 KNOWN_CRAWLED_FILE = DATA_DIR / "known_crawled.json"       # username -> ISO-Zeitstempel
 TEAM_SYNC_STATE_FILE = DATA_DIR / "team_sync_state.json"   # team_id  -> ISO-Zeitstempel
 SOURCE_MAP_FILE = DATA_DIR / "player_source.json"          # username -> Quelle (top100/team/turnier/lobby)
+BOT_STATUS_FILE = DATA_DIR / "bot_status.json"              # username -> true (Bot) / false (Mensch), dauerhafter Cache
 
 STATUS_DIR = REPO_ROOT / "status" / PERF_TYPE
-TOP10_JSON_FILE = STATUS_DIR / "top100.json"
-TOP10_MD_FILE = STATUS_DIR / "top100.md"
-TOP_N_LIVE = 100
+TOP10_JSON_FILE = STATUS_DIR / "top1000.json"
+TOP10_MD_FILE = STATUS_DIR / "top1000.md"
+TOP_N_LIVE = 1000
 
 # ---------------------------------------------------------------------------
 # LIVE GIT PUSH
@@ -727,6 +728,72 @@ def get_top_blitz_players() -> set:
 
 
 # ---------------------------------------------------------------------------
+# BOT-FILTER
+# ---------------------------------------------------------------------------
+# Lichess markiert Bot-Accounts im Profil mit title == "BOT". Team-Roster,
+# Turnier-Teilnehmerlisten und Lobby-Crawl-Gegner koennen Bots enthalten
+# (Bots duerfen auf Lichess spielen, auch in Arenen/Swiss und normalen
+# Partien). Diese Funktion filtert Bots konsequent an JEDER Stelle raus,
+# an der neue Spieler in den Pool aufgenommen werden.
+#
+# Um nicht bei jedem Lauf alle ~tausend Spieler erneut abzufragen, wird
+# das Ergebnis dauerhaft in BOT_STATUS_FILE gecacht (username -> bool).
+# Fuer noch unbekannte Spieler wird /api/users/status in Batches von 100
+# IDs abgefragt (das Maximum, das dieser Endpunkt pro Aufruf akzeptiert) -
+# das ist bei tausenden Spielern trotzdem nur eine Handvoll Requests.
+BOT_STATUS_BATCH_SIZE = 100
+
+
+def check_and_filter_bots(usernames, bot_status: dict) -> set:
+    """
+    Nimmt eine Menge Usernamen, aktualisiert bot_status (Cache) fuer alle
+    noch unbekannten Namen via /api/users/status, und gibt die Teilmenge
+    OHNE Bots zurueck.
+    """
+    usernames = set(usernames)
+    unknown = sorted(u for u in usernames if u not in bot_status)
+
+    for i in range(0, len(unknown), BOT_STATUS_BATCH_SIZE):
+        batch = unknown[i:i + BOT_STATUS_BATCH_SIZE]
+        url = f"{BASE_URL}/api/users/status?ids={','.join(batch)}"
+        try:
+            data = fetch_json(url)
+        except RateLimitError:
+            raise
+        except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
+            print(f"  [WARNUNG] Bot-Status-Check fehlgeschlagen fuer Batch "
+                  f"({len(batch)} Spieler): {exc} - werden vorerst als "
+                  f"'nicht gecheckt' uebersprungen (bleiben im naechsten "
+                  f"Lauf erneut in der Warteschlange).")
+            continue
+
+        found_ids = set()
+        if isinstance(data, list):
+            for entry in data:
+                uid = entry.get("id")
+                if not uid:
+                    continue
+                found_ids.add(uid)
+                bot_status[uid] = (entry.get("title") == "BOT")
+
+        # Spieler, die der Endpunkt nicht zurueckgegeben hat (z.B. geloeschte
+        #/geschlossene Accounts), vorsichtshalber als "kein Bot" werten,
+        # damit sie nicht dauerhaft haengen bleiben.
+        for uid in batch:
+            if uid not in found_ids:
+                bot_status[uid] = False
+
+    save_json_dict(BOT_STATUS_FILE, bot_status)
+
+    bots_found = {u for u in usernames if bot_status.get(u) is True}
+    if bots_found:
+        print(f"  [BOT-FILTER] {len(bots_found)} Bot(s) ausgefiltert: "
+              f"{sorted(bots_found)[:8]}{'...' if len(bots_found) > 8 else ''}")
+
+    return {u for u in usernames if not bot_status.get(u, False)}
+
+
+# ---------------------------------------------------------------------------
 # SNOWBALL-CRAWL: Gegner aus den letzten Partien eines Spielers extrahieren
 # ---------------------------------------------------------------------------
 def get_recent_opponents(username: str, limit: int) -> set:
@@ -836,7 +903,8 @@ def bootstrap_crawl_queue_if_empty(pool: set) -> None:
 
 
 def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, last_checked: dict,
-                              source_map: dict, since_ms: int, leaderboard: dict, stats: dict) -> tuple:
+                              source_map: dict, since_ms: int, leaderboard: dict, stats: dict,
+                              bot_status: dict) -> tuple:
     """
     Fuehrt EINE Crawl-Runde aus (bis zu CRAWL_SEED_COUNT Kettenglieder).
     Nimmt das/die naechste(n) Kettenglied(er) strikt FIFO aus der Queue,
@@ -863,6 +931,7 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
     all_new_opponents = set()
     for seed in seeds:
         opponents = get_recent_opponents(seed, CRAWL_GAMES_PER_SEED)
+        opponents = check_and_filter_bots(opponents, bot_status)
         new_opponents = opponents - pool
 
         if new_opponents:
@@ -900,7 +969,7 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
 
 def process_crawl_slice(pool: set, updated_this_run: set, counts: dict, last_checked: dict,
                          source_map: dict, since_ms: int, leaderboard: dict, stats: dict,
-                         deadline: float) -> tuple:
+                         deadline: float, bot_status: dict) -> tuple:
     """Fuehrt so viele Crawl-Runden aus, wie in die Zeitscheibe passen.
     Gibt (alle_neuen_spieler, gesamt_seeds_verarbeitet) zurueck."""
     total_new = set()
@@ -908,7 +977,7 @@ def process_crawl_slice(pool: set, updated_this_run: set, counts: dict, last_che
     while time.time() < deadline:
         new_players, seeds_processed = run_snowball_crawl_round(
             pool, updated_this_run, counts, last_checked, source_map,
-            since_ms, leaderboard, stats,
+            since_ms, leaderboard, stats, bot_status,
         )
         total_new |= new_players
         total_seeds += seeds_processed
@@ -920,12 +989,13 @@ def process_crawl_slice(pool: set, updated_this_run: set, counts: dict, last_che
 def process_tournament_slice(remaining_sources: list, pool: set, known_tournaments: set,
                               updated_this_run: set, counts: dict, last_checked: dict,
                               source_map: dict, since_ms: int, leaderboard: dict, stats: dict,
-                              deadline: float) -> list:
+                              deadline: float, bot_status: dict) -> list:
     """Verarbeitet Turniere aus remaining_sources, bis entweder die Liste
     leer ist oder die Zeitscheibe abgelaufen ist. Gibt den Rest zurueck."""
     while remaining_sources and time.time() < deadline:
         t_id, kind = remaining_sources.pop(0)
         participants = get_tournament_participants(t_id, kind)
+        participants = check_and_filter_bots(participants, bot_status)
         new_count = len(participants - pool)
         pool |= participants
         if new_count:
@@ -1128,6 +1198,8 @@ def main() -> None:
     known_crawled_len = len(load_json_dict(KNOWN_CRAWLED_FILE))
     team_sync_state = load_json_dict(TEAM_SYNC_STATE_FILE)
     source_map = load_json_dict(SOURCE_MAP_FILE)
+    bot_status = load_json_dict(BOT_STATUS_FILE)
+    bot_status = {k: (v is True or v == "true") for k, v in bot_status.items()}
 
     print_header(f"BLITZ-ACTIVITY RUN - {PERF_TYPE} - {now_iso()}")
     print_stat("Bekannte Spieler im Pool", len(known_players))
@@ -1159,12 +1231,36 @@ def main() -> None:
     save_json_dict(SOURCE_MAP_FILE, source_map)
     maybe_live_push(force=True)
 
+    # --- Rueckwirkende Bereinigung: Bots, die VOR Einfuehrung dieses
+    # Filters bereits in den Pool/das Leaderboard gerutscht sind, hier
+    # einmalig raussortieren (nicht nur neue Funde vorwaerts filtern).
+    print_section("0/4 Bot-Bereinigung (rueckwirkend)")
+    already_known_bots = check_and_filter_bots(pool, bot_status)
+    removed_bots = pool - already_known_bots
+    if removed_bots:
+        print(f"  {len(removed_bots)} bereits bekannte(r) Bot(s) werden aus Pool/"
+              f"Leaderboard entfernt: {sorted(removed_bots)[:10]}"
+              f"{'...' if len(removed_bots) > 10 else ''}")
+        pool = already_known_bots
+        for name in removed_bots:
+            counts.pop(name, None)
+            last_checked.pop(name, None)
+            source_map.pop(name, None)
+        save_json_set(KNOWN_PLAYERS_FILE, pool)
+        leaderboard["counts"] = counts
+        leaderboard["last_checked"] = last_checked
+        save_leaderboard(leaderboard, source_map)
+        write_top10_snapshot(counts, source_map)
+    else:
+        print("  Keine bekannten Bots im aktuellen Pool gefunden.")
+
     overall_stats = {"checked": 0, "skipped_cooldown": 0, "new": 0, "failed": 0, "seeds_crawled": 0}
 
     try:
         # --- Phase 1: Top-Liste nach Rating -------------------------------
         print_section("1/4 Top-Liste nach Rating")
         top_players = get_top_blitz_players()
+        top_players = check_and_filter_bots(top_players, bot_status)
         new_in_top = len(top_players - pool)
         pool |= top_players
         tag_source(source_map, top_players, "top100")
@@ -1192,6 +1288,7 @@ def main() -> None:
                 continue
 
             members = get_team_members(tid)
+            members = check_and_filter_bots(members, bot_status)
             new_count = len(members - pool)
             pool |= members
             tag_source(source_map, members, "team")
@@ -1244,7 +1341,7 @@ def main() -> None:
                 deadline = time.time() + PHASE_SLICE_SECONDS
                 new_from_crawl, seeds_processed = process_crawl_slice(
                     pool, updated_this_run, counts, last_checked, source_map,
-                    since_ms, leaderboard, overall_stats, deadline,
+                    since_ms, leaderboard, overall_stats, deadline, bot_status,
                 )
                 pool |= new_from_crawl
                 if seeds_processed == 0:
@@ -1261,7 +1358,7 @@ def main() -> None:
                 remaining_tournaments = process_tournament_slice(
                     remaining_tournaments, pool, known_tournaments, updated_this_run,
                     counts, last_checked, source_map, since_ms, leaderboard,
-                    overall_stats, deadline,
+                    overall_stats, deadline, bot_status,
                 )
                 if not remaining_tournaments:
                     tournaments_done = True
