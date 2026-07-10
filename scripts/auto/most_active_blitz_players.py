@@ -18,52 +18,50 @@ SPEICHERT ihn dauerhaft in KNOWN_PLAYERS_FILE - der Pool waechst also mit
 jedem Lauf weiter:
 
   1. Top-200 Blitz-Spieler nach Rating (/api/player/top/200/blitz).
-  2. Teilnehmer aus ALLEN erreichbaren Blitz-Arenen:
-       a) aktuell sichtbare offizielle Turniere
-          (/api/tournament -> created/started/finished, gefiltert auf
-          perf == "blitz"),
-       b) zusaetzlich Arena- UND Swiss-Turniere, die von den
-          EXTRA_TEAM_IDS-Teams erstellt wurden - inklusive VERGANGENER
-          Turniere (/api/team/{id}/arena und /api/team/{id}/swiss).
-     Jeweils ALLE Teilnehmer via /api/tournament/{id}/results bzw.
-     /api/swiss/{id}/results (nicht nur die Top-Platzierten).
-  3. Optional: Mitglieder aus selbst konfigurierten Teams (EXTRA_TEAM_IDS).
+  2. Mitglieder aus konfigurierten Teams (EXTRA_TEAM_IDS).
+  3. Teilnehmer aus ALLEN erreichbaren Blitz-Arenen/Swiss-Turnieren
+     (aktuell sichtbar + komplette Team-Turnierhistorie, auch
+     VERGANGENE Turniere).
   4. SNOWBALL-CRAWL ueber die Partien-Gegner ("Lobby"-Ausbreitung), siehe
      Abschnitt "SNOWBALL-CRAWL" weiter unten.
+
+Jeder Spieler bekommt sich eine "Quelle" gemerkt (top100 / team / turnier
+/ lobby) - also woher er urspruenglich in den Pool gekommen ist. Diese
+Quelle taucht ueberall in der Ausgabe (Banner, Top-100-Tabelle,
+status/top100.json/.md) mit auf.
 
 -------------------------------------------------------------------
 WARUM EIN LAUF NICHT MEHR "BEI NULL" ANFAENGT (COOLDOWNS)
 -------------------------------------------------------------------
-Fruehere Version: JEDER bekannte Spieler (alle Top-200, alle Team-
-Mitglieder, ...) wurde bei JEDEM Lauf erneut komplett abgefragt, um seine
-Partienzahl zu aktualisieren. Bei einem 6-Stunden-Cron heisst das: der
-groesste Teil jedes einzelnen Laufs ging dafuer drauf, dieselben paar
-hundert bereits bekannten Namen ein weiteres Mal abzufragen - fuer den
-Snowball-Crawl (der eigentlich fuer echtes Wachstum sorgt) blieb kaum
-noch Zeit/Budget uebrig, und es SAH so aus, als wuerde jeder Lauf einfach
-wieder von vorne "Top-Liste -> Turniere -> Teams" durchgehen.
-
-Jetzt hat jeder Spieler einen last_checked-Zeitstempel (gespeichert in
-leaderboard.json). Ein bereits bekannter Spieler wird nur dann erneut
-abgefragt, wenn CHECK_COOLDOWN_HOURS seit der letzten Abfrage vergangen
+Jeder Spieler hat einen last_checked-Zeitstempel (in leaderboard.json).
+Ein bereits bekannter Spieler wird nur dann erneut auf seine Partienzahl
+geprueft, wenn CHECK_COOLDOWN_HOURS seit der letzten Abfrage vergangen
 sind - ein komplett NEUER Spieler wird dagegen immer sofort abgefragt.
 Dasselbe Prinzip gilt fuer:
-  - Team-Mitgliederlisten (TEAM_SYNC_COOLDOWN_HOURS) - die komplette
-    Roster-Liste eines Teams wird nicht mehr bei jedem Lauf neu geholt.
+  - Team-Mitgliederlisten (TEAM_SYNC_COOLDOWN_HOURS).
   - Den Snowball-Crawl (RECRAWL_COOLDOWN_HOURS) - ein Spieler, dessen
-    letzte 10 Partien schon einmal nach Gegnern durchsucht wurden, wird
-    erst nach Ablauf dieser Frist erneut als Crawl-Seed benutzt (vorher
-    haetten seine letzten 10 Partien sich ohnehin kaum von denen beim
-    letzten Mal unterschieden -> reine Wiederholung ohne neuen Ertrag).
-    Bereits bekannte, aber noch nie gecrawlte Spieler haben dabei immer
-    Vorrang vor "Recrawls".
+    letzte Partien schon einmal nach Gegnern durchsucht wurden, wird
+    erst nach Ablauf dieser Frist erneut als Crawl-Seed benutzt.
+Turniere sind weiterhin ueber known_tournaments.json dauerhaft vor
+Doppel-Verarbeitung geschuetzt.
 
-Turniere waren schon vorher ueber known_tournaments.json dauerhaft vor
-Doppel-Verarbeitung geschuetzt - das bleibt unveraendert.
+-------------------------------------------------------------------
+ABWECHSELNDE ZEITBUDGET-PHASEN: TURNIERE <-> LOBBY-CRAWL
+-------------------------------------------------------------------
+Turniere und Crawl laufen NICHT mehr nacheinander (erst alle Turniere,
+dann Crawl), sondern abwechselnd in kurzen Zeitscheiben von je
+PHASE_SLICE_SECONDS: eine Runde Turniere, dann eine Runde Crawl, dann
+wieder Turniere, usw. So bekommt der Crawl garantiert regelmaessig Budget,
+auch wenn gerade viele neue Turniere warten - und umgekehrt haengen
+Turniere nicht endlos, nur weil der Crawl gerade viel zu tun haette.
 
-Ergebnis: jeder Lauf verbringt seine Zeit ueberwiegend mit tatsaechlich
-NEUEN Dingen (neue Turnierteilnehmer, neue Crawl-Gegner, faellige
-Cooldown-Refreshs) statt denselben Namen hinterherzulaufen.
+Sobald eine der beiden Phasen wirklich fertig ist (alle Turniere
+verarbeitet bzw. keine Crawl-Seeds mehr verfuegbar), faellt sie aus der
+Abwechslung komplett raus - die jeweils andere Phase bekommt dann das
+volle Budget, bis auch sie fertig ist oder das Gesamt-Zeitbudget
+(MAX_TOTAL_RUNTIME_SECONDS) fuer diesen Lauf erreicht ist. Unfertiger
+Rest wird einfach nicht als "erledigt" markiert und laeuft im naechsten
+Lauf automatisch weiter.
 
 -------------------------------------------------------------------
 LIVE-RANKING WAEHREND DER SUCHE
@@ -71,16 +69,15 @@ LIVE-RANKING WAEHREND DER SUCHE
 Das Skript wartet NICHT, bis der komplette Spieler-Pool gesammelt ist,
 bevor es Partien zaehlt. Jede Quelle wird sofort nach dem Einlesen
 verarbeitet, das Leaderboard sofort aktualisiert, und bei einem
-Top-100-Einstieg erscheint sofort ein auffaelliger Banner.
+Top-100-Einstieg erscheint sofort ein auffaelliger Banner (inkl. Quelle).
 
 -------------------------------------------------------------------
 SNOWBALL-CRAWL (Gegner-basierte Pool-Erweiterung)
 -------------------------------------------------------------------
   - CRAWL_QUEUE_FILE: FIFO-Warteschlange neu gefundener, noch nie
     gecrawlter Spieler.
-  - KNOWN_CRAWLED_FILE: username -> Zeitpunkt des letzten Crawls (frueher
-    eine reine Liste, jetzt mit Zeitstempel fuer die Recrawl-Logik).
-  - Seed-Auswahl pro Lauf, in dieser Prioritaet:
+  - KNOWN_CRAWLED_FILE: username -> Zeitpunkt des letzten Crawls.
+  - Seed-Auswahl pro Crawl-Runde, in dieser Prioritaet:
       1. Nie gecrawlte Spieler aus der FIFO-Queue.
       2. Nie gecrawlte Spieler zufaellig aus dem restlichen Pool.
       3. Erst wenn 1+2 nicht reichen: Spieler, deren letzter Crawl laenger
@@ -93,26 +90,25 @@ SNOWBALL-CRAWL (Gegner-basierte Pool-Erweiterung)
 KONFIGURATION
 -------------------------------------------------------------------
 LICHESS_TOKEN als Umgebungsvariable/GitHub Secret setzen.
-
 EXTRA_TEAM_IDS: Liste zusaetzlicher Team-Slugs.
-
 SINCE_DAYS: Zeitraum in Tagen, ueber den Partien gezaehlt werden (7).
-
 MAX_GAMES_PER_QUERY: Obergrenze Partien/Spieler (Deckel).
-
 MAX_TEAM_TOURNAMENTS: Obergrenze vergangene Turniere pro Team/Typ.
 
-CHECK_COOLDOWN_HOURS: Wie lange ein bereits bekannter Spieler NICHT
-erneut auf seine Partienzahl geprueft wird (Standard: 18h). Neue
-Spieler werden davon nie ausgebremst.
+CHECK_COOLDOWN_HOURS (Standard 18h): Wie lange ein bekannter Spieler
+nicht erneut auf seine Partienzahl geprueft wird.
+TEAM_SYNC_COOLDOWN_HOURS (Standard 12h): Wie lange eine Team-
+Mitgliederliste nicht erneut komplett abgerufen wird.
+RECRAWL_COOLDOWN_HOURS (Standard 72h): Wartezeit vor erneutem Crawl
+eines bereits gecrawlten Spielers.
 
-TEAM_SYNC_COOLDOWN_HOURS: Wie lange eine Team-Mitgliederliste nicht
-erneut komplett abgerufen wird (Standard: 12h).
-
-RECRAWL_COOLDOWN_HOURS: Wie lange gewartet wird, bevor ein bereits
-gecrawlter Spieler erneut als Crawl-Seed benutzt werden darf (72h).
-
-CRAWL_SEED_COUNT / CRAWL_GAMES_PER_SEED: Snowball-Crawl-Parameter.
+CRAWL_SEED_COUNT / CRAWL_GAMES_PER_SEED: Snowball-Crawl-Parameter pro
+Runde.
+PHASE_SLICE_SECONDS (Standard 60s): Zeitscheibe je Turniere-/Crawl-Runde
+in der Abwechslung.
+MAX_TOTAL_RUNTIME_SECONDS (Standard 240s): Gesamt-Sicherheitsnetz fuer
+die Turniere/Crawl-Abwechslung, damit ein Lauf nicht das GitHub-Actions-
+Zeitlimit sprengt.
 
 REQUEST_DELAY_SECONDS: Pause zwischen API-Aufrufen.
 
@@ -202,8 +198,7 @@ TOP_N = 100
 REQUEST_DELAY_SECONDS = 1.0
 MAX_TEAM_TOURNAMENTS = 1000
 
-# --- Cooldowns: das ist der eigentliche Fix gegen "jeder Lauf wiederholt
-# sich" - siehe Docstring-Abschnitt weiter oben. -----------------------
+# --- Cooldowns ----------------------------------------------------------
 CHECK_COOLDOWN_HOURS = float(os.environ.get("CHECK_COOLDOWN_HOURS", "18"))
 TEAM_SYNC_COOLDOWN_HOURS = float(os.environ.get("TEAM_SYNC_COOLDOWN_HOURS", "12"))
 RECRAWL_COOLDOWN_HOURS = float(os.environ.get("RECRAWL_COOLDOWN_HOURS", "72"))
@@ -212,11 +207,21 @@ CHECK_COOLDOWN_SECONDS = CHECK_COOLDOWN_HOURS * 3600
 TEAM_SYNC_COOLDOWN_SECONDS = TEAM_SYNC_COOLDOWN_HOURS * 3600
 RECRAWL_COOLDOWN_SECONDS = RECRAWL_COOLDOWN_HOURS * 3600
 
-# --- Snowball-Crawl ---------------------------------------------------
-# Dank der Cooldowns oben faellt jetzt deutlich mehr Zeit/Budget pro Lauf
-# fuer den Crawl ab, daher ist der Default hier hoeher als frueher.
+# --- Snowball-Crawl -------------------------------------------------------
 CRAWL_SEED_COUNT = int(os.environ.get("CRAWL_SEED_COUNT", "15"))
 CRAWL_GAMES_PER_SEED = int(os.environ.get("CRAWL_GAMES_PER_SEED", "10"))
+
+# --- Abwechselnde Zeitscheiben Turniere <-> Crawl -------------------------
+PHASE_SLICE_SECONDS = float(os.environ.get("PHASE_SLICE_SECONDS", "60"))
+MAX_TOTAL_RUNTIME_SECONDS = float(os.environ.get("MAX_TOTAL_RUNTIME_SECONDS", "240"))
+
+# --- Herkunfts-Label (wo ein Spieler zuerst gefunden wurde) --------------
+SOURCE_LABELS = {
+    "top100": "Top-100",
+    "team": "Team",
+    "turnier": "Turnier",
+    "lobby": "Lobby-Crawl",
+}
 
 # ---------------------------------------------------------------------------
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -230,6 +235,7 @@ KNOWN_TOURNAMENTS_FILE = DATA_DIR / "known_tournaments.json"
 CRAWL_QUEUE_FILE = DATA_DIR / "crawl_queue.json"
 KNOWN_CRAWLED_FILE = DATA_DIR / "known_crawled.json"       # username -> ISO-Zeitstempel
 TEAM_SYNC_STATE_FILE = DATA_DIR / "team_sync_state.json"   # team_id  -> ISO-Zeitstempel
+SOURCE_MAP_FILE = DATA_DIR / "player_source.json"          # username -> Quelle (top100/team/turnier/lobby)
 
 STATUS_DIR = REPO_ROOT / "status" / PERF_TYPE
 TOP10_JSON_FILE = STATUS_DIR / "top100.json"
@@ -271,7 +277,7 @@ def git_commit_and_push(message: str) -> bool:
         candidate_paths = [
             STATUS_DIR, KNOWN_PLAYERS_FILE, KNOWN_TOURNAMENTS_FILE,
             LEADERBOARD_FILE, CRAWL_QUEUE_FILE, KNOWN_CRAWLED_FILE,
-            TEAM_SYNC_STATE_FILE,
+            TEAM_SYNC_STATE_FILE, SOURCE_MAP_FILE,
         ]
         existing_paths = [str(p) for p in candidate_paths if p.exists()]
         if not existing_paths:
@@ -353,7 +359,6 @@ def now_iso() -> str:
 
 
 def seconds_since(iso_ts: str) -> float:
-    """Sekunden seit einem ISO-Zeitstempel. Bei kaputtem/leerem Wert: unendlich."""
     if not iso_ts:
         return float("inf")
     try:
@@ -366,8 +371,6 @@ def seconds_since(iso_ts: str) -> float:
 
 
 def is_due(iso_ts: str, cooldown_seconds: float) -> bool:
-    """True, wenn seit iso_ts mindestens cooldown_seconds vergangen sind
-    (oder iso_ts leer/ungueltig ist -> dann sofort faellig)."""
     return seconds_since(iso_ts) >= cooldown_seconds
 
 
@@ -472,11 +475,10 @@ def save_json_list(path: Path, values: list) -> None:
 
 
 def load_json_dict(path: Path) -> dict:
-    """Wie load_json_set, aber fuer username/team_id -> Zeitstempel Mappings.
-    Migriert transparent alte Dateien, die noch eine reine Liste waren
-    (Vorgaenger-Version von known_crawled.json): die migrierten Eintraege
-    bekommen 'jetzt' als Zeitstempel, damit nicht sofort ein Recrawl-Sturm
-    losgeht, sondern die normale Cooldown-Frist ab jetzt greift."""
+    """Fuer username/team_id -> Zeitstempel-oder-Label Mappings. Migriert
+    transparent alte Dateien, die noch eine reine Liste waren (Vorgaenger-
+    Version von known_crawled.json): migrierte Eintraege bekommen 'jetzt'
+    als Zeitstempel, damit nicht sofort ein Recrawl-Sturm losgeht."""
     if path.exists():
         try:
             data = json.loads(path.read_text())
@@ -508,15 +510,28 @@ def load_leaderboard() -> dict:
     return {"updated_at": None, "counts": {}, "last_checked": {}}
 
 
-def save_leaderboard(leaderboard: dict) -> None:
+def save_leaderboard(leaderboard: dict, source_map: dict) -> None:
     counts = leaderboard.get("counts", {})
     ranking = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)
     leaderboard["ranking"] = [
-        {"rank": i, "username": name, "games": cnt, "profile": profile_url(name)}
+        {
+            "rank": i, "username": name, "games": cnt,
+            "source": SOURCE_LABELS.get(source_map.get(name), "?"),
+            "profile": profile_url(name),
+        }
         for i, (name, cnt) in enumerate(ranking, start=1)
     ]
     LEADERBOARD_FILE.parent.mkdir(parents=True, exist_ok=True)
     LEADERBOARD_FILE.write_text(json.dumps(leaderboard, indent=2, sort_keys=True, ensure_ascii=False))
+
+
+def tag_source(source_map: dict, usernames, label: str) -> None:
+    """Merkt sich, WOHER ein Spieler zuerst gefunden wurde. Ein Spieler,
+    der schon eine Quelle hat, wird nicht ueberschrieben - es zaehlt der
+    allererste Fund."""
+    for name in usernames:
+        if name not in source_map:
+            source_map[name] = label
 
 
 # ---------------------------------------------------------------------------
@@ -649,17 +664,14 @@ def get_recent_opponents(username: str, limit: int) -> set:
 def pick_crawl_seeds(queue: list, known_crawled: dict, pool: set) -> tuple:
     """
     Waehlt bis zu CRAWL_SEED_COUNT Spieler als Crawl-Seeds, in dieser
-    Prioritaet (siehe Docstring oben fuer die Begruendung):
+    Prioritaet:
       1. Nie gecrawlte Spieler aus der FIFO-Queue.
       2. Nie gecrawlte Spieler zufaellig aus dem restlichen Pool.
       3. Spieler, deren letzter Crawl laenger als RECRAWL_COOLDOWN_HOURS
-         zurueckliegt (niedrigste Prioritaet - vermeidet, dieselben
-         letzten 10 Partien staendig erneut anzusehen).
+         zurueckliegt (niedrigste Prioritaet).
     """
     seeds = []
 
-    # 1) FIFO-Queue, nur nie gecrawlte Spieler ziehen; alles andere bleibt
-    #    fuer spaeter in der Queue stehen.
     remaining_queue = []
     for candidate in queue:
         if len(seeds) < CRAWL_SEED_COUNT and candidate not in known_crawled:
@@ -667,7 +679,6 @@ def pick_crawl_seeds(queue: list, known_crawled: dict, pool: set) -> tuple:
         else:
             remaining_queue.append(candidate)
 
-    # 2) zufaellige, nie gecrawlte Pool-Mitglieder
     if len(seeds) < CRAWL_SEED_COUNT:
         fresh_candidates = [p for p in pool if p not in known_crawled and p not in seeds]
         random.shuffle(fresh_candidates)
@@ -676,7 +687,6 @@ def pick_crawl_seeds(queue: list, known_crawled: dict, pool: set) -> tuple:
                 break
             seeds.append(candidate)
 
-    # 3) laengst faellige Re-Crawls, nur falls immer noch Luft ist
     if len(seeds) < CRAWL_SEED_COUNT:
         stale_candidates = [
             p for p in pool
@@ -692,15 +702,20 @@ def pick_crawl_seeds(queue: list, known_crawled: dict, pool: set) -> tuple:
     return seeds, remaining_queue
 
 
-def run_snowball_crawl(pool: set, updated_this_run: set, counts: dict, last_checked: dict,
-                        since_ms: int, leaderboard: dict, stats: dict) -> set:
+def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, last_checked: dict,
+                              source_map: dict, since_ms: int, leaderboard: dict, stats: dict) -> tuple:
+    """
+    Fuehrt EINE Crawl-Runde aus (bis zu CRAWL_SEED_COUNT Seeds). Gibt
+    (neue_spieler, anzahl_seeds_verarbeitet) zurueck - seeds_processed==0
+    bedeutet "keine Seeds mehr verfuegbar", das Signal fuer den Aufrufer,
+    die Crawl-Phase als abgeschlossen zu markieren.
+    """
     queue = load_json_list(CRAWL_QUEUE_FILE)
     known_crawled = load_json_dict(KNOWN_CRAWLED_FILE)
 
     seeds, remaining_queue = pick_crawl_seeds(queue, known_crawled, pool)
     if not seeds:
-        print("  Keine Seeds verfuegbar (Pool leer oder alles im Recrawl-Cooldown), ueberspringe.")
-        return set()
+        return set(), 0
 
     never_crawled_seeds = sum(1 for s in seeds if s not in known_crawled)
     recrawl_seeds = len(seeds) - never_crawled_seeds
@@ -715,24 +730,69 @@ def run_snowball_crawl(pool: set, updated_this_run: set, counts: dict, last_chec
         if new_opponents:
             print(f"    '{seed}': {len(opponents)} Gegner ({len(new_opponents)} neu im Pool).")
 
+        tag_source(source_map, opponents, "lobby")
         all_new_opponents |= new_opponents
         pool |= opponents
         known_crawled[seed] = now_iso()
         stats["seeds_crawled"] += 1
 
         update_players_live(opponents, updated_this_run, counts, last_checked,
-                             since_ms, leaderboard, stats)
+                             source_map, since_ms, leaderboard, stats)
         for name in sorted(new_opponents):
             if name not in remaining_queue and name not in known_crawled:
                 remaining_queue.append(name)
 
         save_json_list(CRAWL_QUEUE_FILE, remaining_queue)
         save_json_dict(KNOWN_CRAWLED_FILE, known_crawled)
+        save_json_dict(SOURCE_MAP_FILE, source_map)
         save_json_set(KNOWN_PLAYERS_FILE, pool)
 
-    print(f"  Crawl fertig: {len(all_new_opponents)} neue Spieler gefunden. "
-          f"Neue Queue-Laenge: {len(remaining_queue)}.")
-    return all_new_opponents
+    return all_new_opponents, len(seeds)
+
+
+def process_crawl_slice(pool: set, updated_this_run: set, counts: dict, last_checked: dict,
+                         source_map: dict, since_ms: int, leaderboard: dict, stats: dict,
+                         deadline: float) -> tuple:
+    """Fuehrt so viele Crawl-Runden aus, wie in die Zeitscheibe passen.
+    Gibt (alle_neuen_spieler, gesamt_seeds_verarbeitet) zurueck."""
+    total_new = set()
+    total_seeds = 0
+    while time.time() < deadline:
+        new_players, seeds_processed = run_snowball_crawl_round(
+            pool, updated_this_run, counts, last_checked, source_map,
+            since_ms, leaderboard, stats,
+        )
+        total_new |= new_players
+        total_seeds += seeds_processed
+        if seeds_processed == 0:
+            break
+    return total_new, total_seeds
+
+
+def process_tournament_slice(remaining_sources: list, pool: set, known_tournaments: set,
+                              updated_this_run: set, counts: dict, last_checked: dict,
+                              source_map: dict, since_ms: int, leaderboard: dict, stats: dict,
+                              deadline: float) -> list:
+    """Verarbeitet Turniere aus remaining_sources, bis entweder die Liste
+    leer ist oder die Zeitscheibe abgelaufen ist. Gibt den Rest zurueck."""
+    while remaining_sources and time.time() < deadline:
+        t_id, kind = remaining_sources.pop(0)
+        time.sleep(REQUEST_DELAY_SECONDS)
+        participants = get_tournament_participants(t_id, kind)
+        new_count = len(participants - pool)
+        pool |= participants
+        if new_count:
+            print(f"  Turnier {t_id} ({kind}): {len(participants)} Teilnehmer "
+                  f"({new_count} neu im Pool).")
+        tag_source(source_map, participants, "turnier")
+        update_players_live(participants, updated_this_run, counts, last_checked,
+                             source_map, since_ms, leaderboard, stats)
+        known_tournaments.add(t_id)
+        save_json_set(KNOWN_PLAYERS_FILE, pool)
+        save_json_set(KNOWN_TOURNAMENTS_FILE, known_tournaments)
+        save_json_dict(SOURCE_MAP_FILE, source_map)
+
+    return remaining_sources
 
 
 # ---------------------------------------------------------------------------
@@ -788,7 +848,7 @@ def get_current_rank(name: str, counts: dict) -> int:
     return -1
 
 
-def flashy_new_entry_banner(rank: int, name: str, count: int) -> None:
+def flashy_new_entry_banner(rank: int, name: str, count: int, source_label: str) -> None:
     print()
     print("  " + "*" * 60)
     if rank <= 3:
@@ -797,11 +857,11 @@ def flashy_new_entry_banner(rank: int, name: str, count: int) -> None:
         print(f"  *** NEU IN DEN TOP 10: {name} ({count} Partien)! ***")
     else:
         print(f"  * Neu in Top {TOP_N}: {name} ({count} Partien) - Platz {rank}")
-    print(f"  -> {profile_url(name)}")
+    print(f"  -> Quelle: {source_label}   |   {profile_url(name)}")
     print("  " + "*" * 60)
 
 
-def write_top10_snapshot(counts: dict) -> None:
+def write_top10_snapshot(counts: dict, source_map: dict) -> None:
     STATUS_DIR.mkdir(parents=True, exist_ok=True)
     ranking = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:TOP_N_LIVE]
     now = now_iso()
@@ -810,7 +870,11 @@ def write_top10_snapshot(counts: dict) -> None:
         "updated_at": now,
         "since_days": SINCE_DAYS,
         "top10": [
-            {"rank": i, "username": name, "games": cnt, "profile": profile_url(name)}
+            {
+                "rank": i, "username": name, "games": cnt,
+                "source": SOURCE_LABELS.get(source_map.get(name), "?"),
+                "profile": profile_url(name),
+            }
             for i, (name, cnt) in enumerate(ranking, start=1)
         ],
     }
@@ -821,19 +885,21 @@ def write_top10_snapshot(counts: dict) -> None:
         "",
         f"_Zuletzt aktualisiert: {now}_",
         "",
-        "| Platz | Spieler | Partien | Profil |",
-        "|---|---|---|---|",
+        "| Platz | Spieler | Partien | Quelle | Profil |",
+        "|---|---|---|---|---|",
     ]
     for i, (name, cnt) in enumerate(ranking, start=1):
-        lines.append(f"| {i} | {name} | {cnt} | [{name}]({profile_url(name)}) |")
+        src = SOURCE_LABELS.get(source_map.get(name), "?")
+        lines.append(f"| {i} | {name} | {cnt} | {src} | [{name}]({profile_url(name)}) |")
     TOP10_MD_FILE.write_text("\n".join(lines) + "\n")
 
 
-def print_top(counts: dict, n: int = TOP_N) -> list:
+def print_top(counts: dict, source_map: dict, n: int = TOP_N) -> list:
     ranking = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:n]
     print_header(f"TOP {n} AKTIVSTE {PERF_TYPE.upper()}-SPIELER (letzte {SINCE_DAYS} Tage)")
     for i, (name, cnt) in enumerate(ranking, start=1):
-        print(f"  {i:>3}. {name:<20} {cnt:>5} Partien   {profile_url(name)}")
+        src = SOURCE_LABELS.get(source_map.get(name), "?")
+        print(f"  {i:>3}. {name:<20} {cnt:>5} Partien   [{src:<11}]   {profile_url(name)}")
     print("=" * 70)
     return ranking
 
@@ -842,17 +908,15 @@ def print_top(counts: dict, n: int = TOP_N) -> list:
 # ZENTRALE LIVE-VERARBEITUNG (mit Cooldown - der eigentliche Kern-Fix)
 # ---------------------------------------------------------------------------
 def update_players_live(usernames: set, already_updated: set, counts: dict, last_checked: dict,
-                         since_ms: int, leaderboard: dict, stats: dict = None) -> None:
+                         source_map: dict, since_ms: int, leaderboard: dict,
+                         stats: dict = None) -> None:
     """
-    Bekommt eine Menge Spieler und aktualisiert deren Partienzahl - ABER
-    nur, wenn es sich lohnt:
-      - Spieler, die in diesem Lauf schon behandelt wurden -> ueberspringen
-        (already_updated, wie bisher).
-      - Komplett neue Spieler (noch nie in counts) -> IMMER sofort pruefen.
-      - Bereits bekannte Spieler -> nur pruefen, wenn seit dem letzten Mal
-        mindestens CHECK_COOLDOWN_HOURS vergangen sind. Das ist der Grund,
-        warum ein Lauf nicht mehr Hunderte laengst bekannter Namen erneut
-        abfragt, bevor er zu irgendwas Neuem kommt.
+    Aktualisiert die Partienzahl fuer eine Menge Spieler - aber nur, wenn
+    es sich lohnt:
+      - Schon in diesem Lauf behandelt -> ueberspringen.
+      - Komplett neuer Spieler -> immer sofort pruefen.
+      - Bereits bekannter Spieler -> nur pruefen, wenn CHECK_COOLDOWN_HOURS
+        seit der letzten Pruefung vergangen sind.
     """
     if stats is None:
         stats = {"checked": 0, "skipped_cooldown": 0, "new": 0, "failed": 0}
@@ -889,13 +953,14 @@ def update_players_live(usernames: set, already_updated: set, counts: dict, last
         if new_count > 0 and (old_count is None or new_count != old_count):
             rank = get_current_rank(username, counts)
             if 0 < rank <= TOP_N:
-                flashy_new_entry_banner(rank, username, new_count)
+                source_label = SOURCE_LABELS.get(source_map.get(username), "?")
+                flashy_new_entry_banner(rank, username, new_count, source_label)
 
         leaderboard["counts"] = counts
         leaderboard["last_checked"] = last_checked
         leaderboard["updated_at"] = now_iso()
-        save_leaderboard(leaderboard)
-        write_top10_snapshot(counts)
+        save_leaderboard(leaderboard, source_map)
+        write_top10_snapshot(counts, source_map)
         maybe_live_push()
 
 
@@ -914,6 +979,7 @@ def main() -> None:
     crawl_queue_len = len(load_json_list(CRAWL_QUEUE_FILE))
     known_crawled_len = len(load_json_dict(KNOWN_CRAWLED_FILE))
     team_sync_state = load_json_dict(TEAM_SYNC_STATE_FILE)
+    source_map = load_json_dict(SOURCE_MAP_FILE)
 
     print_header(f"BLITZ-ACTIVITY RUN - {PERF_TYPE} - {now_iso()}")
     print_stat("Bekannte Spieler im Pool", len(known_players))
@@ -923,13 +989,15 @@ def main() -> None:
     print_stat("Cooldown Spieler-Refresh", f"{CHECK_COOLDOWN_HOURS:.0f}h")
     print_stat("Cooldown Team-Roster-Refresh", f"{TEAM_SYNC_COOLDOWN_HOURS:.0f}h")
     print_stat("Cooldown Recrawl", f"{RECRAWL_COOLDOWN_HOURS:.0f}h")
+    print_stat("Zeitscheibe Turniere/Crawl", f"{PHASE_SLICE_SECONDS:.0f}s")
+    print_stat("Gesamt-Zeitbudget Turniere/Crawl", f"{MAX_TOTAL_RUNTIME_SECONDS:.0f}s")
 
     leaderboard = load_leaderboard()
     counts = leaderboard.get("counts", {})
     last_checked = leaderboard.get("last_checked", {})
     since_ms = int((datetime.now(timezone.utc) - timedelta(days=SINCE_DAYS)).timestamp() * 1000)
 
-    write_top10_snapshot(counts)
+    write_top10_snapshot(counts, source_map)
 
     pool = set(known_players)
     updated_this_run = set()
@@ -939,16 +1007,10 @@ def main() -> None:
     save_json_list(CRAWL_QUEUE_FILE, load_json_list(CRAWL_QUEUE_FILE))
     save_json_dict(KNOWN_CRAWLED_FILE, load_json_dict(KNOWN_CRAWLED_FILE))
     save_json_dict(TEAM_SYNC_STATE_FILE, team_sync_state)
+    save_json_dict(SOURCE_MAP_FILE, source_map)
     maybe_live_push(force=True)
 
     overall_stats = {"checked": 0, "skipped_cooldown": 0, "new": 0, "failed": 0, "seeds_crawled": 0}
-    phase_stats = {}
-
-    def run_phase(label, usernames):
-        before = dict(overall_stats)
-        update_players_live(usernames, updated_this_run, counts, last_checked,
-                             since_ms, leaderboard, overall_stats)
-        phase_stats[label] = {k: overall_stats[k] - before[k] for k in overall_stats}
 
     try:
         # --- Phase 1: Top-Liste nach Rating -------------------------------
@@ -956,58 +1018,27 @@ def main() -> None:
         top_players = get_top_blitz_players()
         new_in_top = len(top_players - pool)
         pool |= top_players
+        tag_source(source_map, top_players, "top100")
         save_json_set(KNOWN_PLAYERS_FILE, pool)
+        save_json_dict(SOURCE_MAP_FILE, source_map)
         print_stat("Gefunden", f"{len(top_players)} Spieler ({new_in_top} neu im Pool)")
-        run_phase("top_liste", top_players)
-        print_stat("Neu geprueft", phase_stats["top_liste"]["new"])
-        print_stat("Cooldown-Refresh geprueft", phase_stats["top_liste"]["checked"] - phase_stats["top_liste"]["new"])
-        print_stat("Uebersprungen (Cooldown)", phase_stats["top_liste"]["skipped_cooldown"])
+        before = dict(overall_stats)
+        update_players_live(top_players, updated_this_run, counts, last_checked,
+                             source_map, since_ms, leaderboard, overall_stats)
+        print_stat("Neu geprueft", overall_stats["new"] - before["new"])
+        print_stat("Cooldown-Refresh geprueft",
+                    (overall_stats["checked"] - before["checked"]) - (overall_stats["new"] - before["new"]))
+        print_stat("Uebersprungen (Cooldown)", overall_stats["skipped_cooldown"] - before["skipped_cooldown"])
         time.sleep(REQUEST_DELAY_SECONDS)
 
-        # --- Phase 2: Turniere --------------------------------------------
-        print_section("2/4 Turniere (sichtbar + Team-Historie)")
-        tournament_sources = list(get_visible_blitz_tournament_ids())
-        time.sleep(REQUEST_DELAY_SECONDS)
-
-        for team_id in EXTRA_TEAM_IDS:
-            print(f"  -> Turnierhistorie von Team '{team_id}'...")
-            team_tournaments = get_team_tournament_ids(team_id.lower())
-            print(f"     {len(team_tournaments)} {PERF_TYPE}-Turnier(e) gefunden.")
-            tournament_sources.extend(team_tournaments)
-            time.sleep(REQUEST_DELAY_SECONDS)
-
-        new_sources = [(tid, kind) for tid, kind in tournament_sources
-                        if tid not in known_tournaments]
-        print_stat("Turniere insgesamt gesehen", len(tournament_sources))
-        print_stat("Davon bereits verarbeitet (übersprungen)",
-                    len(tournament_sources) - len(new_sources))
-        print_stat("Davon neu zu verarbeiten", len(new_sources))
-
-        tournament_new_players = 0
-        for t_id, kind in new_sources:
-            time.sleep(REQUEST_DELAY_SECONDS)
-            participants = get_tournament_participants(t_id, kind)
-            new_count = len(participants - pool)
-            tournament_new_players += new_count
-            pool |= participants
-            if new_count:
-                print(f"  Turnier {t_id} ({kind}): {len(participants)} Teilnehmer "
-                      f"({new_count} neu im Pool).")
-            run_phase("turniere", participants)
-            known_tournaments.add(t_id)
-            save_json_set(KNOWN_PLAYERS_FILE, pool)
-            save_json_set(KNOWN_TOURNAMENTS_FILE, known_tournaments)
-
-        print_stat("Neue Spieler aus Turnieren", tournament_new_players)
-
-        # --- Phase 3: Team-Mitgliederlisten (mit Sync-Cooldown) -----------
-        print_section("3/4 Team-Mitgliederlisten")
+        # --- Phase 2: Team-Mitgliederlisten (mit Sync-Cooldown) -----------
+        print_section("2/4 Team-Mitgliederlisten")
         for team_id in EXTRA_TEAM_IDS:
             tid = team_id.lower()
             last_sync = team_sync_state.get(tid, "")
             if not is_due(last_sync, TEAM_SYNC_COOLDOWN_SECONDS):
                 remaining_h = (TEAM_SYNC_COOLDOWN_SECONDS - seconds_since(last_sync)) / 3600
-                print(f"  '{team_id}': übersprungen (Roster erst vor "
+                print(f"  '{team_id}': uebersprungen (Roster erst vor "
                       f"{seconds_since(last_sync) / 3600:.1f}h geholt, "
                       f"noch {remaining_h:.1f}h Cooldown).")
                 continue
@@ -1016,21 +1047,78 @@ def main() -> None:
             members = get_team_members(tid)
             new_count = len(members - pool)
             pool |= members
+            tag_source(source_map, members, "team")
             team_sync_state[tid] = now_iso()
             save_json_dict(TEAM_SYNC_STATE_FILE, team_sync_state)
+            save_json_dict(SOURCE_MAP_FILE, source_map)
             save_json_set(KNOWN_PLAYERS_FILE, pool)
             print(f"  '{team_id}': {len(members)} Mitglieder ({new_count} neu im Pool).")
-            run_phase("teams", members)
+            update_players_live(members, updated_this_run, counts, last_checked,
+                                 source_map, since_ms, leaderboard, overall_stats)
 
-        # --- Phase 4: Snowball-Crawl ---------------------------------------
-        print_section("4/4 Snowball-Crawl (Partien-Gegner)")
-        crawl_stats = {"checked": 0, "skipped_cooldown": 0, "new": 0, "failed": 0, "seeds_crawled": 0}
-        new_from_crawl = run_snowball_crawl(pool, updated_this_run, counts, last_checked,
-                                             since_ms, leaderboard, crawl_stats)
-        for k in overall_stats:
-            overall_stats[k] += crawl_stats[k]
-        phase_stats["crawl"] = crawl_stats
-        pool |= new_from_crawl
+        # --- Phase 3+4: Turniere und Lobby-Crawl im Wechsel ---------------
+        print_section("3/4 + 4/4 Turniere & Lobby-Crawl (abwechselnd, zeitbudgetiert)")
+
+        tournament_sources = list(get_visible_blitz_tournament_ids())
+        time.sleep(REQUEST_DELAY_SECONDS)
+        for team_id in EXTRA_TEAM_IDS:
+            print(f"  -> Turnierhistorie von Team '{team_id}'...")
+            team_tournaments = get_team_tournament_ids(team_id.lower())
+            print(f"     {len(team_tournaments)} {PERF_TYPE}-Turnier(e) gefunden.")
+            tournament_sources.extend(team_tournaments)
+            time.sleep(REQUEST_DELAY_SECONDS)
+
+        remaining_tournaments = [(tid, kind) for tid, kind in tournament_sources
+                                  if tid not in known_tournaments]
+        print_stat("Turniere insgesamt gesehen", len(tournament_sources))
+        print_stat("Davon bereits verarbeitet (uebersprungen)",
+                    len(tournament_sources) - len(remaining_tournaments))
+        print_stat("Davon neu zu verarbeiten", len(remaining_tournaments))
+
+        tournaments_done = not remaining_tournaments
+        crawl_done = False
+        loop_start = time.time()
+        round_num = 0
+        hit_time_cap = False
+
+        while (not tournaments_done or not crawl_done):
+            if (time.time() - loop_start) >= MAX_TOTAL_RUNTIME_SECONDS:
+                hit_time_cap = True
+                break
+
+            round_num += 1
+
+            if not tournaments_done:
+                print(f"  -- Runde {round_num}: Turniere ({len(remaining_tournaments)} offen) --")
+                deadline = time.time() + PHASE_SLICE_SECONDS
+                remaining_tournaments = process_tournament_slice(
+                    remaining_tournaments, pool, known_tournaments, updated_this_run,
+                    counts, last_checked, source_map, since_ms, leaderboard,
+                    overall_stats, deadline,
+                )
+                if not remaining_tournaments:
+                    tournaments_done = True
+                    print("  Alle Turniere abgearbeitet - Phase 'Turniere' ist fuer diesen Lauf beendet.")
+
+            if (time.time() - loop_start) >= MAX_TOTAL_RUNTIME_SECONDS:
+                hit_time_cap = True
+                break
+
+            if not crawl_done:
+                print(f"  -- Runde {round_num}: Lobby-Crawl --")
+                deadline = time.time() + PHASE_SLICE_SECONDS
+                new_from_crawl, seeds_processed = process_crawl_slice(
+                    pool, updated_this_run, counts, last_checked, source_map,
+                    since_ms, leaderboard, overall_stats, deadline,
+                )
+                pool |= new_from_crawl
+                if seeds_processed == 0:
+                    crawl_done = True
+                    print("  Keine Crawl-Seeds mehr verfuegbar - Phase 'Lobby-Crawl' ist fuer diesen Lauf beendet.")
+
+        if hit_time_cap:
+            print(f"  Gesamt-Zeitbudget ({MAX_TOTAL_RUNTIME_SECONDS:.0f}s) erreicht - "
+                  f"Rest folgt automatisch im naechsten Lauf.")
         save_json_set(KNOWN_PLAYERS_FILE, pool)
 
     except RateLimitError as exc:
@@ -1041,11 +1129,12 @@ def main() -> None:
 
     save_json_set(KNOWN_PLAYERS_FILE, pool)
     save_json_set(KNOWN_TOURNAMENTS_FILE, known_tournaments)
+    save_json_dict(SOURCE_MAP_FILE, source_map)
     leaderboard["counts"] = counts
     leaderboard["last_checked"] = last_checked
     leaderboard["updated_at"] = now_iso()
-    save_leaderboard(leaderboard)
-    write_top10_snapshot(counts)
+    save_leaderboard(leaderboard, source_map)
+    write_top10_snapshot(counts, source_map)
     maybe_live_push(force=True)
 
     elapsed = time.time() - run_start
@@ -1063,7 +1152,15 @@ def main() -> None:
     print_stat("Crawl-Seeds in diesem Lauf", overall_stats["seeds_crawled"])
     print_stat("Spieler insgesamt im Leaderboard", len(counts))
 
-    print_top(counts)
+    source_counts = {}
+    for name in counts:
+        label = SOURCE_LABELS.get(source_map.get(name), "?")
+        source_counts[label] = source_counts.get(label, 0) + 1
+    print_stat("Verteilung nach Quelle", ", ".join(
+        f"{label}: {cnt}" for label, cnt in sorted(source_counts.items(), key=lambda kv: -kv[1])
+    ))
+
+    print_top(counts, source_map)
     print()
     print("Fertig.")
 
