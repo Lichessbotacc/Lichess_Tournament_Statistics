@@ -2406,6 +2406,7 @@
     "cheshire-dog": 0,
     "chess-art-us2013": 0,
     "chess-bliss": 1,
+    "chess-mag": 0,
     "chess-olga": 0,
     "chess-player4321": 0,
     "chess-press": 20,
@@ -2603,6 +2604,7 @@
     "chuckyperez": 10,
     "chud_doorbell123": 0,
     "chullu5": 9,
+    "chunchang": 0,
     "chuso1666": 2,
     "chyyvy": 0,
     "ciba-thiago": 2,
@@ -3632,6 +3634,7 @@
     "epiccon": 6,
     "epicpenguinman": 0,
     "epoxythreefour": 24,
+    "equiseto": 0,
     "erarslantuna67": 3,
     "erasto_m": 3,
     "eraykaraman": 0,
@@ -5961,6 +5964,7 @@
     "kotomigrey": 0,
     "kotulan": 30,
     "kourosh139411": 18,
+    "koutis": 0,
     "kovacs-levente": 2,
     "kozhukhov_andrey": 5,
     "kpsr59": 6,
@@ -6200,6 +6204,7 @@
     "lezgin1976": 9,
     "lfbc2leopolddup1": 5,
     "lfyfe0707": 0,
+    "lg-tlx": 0,
     "lha-allabouttactics": 3,
     "lheme": 7,
     "li60716940": 0,
@@ -12778,6 +12783,7 @@
     "chesecdr": "2026-07-10T15:33:17.721092+00:00",
     "chess-art-us2013": "2026-07-10T16:28:13.037088+00:00",
     "chess-bliss": "2026-07-10T19:15:29.724797+00:00",
+    "chess-mag": "2026-07-10T23:49:49.410157+00:00",
     "chess-olga": "2026-07-10T05:36:46.741417+00:00",
     "chess-player4321": "2026-07-10T12:56:05.521990+00:00",
     "chess0315": "2026-07-10T07:05:58.988723+00:00",
@@ -12963,6 +12969,7 @@
     "chuckyperez": "2026-07-10T20:42:32.571368+00:00",
     "chud_doorbell123": "2026-07-10T16:31:45.087097+00:00",
     "chullu5": "2026-07-10T19:04:05.380836+00:00",
+    "chunchang": "2026-07-10T23:49:52.384392+00:00",
     "chuso1666": "2026-07-10T07:35:45.809733+00:00",
     "chyyvy": "2026-07-10T14:51:11.099787+00:00",
     "ciba-thiago": "2026-07-10T22:09:15.475974+00:00",
@@ -13915,6 +13922,7 @@
     "epiccon": "2026-07-10T19:21:56.441790+00:00",
     "epicpenguinman": "2026-07-10T12:02:54.945882+00:00",
     "epoxythreefour": "2026-07-10T23:42:02.282733+00:00",
+    "equiseto": "2026-07-10T23:49:55.424266+00:00",
     "erarslantuna67": "2026-07-10T04:43:08.552611+00:00",
     "erasto_m": "2026-07-10T06:40:29.061781+00:00",
     "eraykaraman": "2026-07-10T16:46:25.366975+00:00",
@@ -16052,6 +16060,7 @@
     "kotomigrey": "2026-07-10T22:24:47.702703+00:00",
     "kotulan": "2026-07-10T20:11:50.710432+00:00",
     "kourosh139411": "2026-07-10T19:09:37.420965+00:00",
+    "koutis": "2026-07-10T23:50:01.389436+00:00",
     "kovacs-levente": "2026-07-10T07:20:26.867315+00:00",
     "kpsr59": "2026-07-10T09:25:58.589023+00:00",
     "kpwelchenichwill": "2026-07-10T09:15:12.847133+00:00",
@@ -16272,6 +16281,7 @@
     "lezgin1976": "2026-07-10T10:39:32.360530+00:00",
     "lfbc2leopolddup1": "2026-07-10T05:26:49.392570+00:00",
     "lfyfe0707": "2026-07-10T07:39:14.559825+00:00",
+    "lg-tlx": "2026-07-10T23:50:04.403687+00:00",
     "lha-allabouttactics": "2026-07-10T05:35:16.641023+00:00",
     "lheme": "2026-07-10T14:33:57.703155+00:00",
     "li60716940": "2026-07-10T22:55:29.234014+00:00",
@@ -93617,7 +93627,42 @@
       "rank": 10491,
       "source": "Lobby-Crawl",
       "username": "sethulid"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess-mag",
+      "rank": 10492,
+      "source": "Lobby-Crawl",
+      "username": "chess-mag"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chunchang",
+      "rank": 10493,
+      "source": "Lobby-Crawl",
+      "username": "chunchang"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/equiseto",
+      "rank": 10494,
+      "source": "Lobby-Crawl",
+      "username": "equiseto"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/koutis",
+      "rank": 10495,
+      "source": "Lobby-Crawl",
+      "username": "koutis"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/lg-tlx",
+      "rank": 10496,
+      "source": "Lobby-Crawl",
+      "username": "lg-tlx"
     }
   ],
-  "updated_at": "2026-07-10T23:49:33.232759+00:00"
+  "updated_at": "2026-07-10T23:50:04.403705+00:00"
 }
