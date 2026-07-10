@@ -269,7 +269,17 @@ CRAWL_BOOTSTRAP_SAMPLE_SIZE = int(os.environ.get("CRAWL_BOOTSTRAP_SAMPLE_SIZE", 
 # WICHTIG: Reihenfolge pro Runde ist jetzt CRAWL ZUERST, dann Turniere -
 # siehe Docstring-Abschnitt weiter oben ("ABWECHSELNDE ZEITBUDGET-PHASEN").
 PHASE_SLICE_SECONDS = float(os.environ.get("PHASE_SLICE_SECONDS", "30"))
-MAX_TOTAL_RUNTIME_SECONDS = float(os.environ.get("MAX_TOTAL_RUNTIME_SECONDS", "240"))
+# GEAENDERT: GitHub-Actions-Hosted-Runner kappen einen Job HART bei 6h
+# (360min) - egal was in timeout-minutes im Workflow steht. Da der Cron
+# ohnehin alle 6h neu triggert, nutzen wir dieses Fenster jetzt (fast)
+# komplett aus, statt schon nach 4 Minuten abzubrechen. 19800s = 5h30m,
+# laesst 30min Puffer fuer Checkout/Setup/den finalen Push am Ende, damit
+# der Job nicht mitten im Push vom Runner gekillt wird.
+# WICHTIG: falls dein Workflow ein kuerzeres "cron"-Intervall als 6h hat
+# ODER ein kuerzeres timeout-minutes setzt, MAX_TOTAL_RUNTIME_SECONDS
+# entsprechend anpassen (z.B. per Repo-Variable/Secret ueberschreiben),
+# sonst wird der Job vom Runner abgewuergt statt sauber zu speichern.
+MAX_TOTAL_RUNTIME_SECONDS = float(os.environ.get("MAX_TOTAL_RUNTIME_SECONDS", "19800"))
 
 # --- Herkunfts-Label (wo ein Spieler zuerst gefunden wurde) --------------
 SOURCE_LABELS = {
