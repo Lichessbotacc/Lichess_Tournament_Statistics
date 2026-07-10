@@ -2198,6 +2198,7 @@
     "chesskingg0": 0,
     "chesskingpro2133": 33,
     "chesskoyevski": 0,
+    "chesslaerner": 0,
     "chessmermaid": 0,
     "chessmole": 19,
     "chessmusman": 0,
@@ -7906,6 +7907,7 @@
     "chesskingg0": "2026-07-10T14:52:57.759509+00:00",
     "chesskingpro2133": "2026-07-10T15:01:08.102457+00:00",
     "chesskoyevski": "2026-07-10T08:08:11.934244+00:00",
+    "chesslaerner": "2026-07-10T16:31:07.815406+00:00",
     "chessmermaid": "2026-07-10T14:47:35.075476+00:00",
     "chessmole": "2026-07-10T06:39:51.507362+00:00",
     "chessmusman": "2026-07-10T08:22:07.108529+00:00",
@@ -51390,7 +51392,14 @@
       "rank": 5714,
       "source": "Lobby-Crawl",
       "username": "zzz09"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chesslaerner",
+      "rank": 5715,
+      "source": "Team",
+      "username": "chesslaerner"
     }
   ],
-  "updated_at": "2026-07-10T16:30:23.975971+00:00"
+  "updated_at": "2026-07-10T16:31:07.815422+00:00"
 }
