@@ -1658,6 +1658,7 @@
     "cepveslpfl": 0,
     "certificatechess1": 0,
     "cesur0506": 0,
+    "cetchess": 0,
     "cetin1313": 0,
     "cfraffor2129": 0,
     "cfrehley": 0,
@@ -3616,6 +3617,7 @@
     "lev2308": 0,
     "lev_kryukov": 0,
     "lev_noskov": 0,
+    "lev_pro_o": 0,
     "leva-e": 0,
     "levandosin-barbosin": 0,
     "levanninh2012": 0,
@@ -3992,6 +3994,7 @@
     "minhkhoi-17": 1,
     "minhndn": 0,
     "minhquang0218": 4,
+    "mini_aslan44": 0,
     "minie_blue_junior": 0,
     "miniknight6": 0,
     "mirasdon": 0,
@@ -4605,6 +4608,7 @@
     "raghav0010": 0,
     "raghavgarg69": 0,
     "raider9": 4,
+    "raigoza_2009": 0,
     "rainbowgreen56": 0,
     "rajaracingking": 0,
     "rajeswaridas": 0,
@@ -4635,6 +4639,7 @@
     "receb2004": 0,
     "rechesster": 4,
     "recodayi": 0,
+    "reddracula": 0,
     "redeemer_d": 0,
     "redh": 0,
     "redpandalover2015": 0,
@@ -4729,6 +4734,7 @@
     "rohithjs": 0,
     "rohmat_lckb": 0,
     "rohyinisrap": 0,
+    "rojito-da-burrito": 0,
     "rojomauri20": 0,
     "rom2026": 15,
     "roman_korolov": 0,
@@ -7346,6 +7352,7 @@
     "cengo3444444": "2026-07-10T12:22:01.163912+00:00",
     "ceopablo": "2026-07-10T09:17:51.047019+00:00",
     "cesur0506": "2026-07-10T08:12:04.593291+00:00",
+    "cetchess": "2026-07-10T16:03:32.563335+00:00",
     "cetin1313": "2026-07-10T13:51:15.851052+00:00",
     "cfrehley": "2026-07-10T15:11:43.316051+00:00",
     "cfuf2_9": "2026-07-10T05:19:09.793020+00:00",
@@ -8839,6 +8846,7 @@
     "lev2308": "2026-07-10T07:18:23.587727+00:00",
     "lev_kryukov": "2026-07-10T05:13:41.398447+00:00",
     "lev_noskov": "2026-07-10T15:04:34.908855+00:00",
+    "lev_pro_o": "2026-07-10T16:03:14.549800+00:00",
     "leva-e": "2026-07-10T11:51:49.910197+00:00",
     "levandosin-barbosin": "2026-07-10T04:48:54.545629+00:00",
     "levanninh2012": "2026-07-10T11:40:17.897131+00:00",
@@ -9195,6 +9203,7 @@
     "minhchi123456": "2026-07-10T14:12:16.261648+00:00",
     "minhndn": "2026-07-10T06:20:21.899006+00:00",
     "minhquang0218": "2026-07-10T13:07:50.301219+00:00",
+    "mini_aslan44": "2026-07-10T16:03:17.530130+00:00",
     "minie_blue_junior": "2026-07-10T03:34:49.616228+00:00",
     "mirasdon": "2026-07-10T05:49:21.065632+00:00",
     "mirhanceren": "2026-07-10T14:12:19.254500+00:00",
@@ -9780,6 +9789,7 @@
     "raghav0010": "2026-07-10T14:40:07.910977+00:00",
     "raghavgarg69": "2026-07-10T06:59:54.541858+00:00",
     "raider9": "2026-07-10T14:07:16.431316+00:00",
+    "raigoza_2009": "2026-07-10T16:03:20.553030+00:00",
     "rainbowgreen56": "2026-07-10T14:34:37.325927+00:00",
     "rajaracingking": "2026-07-10T06:22:05.135361+00:00",
     "rajeswaridas": "2026-07-10T12:22:52.828304+00:00",
@@ -9810,6 +9820,7 @@
     "receb2004": "2026-07-10T13:18:10.276372+00:00",
     "rechesster": "2026-07-10T04:40:42.096330+00:00",
     "recodayi": "2026-07-10T06:23:48.336309+00:00",
+    "reddracula": "2026-07-10T16:03:23.547256+00:00",
     "redeemer_d": "2026-07-10T06:16:42.337113+00:00",
     "redh": "2026-07-10T08:05:43.850315+00:00",
     "redpandalover2015": "2026-07-10T13:57:06.603277+00:00",
@@ -9900,6 +9911,7 @@
     "rohithjs": "2026-07-10T11:31:35.033729+00:00",
     "rohmat_lckb": "2026-07-10T04:33:56.594637+00:00",
     "rohyinisrap": "2026-07-10T09:18:27.796000+00:00",
+    "rojito-da-burrito": "2026-07-10T16:03:38.559013+00:00",
     "rojomauri20": "2026-07-10T14:53:45.097525+00:00",
     "roman_korolov": "2026-07-10T03:32:13.915939+00:00",
     "romankorepov": "2026-07-10T05:43:48.106340+00:00",
@@ -51831,7 +51843,49 @@
       "rank": 5842,
       "source": "Lobby-Crawl",
       "username": "l314159"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/lev_pro_o",
+      "rank": 5843,
+      "source": "Lobby-Crawl",
+      "username": "lev_pro_o"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/mini_aslan44",
+      "rank": 5844,
+      "source": "Lobby-Crawl",
+      "username": "mini_aslan44"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/raigoza_2009",
+      "rank": 5845,
+      "source": "Lobby-Crawl",
+      "username": "raigoza_2009"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/reddracula",
+      "rank": 5846,
+      "source": "Lobby-Crawl",
+      "username": "reddracula"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/cetchess",
+      "rank": 5847,
+      "source": "Lobby-Crawl",
+      "username": "cetchess"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/rojito-da-burrito",
+      "rank": 5848,
+      "source": "Lobby-Crawl",
+      "username": "rojito-da-burrito"
     }
   ],
-  "updated_at": "2026-07-10T16:03:05.668400+00:00"
+  "updated_at": "2026-07-10T16:03:38.559029+00:00"
 }
