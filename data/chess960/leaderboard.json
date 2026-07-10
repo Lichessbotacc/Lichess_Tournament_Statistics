@@ -2561,6 +2561,7 @@
     "crazy_bishop2": 0,
     "crazybishops1489": 0,
     "crazychess1998": 1,
+    "crazyenginar": 0,
     "crazyhorse33": 98,
     "crazyloser51": 0,
     "crazymaharajah": 155,
@@ -3975,6 +3976,7 @@
     "kirillchernyakov2018": 0,
     "kirillk_2019": 0,
     "kirillmicheev": 0,
+    "kirillrudenok": 0,
     "kirsksjakk": 0,
     "kirukato": 0,
     "kisalaykumar": 0,
@@ -4308,6 +4310,7 @@
     "lyusi": 73,
     "m-123_4": 0,
     "m-u-x": 10,
+    "m09386706341": 0,
     "m19112": 0,
     "m1ntaka": 7,
     "m4sryn": 0,
@@ -4445,6 +4448,7 @@
     "master_nikunj": 0,
     "masterchessdojo": 0,
     "masterkrishivkh": 0,
+    "mastermind100": 0,
     "masterostnel": 0,
     "masterpontios": 0,
     "masterrushil": 0,
@@ -6459,6 +6463,7 @@
     "vlsr1": 0,
     "vnak9": 7,
     "vnvp": 0,
+    "vociferous": 0,
     "vojvodamilos": 0,
     "vokhidd": 0,
     "voland-1983": 1,
@@ -8898,6 +8903,7 @@
     "crazy_bishop1974": "2026-07-10T01:38:30.578967+00:00",
     "crazy_bishop2": "2026-07-10T01:38:32.041624+00:00",
     "crazybishops1489": "2026-07-10T01:38:33.507785+00:00",
+    "crazyenginar": "2026-07-10T09:00:09.183503+00:00",
     "crazyhorse33": "2026-07-10T06:37:29.331578+00:00",
     "crazymaharajah": "2026-07-10T05:00:49.575573+00:00",
     "creighton00064": "2026-07-10T05:28:52.668565+00:00",
@@ -9808,6 +9814,7 @@
     "kingsracer234": "2026-07-10T03:48:58.943239+00:00",
     "kira2400": "2026-07-10T07:36:55.980099+00:00",
     "kirillbuzin618": "2026-07-10T07:49:13.297268+00:00",
+    "kirillrudenok": "2026-07-10T09:00:15.195706+00:00",
     "kirsksjakk": "2026-07-10T04:45:53.757324+00:00",
     "kiselev_vitaly": "2026-07-10T05:02:52.585723+00:00",
     "kishanahuja1403": "2026-07-10T04:01:07.194423+00:00",
@@ -10006,6 +10013,7 @@
     "lyusi": "2026-07-10T07:21:30.110373+00:00",
     "m-123_4": "2026-07-10T04:54:28.132200+00:00",
     "m-u-x": "2026-07-10T06:54:22.351434+00:00",
+    "m09386706341": "2026-07-10T09:00:18.171889+00:00",
     "m19112": "2026-07-10T03:28:39.582624+00:00",
     "m1ntaka": "2026-07-10T07:59:05.452993+00:00",
     "m_b_7": "2026-07-10T04:39:56.376247+00:00",
@@ -10096,6 +10104,7 @@
     "master9811": "2026-07-10T08:06:29.451990+00:00",
     "master_nikunj": "2026-07-10T03:32:42.580971+00:00",
     "masterchessdojo": "2026-07-10T03:37:21.890602+00:00",
+    "mastermind100": "2026-07-10T09:00:21.202998+00:00",
     "masterostnel": "2026-07-10T05:19:24.693326+00:00",
     "mastersili": "2026-07-10T05:19:54.669279+00:00",
     "mat-pere-mat": "2026-07-10T08:15:58.260825+00:00",
@@ -11322,6 +11331,7 @@
     "vldo": "2026-07-10T06:30:58.066504+00:00",
     "vlnow": "2026-07-10T07:25:07.881976+00:00",
     "vlsr1": "2026-07-10T08:05:32.329042+00:00",
+    "vociferous": "2026-07-10T08:59:57.189171+00:00",
     "vokhidd": "2026-07-10T03:03:14.155370+00:00",
     "voland-1983": "2026-07-10T08:13:04.539122+00:00",
     "voldemort_1": "2026-07-10T03:35:27.344995+00:00",
@@ -58622,7 +58632,42 @@
       "rank": 6732,
       "source": "Lobby-Crawl",
       "username": "kolsuvvin"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vociferous",
+      "rank": 6733,
+      "source": "Team",
+      "username": "vociferous"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/crazyenginar",
+      "rank": 6734,
+      "source": "Lobby-Crawl",
+      "username": "crazyenginar"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/kirillrudenok",
+      "rank": 6735,
+      "source": "Lobby-Crawl",
+      "username": "kirillrudenok"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/m09386706341",
+      "rank": 6736,
+      "source": "Lobby-Crawl",
+      "username": "m09386706341"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/mastermind100",
+      "rank": 6737,
+      "source": "Lobby-Crawl",
+      "username": "mastermind100"
     }
   ],
-  "updated_at": "2026-07-10T08:59:49.292254+00:00"
+  "updated_at": "2026-07-10T09:00:21.203018+00:00"
 }
