@@ -942,6 +942,7 @@
     "alamtoba8": 1,
     "alan202": 0,
     "alan_petukhovchess": 0,
+    "alana_lun": 0,
     "alanch": 0,
     "alanjralaylay": 0,
     "alanjrlaylay14": 0,
@@ -1491,6 +1492,7 @@
     "davidgodar": 121,
     "davidmujica": 15,
     "davvejoh": 14,
+    "denijudo": 0,
     "denizerenksk": 0,
     "devrimgunes2": 24,
     "dimayax": 0,
@@ -1523,6 +1525,7 @@
     "f5cc": 145,
     "fabianroth": 169,
     "fade4": 0,
+    "fantasticchess2000": 0,
     "fanyq123": 0,
     "fast-tsunami07": 58,
     "fatih2008": 0,
@@ -1547,6 +1550,7 @@
     "gubbrora1114": 1,
     "gurivanil": 0,
     "gutisitos": 90,
+    "hangrycaterpillar": 0,
     "harryboumboum": 0,
     "heaven2307": 0,
     "hedgehog_in_the_fog1": 0,
@@ -1606,12 +1610,14 @@
     "lejoueuur": 180,
     "leon1001": 40,
     "leon_de_professional": 144,
+    "leonwasted": 0,
     "levsakharov": 229,
     "linconluz": 84,
     "liz_dragonz": 144,
     "lonac28": 0,
     "lorigine": 396,
     "love_is_4ever": 139,
+    "lucaslr": 0,
     "mac7413": 71,
     "machucapapa": 82,
     "magaladon21": 0,
@@ -2769,6 +2775,7 @@
     "alamtoba8": "2026-07-10T02:50:30.477339+00:00",
     "alan202": "2026-07-10T02:50:33.464783+00:00",
     "alan_petukhovchess": "2026-07-10T02:50:36.467792+00:00",
+    "alana_lun": "2026-07-10T04:01:09.370227+00:00",
     "alanch": "2026-07-10T02:50:39.454185+00:00",
     "alanjralaylay": "2026-07-10T02:50:42.451046+00:00",
     "alanjrlaylay14": "2026-07-10T02:50:45.451930+00:00",
@@ -3293,6 +3300,7 @@
     "danila_bogdanov": "2026-07-10T03:40:38.695684+00:00",
     "darren2960": "2026-07-10T03:55:26.138552+00:00",
     "davvejoh": "2026-07-10T03:41:12.966061+00:00",
+    "denijudo": "2026-07-10T04:01:12.353360+00:00",
     "denizerenksk": "2026-07-10T03:56:52.636744+00:00",
     "devrimgunes2": "2026-07-10T03:30:45.075838+00:00",
     "dimayax": "2026-07-10T03:35:39.638792+00:00",
@@ -3318,6 +3326,7 @@
     "f555555": "2026-07-10T03:25:18.807110+00:00",
     "fabianroth": "2026-07-10T03:45:58.736091+00:00",
     "fade4": "2026-07-10T03:23:50.197026+00:00",
+    "fantasticchess2000": "2026-07-10T04:00:51.353015+00:00",
     "fanyq123": "2026-07-10T02:59:37.646522+00:00",
     "fast-tsunami07": "2026-07-10T00:55:53.884725+00:00",
     "fatih2008": "2026-07-10T02:58:43.313023+00:00",
@@ -3335,6 +3344,7 @@
     "gubbrora1114": "2026-07-10T03:25:21.827034+00:00",
     "gurivanil": "2026-07-10T02:59:40.648707+00:00",
     "gutisitos": "2026-07-10T03:59:00.095916+00:00",
+    "hangrycaterpillar": "2026-07-10T04:00:54.381323+00:00",
     "heaven2307": "2026-07-10T02:59:43.632703+00:00",
     "hedgehog_in_the_fog1": "2026-07-10T03:54:53.439194+00:00",
     "henk_dekleerkast": "2026-07-10T00:57:03.375274+00:00",
@@ -3377,9 +3387,11 @@
     "law24": "2026-07-10T03:57:01.580915+00:00",
     "lejoueuur": "2026-07-10T01:02:56.905025+00:00",
     "leon_de_professional": "2026-07-10T01:04:00.655419+00:00",
+    "leonwasted": "2026-07-10T04:00:57.350410+00:00",
     "levsakharov": "2026-07-10T01:04:54.095320+00:00",
     "lonac28": "2026-07-10T03:56:16.988656+00:00",
     "love_is_4ever": "2026-07-10T01:05:30.245263+00:00",
+    "lucaslr": "2026-07-10T04:01:00.359782+00:00",
     "magaladon21": "2026-07-10T02:58:31.113858+00:00",
     "magicschoolbus": "2026-07-10T01:06:52.684870+00:00",
     "makefetchhappen": "2026-07-10T01:07:29.027813+00:00",
@@ -16325,7 +16337,49 @@
       "rank": 1826,
       "source": "Lobby-Crawl",
       "username": "rsaygi"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/fantasticchess2000",
+      "rank": 1827,
+      "source": "Lobby-Crawl",
+      "username": "fantasticchess2000"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/hangrycaterpillar",
+      "rank": 1828,
+      "source": "Team",
+      "username": "hangrycaterpillar"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/leonwasted",
+      "rank": 1829,
+      "source": "Lobby-Crawl",
+      "username": "leonwasted"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/lucaslr",
+      "rank": 1830,
+      "source": "Lobby-Crawl",
+      "username": "lucaslr"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/alana_lun",
+      "rank": 1831,
+      "source": "Lobby-Crawl",
+      "username": "alana_lun"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/denijudo",
+      "rank": 1832,
+      "source": "Lobby-Crawl",
+      "username": "denijudo"
     }
   ],
-  "updated_at": "2026-07-10T04:00:41.013503+00:00"
+  "updated_at": "2026-07-10T04:01:12.353376+00:00"
 }
