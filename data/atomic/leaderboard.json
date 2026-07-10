@@ -1540,6 +1540,7 @@
     "chess_nomore": 0,
     "chess_p2026": 0,
     "chess_pro001": 0,
+    "chess_scroungy": 0,
     "chess_student32": 0,
     "chess_student_73": 0,
     "chess_training_2021": 0,
@@ -3817,6 +3818,7 @@
     "chess_nomore": "2026-07-10T01:39:45.595801+00:00",
     "chess_p2026": "2026-07-10T01:39:48.983719+00:00",
     "chess_pro001": "2026-07-10T01:39:50.310712+00:00",
+    "chess_scroungy": "2026-07-10T05:57:08.939178+00:00",
     "chess_student32": "2026-07-10T01:39:51.639904+00:00",
     "chess_student_73": "2026-07-10T03:00:10.270108+00:00",
     "chess_training_2021": "2026-07-10T01:39:52.964768+00:00",
@@ -20531,7 +20533,14 @@
       "rank": 2292,
       "source": "Lobby-Crawl",
       "username": "austswimmyn"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess_scroungy",
+      "rank": 2293,
+      "source": "Lobby-Crawl",
+      "username": "chess_scroungy"
     }
   ],
-  "updated_at": "2026-07-10T05:56:35.324205+00:00"
+  "updated_at": "2026-07-10T05:57:08.939198+00:00"
 }
