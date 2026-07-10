@@ -255,11 +255,11 @@ MAX_TEAM_TOURNAMENTS = 1000
 # Wie viele Spieler pro Lauf als neue Seeds fuer den Gegner-Crawl genutzt
 # werden. Bewusst klein gehalten, damit ein einzelner Lauf nicht explodiert
 # (das Wachstum passiert ueber viele Laeufe hinweg, siehe Docstring oben).
-CRAWL_SEED_COUNT = 10
+CRAWL_SEED_COUNT = 100
 
 # Wie viele der letzten Partien pro Seed-Spieler angesehen werden, um
 # Gegner zu extrahieren.
-CRAWL_GAMES_PER_SEED = 10
+CRAWL_GAMES_PER_SEED = 100
 
 # ---------------------------------------------------------------------------
 # WICHTIG: Alle Ausgabe-Ordner/-Dateien werden bewusst NICHT relativ zum
