@@ -265,10 +265,25 @@ CRAWL_GAMES_PER_SEED = int(os.environ.get("CRAWL_GAMES_PER_SEED", "10"))
 # "angeimpft", damit der Crawl garantiert sofort Seeds hat.
 CRAWL_BOOTSTRAP_SAMPLE_SIZE = int(os.environ.get("CRAWL_BOOTSTRAP_SAMPLE_SIZE", "30"))
 
+# Bei jedem (Wieder-)Einstieg in die Lobby-Crawl-Phase (v.a. nach einem
+# Turnier-Block) werden DIVERSE_SEED_COUNT zufaellige Spieler aus anderen
+# Quellen (Turnier-Teilnehmer, Top-100) vorne an die Crawl-Kette gehaengt.
+# Grund: reines Gegner-Ketten-Verzweigen bleibt fast immer im gleichen
+# Rating-Band haengen (Lichess matcht aehnliche Ratings gegeneinander) -
+# ein 1600er fuehrt so praktisch nie zu einem 2300er. Turniere und die
+# Top-100-Liste decken dagegen ein breites Rating-Spektrum ab, wodurch der
+# Crawl bei jedem Wechsel quasi zufaellig auf einem neuen Rating-Niveau
+# neu ansetzt.
+DIVERSE_SEED_COUNT = int(os.environ.get("DIVERSE_SEED_COUNT", "4"))
+
 # --- Abwechselnde Zeitscheiben Crawl <-> Turniere -------------------------
 # WICHTIG: Reihenfolge pro Runde ist jetzt CRAWL ZUERST, dann Turniere -
 # siehe Docstring-Abschnitt weiter oben ("ABWECHSELNDE ZEITBUDGET-PHASEN").
-PHASE_SLICE_SECONDS = float(os.environ.get("PHASE_SLICE_SECONDS", "30"))
+# GEAENDERT: von 30s auf 1800s (30min) - dadurch bekommt jede Phase einen
+# richtigen, zusammenhaengenden Block statt in winzigen 30s-Haeppchen
+# hin- und herzuspringen. Bei 5h30m Gesamtbudget ergibt das ~5-6
+# vollstaendige Lobby<->Turnier-Wechsel pro Lauf.
+PHASE_SLICE_SECONDS = float(os.environ.get("PHASE_SLICE_SECONDS", "1800"))
 # GEAENDERT: GitHub-Actions-Hosted-Runner kappen einen Job HART bei 6h
 # (360min) - egal was in timeout-minutes im Workflow steht. Da der Cron
 # ohnehin alle 6h neu triggert, nutzen wir dieses Fenster jetzt (fast)
@@ -903,6 +918,47 @@ def bootstrap_crawl_queue_if_empty(pool: set) -> None:
     save_json_list(CRAWL_QUEUE_FILE, sample)
 
 
+def inject_diverse_crawl_seeds(source_map: dict, count: int = DIVERSE_SEED_COUNT) -> None:
+    """
+    Haengt bis zu `count` zufaellige Spieler VORNE (nicht hinten!) an die
+    Crawl-Queue, damit sie als naechstes dran sind. Die Kandidaten kommen
+    bewusst aus Turnier- und Top-100-Quellen statt aus dem Lobby-Pool
+    selbst, weil diese ein viel breiteres Rating-Spektrum abdecken als
+    Partien-Gegner-Ketten (die durch Lichess' Matchmaking fast immer im
+    gleichen Rating-Band bleiben).
+    """
+    known_crawled = load_json_dict(KNOWN_CRAWLED_FILE)
+    queue = load_json_list(CRAWL_QUEUE_FILE)
+    queue_set = set(queue)
+
+    def candidates(label: str) -> list:
+        return [u for u, src in source_map.items()
+                if src == label and u not in known_crawled and u not in queue_set]
+
+    turnier_candidates = candidates("turnier")
+    top_candidates = candidates("top100")
+    random.shuffle(turnier_candidates)
+    random.shuffle(top_candidates)
+
+    # Mischung: mehrheitlich Turnier-Spieler (breite Streuung ueber alle
+    # Rating-Baender), mindestens 1 Top-100-Spieler (deckt das obere Ende
+    # ab, das ueber reine Gegner-Ketten kaum je erreicht wird).
+    top_share = max(1, count // 3) if top_candidates else 0
+    turnier_share = count - top_share
+
+    picks = turnier_candidates[:turnier_share] + top_candidates[:top_share]
+    random.shuffle(picks)
+    picks = picks[:count]
+
+    if not picks:
+        return
+
+    print(f"  [DIVERSITAET] {len(picks)} zufaellige Spieler aus anderen Rating-Bereichen "
+          f"(Turnier/Top-100) werden vorne an die Kette gehaengt: {picks}")
+    new_queue = picks + [q for q in queue if q not in picks]
+    save_json_list(CRAWL_QUEUE_FILE, new_queue)
+
+
 def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, last_checked: dict,
                               source_map: dict, since_ms: int, leaderboard: dict, stats: dict,
                               bot_status: dict) -> tuple:
@@ -1358,6 +1414,7 @@ def main() -> None:
             # rate-limited) das restliche Budget aufbrauchen koennten.
             if not crawl_done:
                 print(f"  -- Runde {round_num}: Lobby-Crawl --")
+                inject_diverse_crawl_seeds(source_map)
                 deadline = time.time() + PHASE_SLICE_SECONDS
                 new_from_crawl, seeds_processed = process_crawl_slice(
                     pool, updated_this_run, counts, last_checked, source_map,
