@@ -2618,6 +2618,7 @@
     "der-rohrverleger": 2,
     "derek_04t": 0,
     "derekfei": 0,
+    "derevensky_man": 0,
     "derfs204": 0,
     "dergerechte": 57,
     "derkommisar": 4,
@@ -3411,6 +3412,7 @@
     "galaxy142": 1,
     "gallagintovt": 1,
     "gallardojesus": 0,
+    "game-review": 0,
     "game_over1985": 0,
     "gamedefender": 30,
     "gamer134745": 0,
@@ -6544,6 +6546,7 @@
     "oliver_gallo": 0,
     "oliver_gt": 34,
     "oliverasp": 0,
+    "oliverea": 0,
     "oliviafringe": 19,
     "oliviatheoria": 9,
     "olmoreton": 0,
@@ -6647,6 +6650,7 @@
     "paarthreddy": 0,
     "paata1979": 0,
     "paawan": 103,
+    "pablito3102": 0,
     "pablo10v": 1,
     "pablo_12345": 0,
     "pablo_m": 0,
@@ -8765,6 +8769,7 @@
     "vlad_diskant": 0,
     "vlad_faret": 0,
     "vlad_kan_86": 0,
+    "vlad_lapushkin": 0,
     "vlad_vintsentiev": 0,
     "vladan94": 0,
     "vladepifanov2019": 7,
@@ -11725,6 +11730,7 @@
     "der-rohrverleger": "2026-07-10T14:03:24.526886+00:00",
     "derek_04t": "2026-07-10T16:50:16.224135+00:00",
     "derekfei": "2026-07-10T07:07:51.723992+00:00",
+    "derevensky_man": "2026-07-10T19:18:56.578835+00:00",
     "derfs204": "2026-07-10T07:42:16.730656+00:00",
     "dergerechte": "2026-07-10T07:17:19.660995+00:00",
     "derkommisar": "2026-07-10T06:24:45.562539+00:00",
@@ -12516,6 +12522,7 @@
     "galaxy142": "2026-07-10T09:53:21.744103+00:00",
     "gallagintovt": "2026-07-10T06:21:11.124875+00:00",
     "gallardojesus": "2026-07-10T14:17:13.927919+00:00",
+    "game-review": "2026-07-10T19:19:08.559173+00:00",
     "game_over1985": "2026-07-10T08:59:00.887898+00:00",
     "gamedefender": "2026-07-10T00:49:41.105646+00:00",
     "gamer134745": "2026-07-10T17:04:51.265885+00:00",
@@ -15096,6 +15103,7 @@
     "oliver_gallo": "2026-07-10T13:22:22.494156+00:00",
     "oliver_gt": "2026-07-10T07:13:21.068200+00:00",
     "oliverasp": "2026-07-10T12:58:04.881093+00:00",
+    "oliverea": "2026-07-10T19:18:59.574834+00:00",
     "oliviafringe": "2026-07-10T14:48:46.893274+00:00",
     "oliviatheoria": "2026-07-10T05:15:31.673534+00:00",
     "olympia20": "2026-07-10T12:48:08.911890+00:00",
@@ -15177,6 +15185,7 @@
     "ozguryuncu": "2026-07-10T13:02:45.030057+00:00",
     "ozmidova_agata": "2026-07-10T19:13:08.676081+00:00",
     "paawan": "2026-07-10T03:03:17.427410+00:00",
+    "pablito3102": "2026-07-10T19:18:47.546701+00:00",
     "pablo10v": "2026-07-10T03:02:26.923254+00:00",
     "pablo_12345": "2026-07-10T19:08:12.020084+00:00",
     "pablo_m": "2026-07-10T13:24:11.601373+00:00",
@@ -16936,6 +16945,7 @@
     "vlad_diskant": "2026-07-10T18:24:40.395670+00:00",
     "vlad_faret": "2026-07-10T08:21:46.107988+00:00",
     "vlad_kan_86": "2026-07-10T10:39:38.149919+00:00",
+    "vlad_lapushkin": "2026-07-10T19:19:17.574246+00:00",
     "vlad_vintsentiev": "2026-07-10T15:34:26.333792+00:00",
     "vladan94": "2026-07-10T18:45:55.174122+00:00",
     "vladepifanov2019": "2026-07-10T13:03:25.393553+00:00",
@@ -81028,7 +81038,42 @@
       "rank": 9107,
       "source": "Lobby-Crawl",
       "username": "yemo123"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/pablito3102",
+      "rank": 9108,
+      "source": "Lobby-Crawl",
+      "username": "pablito3102"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/derevensky_man",
+      "rank": 9109,
+      "source": "Lobby-Crawl",
+      "username": "derevensky_man"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/oliverea",
+      "rank": 9110,
+      "source": "Lobby-Crawl",
+      "username": "oliverea"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/game-review",
+      "rank": 9111,
+      "source": "Lobby-Crawl",
+      "username": "game-review"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vlad_lapushkin",
+      "rank": 9112,
+      "source": "Lobby-Crawl",
+      "username": "vlad_lapushkin"
     }
   ],
-  "updated_at": "2026-07-10T19:18:39.961741+00:00"
+  "updated_at": "2026-07-10T19:19:17.574265+00:00"
 }
