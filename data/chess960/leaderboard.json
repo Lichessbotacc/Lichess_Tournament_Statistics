@@ -3133,6 +3133,7 @@
     "deadban": 0,
     "deadcentre": 0,
     "deadintheend": 1,
+    "deadly_bishops": 0,
     "deadold": 8,
     "deathcomez43": 0,
     "deba2013": 0,
@@ -4245,6 +4246,7 @@
     "history_russia": 0,
     "hitmanns": 0,
     "hitsuji": 8,
+    "hitter1999": 0,
     "hiyamezay": 0,
     "hj278971": 0,
     "hjjjjjjjji": 0,
@@ -4317,6 +4319,7 @@
     "iamjavad": 7,
     "iamjohnnycarzano": 0,
     "iamplayerofchess": 0,
+    "iamstraw": 0,
     "iamvinayvarala": 0,
     "ianfonseca": 0,
     "iaspet": 0,
@@ -5629,6 +5632,7 @@
     "matteuzzo": 13,
     "matthew62935": 0,
     "matthew_w_45": 0,
+    "matthewg-p4p": 0,
     "matthewwalinga": 3,
     "mattila": 0,
     "mattiwastag": 19,
@@ -5643,6 +5647,7 @@
     "mauer1000": 0,
     "maurec": 23,
     "mauricio15fg": 0,
+    "mauroampie": 0,
     "maurocollazos": 0,
     "maverick-maverick": 0,
     "maverick1926": 0,
@@ -8714,6 +8719,7 @@
     "zdav_crez": 1,
     "zdravstvyi_derevo": 16,
     "zebreuuu": 75,
+    "zehra77": 0,
     "zeitnot_chess": 1,
     "zelenayaloshad": 0,
     "zelihatce": 62,
@@ -11493,6 +11499,7 @@
     "deadban": "2026-07-10T06:07:39.847256+00:00",
     "deadcentre": "2026-07-10T15:08:06.935536+00:00",
     "deadintheend": "2026-07-10T03:00:43.549579+00:00",
+    "deadly_bishops": "2026-07-10T15:32:42.109743+00:00",
     "deadold": "2026-07-10T05:04:39.586565+00:00",
     "deathcomez43": "2026-07-10T09:06:57.626787+00:00",
     "debrx": "2026-07-10T05:50:43.947424+00:00",
@@ -12318,6 +12325,7 @@
     "hirad87": "2026-07-10T06:29:27.730562+00:00",
     "hiren_destiny": "2026-07-10T07:45:24.439183+00:00",
     "hitsuji": "2026-07-10T07:42:37.212208+00:00",
+    "hitter1999": "2026-07-10T15:32:45.122146+00:00",
     "hj278971": "2026-07-10T14:48:27.635984+00:00",
     "hjjjjjjjji": "2026-07-10T06:34:40.423125+00:00",
     "hkn54": "2026-07-10T13:30:49.680874+00:00",
@@ -12377,6 +12385,7 @@
     "iamaduck213": "2026-07-10T01:10:21.407585+00:00",
     "iamjavad": "2026-07-10T14:55:35.480831+00:00",
     "iamjohnnycarzano": "2026-07-10T13:00:08.111282+00:00",
+    "iamstraw": "2026-07-10T15:32:48.120984+00:00",
     "iamvinayvarala": "2026-07-10T15:31:15.022733+00:00",
     "ianfonseca": "2026-07-10T05:03:21.180019+00:00",
     "iaspet": "2026-07-10T05:26:11.955301+00:00",
@@ -13350,6 +13359,7 @@
     "matrix64bw": "2026-07-10T04:37:40.344331+00:00",
     "matteuzzo": "2026-07-10T07:16:14.640711+00:00",
     "matthew62935": "2026-07-10T12:45:25.670742+00:00",
+    "matthewg-p4p": "2026-07-10T15:33:03.106530+00:00",
     "matthewwalinga": "2026-07-10T08:39:38.852444+00:00",
     "mattila": "2026-07-10T05:10:02.513260+00:00",
     "mattiwastag": "2026-07-10T06:49:35.049998+00:00",
@@ -13362,6 +13372,7 @@
     "matwey123": "2026-07-10T00:49:40.810331+00:00",
     "maurec": "2026-07-10T08:21:59.461155+00:00",
     "mauricio15fg": "2026-07-10T07:21:49.394254+00:00",
+    "mauroampie": "2026-07-10T15:32:51.127789+00:00",
     "maurocollazos": "2026-07-10T07:52:01.584788+00:00",
     "mawasesnet": "2026-07-10T05:11:13.982542+00:00",
     "max007": "2026-07-10T09:13:34.505945+00:00",
@@ -15611,6 +15622,7 @@
     "zdav_crez": "2026-07-10T05:58:21.782686+00:00",
     "zdravstvyi_derevo": "2026-07-10T06:38:39.711389+00:00",
     "zebreuuu": "2026-07-10T10:57:29.242424+00:00",
+    "zehra77": "2026-07-10T15:32:54.118462+00:00",
     "zeitnot_chess": "2026-07-10T08:32:27.821469+00:00",
     "zelenayaloshad": "2026-07-10T03:33:53.149271+00:00",
     "zelihatce": "2026-07-10T07:43:28.632090+00:00",
@@ -17398,7 +17410,7 @@
       "games": 95,
       "profile": "https://lichess.org/@/daaleksandrov",
       "rank": 248,
-      "source": "?",
+      "source": "Lobby-Crawl",
       "username": "daaleksandrov"
     },
     {
@@ -77096,7 +77108,49 @@
       "rank": 8776,
       "source": "Lobby-Crawl",
       "username": "trompeterimether"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/deadly_bishops",
+      "rank": 8777,
+      "source": "Lobby-Crawl",
+      "username": "deadly_bishops"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/hitter1999",
+      "rank": 8778,
+      "source": "Lobby-Crawl",
+      "username": "hitter1999"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/iamstraw",
+      "rank": 8779,
+      "source": "Lobby-Crawl",
+      "username": "iamstraw"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/mauroampie",
+      "rank": 8780,
+      "source": "Lobby-Crawl",
+      "username": "mauroampie"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/zehra77",
+      "rank": 8781,
+      "source": "Lobby-Crawl",
+      "username": "zehra77"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/matthewg-p4p",
+      "rank": 8782,
+      "source": "Lobby-Crawl",
+      "username": "matthewg-p4p"
     }
   ],
-  "updated_at": "2026-07-10T15:32:33.104012+00:00"
+  "updated_at": "2026-07-10T15:33:03.106552+00:00"
 }
