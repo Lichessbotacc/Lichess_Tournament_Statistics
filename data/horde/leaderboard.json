@@ -1165,6 +1165,7 @@
     "chess6ever": 0,
     "chess960atharv12": 0,
     "chess_12259": 0,
+    "chess_champion92": 0,
     "chess_dragon_hk": 0,
     "chess_grosmaster27": 0,
     "chess_nomore": 0,
@@ -1202,6 +1203,7 @@
     "chessmix12345": 0,
     "chessmlasboy": 0,
     "chessquire-of-rohan": 0,
+    "chesssaatvik": 0,
     "chesstrianer": 0,
     "chessvivaan": 0,
     "chessylvenia": 0,
@@ -2222,6 +2224,7 @@
     "lampac09": 36,
     "lapistulouna": 0,
     "larajane_taganos": 0,
+    "larschess": 0,
     "lau-pilo": 0,
     "lautaro_zambotti": 0,
     "lawrencenwizu": 0,
@@ -2364,6 +2367,7 @@
     "mahawali": 0,
     "mahdiijan98": 1,
     "mahdiyarchess": 0,
+    "makarfoley": 0,
     "makarovma": 71,
     "makashaka": 0,
     "maksleto1610": 0,
@@ -2442,6 +2446,7 @@
     "maucom_br": 2,
     "mauer1000": 0,
     "mavtea": 0,
+    "max_flm": 0,
     "max_ukr147": 0,
     "maxcup2012": 12,
     "maxim26k": 0,
@@ -2683,6 +2688,7 @@
     "nik-chess": 0,
     "nikita3245": 0,
     "nikitakott": 0,
+    "nikitakulikov": 0,
     "nikol3009": 0,
     "nikolaevihivan": 2,
     "nikolaikopytov": 0,
@@ -4400,11 +4406,13 @@
     "cesar2014mp": "2026-07-10T03:48:16.033400+00:00",
     "chanane": "2026-07-10T02:03:04.869977+00:00",
     "charlesju": "2026-07-10T03:28:21.089198+00:00",
+    "chess_champion92": "2026-07-10T04:36:32.161530+00:00",
     "chess_rocks2026": "2026-07-10T00:48:12.850229+00:00",
     "chessdolphin409": "2026-07-10T03:46:47.549024+00:00",
     "chessforfunwithme": "2026-07-10T03:47:50.704287+00:00",
     "chessmaster_me": "2026-07-10T02:04:32.867982+00:00",
     "chessmathnerdssister": "2026-07-10T03:46:50.549102+00:00",
+    "chesssaatvik": "2026-07-10T04:36:35.154126+00:00",
     "chithmallanarolle": "2026-07-10T02:50:54.598227+00:00",
     "chrmu": "2026-07-10T03:30:53.763899+00:00",
     "ckatnd": "2026-07-10T03:03:59.736779+00:00",
@@ -4600,6 +4608,7 @@
     "kutalejici_oliva": "2026-07-10T03:34:44.508873+00:00",
     "kutlugbilgekagan": "2026-07-10T00:51:34.635479+00:00",
     "lampac09": "2026-07-10T00:51:37.485646+00:00",
+    "larschess": "2026-07-10T04:36:11.158687+00:00",
     "lau-pilo": "2026-07-10T03:01:23.497360+00:00",
     "lawrencenwizu": "2026-07-10T04:33:39.507164+00:00",
     "leaf_me": "2026-07-10T03:29:09.794268+00:00",
@@ -4625,6 +4634,7 @@
     "lucas78800": "2026-07-10T02:05:20.419276+00:00",
     "mac78": "2026-07-10T00:51:56.500271+00:00",
     "magnusmg": "2026-07-10T03:00:03.119839+00:00",
+    "makarfoley": "2026-07-10T04:36:17.190563+00:00",
     "makarovma": "2026-07-10T02:59:27.375948+00:00",
     "mallochtaylor": "2026-07-10T03:02:54.526078+00:00",
     "maltyznikolay": "2026-07-10T00:51:59.654551+00:00",
@@ -4643,6 +4653,7 @@
     "mathemaciate": "2026-07-10T04:32:08.826950+00:00",
     "matvei-e2e4": "2026-07-10T00:52:09.328686+00:00",
     "matveylagovskiy": "2026-07-10T02:01:49.887021+00:00",
+    "max_flm": "2026-07-10T04:36:20.108871+00:00",
     "maxcup2012": "2026-07-10T03:29:17.583852+00:00",
     "maxim962": "2026-07-10T00:52:12.024918+00:00",
     "maxirevsky": "2026-07-10T03:22:59.324664+00:00",
@@ -4685,6 +4696,7 @@
     "niclang": "2026-07-10T00:52:36.482502+00:00",
     "nightrider_suyash": "2026-07-10T03:55:02.111323+00:00",
     "nihilo": "2026-07-10T04:33:45.571843+00:00",
+    "nikitakulikov": "2026-07-10T04:36:23.152415+00:00",
     "nikolaevihivan": "2026-07-10T03:56:01.514886+00:00",
     "nilesh_karthik": "2026-07-10T02:51:00.611234+00:00",
     "ninine": "2026-07-10T03:44:15.555053+00:00",
@@ -28106,7 +28118,49 @@
       "rank": 3318,
       "source": "Lobby-Crawl",
       "username": "bhringis"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/larschess",
+      "rank": 3319,
+      "source": "Lobby-Crawl",
+      "username": "larschess"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/makarfoley",
+      "rank": 3320,
+      "source": "Lobby-Crawl",
+      "username": "makarfoley"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/max_flm",
+      "rank": 3321,
+      "source": "Team",
+      "username": "max_flm"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/nikitakulikov",
+      "rank": 3322,
+      "source": "Lobby-Crawl",
+      "username": "nikitakulikov"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess_champion92",
+      "rank": 3323,
+      "source": "Lobby-Crawl",
+      "username": "chess_champion92"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chesssaatvik",
+      "rank": 3324,
+      "source": "Lobby-Crawl",
+      "username": "chesssaatvik"
     }
   ],
-  "updated_at": "2026-07-10T04:36:02.382448+00:00"
+  "updated_at": "2026-07-10T04:36:35.154143+00:00"
 }
