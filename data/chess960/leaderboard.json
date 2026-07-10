@@ -2017,6 +2017,7 @@
     "belgre": 16,
     "beli2268": 0,
     "belousov-ivanilic": 0,
+    "belousov_ivan": 0,
     "belsazar": 21,
     "beltri99": 0,
     "beltsasar": 0,
@@ -9364,6 +9365,7 @@
     "behzad_a7": "2026-07-10T01:29:08.517762+00:00",
     "belgre": "2026-07-10T08:08:56.753494+00:00",
     "beli2268": "2026-07-10T09:40:24.340502+00:00",
+    "belousov_ivan": "2026-07-10T11:47:58.033822+00:00",
     "belsazar": "2026-07-10T03:36:16.097016+00:00",
     "beltri99": "2026-07-10T01:29:10.003183+00:00",
     "beltsasar": "2026-07-10T03:33:27.651200+00:00",
@@ -16037,7 +16039,7 @@
       "games": 61,
       "profile": "https://lichess.org/@/novoselski",
       "rank": 403,
-      "source": "?",
+      "source": "Lobby-Crawl",
       "username": "novoselski"
     },
     {
@@ -66264,7 +66266,14 @@
       "rank": 7578,
       "source": "Lobby-Crawl",
       "username": "raf1310"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/belousov_ivan",
+      "rank": 7579,
+      "source": "Lobby-Crawl",
+      "username": "belousov_ivan"
     }
   ],
-  "updated_at": "2026-07-10T11:43:40.551706+00:00"
+  "updated_at": "2026-07-10T11:47:58.033844+00:00"
 }
