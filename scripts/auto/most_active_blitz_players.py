@@ -35,24 +35,64 @@ jedem Lauf weiter:
   3. Optional: Mitglieder aus selbst konfigurierten Teams (EXTRA_TEAM_IDS
      unten), z.B. deine eigenen DarkOn-Teams oder andere grosse
      Blitz-Communities.
+  4. SNOWBALL-CRAWL ueber die Partien-Gegner ("Lobby"-Ausbreitung):
+     Von einer kleinen Stichprobe bereits bekannter Spieler werden die
+     letzten paar Partien angeschaut und ALLE Gegner daraus (egal ob aus
+     Turnier oder normaler "Lobby"-Partie) neu in den Pool aufgenommen.
+     Diese neuen Spieler werden beim naechsten Lauf ihrerseits als Seeds
+     verwendet - der Pool waechst dadurch ueber viele Laeufe hinweg
+     komplett unabhaengig von Turnieren/Teams, einfach entlang des
+     "wer hat gegen wen gespielt"-Graphen. Siehe Abschnitt
+     "SNOWBALL-CRAWL" weiter unten fuer Details.
 
-Da alle 6 Stunden neue/andere Turniere sichtbar sind und zusaetzlich die
-komplette Team-Turnierhistorie durchsucht wird, sammelt sich der Pool
-ueber Tage/Wochen zu vielen Tausend erfassten aktiven Spielern an - weit
-mehr als nur die 200 staerksten nach Rating.
+Da alle 6 Stunden neue/andere Turniere sichtbar sind, zusaetzlich die
+komplette Team-Turnierhistorie durchsucht wird und obendrein der
+Snowball-Crawl den Partien-Gegnern folgt, sammelt sich der Pool ueber
+Tage/Wochen zu vielen Tausend erfassten aktiven Spielern an - weit mehr
+als nur die 200 staerksten nach Rating.
 
 -------------------------------------------------------------------
 LIVE-RANKING WAEHREND DER SUCHE
 -------------------------------------------------------------------
 Das Skript wartet NICHT, bis der komplette Spieler-Pool gesammelt ist,
 bevor es Partien zaehlt. Stattdessen wird JEDE Quelle (Top-Liste, jedes
-einzelne Turnier, jedes Team) sofort nach dem Einlesen verarbeitet:
-neu gefundene bzw. noch nicht in dieser Laufzeit aktualisierte Spieler
-werden direkt danach auf ihre Blitz-Partien-Zahl der letzten SINCE_DAYS
-Tage geprueft, das Leaderboard wird sofort aktualisiert und bei einem
-Top-100-Einstieg erscheint sofort ein auffaelliger Banner - man muss
-also nicht auf das Ende des gesamten Laufs warten, um zu sehen, wer
-gerade aktiv ist.
+einzelne Turnier, jedes Team, jeder Crawl-Schritt) sofort nach dem
+Einlesen verarbeitet: neu gefundene bzw. noch nicht in dieser Laufzeit
+aktualisierte Spieler werden direkt danach auf ihre Blitz-Partien-Zahl
+der letzten SINCE_DAYS Tage geprueft, das Leaderboard wird sofort
+aktualisiert und bei einem Top-100-Einstieg erscheint sofort ein
+auffaelliger Banner - man muss also nicht auf das Ende des gesamten
+Laufs warten, um zu sehen, wer gerade aktiv ist.
+
+-------------------------------------------------------------------
+SNOWBALL-CRAWL (Gegner-basierte Pool-Erweiterung)
+-------------------------------------------------------------------
+Zusaetzlich zu Turnieren/Teams/Top-Liste wird der Pool ueber die
+Partien-Historie einzelner Spieler erweitert - das funktioniert
+unabhaengig davon, ob jemand je an einem Turnier teilgenommen hat:
+
+  - CRAWL_QUEUE_FILE enthaelt eine FIFO-Warteschlange von Usernamen,
+    deren Gegner noch nicht ausgelesen wurden.
+  - KNOWN_CRAWLED_FILE merkt sich, wer schon "ausgecrawlt" wurde, damit
+    niemand mehrfach abgefragt wird.
+  - Pro Lauf werden bis zu CRAWL_SEED_COUNT Spieler aus der Queue
+    genommen (ist die Queue leer, wird stattdessen zufaellig aus dem
+    bestehenden Pool aufgefuellt, die noch nicht gecrawlt sind).
+  - Fuer jeden Seed werden die letzten CRAWL_GAMES_PER_SEED Partien
+    (per /api/games/user/{name}, gefiltert auf PERF_TYPE) angesehen und
+    BEIDE Spielernamen (weiss/schwarz) extrahiert - unabhaengig davon,
+    ob die Partie aus einem Turnier oder einer normalen "Lobby"-Partie
+    stammt.
+  - Neue Gegner werden sofort live verarbeitet (Partien gezaehlt,
+    Leaderboard aktualisiert) UND ans Ende der Crawl-Queue gehaengt,
+    damit sie in einem spaeteren Lauf selbst als Seeds dienen.
+
+Dadurch waechst der Pool ueber viele Laeufe hinweg komplett entlang des
+"Wer hat gegen wen gespielt"-Graphen weiter - theoretisch unbegrenzt,
+begrenzt praktisch nur durch die Anzahl der Laeufe * CRAWL_SEED_COUNT.
+Die Rate pro einzelnem Lauf ist bewusst klein gehalten (ein paar Dutzend
+zusaetzliche API-Calls), damit ein einzelner Lauf nicht explodiert -
+das Wachstum passiert ueber die Zeit, nicht in einem einzigen Durchlauf.
 
 -------------------------------------------------------------------
 KONFIGURATION
@@ -76,13 +116,22 @@ spielt niemand mehr als ca. 1000 Blitz-Partien in 7 Tagen.
 MAX_TEAM_TOURNAMENTS: Obergrenze, wie viele vergangene Turniere pro Team
 und Turniertyp (Arena/Swiss) maximal abgefragt werden.
 
+CRAWL_SEED_COUNT: Wie viele Spieler pro Lauf als Ausgangspunkt fuer den
+Snowball-Crawl genutzt werden (Standard: 10).
+
+CRAWL_GAMES_PER_SEED: Wie viele der letzten Partien pro Seed-Spieler
+angesehen werden, um Gegner zu extrahieren (Standard: 10).
+
 REQUEST_DELAY_SECONDS: Pause zwischen einzelnen API-Aufrufen, um das
 Lichess-Rate-Limit nicht zu reissen.
 
-Sobald Lichess mit HTTP 429 antwortet, bricht das Skript SOFORT ab (kein
-Retry innerhalb des Laufs), speichert aber vorher alles bisher Ermittelte
-(Pool UND Leaderboard-Stand). Der naechste geplante Lauf (z.B. in 6
-Stunden) macht dort weiter, wo aufgehoert wurde.
+Sobald Lichess mit HTTP 429 antwortet, wartet das Skript automatisch
+(Exponential-Backoff) und versucht es danach erneut - siehe Abschnitt
+RATE-LIMIT-HANDLING weiter unten. Nur wenn ueber sehr lange Zeit
+durchgehend 429 kommt, gibt das Skript fuer DIESEN Lauf auf und speichert
+vorher alles bisher Ermittelte (Pool, Crawl-Queue UND Leaderboard-Stand).
+Der naechste geplante Lauf (z.B. in 6 Stunden) macht dort weiter, wo
+aufgehoert wurde.
 
 Ausfuehren (einmaliger Durchlauf):
     python3 most_active_blitz_players.py
@@ -202,6 +251,16 @@ TOP_N = 100
 REQUEST_DELAY_SECONDS = 1.0
 MAX_TEAM_TOURNAMENTS = 1000
 
+# --- Snowball-Crawl (Gegner-basierte, "unendliche" Pool-Erweiterung) -------
+# Wie viele Spieler pro Lauf als neue Seeds fuer den Gegner-Crawl genutzt
+# werden. Bewusst klein gehalten, damit ein einzelner Lauf nicht explodiert
+# (das Wachstum passiert ueber viele Laeufe hinweg, siehe Docstring oben).
+CRAWL_SEED_COUNT = 10
+
+# Wie viele der letzten Partien pro Seed-Spieler angesehen werden, um
+# Gegner zu extrahieren.
+CRAWL_GAMES_PER_SEED = 10
+
 # ---------------------------------------------------------------------------
 # WICHTIG: Alle Ausgabe-Ordner/-Dateien werden bewusst NICHT relativ zum
 # aktuellen Arbeitsverzeichnis (CWD) angelegt, sondern relativ zum eigenen
@@ -227,6 +286,10 @@ DATA_DIR = REPO_ROOT / "data" / PERF_TYPE
 KNOWN_PLAYERS_FILE = DATA_DIR / "known_players.json"
 LEADERBOARD_FILE = DATA_DIR / "leaderboard.json"
 KNOWN_TOURNAMENTS_FILE = DATA_DIR / "known_tournaments.json"
+
+# Neue Dateien fuer den Snowball-Crawl (siehe Docstring-Abschnitt oben).
+CRAWL_QUEUE_FILE = DATA_DIR / "crawl_queue.json"
+KNOWN_CRAWLED_FILE = DATA_DIR / "known_crawled.json"
 
 # Eigener Ordner (pro PERF_TYPE) fuer den "immer aktuellen" Top-100-
 # Schnappschuss. Diese Dateien werden bei JEDEM einzelnen Live-Update
@@ -304,13 +367,14 @@ def git_commit_and_push(message: str) -> bool:
         ensure_on_branch()
 
         # Nur Pfade zum "git add" geben, die tatsaechlich existieren.
-        # known_players.json/known_tournaments.json werden aktuell erst
-        # am Ende des Laufs geschrieben - wuerden sie hier trotzdem
-        # gelistet, obwohl sie noch nicht existieren, bricht "git add"
-        # mit "did not match any files" fuer den GESAMTEN Aufruf ab
-        # (auch fuer status/, das eigentlich schon da waere).
+        # Manche Dateien werden erst im Laufe des Skripts geschrieben -
+        # wuerden sie hier trotzdem gelistet, obwohl sie noch nicht
+        # existieren, bricht "git add" mit "did not match any files" fuer
+        # den GESAMTEN Aufruf ab (auch fuer status/, das eigentlich schon
+        # da waere).
         candidate_paths = [
-            STATUS_DIR, KNOWN_PLAYERS_FILE, KNOWN_TOURNAMENTS_FILE, LEADERBOARD_FILE,
+            STATUS_DIR, KNOWN_PLAYERS_FILE, KNOWN_TOURNAMENTS_FILE,
+            LEADERBOARD_FILE, CRAWL_QUEUE_FILE, KNOWN_CRAWLED_FILE,
         ]
         existing_paths = [str(p) for p in candidate_paths if p.exists()]
         if not existing_paths:
@@ -486,6 +550,23 @@ def save_json_set(path: Path, values: set) -> None:
     path.write_text(json.dumps(sorted(values), indent=2))
 
 
+def load_json_list(path: Path) -> list:
+    """Wie load_json_set, aber ordnungserhaltend (fuer die FIFO-Queue)."""
+    if path.exists():
+        try:
+            data = json.loads(path.read_text())
+            if isinstance(data, list):
+                return data
+        except (json.JSONDecodeError, OSError):
+            pass
+    return []
+
+
+def save_json_list(path: Path, values: list) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(values, indent=2))
+
+
 def load_leaderboard() -> dict:
     if LEADERBOARD_FILE.exists():
         try:
@@ -635,6 +716,125 @@ def get_top_blitz_players() -> set:
 
 
 # ---------------------------------------------------------------------------
+# SNOWBALL-CRAWL: Gegner aus den letzten Partien eines Spielers extrahieren
+# ---------------------------------------------------------------------------
+def get_recent_opponents(username: str, limit: int) -> set:
+    """
+    Holt die letzten 'limit' Partien von 'username' (gefiltert auf den
+    aktuell gewaehlten PERF_TYPE - egal ob Turnier- oder normale
+    "Lobby"-Partie) und liefert die Menge der GEGNER-Usernamen (klein
+    geschrieben). Das ist der Kern des Snowball-Crawls: so werden auch
+    Spieler gefunden, die nie an einem oeffentlichen Turnier teilgenommen
+    haben, aber gegen jemanden aus dem Pool gespielt haben.
+    """
+    params = urllib.parse.urlencode({
+        "max": limit,
+        "perfType": PERF_TYPE,
+        "moves": "false",
+        "tags": "false",
+        "opening": "false",
+        "clocks": "false",
+        "evals": "false",
+    })
+    url = f"{BASE_URL}/api/games/user/{username}?{params}"
+
+    opponents = set()
+    try:
+        for game in fetch_ndjson(url):
+            players = game.get("players", {})
+            for color in ("white", "black"):
+                side = players.get(color, {})
+                user = side.get("user", {}) if isinstance(side, dict) else {}
+                opp_name = user.get("name") or user.get("id")
+                if opp_name and opp_name.lower() != username.lower():
+                    opponents.add(opp_name.lower())
+    except RateLimitError:
+        raise
+    except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
+        print(f"  [WARNUNG] Partien-Gegner von '{username}' nicht ladbar: {exc}")
+    return opponents
+
+
+def pick_crawl_seeds(queue: list, known_crawled: set, pool: set) -> list:
+    """
+    Waehlt bis zu CRAWL_SEED_COUNT Spieler aus, deren Gegner in diesem Lauf
+    ausgelesen werden sollen. Zuerst wird die FIFO-Queue bedient (das sind
+    Spieler, die in einem frueheren Lauf als NEUE Gegner gefunden, aber
+    noch nicht selbst gecrawlt wurden). Ist die Queue leer (z.B. ganz am
+    Anfang, bevor ueberhaupt gecrawlt wurde), wird der bestehende Pool als
+    Startpunkt genutzt.
+    """
+    seeds = []
+    remaining_queue = list(queue)
+
+    while remaining_queue and len(seeds) < CRAWL_SEED_COUNT:
+        candidate = remaining_queue.pop(0)
+        if candidate not in known_crawled:
+            seeds.append(candidate)
+
+    if len(seeds) < CRAWL_SEED_COUNT:
+        fallback_candidates = list(pool - known_crawled - set(seeds))
+        random.shuffle(fallback_candidates)
+        for candidate in fallback_candidates:
+            if len(seeds) >= CRAWL_SEED_COUNT:
+                break
+            seeds.append(candidate)
+
+    return seeds, remaining_queue
+
+
+def run_snowball_crawl(pool: set, updated_this_run: set, counts: dict,
+                        since_ms: int, leaderboard: dict) -> set:
+    """
+    Fuehrt einen Crawl-Schritt aus: waehlt Seeds, holt deren Partien-Gegner,
+    nimmt neue Gegner in den Pool auf, verarbeitet sie sofort live (Zaehlen
+    + Leaderboard-Update) und haengt sie ans Ende der Crawl-Queue, damit sie
+    in einem spaeteren Lauf selbst als Seeds dienen. Gibt die Menge aller
+    NEU gefundenen Spieler zurueck (fuer das Pool-Speichern im Aufrufer).
+    """
+    queue = load_json_list(CRAWL_QUEUE_FILE)
+    known_crawled = load_json_set(KNOWN_CRAWLED_FILE)
+
+    seeds, remaining_queue = pick_crawl_seeds(queue, known_crawled, pool)
+    if not seeds:
+        print("Snowball-Crawl: keine Seeds verfuegbar (Pool noch leer?), ueberspringe.")
+        return set()
+
+    print(f"Snowball-Crawl: {len(seeds)} Seed-Spieler, hole je die letzten "
+          f"{CRAWL_GAMES_PER_SEED} Partien und extrahiere Gegner...")
+
+    all_new_opponents = set()
+    for seed in seeds:
+        time.sleep(REQUEST_DELAY_SECONDS)
+        opponents = get_recent_opponents(seed, CRAWL_GAMES_PER_SEED)
+        new_opponents = opponents - pool
+        if new_opponents:
+            print(f"  '{seed}': {len(opponents)} Gegner gefunden "
+                  f"({len(new_opponents)} davon neu im Pool).")
+
+        all_new_opponents |= new_opponents
+        pool |= opponents
+        known_crawled.add(seed)
+
+        # Neue Gegner sofort live verarbeiten (zaehlen + Leaderboard) UND
+        # ans Ende der Queue haengen, damit sie spaeter selbst als Seeds
+        # dienen und ihrerseits Gegner liefern - das ist der eigentliche
+        # "Schneeball"-Effekt.
+        update_players_live(opponents, updated_this_run, counts, since_ms, leaderboard)
+        for name in sorted(new_opponents):
+            if name not in remaining_queue and name not in known_crawled:
+                remaining_queue.append(name)
+
+        save_json_list(CRAWL_QUEUE_FILE, remaining_queue)
+        save_json_set(KNOWN_CRAWLED_FILE, known_crawled)
+        save_json_set(KNOWN_PLAYERS_FILE, pool)
+
+    print(f"Snowball-Crawl abgeschlossen: {len(all_new_opponents)} neue Spieler "
+          f"insgesamt gefunden. Neue Queue-Laenge: {len(remaining_queue)}.")
+    return all_new_opponents
+
+
+# ---------------------------------------------------------------------------
 # PARTIEN ZAEHLEN (nur der gewaehlte PERF_TYPE, egal aus welchem Turnier
 # der Spieler urspruenglich kam)
 # ---------------------------------------------------------------------------
@@ -643,8 +843,8 @@ def count_recent_blitz_games(username: str, since_ms: int) -> int:
     Zaehlt NUR Partien des aktuell gewaehlten PERF_TYPE eines Spielers seit
     since_ms (gedeckelt). perfType=<PERF_TYPE> sorgt dafuer, dass
     ausschliesslich passende Partien gezaehlt werden - unabhaengig davon,
-    ob der Spieler urspruenglich aus einer Arena, einem Swiss-Turnier oder
-    der Top-Liste stammt.
+    ob der Spieler urspruenglich aus einer Arena, einem Swiss-Turnier, der
+    Top-Liste oder dem Snowball-Crawl stammt.
     """
     params = urllib.parse.urlencode({
         "since": since_ms,
@@ -740,10 +940,11 @@ def update_players_live(usernames: set, already_updated: set, counts: dict,
                          since_ms: int, leaderboard: dict) -> None:
     """
     Zentrale Live-Funktion: bekommt eine Menge frisch gefundener Spieler
-    (z.B. Teilnehmer eines einzelnen gerade eingelesenen Turniers), zaehlt
-    fuer alle noch nicht in diesem Lauf aktualisierten Spieler sofort die
-    Blitz-Partien, aktualisiert das Leaderboard SOFORT (inkl. Speichern
-    auf Platte) und zeigt bei Top-100-Neueinsteigern direkt einen Banner.
+    (z.B. Teilnehmer eines einzelnen gerade eingelesenen Turniers oder neue
+    Gegner aus dem Snowball-Crawl), zaehlt fuer alle noch nicht in diesem
+    Lauf aktualisierten Spieler sofort die Blitz-Partien, aktualisiert das
+    Leaderboard SOFORT (inkl. Speichern auf Platte) und zeigt bei
+    Top-100-Neueinsteigern direkt einen Banner.
 
     'already_updated' verhindert, dass ein Spieler, der in mehreren
     Turnieren/Quellen auftaucht, in einem Lauf mehrfach abgefragt wird.
@@ -800,6 +1001,8 @@ def main() -> None:
     known_tournaments = load_json_set(KNOWN_TOURNAMENTS_FILE)
     print(f"Bereits bekannte Spieler im Pool: {len(known_players)}")
     print(f"Bereits bekannte Turniere: {len(known_tournaments)}")
+    print(f"Crawl-Queue-Laenge: {len(load_json_list(CRAWL_QUEUE_FILE))}")
+    print(f"Bereits gecrawlte Spieler (Gegner ausgelesen): {len(load_json_set(KNOWN_CRAWLED_FILE))}")
     print("=" * 70)
 
     leaderboard = load_leaderboard()
@@ -808,8 +1011,9 @@ def main() -> None:
 
     # Sofort ganz am Anfang schreiben, damit status/top100.md/.json IMMER
     # existiert - unabhaengig davon, ob spaeter irgendeine Quelle (Top-
-    # Liste, Turniere, Teams) leer zurueckkommt oder fehlschlaegt. Ab hier
-    # wird die Datei danach bei jedem einzelnen Live-Update ueberschrieben.
+    # Liste, Turniere, Teams, Crawl) leer zurueckkommt oder fehlschlaegt.
+    # Ab hier wird die Datei danach bei jedem einzelnen Live-Update
+    # ueberschrieben.
     write_top10_snapshot(counts)
 
     pool = set(known_players)
@@ -822,10 +1026,12 @@ def main() -> None:
     # Pfad hinzuzufuegen.
     save_json_set(KNOWN_PLAYERS_FILE, pool)
     save_json_set(KNOWN_TOURNAMENTS_FILE, known_tournaments)
+    save_json_list(CRAWL_QUEUE_FILE, load_json_list(CRAWL_QUEUE_FILE))
+    save_json_set(KNOWN_CRAWLED_FILE, load_json_set(KNOWN_CRAWLED_FILE))
 
-    # ... und erst JETZT, wo alle vier Dateien garantiert existieren,
-    # erzwungen ins Repo pushen, damit der Ordner von der ersten Sekunde
-    # an auch tatsaechlich auf GitHub sichtbar ist.
+    # ... und erst JETZT, wo alle Dateien garantiert existieren, erzwungen
+    # ins Repo pushen, damit der Ordner von der ersten Sekunde an auch
+    # tatsaechlich auf GitHub sichtbar ist.
     maybe_live_push(force=True)
 
     try:
@@ -878,11 +1084,20 @@ def main() -> None:
             save_json_set(KNOWN_PLAYERS_FILE, pool)
             update_players_live(members, updated_this_run, counts, since_ms, leaderboard)
 
+        # 5) SNOWBALL-CRAWL: von ein paar bekannten Spielern aus die letzten
+        #    Partien ansehen und ALLE Gegner (Turnier UND normale
+        #    "Lobby"-Partien) neu in den Pool aufnehmen. Waechst ueber
+        #    viele Laeufe hinweg unbegrenzt weiter, siehe Docstring oben.
+        new_from_crawl = run_snowball_crawl(pool, updated_this_run, counts, since_ms, leaderboard)
+        pool |= new_from_crawl
+        save_json_set(KNOWN_PLAYERS_FILE, pool)
+
     except RateLimitError as exc:
         print(f"[RATE LIMIT] {exc}")
         print("Breche Skript sofort ab und speichere den bisherigen Stand "
-              "(Spieler-Pool, verarbeitete Turniere und Leaderboard). "
-              "Naechster Lauf macht hier weiter (z.B. in 6 Stunden).")
+              "(Spieler-Pool, verarbeitete Turniere, Crawl-Queue und "
+              "Leaderboard). Naechster Lauf macht hier weiter (z.B. in 6 "
+              "Stunden).")
 
     # Am Ende (oder bei Abbruch) alles persistieren, was bis dahin
     # ermittelt wurde.
