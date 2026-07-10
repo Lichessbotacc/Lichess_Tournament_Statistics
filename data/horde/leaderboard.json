@@ -1940,6 +1940,7 @@
     "cansebero": 0,
     "capitoxddchess": 0,
     "captain_byankin": 7,
+    "captain_kava": 0,
     "captain_sajal": 0,
     "captain_toad": 0,
     "captainasbestos": 37,
@@ -2143,6 +2144,7 @@
     "chesssaatvik": 0,
     "chessshahid": 0,
     "chessshailjapws": 0,
+    "chesssmartyqueen": 0,
     "chesstrianer": 0,
     "chessvivaan": 0,
     "chesswarrior_18": 0,
@@ -3049,6 +3051,7 @@
     "erisiamz001": 0,
     "ermolenkov_nikolay": 0,
     "ernzfaeldonia": 0,
+    "ertuches": 0,
     "ervanurr2017": 0,
     "es352": 0,
     "esa_pori": 0,
@@ -8007,6 +8010,7 @@
     "the_law_on_raw": 0,
     "the_risky_boy": 0,
     "the_salian": 0,
+    "the_survivorsindia": 0,
     "the_uncle_slava": 0,
     "thebestchessdude": 0,
     "thebestdasd": 0,
@@ -8416,6 +8420,8 @@
     "ushnak2014": 4,
     "ustad17": 0,
     "usup_itc": 0,
+    "utg-player": 0,
+    "utya": 0,
     "uwx7m5bidcud": 0,
     "uyvarkanije": 0,
     "vabatgrav": 0,
@@ -10815,6 +10821,7 @@
     "cansebero": "2026-07-10T16:36:20.811669+00:00",
     "capitoxddchess": "2026-07-10T16:36:23.813058+00:00",
     "captain_byankin": "2026-07-10T04:35:32.055285+00:00",
+    "captain_kava": "2026-07-10T18:53:20.149725+00:00",
     "captain_sajal": "2026-07-10T16:36:26.820270+00:00",
     "captain_toad": "2026-07-10T18:05:54.522051+00:00",
     "captainasbestos": "2026-07-10T07:02:05.410472+00:00",
@@ -11018,6 +11025,7 @@
     "chesssaatvik": "2026-07-10T04:36:35.154126+00:00",
     "chessshahid": "2026-07-10T04:36:38.112589+00:00",
     "chessshailjapws": "2026-07-10T04:38:16.356097+00:00",
+    "chesssmartyqueen": "2026-07-10T18:53:23.111372+00:00",
     "chesstrianer": "2026-07-10T16:40:50.834019+00:00",
     "chessvivaan": "2026-07-10T16:40:53.828401+00:00",
     "chesswarrior_18": "2026-07-10T05:41:50.075709+00:00",
@@ -11923,6 +11931,7 @@
     "erisiamz001": "2026-07-10T05:34:44.799396+00:00",
     "ermolenkov_nikolay": "2026-07-10T09:41:22.658413+00:00",
     "ernzfaeldonia": "2026-07-10T12:32:43.344371+00:00",
+    "ertuches": "2026-07-10T18:53:26.108970+00:00",
     "ervanurr2017": "2026-07-10T12:06:39.647791+00:00",
     "es352": "2026-07-10T14:17:50.343449+00:00",
     "esa_pori": "2026-07-10T07:46:38.292146+00:00",
@@ -15946,6 +15955,7 @@
     "the_law_on_raw": "2026-07-10T06:07:42.688485+00:00",
     "the_risky_boy": "2026-07-10T18:24:34.412564+00:00",
     "the_salian": "2026-07-10T18:16:34.931759+00:00",
+    "the_survivorsindia": "2026-07-10T18:53:29.140466+00:00",
     "the_uncle_slava": "2026-07-10T15:55:31.764126+00:00",
     "thebestchessdude": "2026-07-10T16:16:09.541186+00:00",
     "thebestdasd": "2026-07-10T10:49:58.865875+00:00",
@@ -16355,6 +16365,8 @@
     "ushnak2014": "2026-07-10T12:59:02.013232+00:00",
     "ustad17": "2026-07-10T11:21:27.766908+00:00",
     "usup_itc": "2026-07-10T08:41:22.300444+00:00",
+    "utg-player": "2026-07-10T18:53:32.155418+00:00",
+    "utya": "2026-07-10T18:53:35.145998+00:00",
     "uwx7m5bidcud": "2026-07-10T18:44:29.240708+00:00",
     "uyvarkanije": "2026-07-10T07:54:01.363542+00:00",
     "vabatgrav": "2026-07-10T03:30:00.387068+00:00",
@@ -78940,7 +78952,49 @@
       "rank": 8875,
       "source": "Lobby-Crawl",
       "username": "the7th11"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/captain_kava",
+      "rank": 8876,
+      "source": "Lobby-Crawl",
+      "username": "captain_kava"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chesssmartyqueen",
+      "rank": 8877,
+      "source": "Lobby-Crawl",
+      "username": "chesssmartyqueen"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ertuches",
+      "rank": 8878,
+      "source": "Lobby-Crawl",
+      "username": "ertuches"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/the_survivorsindia",
+      "rank": 8879,
+      "source": "Lobby-Crawl",
+      "username": "the_survivorsindia"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/utg-player",
+      "rank": 8880,
+      "source": "Lobby-Crawl",
+      "username": "utg-player"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/utya",
+      "rank": 8881,
+      "source": "Lobby-Crawl",
+      "username": "utya"
     }
   ],
-  "updated_at": "2026-07-10T18:53:03.856606+00:00"
+  "updated_at": "2026-07-10T18:53:35.146016+00:00"
 }
