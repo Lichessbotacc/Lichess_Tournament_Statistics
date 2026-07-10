@@ -85,14 +85,23 @@ Top-100-Einstieg erscheint sofort ein auffaelliger Banner (inkl. Quelle).
 -------------------------------------------------------------------
 SNOWBALL-CRAWL (Gegner-basierte Pool-Erweiterung)
 -------------------------------------------------------------------
-  - CRAWL_QUEUE_FILE: FIFO-Warteschlange neu gefundener, noch nie
-    gecrawlter Spieler.
+  - CRAWL_QUEUE_FILE: STRIKTE FIFO-Kette neu gefundener, noch nie
+    gecrawlter Spieler. Jeder Spieler nimmt seine letzten
+    CRAWL_GAMES_PER_SEED Gegner mit sich, die dann selbst wieder als
+    Kettenglied hinten angehaengt werden - eine im Prinzip endlose
+    Kette, solange neue Gegner auftauchen.
   - KNOWN_CRAWLED_FILE: username -> Zeitpunkt des letzten Crawls.
   - Seed-Auswahl pro Crawl-Runde, in dieser Prioritaet:
-      1. Nie gecrawlte Spieler aus der FIFO-Queue.
-      2. Nie gecrawlte Spieler zufaellig aus dem restlichen Pool.
-      3. Erst wenn 1+2 nicht reichen: Spieler, deren letzter Crawl laenger
-         als RECRAWL_COOLDOWN_HOURS zurueckliegt.
+      1. STRIKT FIFO aus der Queue (das eigentliche Kettenglied). Beim
+         Wiederaufbau der Queue werden bereits gecrawlte Spieler
+         HERAUSGEFILTERT statt erneut mitgeschleppt - sonst waechst die
+         Queue mit totem Ballast und wirkt "leer", obwohl sie es nicht
+         ist (fruehere Version hatte hier einen Bug).
+      2. Nur wenn die (bereinigte) Queue WIRKLICH leer ist: nie
+         gecrawlte Spieler zufaellig aus dem restlichen Pool, damit die
+         Kette nicht komplett abreisst, wenn sie sich totgelaufen hat.
+      3. Erst wenn 1+2 nicht reichen: Spieler, deren letzter Crawl
+         laenger als RECRAWL_COOLDOWN_HOURS zurueckliegt.
   - Fuer jeden Seed werden die letzten CRAWL_GAMES_PER_SEED Partien
     angesehen und beide Spielernamen extrahiert. Neue Gegner werden
     sofort live verarbeitet UND ans Ende der Crawl-Queue gehaengt.
@@ -739,23 +748,41 @@ def get_recent_opponents(username: str, limit: int) -> set:
     return opponents
 
 
+# ---------------------------------------------------------------------------
+# >>> FIX (siehe Docstring "SNOWBALL-CRAWL"): pick_crawl_seeds() und
+# run_snowball_crawl_round() wurden angepasst, damit die Gegner-Kette
+# wirklich endlos weiterlaeuft, statt sich totzulaufen bzw. sich zu
+# wiederholen. Vorher wurden bereits gecrawlte Spieler beim Wiederaufbau
+# der Queue erneut mitgeschleppt statt entfernt zu werden -> die Queue
+# wuchs mit totem Ballast und "wirkte" leer, obwohl neue Kettenglieder
+# eigentlich noch da waren; ausserdem sprang der Fallback bei "leerer"
+# Queue sofort auf zufaellige Pool-Spieler statt strikt der Kette zu
+# folgen, wodurch der Crawl staendig neu ansetzte statt sich zu
+# verzweigen.
+# ---------------------------------------------------------------------------
 def pick_crawl_seeds(queue: list, known_crawled: dict, pool: set) -> tuple:
     """
-    Waehlt bis zu CRAWL_SEED_COUNT Spieler als Crawl-Seeds, in dieser
-    Prioritaet:
-      1. Nie gecrawlte Spieler aus der FIFO-Queue.
-      2. Nie gecrawlte Spieler zufaellig aus dem restlichen Pool.
-      3. Spieler, deren letzter Crawl laenger als RECRAWL_COOLDOWN_HOURS
-         zurueckliegt (niedrigste Prioritaet).
-    """
-    seeds = []
+    Waehlt bis zu CRAWL_SEED_COUNT Spieler als naechste Kettenglieder.
 
-    remaining_queue = []
-    for candidate in queue:
-        if len(seeds) < CRAWL_SEED_COUNT and candidate not in known_crawled:
-            seeds.append(candidate)
-        else:
-            remaining_queue.append(candidate)
+    Prioritaet:
+      1. STRIKT FIFO aus der Queue - das ist die eigentliche Kette.
+         Bereits gecrawlte Eintraege werden dabei komplett entfernt
+         (NICHT zurueckgelegt!), damit die Queue nicht mit totem
+         Ballast waechst und ehrlich anzeigt, ob noch Kettenglieder
+         offen sind.
+      2. Nur falls die (bereinigte) Queue komplett leer ist: zufaellige,
+         nie gecrawlte Spieler aus dem restlichen Pool - damit die Kette
+         nicht abbricht, wenn sie sich mal "totgelaufen" hat.
+      3. Nur falls auch das nicht reicht: Spieler mit abgelaufenem
+         Recrawl-Cooldown erneut als Seed nehmen.
+    """
+    # Queue bereinigen: bereits gecrawlte Eintraege komplett rauswerfen,
+    # NICHT wieder anhaengen -> die Queue waechst nicht mehr mit totem
+    # Ballast, und "Queue leer" bedeutet wieder wirklich "leer".
+    clean_queue = [c for c in queue if c not in known_crawled]
+
+    seeds = clean_queue[:CRAWL_SEED_COUNT]
+    remaining_queue = clean_queue[len(seeds):]
 
     if len(seeds) < CRAWL_SEED_COUNT:
         fresh_candidates = [p for p in pool if p not in known_crawled and p not in seeds]
@@ -801,10 +828,15 @@ def bootstrap_crawl_queue_if_empty(pool: set) -> None:
 def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, last_checked: dict,
                               source_map: dict, since_ms: int, leaderboard: dict, stats: dict) -> tuple:
     """
-    Fuehrt EINE Crawl-Runde aus (bis zu CRAWL_SEED_COUNT Seeds). Gibt
-    (neue_spieler, anzahl_seeds_verarbeitet) zurueck - seeds_processed==0
-    bedeutet "keine Seeds mehr verfuegbar", das Signal fuer den Aufrufer,
-    die Crawl-Phase als abgeschlossen zu markieren.
+    Fuehrt EINE Crawl-Runde aus (bis zu CRAWL_SEED_COUNT Kettenglieder).
+    Nimmt das/die naechste(n) Kettenglied(er) strikt FIFO aus der Queue,
+    schaut sich deren letzte CRAWL_GAMES_PER_SEED Partien an und haengt
+    JEDEN neuen, noch nie gesehenen Gegner sofort hinten an die Queue an -
+    das ist der eigentliche Verzweigungsschritt der endlosen Kette.
+
+    Gibt (neue_spieler, anzahl_seeds_verarbeitet) zurueck -
+    seeds_processed==0 bedeutet "keine Seeds mehr verfuegbar", das Signal
+    fuer den Aufrufer, die Crawl-Phase als abgeschlossen zu markieren.
     """
     queue = load_json_list(CRAWL_QUEUE_FILE)
     known_crawled = load_json_dict(KNOWN_CRAWLED_FILE)
@@ -815,17 +847,21 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
 
     never_crawled_seeds = sum(1 for s in seeds if s not in known_crawled)
     recrawl_seeds = len(seeds) - never_crawled_seeds
-    print(f"  {len(seeds)} Seed-Spieler ({never_crawled_seeds} neu, {recrawl_seeds} Recrawl), "
+    print(f"  {len(seeds)} Kettenglied(er) ({never_crawled_seeds} neu, {recrawl_seeds} Recrawl), "
           f"je die letzten {CRAWL_GAMES_PER_SEED} Partien -> Gegner extrahieren...")
 
     all_new_opponents = set()
     for seed in seeds:
         opponents = get_recent_opponents(seed, CRAWL_GAMES_PER_SEED)
         new_opponents = opponents - pool
+
         if new_opponents:
-            print(f"    '{seed}': {len(opponents)} Gegner ({len(new_opponents)} neu im Pool, "
-                  f"davon reine Lobby-Funde: {sorted(new_opponents)[:5]}"
+            print(f"    '{seed}': {len(opponents)} Gegner ({len(new_opponents)} neu -> "
+                  f"Kette waechst um: {sorted(new_opponents)[:5]}"
                   f"{'...' if len(new_opponents) > 5 else ''}).")
+        else:
+            print(f"    '{seed}': {len(opponents)} Gegner, alle bereits bekannt "
+                  f"(hier oeffnet sich kein neuer Ast).")
 
         tag_source(source_map, opponents, "lobby")
         all_new_opponents |= new_opponents
@@ -835,6 +871,9 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
 
         update_players_live(opponents, updated_this_run, counts, last_checked,
                              source_map, since_ms, leaderboard, stats)
+
+        # Neue Gegner werden ans ENDE der Queue gehaengt - genau das laesst
+        # die Kette immer weiterwachsen, solange neue Gegner auftauchen.
         for name in sorted(new_opponents):
             if name not in remaining_queue and name not in known_crawled:
                 remaining_queue.append(name)
@@ -845,6 +884,8 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
         save_json_set(KNOWN_PLAYERS_FILE, pool)
 
     return all_new_opponents, len(seeds)
+# <<< ENDE FIX
+# ---------------------------------------------------------------------------
 
 
 def process_crawl_slice(pool: set, updated_this_run: set, counts: dict, last_checked: dict,
