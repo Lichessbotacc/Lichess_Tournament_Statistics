@@ -1336,6 +1336,7 @@
     "barcelona444": 0,
     "bareumoppa29": 1,
     "barisyasinyaray": 0,
+    "barricado": 0,
     "bashibesouk": 0,
     "bashu": 75,
     "baskaraaji": 0,
@@ -1844,6 +1845,7 @@
     "green1007": 1,
     "greensnakechess": 2,
     "griiii05": 1,
+    "grom121": 0,
     "grown-arms-race": 111,
     "grv48": 9,
     "gt2rsweissach": 634,
@@ -1938,6 +1940,7 @@
     "ironman12345": 0,
     "ironman2508": 5,
     "isaac_carlsen": 5,
+    "isaacfv": 0,
     "isaacuchasarachess": 0,
     "isabel_de_castilla": 91,
     "ishar23": 5,
@@ -2043,6 +2046,7 @@
     "kombatkillz": 3,
     "komodojay": 24,
     "konadharmikreddy": 0,
+    "konigburger": 0,
     "konstantin_zimarin": 8,
     "konyali4201": 0,
     "kortchnoicaro": 125,
@@ -2220,6 +2224,7 @@
     "mishavar_2015": 20,
     "mishka_the_great": 10,
     "misteri_li1": 283,
+    "mitchellkgm": 0,
     "mjhplayzz": 0,
     "mkhi22": 0,
     "mlili": 0,
@@ -4081,6 +4086,7 @@
     "baraking": "2026-07-10T01:36:42.640925+00:00",
     "barcelona444": "2026-07-10T01:36:50.736839+00:00",
     "barisyasinyaray": "2026-07-10T01:36:52.220061+00:00",
+    "barricado": "2026-07-10T06:00:32.806777+00:00",
     "bashibesouk": "2026-07-10T01:36:53.675832+00:00",
     "baskaraaji": "2026-07-10T01:36:55.144637+00:00",
     "batlipella2": "2026-07-10T01:36:56.609696+00:00",
@@ -4375,6 +4381,7 @@
     "greatt_loser01": "2026-07-10T03:15:03.765969+00:00",
     "greektakis": "2026-07-10T05:38:38.642471+00:00",
     "griiii05": "2026-07-10T05:07:15.191229+00:00",
+    "grom121": "2026-07-10T06:00:36.429589+00:00",
     "gt2rsweissach": "2026-07-10T01:03:33.034409+00:00",
     "guguklu": "2026-07-10T05:22:32.667414+00:00",
     "guidingpianist": "2026-07-10T05:00:55.742893+00:00",
@@ -4422,6 +4429,7 @@
     "invictus-knight": "2026-07-10T03:23:32.643328+00:00",
     "ironman12345": "2026-07-10T04:51:32.442627+00:00",
     "isaac_carlsen": "2026-07-10T03:29:03.852789+00:00",
+    "isaacfv": "2026-07-10T06:00:14.177829+00:00",
     "isaacuchasarachess": "2026-07-10T05:45:09.744103+00:00",
     "ishar23": "2026-07-10T05:07:39.671910+00:00",
     "ishowstab": "2026-07-10T03:23:47.312186+00:00",
@@ -4472,6 +4480,7 @@
     "knightowl102": "2026-07-10T04:33:41.013688+00:00",
     "kombatkillz": "2026-07-10T05:37:31.952013+00:00",
     "komodojay": "2026-07-10T04:46:41.838756+00:00",
+    "konigburger": "2026-07-10T06:00:17.250050+00:00",
     "konyali4201": "2026-07-10T05:49:02.632236+00:00",
     "kortchnoicaro": "2026-07-10T01:08:47.744234+00:00",
     "kphanminh662": "2026-07-10T03:25:28.602807+00:00",
@@ -4552,6 +4561,7 @@
     "mirror_mirror": "2026-07-10T03:43:27.892361+00:00",
     "mishka_the_great": "2026-07-10T01:16:06.381842+00:00",
     "misteri_li1": "2026-07-10T01:16:19.091383+00:00",
+    "mitchellkgm": "2026-07-10T06:00:20.314994+00:00",
     "mkhi22": "2026-07-10T04:33:46.989956+00:00",
     "mlili": "2026-07-10T05:45:12.788324+00:00",
     "mmockingbird": "2026-07-10T05:34:12.237914+00:00",
@@ -24717,7 +24727,42 @@
       "rank": 2842,
       "source": "Lobby-Crawl",
       "username": "baw1k"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/isaacfv",
+      "rank": 2843,
+      "source": "Team",
+      "username": "isaacfv"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/konigburger",
+      "rank": 2844,
+      "source": "Lobby-Crawl",
+      "username": "konigburger"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/mitchellkgm",
+      "rank": 2845,
+      "source": "Lobby-Crawl",
+      "username": "mitchellkgm"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/barricado",
+      "rank": 2846,
+      "source": "Lobby-Crawl",
+      "username": "barricado"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/grom121",
+      "rank": 2847,
+      "source": "Lobby-Crawl",
+      "username": "grom121"
     }
   ],
-  "updated_at": "2026-07-10T06:00:04.986232+00:00"
+  "updated_at": "2026-07-10T06:00:36.429612+00:00"
 }
