@@ -46,14 +46,18 @@ Turniere sind weiterhin ueber known_tournaments.json dauerhaft vor
 Doppel-Verarbeitung geschuetzt.
 
 -------------------------------------------------------------------
-ABWECHSELNDE ZEITBUDGET-PHASEN: TURNIERE <-> LOBBY-CRAWL
+ABWECHSELNDE ZEITBUDGET-PHASEN: LOBBY-CRAWL <-> TURNIERE
 -------------------------------------------------------------------
-Turniere und Crawl laufen NICHT mehr nacheinander (erst alle Turniere,
-dann Crawl), sondern abwechselnd in kurzen Zeitscheiben von je
-PHASE_SLICE_SECONDS: eine Runde Turniere, dann eine Runde Crawl, dann
-wieder Turniere, usw. So bekommt der Crawl garantiert regelmaessig Budget,
-auch wenn gerade viele neue Turniere warten - und umgekehrt haengen
-Turniere nicht endlos, nur weil der Crawl gerade viel zu tun haette.
+WICHTIG (gegenueber frueheren Versionen geaendert): Der Lobby-Crawl
+bekommt in JEDER Runde ZUERST sein Zeitbudget, danach erst die Turniere.
+Grund: Turnier-Teilnehmerlisten koennen sehr gross sein und im schlimmsten
+Fall (Rate-Limit-Backoff) lange blockieren; wuerden Turniere zuerst
+laufen, koennte dabei das GESAMTE Laufzeitbudget aufgebraucht werden,
+bevor der Crawl je an die Reihe kommt - dann wuerden nie neue reine
+"Lobby"-Spieler (die in keinem Team, Turnier oder den Top 100 stehen)
+gefunden. Mit Crawl-zuerst ist das ausgeschlossen: der Crawl bekommt
+IMMER mindestens eine PHASE_SLICE_SECONDS-Zeitscheibe pro Runde, egal
+wie lange Turniere brauchen wuerden.
 
 Sobald eine der beiden Phasen wirklich fertig ist (alle Turniere
 verarbeitet bzw. keine Crawl-Seeds mehr verfuegbar), faellt sie aus der
@@ -62,6 +66,13 @@ volle Budget, bis auch sie fertig ist oder das Gesamt-Zeitbudget
 (MAX_TOTAL_RUNTIME_SECONDS) fuer diesen Lauf erreicht ist. Unfertiger
 Rest wird einfach nicht als "erledigt" markiert und laeuft im naechsten
 Lauf automatisch weiter.
+
+Zusaetzlich: Ist nach dem Laden des gespeicherten Standes die Crawl-Queue
+leer UND es gibt noch keine gecrawlten Spieler (typischerweise beim
+allerersten Lauf oder wenn der Crawl aus irgendeinem Grund noch nie
+drankam), wird die Queue vor dem eigentlichen Lauf mit einer zufaelligen
+Stichprobe aus dem bestehenden Spieler-Pool "angeimpft", damit der Crawl
+garantiert sofort etwas zu tun hat statt leerzulaufen.
 
 -------------------------------------------------------------------
 LIVE-RANKING WAEHREND DER SUCHE
@@ -85,11 +96,20 @@ SNOWBALL-CRAWL (Gegner-basierte Pool-Erweiterung)
   - Fuer jeden Seed werden die letzten CRAWL_GAMES_PER_SEED Partien
     angesehen und beide Spielernamen extrahiert. Neue Gegner werden
     sofort live verarbeitet UND ans Ende der Crawl-Queue gehaengt.
+    Diese neuen Gegner koennen VOELLIG unabhaengig von Top-100/Team/
+    Turnier sein - genau das ist der Mechanismus, der echte "nur
+    Lobby"-Spieler findet: ein Top-100- oder Team-Spieler spielt in der
+    freien Lobby gegen jemanden, der in keiner anderen Quelle je
+    auftaucht, und dieser Gegner wird hier aufgenommen (source="lobby").
 
 -------------------------------------------------------------------
 KONFIGURATION
 -------------------------------------------------------------------
-LICHESS_TOKEN als Umgebungsvariable/GitHub Secret setzen.
+LICHESS_TOKEN als Umgebungsvariable/GitHub Secret setzen. OHNE Token
+gilt ein deutlich niedrigeres Rate-Limit - das ist der haeufigste Grund
+fuer 429-Fehler. Ein einfacher Personal Access Token (ohne Scopes)
+reicht fuer alle hier verwendeten oeffentlichen Endpunkte.
+
 EXTRA_TEAM_IDS: Liste zusaetzlicher Team-Slugs.
 SINCE_DAYS: Zeitraum in Tagen, ueber den Partien gezaehlt werden (7).
 MAX_GAMES_PER_QUERY: Obergrenze Partien/Spieler (Deckel).
@@ -104,18 +124,32 @@ eines bereits gecrawlten Spielers.
 
 CRAWL_SEED_COUNT / CRAWL_GAMES_PER_SEED: Snowball-Crawl-Parameter pro
 Runde.
-PHASE_SLICE_SECONDS (Standard 60s): Zeitscheibe je Turniere-/Crawl-Runde
+PHASE_SLICE_SECONDS (Standard 30s): Zeitscheibe je Crawl-/Turniere-Runde
 in der Abwechslung.
 MAX_TOTAL_RUNTIME_SECONDS (Standard 240s): Gesamt-Sicherheitsnetz fuer
-die Turniere/Crawl-Abwechslung, damit ein Lauf nicht das GitHub-Actions-
+die Crawl/Turniere-Abwechslung, damit ein Lauf nicht das GitHub-Actions-
 Zeitlimit sprengt.
 
-REQUEST_DELAY_SECONDS: Pause zwischen API-Aufrufen.
+REQUEST_DELAY_SECONDS: zusaetzliche Pause an einzelnen Stellen (Ergaenzung
+zum globalen Throttle, siehe unten).
+GLOBAL_MIN_INTERVAL_SECONDS (Standard 3.0s): Mindestabstand zwischen
+JEDER einzelnen HTTP-Anfrage an Lichess, unabhaengig davon, an welcher
+Stelle im Code sie ausgeloest wird (Turniere, Team-Listen, Partien-
+Streams, Crawl). Das ist der zentrale Hebel gegen 429-Fehler: frueher
+gab es nur an einzelnen Stellen im Code verstreute time.sleep()-Aufrufe,
+wodurch z.B. NDJSON-Streams (Turnier-Teilnehmer, Team-Mitglieder,
+Partien-Abfragen) OHNE jede Pause dazwischen liefen. Jetzt greift der
+Throttle direkt in der zentralen _request()-Funktion, kann also von
+keiner Stelle im Code umgangen werden.
 
 Sobald Lichess mit HTTP 429 antwortet, wartet das Skript automatisch
 (Exponential-Backoff) und versucht es danach erneut. Nur bei sehr
 langem durchgehendem 429 gibt das Skript fuer DIESEN Lauf auf und
-speichert vorher alles bisher Ermittelte.
+speichert vorher alles bisher Ermittelte. RATE_LIMIT_MAX_TOTAL_WAIT_SECONDS
+wurde bewusst deutlich gesenkt (von 1800s auf 180s), damit ein einzelner
+haengender Request nicht das komplette Laufzeitbudget des ganzen Runs
+auffressen kann - das wuerde sonst z.B. verhindern, dass der Crawl in
+dieser Runde ueberhaupt noch drankommt.
 
 Ausfuehren (einmaliger Durchlauf):
     python3 most_active_blitz_players.py
@@ -195,8 +229,15 @@ EXTRA_TEAM_IDS = [
 SINCE_DAYS = 7
 MAX_GAMES_PER_QUERY = 10000
 TOP_N = 100
-REQUEST_DELAY_SECONDS = 1.0
-MAX_TEAM_TOURNAMENTS = 1000
+
+# --- Rate-Limit-Schutz ----------------------------------------------------
+# REQUEST_DELAY_SECONDS bleibt als zusaetzliche, lokale Pause an manchen
+# Stellen erhalten (schadet nicht), der eigentliche Schutz ist jetzt aber
+# GLOBAL_MIN_INTERVAL_SECONDS in _request(), siehe Docstring oben.
+REQUEST_DELAY_SECONDS = float(os.environ.get("REQUEST_DELAY_SECONDS", "2.0"))
+GLOBAL_MIN_INTERVAL_SECONDS = float(os.environ.get("GLOBAL_MIN_INTERVAL_SECONDS", "3.0"))
+
+MAX_TEAM_TOURNAMENTS = int(os.environ.get("MAX_TEAM_TOURNAMENTS", "200"))
 
 # --- Cooldowns ----------------------------------------------------------
 CHECK_COOLDOWN_HOURS = float(os.environ.get("CHECK_COOLDOWN_HOURS", "18"))
@@ -208,11 +249,17 @@ TEAM_SYNC_COOLDOWN_SECONDS = TEAM_SYNC_COOLDOWN_HOURS * 3600
 RECRAWL_COOLDOWN_SECONDS = RECRAWL_COOLDOWN_HOURS * 3600
 
 # --- Snowball-Crawl -------------------------------------------------------
-CRAWL_SEED_COUNT = int(os.environ.get("CRAWL_SEED_COUNT", "15"))
+CRAWL_SEED_COUNT = int(os.environ.get("CRAWL_SEED_COUNT", "8"))
 CRAWL_GAMES_PER_SEED = int(os.environ.get("CRAWL_GAMES_PER_SEED", "10"))
+# Wenn beim Start eines Laufs weder Crawl-Queue noch je gecrawlte Spieler
+# vorhanden sind, wird die Queue mit einer Zufallsstichprobe aus dem Pool
+# "angeimpft", damit der Crawl garantiert sofort Seeds hat.
+CRAWL_BOOTSTRAP_SAMPLE_SIZE = int(os.environ.get("CRAWL_BOOTSTRAP_SAMPLE_SIZE", "30"))
 
-# --- Abwechselnde Zeitscheiben Turniere <-> Crawl -------------------------
-PHASE_SLICE_SECONDS = float(os.environ.get("PHASE_SLICE_SECONDS", "60"))
+# --- Abwechselnde Zeitscheiben Crawl <-> Turniere -------------------------
+# WICHTIG: Reihenfolge pro Runde ist jetzt CRAWL ZUERST, dann Turniere -
+# siehe Docstring-Abschnitt weiter oben ("ABWECHSELNDE ZEITBUDGET-PHASEN").
+PHASE_SLICE_SECONDS = float(os.environ.get("PHASE_SLICE_SECONDS", "30"))
 MAX_TOTAL_RUNTIME_SECONDS = float(os.environ.get("MAX_TOTAL_RUNTIME_SECONDS", "240"))
 
 # --- Herkunfts-Label (wo ein Spieler zuerst gefunden wurde) --------------
@@ -389,17 +436,48 @@ def format_duration(total_seconds: float) -> str:
 # HTTP HELPERS
 # ---------------------------------------------------------------------------
 RATE_LIMIT_INITIAL_BACKOFF_SECONDS = 20
-RATE_LIMIT_MAX_BACKOFF_SECONDS = 300
-RATE_LIMIT_MAX_TOTAL_WAIT_SECONDS = 1800
+RATE_LIMIT_MAX_BACKOFF_SECONDS = 60
+# Gesenkt von 1800s auf 180s: ein einzelner haengender Request darf nicht
+# mehr das gesamte Laufzeitbudget (Standard 240s) auffressen. Wird dieses
+# Limit erreicht, gibt das Skript fuer DIESEN Lauf auf (RateLimitError) und
+# speichert vorher alles - der naechste Cron-Lauf versucht es erneut.
+RATE_LIMIT_MAX_TOTAL_WAIT_SECONDS = float(os.environ.get("RATE_LIMIT_MAX_TOTAL_WAIT_SECONDS", "180"))
+
+_last_request_ts = 0.0
+
+
+def _throttle() -> None:
+    """Globaler Mindestabstand zwischen JEDER Anfrage an Lichess - egal von
+    wo im Code sie kommt (Turniere, Teams, Partien-Streams, Crawl). Das ist
+    der zentrale Fix gegen 429: frueher gab es nur verstreute time.sleep()
+    Aufrufe an einzelnen Stellen, wodurch z.B. NDJSON-Streams komplett ohne
+    Pause liefen."""
+    global _last_request_ts
+    now = time.time()
+    wait = GLOBAL_MIN_INTERVAL_SECONDS - (now - _last_request_ts)
+    if wait > 0:
+        time.sleep(wait)
+    _last_request_ts = time.time()
 
 
 def _request(url: str, headers: dict, timeout: int = 30):
     backoff = RATE_LIMIT_INITIAL_BACKOFF_SECONDS
     total_waited = 0.0
     while True:
+        _throttle()
         req = urllib.request.Request(url, headers=headers)
         try:
-            return urllib.request.urlopen(req, timeout=timeout)
+            resp = urllib.request.urlopen(req, timeout=timeout)
+            remaining = resp.headers.get("X-RateLimit-Remaining") if hasattr(resp, "headers") else None
+            if remaining is not None:
+                try:
+                    if int(remaining) <= 1:
+                        print("  [RATE LIMIT] Kontingent laut Header fast aufgebraucht - "
+                              "warte vorsorglich 15s...")
+                        time.sleep(15)
+                except ValueError:
+                    pass
+            return resp
         except urllib.error.HTTPError as exc:
             if exc.code != 429:
                 raise
@@ -702,6 +780,24 @@ def pick_crawl_seeds(queue: list, known_crawled: dict, pool: set) -> tuple:
     return seeds, remaining_queue
 
 
+def bootstrap_crawl_queue_if_empty(pool: set) -> None:
+    """Wenn weder Crawl-Queue noch je gecrawlte Spieler existieren (z.B.
+    allererster Lauf, oder der Crawl kam aus irgendeinem Grund noch nie
+    dran), wird die Queue mit einer Zufallsstichprobe aus dem bestehenden
+    Pool angeimpft, damit run_snowball_crawl_round garantiert sofort
+    Seeds hat und nicht leerlaeuft."""
+    queue = load_json_list(CRAWL_QUEUE_FILE)
+    known_crawled = load_json_dict(KNOWN_CRAWLED_FILE)
+    if queue or known_crawled or not pool:
+        return
+    sample = list(pool)
+    random.shuffle(sample)
+    sample = sample[:CRAWL_BOOTSTRAP_SAMPLE_SIZE]
+    print(f"  [CRAWL-BOOTSTRAP] Queue und gecrawlte Spieler waren leer - "
+          f"impfe Crawl-Queue mit {len(sample)} zufaelligen Spielern aus dem Pool an.")
+    save_json_list(CRAWL_QUEUE_FILE, sample)
+
+
 def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, last_checked: dict,
                               source_map: dict, since_ms: int, leaderboard: dict, stats: dict) -> tuple:
     """
@@ -724,11 +820,12 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
 
     all_new_opponents = set()
     for seed in seeds:
-        time.sleep(REQUEST_DELAY_SECONDS)
         opponents = get_recent_opponents(seed, CRAWL_GAMES_PER_SEED)
         new_opponents = opponents - pool
         if new_opponents:
-            print(f"    '{seed}': {len(opponents)} Gegner ({len(new_opponents)} neu im Pool).")
+            print(f"    '{seed}': {len(opponents)} Gegner ({len(new_opponents)} neu im Pool, "
+                  f"davon reine Lobby-Funde: {sorted(new_opponents)[:5]}"
+                  f"{'...' if len(new_opponents) > 5 else ''}).")
 
         tag_source(source_map, opponents, "lobby")
         all_new_opponents |= new_opponents
@@ -777,7 +874,6 @@ def process_tournament_slice(remaining_sources: list, pool: set, known_tournamen
     leer ist oder die Zeitscheibe abgelaufen ist. Gibt den Rest zurueck."""
     while remaining_sources and time.time() < deadline:
         t_id, kind = remaining_sources.pop(0)
-        time.sleep(REQUEST_DELAY_SECONDS)
         participants = get_tournament_participants(t_id, kind)
         new_count = len(participants - pool)
         pool |= participants
@@ -934,7 +1030,6 @@ def update_players_live(usernames: set, already_updated: set, counts: dict, last
             continue
 
         try:
-            time.sleep(REQUEST_DELAY_SECONDS)
             new_count = count_recent_blitz_games(username, since_ms)
         except RateLimitError:
             raise
@@ -972,7 +1067,9 @@ def main() -> None:
 
     if not TOKEN:
         print("Hinweis: Kein LICHESS_TOKEN gesetzt - es wird unauthentifiziert "
-              "abgefragt (niedrigeres Rate-Limit).")
+              "abgefragt (deutlich niedrigeres Rate-Limit). Ein Personal Access "
+              "Token (ohne Scopes) auf lichess.org erstellen und als "
+              "LICHESS_TOKEN Secret setzen wird dringend empfohlen.")
 
     known_players = load_json_set(KNOWN_PLAYERS_FILE)
     known_tournaments = load_json_set(KNOWN_TOURNAMENTS_FILE)
@@ -989,8 +1086,9 @@ def main() -> None:
     print_stat("Cooldown Spieler-Refresh", f"{CHECK_COOLDOWN_HOURS:.0f}h")
     print_stat("Cooldown Team-Roster-Refresh", f"{TEAM_SYNC_COOLDOWN_HOURS:.0f}h")
     print_stat("Cooldown Recrawl", f"{RECRAWL_COOLDOWN_HOURS:.0f}h")
-    print_stat("Zeitscheibe Turniere/Crawl", f"{PHASE_SLICE_SECONDS:.0f}s")
-    print_stat("Gesamt-Zeitbudget Turniere/Crawl", f"{MAX_TOTAL_RUNTIME_SECONDS:.0f}s")
+    print_stat("Zeitscheibe Crawl/Turniere", f"{PHASE_SLICE_SECONDS:.0f}s")
+    print_stat("Gesamt-Zeitbudget Crawl/Turniere", f"{MAX_TOTAL_RUNTIME_SECONDS:.0f}s")
+    print_stat("Globaler Mindestabstand pro Request", f"{GLOBAL_MIN_INTERVAL_SECONDS:.1f}s")
 
     leaderboard = load_leaderboard()
     counts = leaderboard.get("counts", {})
@@ -1029,7 +1127,6 @@ def main() -> None:
         print_stat("Cooldown-Refresh geprueft",
                     (overall_stats["checked"] - before["checked"]) - (overall_stats["new"] - before["new"]))
         print_stat("Uebersprungen (Cooldown)", overall_stats["skipped_cooldown"] - before["skipped_cooldown"])
-        time.sleep(REQUEST_DELAY_SECONDS)
 
         # --- Phase 2: Team-Mitgliederlisten (mit Sync-Cooldown) -----------
         print_section("2/4 Team-Mitgliederlisten")
@@ -1043,7 +1140,6 @@ def main() -> None:
                       f"noch {remaining_h:.1f}h Cooldown).")
                 continue
 
-            time.sleep(REQUEST_DELAY_SECONDS)
             members = get_team_members(tid)
             new_count = len(members - pool)
             pool |= members
@@ -1056,17 +1152,18 @@ def main() -> None:
             update_players_live(members, updated_this_run, counts, last_checked,
                                  source_map, since_ms, leaderboard, overall_stats)
 
-        # --- Phase 3+4: Turniere und Lobby-Crawl im Wechsel ---------------
-        print_section("3/4 + 4/4 Turniere & Lobby-Crawl (abwechselnd, zeitbudgetiert)")
+        # --- Bootstrap: Crawl-Queue animpfen, falls noch nie gecrawlt -----
+        bootstrap_crawl_queue_if_empty(pool)
+
+        # --- Phase 3+4: Lobby-Crawl & Turniere im Wechsel, CRAWL ZUERST ---
+        print_section("3/4 + 4/4 Lobby-Crawl & Turniere (abwechselnd, Crawl hat Prioritaet)")
 
         tournament_sources = list(get_visible_blitz_tournament_ids())
-        time.sleep(REQUEST_DELAY_SECONDS)
         for team_id in EXTRA_TEAM_IDS:
             print(f"  -> Turnierhistorie von Team '{team_id}'...")
             team_tournaments = get_team_tournament_ids(team_id.lower())
             print(f"     {len(team_tournaments)} {PERF_TYPE}-Turnier(e) gefunden.")
             tournament_sources.extend(team_tournaments)
-            time.sleep(REQUEST_DELAY_SECONDS)
 
         remaining_tournaments = [(tid, kind) for tid, kind in tournament_sources
                                   if tid not in known_tournaments]
@@ -1088,22 +1185,9 @@ def main() -> None:
 
             round_num += 1
 
-            if not tournaments_done:
-                print(f"  -- Runde {round_num}: Turniere ({len(remaining_tournaments)} offen) --")
-                deadline = time.time() + PHASE_SLICE_SECONDS
-                remaining_tournaments = process_tournament_slice(
-                    remaining_tournaments, pool, known_tournaments, updated_this_run,
-                    counts, last_checked, source_map, since_ms, leaderboard,
-                    overall_stats, deadline,
-                )
-                if not remaining_tournaments:
-                    tournaments_done = True
-                    print("  Alle Turniere abgearbeitet - Phase 'Turniere' ist fuer diesen Lauf beendet.")
-
-            if (time.time() - loop_start) >= MAX_TOTAL_RUNTIME_SECONDS:
-                hit_time_cap = True
-                break
-
+            # CRAWL ZUERST: garantiert, dass Lobby-Spieler in jeder Runde
+            # eine Chance bekommen, bevor Turniere (potenziell langsam/
+            # rate-limited) das restliche Budget aufbrauchen koennten.
             if not crawl_done:
                 print(f"  -- Runde {round_num}: Lobby-Crawl --")
                 deadline = time.time() + PHASE_SLICE_SECONDS
@@ -1115,6 +1199,22 @@ def main() -> None:
                 if seeds_processed == 0:
                     crawl_done = True
                     print("  Keine Crawl-Seeds mehr verfuegbar - Phase 'Lobby-Crawl' ist fuer diesen Lauf beendet.")
+
+            if (time.time() - loop_start) >= MAX_TOTAL_RUNTIME_SECONDS:
+                hit_time_cap = True
+                break
+
+            if not tournaments_done:
+                print(f"  -- Runde {round_num}: Turniere ({len(remaining_tournaments)} offen) --")
+                deadline = time.time() + PHASE_SLICE_SECONDS
+                remaining_tournaments = process_tournament_slice(
+                    remaining_tournaments, pool, known_tournaments, updated_this_run,
+                    counts, last_checked, source_map, since_ms, leaderboard,
+                    overall_stats, deadline,
+                )
+                if not remaining_tournaments:
+                    tournaments_done = True
+                    print("  Alle Turniere abgearbeitet - Phase 'Turniere' ist fuer diesen Lauf beendet.")
 
         if hit_time_cap:
             print(f"  Gesamt-Zeitbudget ({MAX_TOTAL_RUNTIME_SECONDS:.0f}s) erreicht - "
