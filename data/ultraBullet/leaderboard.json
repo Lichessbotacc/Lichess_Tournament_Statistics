@@ -977,6 +977,7 @@
     "ajedrez999": 224,
     "ajedrezaqp": 0,
     "ajedrezbeatle": 0,
+    "ajedrezcdcarmen": 0,
     "ajedrezinigo": 0,
     "ajedrezinvisible": 0,
     "ajigood123": 0,
@@ -2022,6 +2023,7 @@
     "chess_gaby2009": 50,
     "chess_here001": 12,
     "chess_ilegalmove": 0,
+    "chess_is_fun5": 0,
     "chess_king54": 6,
     "chess_legacy_am": 0,
     "chess_master9998": 102,
@@ -2753,6 +2755,7 @@
     "gokulchessgames": 0,
     "gold-frame": 2,
     "goldenaphrodite": 46,
+    "goldlose": 0,
     "goldroses": 37,
     "gomateo": 47,
     "gon_freecs123": 53,
@@ -6451,6 +6454,7 @@
     "ajedrez999": "2026-07-10T02:44:38.046819+00:00",
     "ajedrezaqp": "2026-07-10T11:03:59.214987+00:00",
     "ajedrezbeatle": "2026-07-10T01:23:53.507414+00:00",
+    "ajedrezcdcarmen": "2026-07-10T15:54:39.622015+00:00",
     "ajedrezinigo": "2026-07-10T02:44:38.515895+00:00",
     "ajedrezinvisible": "2026-07-10T02:44:41.513784+00:00",
     "ajigood123": "2026-07-10T02:44:44.522002+00:00",
@@ -7400,6 +7404,7 @@
     "chess_gaby2009": "2026-07-10T12:04:55.593554+00:00",
     "chess_here001": "2026-07-10T13:57:19.529691+00:00",
     "chess_ilegalmove": "2026-07-10T05:47:52.112111+00:00",
+    "chess_is_fun5": "2026-07-10T15:54:42.717860+00:00",
     "chess_king54": "2026-07-10T14:35:03.756186+00:00",
     "chess_poems": "2026-07-10T09:31:56.539989+00:00",
     "chess_proes": "2026-07-10T12:57:29.340124+00:00",
@@ -8021,6 +8026,7 @@
     "goku_4313": "2026-07-10T05:24:02.280054+00:00",
     "gold-frame": "2026-07-10T06:11:47.794464+00:00",
     "goldenaphrodite": "2026-07-10T10:41:01.392634+00:00",
+    "goldlose": "2026-07-10T15:54:45.617515+00:00",
     "goldroses": "2026-07-10T11:16:00.037541+00:00",
     "gomateo": "2026-07-10T07:31:08.039235+00:00",
     "gon_freecs123": "2026-07-10T01:01:15.926350+00:00",
@@ -48744,7 +48750,28 @@
       "rank": 5489,
       "source": "Lobby-Crawl",
       "username": "ohypi_streams"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ajedrezcdcarmen",
+      "rank": 5490,
+      "source": "Lobby-Crawl",
+      "username": "ajedrezcdcarmen"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess_is_fun5",
+      "rank": 5491,
+      "source": "Lobby-Crawl",
+      "username": "chess_is_fun5"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/goldlose",
+      "rank": 5492,
+      "source": "Team",
+      "username": "goldlose"
     }
   ],
-  "updated_at": "2026-07-10T15:54:13.612827+00:00"
+  "updated_at": "2026-07-10T15:54:45.617536+00:00"
 }
