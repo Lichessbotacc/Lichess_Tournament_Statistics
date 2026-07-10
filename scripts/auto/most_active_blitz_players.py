@@ -236,7 +236,7 @@ EXTRA_TEAM_IDS = [
 ]
 
 SINCE_DAYS = 7
-MAX_GAMES_PER_QUERY = 10000
+MAX_GAMES_PER_QUERY = 100000
 TOP_N = 100
 
 # --- Rate-Limit-Schutz ----------------------------------------------------
