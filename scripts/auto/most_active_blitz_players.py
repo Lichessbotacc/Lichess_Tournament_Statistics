@@ -303,6 +303,7 @@ KNOWN_CRAWLED_FILE = DATA_DIR / "known_crawled.json"       # username -> ISO-Zei
 TEAM_SYNC_STATE_FILE = DATA_DIR / "team_sync_state.json"   # team_id  -> ISO-Zeitstempel
 SOURCE_MAP_FILE = DATA_DIR / "player_source.json"          # username -> Quelle (top100/team/turnier/lobby)
 BOT_STATUS_FILE = DATA_DIR / "bot_status.json"              # username -> true (Bot) / false (Mensch), dauerhafter Cache
+BOT_CLEANUP_MARKER_FILE = DATA_DIR / "bot_cleanup_done.marker"  # existiert -> rueckwirkende Voll-Pool-Bereinigung schon gelaufen
 
 STATUS_DIR = REPO_ROOT / "status" / PERF_TYPE
 TOP10_JSON_FILE = STATUS_DIR / "top1000.json"
@@ -1234,25 +1235,44 @@ def main() -> None:
     # --- Rueckwirkende Bereinigung: Bots, die VOR Einfuehrung dieses
     # Filters bereits in den Pool/das Leaderboard gerutscht sind, hier
     # einmalig raussortieren (nicht nur neue Funde vorwaerts filtern).
-    print_section("0/4 Bot-Bereinigung (rueckwirkend)")
-    already_known_bots = check_and_filter_bots(pool, bot_status)
-    removed_bots = pool - already_known_bots
-    if removed_bots:
-        print(f"  {len(removed_bots)} bereits bekannte(r) Bot(s) werden aus Pool/"
-              f"Leaderboard entfernt: {sorted(removed_bots)[:10]}"
-              f"{'...' if len(removed_bots) > 10 else ''}")
-        pool = already_known_bots
-        for name in removed_bots:
-            counts.pop(name, None)
-            last_checked.pop(name, None)
-            source_map.pop(name, None)
-        save_json_set(KNOWN_PLAYERS_FILE, pool)
-        leaderboard["counts"] = counts
-        leaderboard["last_checked"] = last_checked
-        save_leaderboard(leaderboard, source_map)
-        write_top10_snapshot(counts, source_map)
+    # WICHTIG: das ist eine TEURE Voll-Pool-Prüfung (alle ~tausende
+    # Spieler im Pool ueber /api/users/status). Sie soll bewusst nur EIN
+    # einziges Mal laufen (dieser Lauf) und danach fuer immer uebersprungen
+    # werden, um Zeit zu sparen - Vorwaerts-Filterung neuer Spieler (Top-
+    # Liste/Teams/Turniere/Crawl) bleibt davon UNBERUEHRT und laeuft
+    # weiterhin bei jedem Lauf normal weiter.
+    if BOT_CLEANUP_MARKER_FILE.exists():
+        print_section("0/4 Bot-Bereinigung (rueckwirkend)")
+        print("  Uebersprungen - wurde bereits einmalig durchgefuehrt "
+              f"(Marker: {BOT_CLEANUP_MARKER_FILE.name}). Neue Spieler werden "
+              "weiterhin laufend beim Aufnehmen in den Pool gefiltert.")
     else:
-        print("  Keine bekannten Bots im aktuellen Pool gefunden.")
+        print_section("0/4 Bot-Bereinigung (rueckwirkend, EINMALIG)")
+        already_known_bots = check_and_filter_bots(pool, bot_status)
+        removed_bots = pool - already_known_bots
+        if removed_bots:
+            print(f"  {len(removed_bots)} bereits bekannte(r) Bot(s) werden aus Pool/"
+                  f"Leaderboard entfernt: {sorted(removed_bots)[:10]}"
+                  f"{'...' if len(removed_bots) > 10 else ''}")
+            pool = already_known_bots
+            for name in removed_bots:
+                counts.pop(name, None)
+                last_checked.pop(name, None)
+                source_map.pop(name, None)
+            save_json_set(KNOWN_PLAYERS_FILE, pool)
+            leaderboard["counts"] = counts
+            leaderboard["last_checked"] = last_checked
+            save_leaderboard(leaderboard, source_map)
+            write_top10_snapshot(counts, source_map)
+        else:
+            print("  Keine bekannten Bots im aktuellen Pool gefunden.")
+
+        BOT_CLEANUP_MARKER_FILE.parent.mkdir(parents=True, exist_ok=True)
+        BOT_CLEANUP_MARKER_FILE.write_text(
+            f"Einmalige rueckwirkende Bot-Bereinigung durchgefuehrt am {now_iso()}.\n"
+            f"{len(removed_bots)} Bot(s) entfernt.\n"
+            "Diese Datei loeschen, um die Voll-Pool-Pruefung erneut auszufuehren.\n"
+        )
 
     overall_stats = {"checked": 0, "skipped_cooldown": 0, "new": 0, "failed": 0, "seeds_crawled": 0}
 
