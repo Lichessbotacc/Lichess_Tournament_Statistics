@@ -3553,6 +3553,7 @@
     "chrisip": 7,
     "chriskraft": 0,
     "chrisrapid": 0,
+    "christ_is_the_lord": 0,
     "christian_wolfe": 0,
     "christmassawblade": 0,
     "christofer5_elite": 0,
@@ -11762,7 +11763,7 @@
     "svendyui": 4,
     "svenpogi17": 0,
     "svenster123": 10,
-    "svetabelaia": 101,
+    "svetabelaia": 105,
     "svetlanaleon": 0,
     "sviatoslavpavarenkin": 0,
     "sviatykl": 33,
@@ -16947,6 +16948,7 @@
     "chrisip": "2026-07-10T16:04:38.315735+00:00",
     "chriskraft": "2026-07-11T23:28:23.444891+00:00",
     "chrisrapid": "2026-07-11T07:09:59.835121+00:00",
+    "christ_is_the_lord": "2026-07-11T23:36:55.327798+00:00",
     "christian_wolfe": "2026-07-10T16:32:50.013957+00:00",
     "christmassawblade": "2026-07-10T21:49:09.942446+00:00",
     "christofer5_elite": "2026-07-11T09:40:05.674038+00:00",
@@ -25136,7 +25138,7 @@
     "svendyui": "2026-07-10T22:12:01.413091+00:00",
     "svenpogi17": "2026-07-11T07:33:17.857457+00:00",
     "svenster123": "2026-07-10T15:53:41.583310+00:00",
-    "svetabelaia": "2026-07-11T03:07:06.132598+00:00",
+    "svetabelaia": "2026-07-11T23:36:48.678171+00:00",
     "svetlanaleon": "2026-07-11T01:30:19.481445+00:00",
     "sviatoslavpavarenkin": "2026-07-11T14:15:50.186146+00:00",
     "sviatykl": "2026-07-11T13:42:47.533443+00:00",
@@ -29174,9 +29176,17 @@
       "username": "random_reddy"
     },
     {
+      "games": 105,
+      "profile": "https://lichess.org/@/svetabelaia",
+      "rank": 301,
+      "rating": 1514,
+      "source": "Lobby-Crawl",
+      "username": "svetabelaia"
+    },
+    {
       "games": 104,
       "profile": "https://lichess.org/@/aleksandriya_george",
-      "rank": 301,
+      "rank": 302,
       "rating": 1804,
       "source": "Lobby-Crawl",
       "username": "aleksandriya_george"
@@ -29184,7 +29194,7 @@
     {
       "games": 104,
       "profile": "https://lichess.org/@/apple0307",
-      "rank": 302,
+      "rank": 303,
       "rating": 1309,
       "source": "Lobby-Crawl",
       "username": "apple0307"
@@ -29192,7 +29202,7 @@
     {
       "games": 104,
       "profile": "https://lichess.org/@/gaelyek",
-      "rank": 303,
+      "rank": 304,
       "rating": 1840,
       "source": "?",
       "username": "gaelyek"
@@ -29200,7 +29210,7 @@
     {
       "games": 104,
       "profile": "https://lichess.org/@/jamieping",
-      "rank": 304,
+      "rank": 305,
       "rating": 1070,
       "source": "Lobby-Crawl",
       "username": "jamieping"
@@ -29208,7 +29218,7 @@
     {
       "games": 103,
       "profile": "https://lichess.org/@/nero7777",
-      "rank": 305,
+      "rank": 306,
       "rating": 1459,
       "source": "Lobby-Crawl",
       "username": "nero7777"
@@ -29216,7 +29226,7 @@
     {
       "games": 103,
       "profile": "https://lichess.org/@/supersuiii",
-      "rank": 306,
+      "rank": 307,
       "rating": 1863,
       "source": "?",
       "username": "supersuiii"
@@ -29224,7 +29234,7 @@
     {
       "games": 103,
       "profile": "https://lichess.org/@/victorandadam",
-      "rank": 307,
+      "rank": 308,
       "rating": 1546,
       "source": "Lobby-Crawl",
       "username": "victorandadam"
@@ -29232,7 +29242,7 @@
     {
       "games": 102,
       "profile": "https://lichess.org/@/danya1915",
-      "rank": 308,
+      "rank": 309,
       "rating": 972,
       "source": "Lobby-Crawl",
       "username": "danya1915"
@@ -29240,7 +29250,7 @@
     {
       "games": 102,
       "profile": "https://lichess.org/@/goofy0815",
-      "rank": 309,
+      "rank": 310,
       "rating": 1586,
       "source": "Lobby-Crawl",
       "username": "goofy0815"
@@ -29248,7 +29258,7 @@
     {
       "games": 102,
       "profile": "https://lichess.org/@/rochz",
-      "rank": 310,
+      "rank": 311,
       "rating": 1545,
       "source": "Lobby-Crawl",
       "username": "rochz"
@@ -29256,7 +29266,7 @@
     {
       "games": 101,
       "profile": "https://lichess.org/@/cookiesmehfriend",
-      "rank": 311,
+      "rank": 312,
       "rating": 1185,
       "source": "Lobby-Crawl",
       "username": "cookiesmehfriend"
@@ -29264,18 +29274,10 @@
     {
       "games": 101,
       "profile": "https://lichess.org/@/nrizwan",
-      "rank": 312,
+      "rank": 313,
       "rating": 1922,
       "source": "Lobby-Crawl",
       "username": "nrizwan"
-    },
-    {
-      "games": 101,
-      "profile": "https://lichess.org/@/svetabelaia",
-      "rank": 313,
-      "rating": 1514,
-      "source": "Lobby-Crawl",
-      "username": "svetabelaia"
     },
     {
       "games": 100,
@@ -45697,7 +45699,7 @@
       "games": 9,
       "profile": "https://lichess.org/@/kingofthahell",
       "rank": 2366,
-      "rating": null,
+      "rating": 1374,
       "source": "Lobby-Crawl",
       "username": "kingofthahell"
     },
@@ -96993,7 +96995,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/henry_amaya_lamb2",
       "rank": 8778,
-      "rating": null,
+      "rating": 1138,
       "source": "Lobby-Crawl",
       "username": "henry_amaya_lamb2"
     },
@@ -133948,7 +133950,15 @@
       "rating": 861,
       "source": "Lobby-Crawl",
       "username": "selejanedi"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/christ_is_the_lord",
+      "rank": 13398,
+      "rating": 1322,
+      "source": "Lobby-Crawl",
+      "username": "christ_is_the_lord"
     }
   ],
-  "updated_at": "2026-07-11T23:36:24.892385+00:00"
+  "updated_at": "2026-07-11T23:36:55.327818+00:00"
 }
