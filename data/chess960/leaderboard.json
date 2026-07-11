@@ -3453,6 +3453,7 @@
     "ch00_eg": 0,
     "ch33zi": 1,
     "ch37": 9,
+    "ch3ck-mates-sca0": 0,
     "chaandan05": 0,
     "chabareesan": 0,
     "chackaa": 121,
@@ -9318,6 +9319,7 @@
     "mat-pere-mat": 5,
     "mat-pp": 0,
     "mat17012": 0,
+    "mat2000s": 0,
     "matarenkoav": 45,
     "matau": 5,
     "matchalattebob": 9,
@@ -9335,6 +9337,7 @@
     "matewasfate": 4,
     "mateylisto": 3,
     "math_wiz": 0,
+    "mathchess96": 0,
     "mathdrops": 0,
     "matheosolorzano": 1,
     "mathew2014": 0,
@@ -10553,7 +10556,7 @@
     "oldtiger666": 0,
     "ole_k": 14,
     "oleg196801": 3,
-    "oleg1983": 73,
+    "oleg1983": 72,
     "oleg_64": 0,
     "oleg_chess14": 19,
     "oleg_rodkin-1973": 0,
@@ -17996,6 +17999,7 @@
     "ch00_eg": "2026-07-10T03:30:20.464327+00:00",
     "ch33zi": "2026-07-11T03:27:14.896239+00:00",
     "ch37": "2026-07-10T01:01:59.005789+00:00",
+    "ch3ck-mates-sca0": "2026-07-11T16:08:17.232757+00:00",
     "chaandan05": "2026-07-10T01:34:46.882996+00:00",
     "chabareesan": "2026-07-10T01:34:48.357445+00:00",
     "chackaa": "2026-07-11T02:44:47.757163+00:00",
@@ -23173,6 +23177,7 @@
     "masterostnel": "2026-07-10T05:19:24.693326+00:00",
     "mastersili": "2026-07-10T05:19:54.669279+00:00",
     "mat-pere-mat": "2026-07-10T08:15:58.260825+00:00",
+    "mat2000s": "2026-07-11T16:08:20.215875+00:00",
     "matarenkoav": "2026-07-10T18:02:04.252579+00:00",
     "matau": "2026-07-10T09:23:32.763447+00:00",
     "matchalattebob": "2026-07-10T17:25:53.989317+00:00",
@@ -23189,6 +23194,7 @@
     "matewasfate": "2026-07-10T18:01:47.360080+00:00",
     "mateylisto": "2026-07-10T09:11:30.172413+00:00",
     "math_wiz": "2026-07-10T17:26:05.677634+00:00",
+    "mathchess96": "2026-07-11T16:08:08.230802+00:00",
     "mathdrops": "2026-07-10T08:58:03.094114+00:00",
     "matheosolorzano": "2026-07-11T07:28:16.031002+00:00",
     "mathewkoshy": "2026-07-10T09:01:11.311439+00:00",
@@ -24249,7 +24255,7 @@
     "oldsport58": "2026-07-10T11:48:22.099466+00:00",
     "oldtiger666": "2026-07-11T09:41:40.739070+00:00",
     "ole_k": "2026-07-10T01:05:26.728856+00:00",
-    "oleg1983": "2026-07-10T08:13:38.142927+00:00",
+    "oleg1983": "2026-07-11T16:08:37.430245+00:00",
     "oleg_chess14": "2026-07-10T00:50:12.349361+00:00",
     "oleg_rodkin-1973": "2026-07-10T04:01:49.320929+00:00",
     "olegb-v": "2026-07-10T07:14:18.411024+00:00",
@@ -31484,17 +31490,9 @@
       "username": "nike001"
     },
     {
-      "games": 73,
-      "profile": "https://lichess.org/@/oleg1983",
-      "rank": 449,
-      "rating": 1695,
-      "source": "Lobby-Crawl",
-      "username": "oleg1983"
-    },
-    {
       "games": 72,
       "profile": "https://lichess.org/@/find_da_g_spot",
-      "rank": 450,
+      "rank": 449,
       "rating": 1804,
       "source": "Lobby-Crawl",
       "username": "find_da_g_spot"
@@ -31502,7 +31500,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/gmweinberg",
-      "rank": 451,
+      "rank": 450,
       "rating": 1664,
       "source": "Lobby-Crawl",
       "username": "gmweinberg"
@@ -31510,7 +31508,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/jazzyf",
-      "rank": 452,
+      "rank": 451,
       "rating": 1773,
       "source": "Lobby-Crawl",
       "username": "jazzyf"
@@ -31518,7 +31516,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/juanjanu",
-      "rank": 453,
+      "rank": 452,
       "rating": 1711,
       "source": "Lobby-Crawl",
       "username": "juanjanu"
@@ -31526,10 +31524,18 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/nurlesen",
-      "rank": 454,
+      "rank": 453,
       "rating": 1543,
       "source": "Lobby-Crawl",
       "username": "nurlesen"
+    },
+    {
+      "games": 72,
+      "profile": "https://lichess.org/@/oleg1983",
+      "rank": 454,
+      "rating": 1695,
+      "source": "Lobby-Crawl",
+      "username": "oleg1983"
     },
     {
       "games": 72,
@@ -45119,7 +45125,7 @@
       "games": 11,
       "profile": "https://lichess.org/@/n_hackcharlotte",
       "rank": 2153,
-      "rating": null,
+      "rating": 1597,
       "source": "Lobby-Crawl",
       "username": "n_hackcharlotte"
     },
@@ -146626,7 +146632,31 @@
       "rating": 1258,
       "source": "Lobby-Crawl",
       "username": "felix_semicolon"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/mathchess96",
+      "rank": 14842,
+      "rating": 1492,
+      "source": "Lobby-Crawl",
+      "username": "mathchess96"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ch3ck-mates-sca0",
+      "rank": 14843,
+      "rating": 1449,
+      "source": "Lobby-Crawl",
+      "username": "ch3ck-mates-sca0"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/mat2000s",
+      "rank": 14844,
+      "rating": 1500,
+      "source": "Lobby-Crawl",
+      "username": "mat2000s"
     }
   ],
-  "updated_at": "2026-07-11T16:08:01.104076+00:00"
+  "updated_at": "2026-07-11T16:08:37.433614+00:00"
 }
