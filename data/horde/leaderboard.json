@@ -2662,6 +2662,7 @@
     "burundykser": 34,
     "bush2109": 2,
     "butee": 0,
+    "butikmi": 0,
     "butterchicken1": 0,
     "butterflysrfre": 0,
     "butterphingerz": 0,
@@ -6656,6 +6657,7 @@
     "juanjofigue97": 0,
     "juankita81914013": 0,
     "juanmanuel05": 0,
+    "juanmanuelvallejo": 0,
     "juanperez_11": 0,
     "juanpiszambue": 0,
     "juanstarfirepeni": 0,
@@ -9613,6 +9615,7 @@
     "ocean_ml": 0,
     "ocean_sailor": 36,
     "oceanisnowon": 0,
+    "oceanspell": 0,
     "ochesage": 0,
     "ocristina": 0,
     "octosquid": 0,
@@ -11705,6 +11708,7 @@
     "siddharthshukla2011": 0,
     "siddharthsuper": 0,
     "siddhi0101": 3,
+    "sidonya": 0,
     "siegmund1005": 0,
     "sielvagys": 0,
     "siemprepositivo1": 0,
@@ -16579,6 +16583,7 @@
     "burundykser": "2026-07-10T02:55:04.521244+00:00",
     "bush2109": "2026-07-10T15:38:07.644144+00:00",
     "butee": "2026-07-10T19:36:30.196400+00:00",
+    "butikmi": "2026-07-11T12:18:29.962764+00:00",
     "butterchicken1": "2026-07-10T18:06:50.079004+00:00",
     "butterflysrfre": "2026-07-10T19:53:21.762701+00:00",
     "butterphingerz": "2026-07-10T03:49:14.481429+00:00",
@@ -16896,7 +16901,7 @@
     "chessbobocat": "2026-07-10T04:58:57.423165+00:00",
     "chessbombard": "2026-07-10T20:31:18.483428+00:00",
     "chessbopar": "2026-07-10T16:39:45.591957+00:00",
-    "chessboxer85": "2026-07-10T12:52:13.708699+00:00",
+    "chessboxer85": "2026-07-11T12:18:32.963269+00:00",
     "chessbullet123": "2026-07-10T16:39:48.598707+00:00",
     "chessbunnybot": "2026-07-10T16:39:56.816558+00:00",
     "chesscalculator1389": "2026-07-11T07:33:09.647016+00:00",
@@ -20570,6 +20575,7 @@
     "juanjofigue97": "2026-07-10T05:31:47.217392+00:00",
     "juankita81914013": "2026-07-11T04:58:00.328276+00:00",
     "juanmanuel05": "2026-07-10T17:34:53.875675+00:00",
+    "juanmanuelvallejo": "2026-07-11T12:18:11.927575+00:00",
     "juanperez_11": "2026-07-10T17:28:06.083414+00:00",
     "juanpiszambue": "2026-07-11T08:02:49.229594+00:00",
     "juanstarfirepeni": "2026-07-10T12:52:38.143878+00:00",
@@ -21783,7 +21789,7 @@
     "marcelo_daza": "2026-07-11T08:37:56.446758+00:00",
     "marcelobahia": "2026-07-10T17:53:24.041363+00:00",
     "marcinkleczek": "2026-07-11T09:39:45.885456+00:00",
-    "marciosanches": "2026-07-10T05:21:03.071073+00:00",
+    "marciosanches": "2026-07-11T12:18:14.940151+00:00",
     "marco0134": "2026-07-10T14:01:19.733877+00:00",
     "marco_m9": "2026-07-11T08:06:45.557662+00:00",
     "marcoalejandro77": "2026-07-10T23:05:42.476572+00:00",
@@ -22992,6 +22998,7 @@
     "obiosky": "2026-07-11T03:27:01.186603+00:00",
     "obscure_hombre": "2026-07-11T02:48:15.644832+00:00",
     "ocean_sailor": "2026-07-11T07:05:29.516566+00:00",
+    "oceanspell": "2026-07-11T12:18:17.932720+00:00",
     "ocristina": "2026-07-10T08:11:45.830647+00:00",
     "octosquid": "2026-07-11T10:00:28.932499+00:00",
     "oddplayer7307": "2026-07-11T03:16:18.884318+00:00",
@@ -24696,6 +24703,7 @@
     "siddharthshukla2011": "2026-07-10T21:20:06.448507+00:00",
     "siddharthsuper": "2026-07-11T01:59:15.365821+00:00",
     "siddhi0101": "2026-07-10T23:38:49.138714+00:00",
+    "sidonya": "2026-07-11T12:18:20.944339+00:00",
     "siegmund1005": "2026-07-10T11:41:13.785293+00:00",
     "sielvagys": "2026-07-10T21:45:37.696927+00:00",
     "siemprepositivo1": "2026-07-11T08:39:04.074908+00:00",
@@ -124328,7 +124336,35 @@
       "rank": 13917,
       "source": "Lobby-Crawl",
       "username": "js0317"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/juanmanuelvallejo",
+      "rank": 13918,
+      "source": "Lobby-Crawl",
+      "username": "juanmanuelvallejo"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/oceanspell",
+      "rank": 13919,
+      "source": "Lobby-Crawl",
+      "username": "oceanspell"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/sidonya",
+      "rank": 13920,
+      "source": "Lobby-Crawl",
+      "username": "sidonya"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/butikmi",
+      "rank": 13921,
+      "source": "Lobby-Crawl",
+      "username": "butikmi"
     }
   ],
-  "updated_at": "2026-07-11T12:18:01.800310+00:00"
+  "updated_at": "2026-07-11T12:18:32.963290+00:00"
 }
