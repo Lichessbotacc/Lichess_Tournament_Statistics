@@ -2883,7 +2883,7 @@
     "cabouca": 16,
     "cabrakkan": 0,
     "cacheton2020": 0,
-    "cadenceawakens": 150,
+    "cadenceawakens": 185,
     "cadi01": 18,
     "cadirella": 0,
     "cafe_mocha": 2,
@@ -17705,7 +17705,7 @@
     "cabouca": "2026-07-11T07:45:10.744894+00:00",
     "cabrakkan": "2026-07-10T07:38:04.200983+00:00",
     "cacheton2020": "2026-07-10T22:39:26.367634+00:00",
-    "cadenceawakens": "2026-07-10T08:59:03.067490+00:00",
+    "cadenceawakens": "2026-07-11T16:00:07.482984+00:00",
     "cadi01": "2026-07-11T10:18:37.095803+00:00",
     "cadirella": "2026-07-10T13:54:43.562405+00:00",
     "cafe_mocha": "2026-07-11T02:52:35.874679+00:00",
@@ -29110,9 +29110,17 @@
       "username": "chesskingroy"
     },
     {
+      "games": 185,
+      "profile": "https://lichess.org/@/cadenceawakens",
+      "rank": 5,
+      "rating": 1689,
+      "source": "Lobby-Crawl",
+      "username": "cadenceawakens"
+    },
+    {
       "games": 183,
       "profile": "https://lichess.org/@/cesar_042876",
-      "rank": 5,
+      "rank": 6,
       "rating": 1591,
       "source": "Lobby-Crawl",
       "username": "cesar_042876"
@@ -29120,7 +29128,7 @@
     {
       "games": 180,
       "profile": "https://lichess.org/@/chess07081966bl",
-      "rank": 6,
+      "rank": 7,
       "rating": 1413,
       "source": "Lobby-Crawl",
       "username": "chess07081966bl"
@@ -29128,7 +29136,7 @@
     {
       "games": 172,
       "profile": "https://lichess.org/@/marcelocarmojose",
-      "rank": 7,
+      "rank": 8,
       "rating": 1572,
       "source": "Lobby-Crawl",
       "username": "marcelocarmojose"
@@ -29136,7 +29144,7 @@
     {
       "games": 167,
       "profile": "https://lichess.org/@/cheesynoob",
-      "rank": 8,
+      "rank": 9,
       "rating": 1972,
       "source": "Lobby-Crawl",
       "username": "cheesynoob"
@@ -29144,7 +29152,7 @@
     {
       "games": 162,
       "profile": "https://lichess.org/@/christchess22",
-      "rank": 9,
+      "rank": 10,
       "rating": 1592,
       "source": "Lobby-Crawl",
       "username": "christchess22"
@@ -29152,7 +29160,7 @@
     {
       "games": 158,
       "profile": "https://lichess.org/@/bibblo",
-      "rank": 10,
+      "rank": 11,
       "rating": 1549,
       "source": "Lobby-Crawl",
       "username": "bibblo"
@@ -29160,18 +29168,10 @@
     {
       "games": 153,
       "profile": "https://lichess.org/@/jitu1713",
-      "rank": 11,
+      "rank": 12,
       "rating": 1569,
       "source": "Lobby-Crawl",
       "username": "jitu1713"
-    },
-    {
-      "games": 150,
-      "profile": "https://lichess.org/@/cadenceawakens",
-      "rank": 12,
-      "rating": 1689,
-      "source": "Lobby-Crawl",
-      "username": "cadenceawakens"
     },
     {
       "games": 144,
@@ -148494,5 +148494,5 @@
       "username": "nonito5050"
     }
   ],
-  "updated_at": "2026-07-11T15:59:19.316271+00:00"
+  "updated_at": "2026-07-11T16:00:07.486587+00:00"
 }
