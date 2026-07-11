@@ -268,6 +268,27 @@ CRAWL_BOOTSTRAP_SAMPLE_SIZE = int(os.environ.get("CRAWL_BOOTSTRAP_SAMPLE_SIZE", 
 # Wechsel quasi zufaellig auf einem neuen Rating-Niveau neu ansetzt.
 DIVERSE_SEED_COUNT = int(os.environ.get("DIVERSE_SEED_COUNT", "4"))
 
+# --- Rating-Alternierung fuer den Crawl (gegen "haengt in einem Rating-Band
+# fest") ---------------------------------------------------------------
+# Lichess matcht Gegner mit aehnlichem Rating - eine reine Gegner-Kette
+# bleibt darum fast immer in einem engen Rating-Band haengen (z.B. laenger
+# nur 1200er in classical). Um da rauszukommen, wechselt der Crawl nach
+# jeweils ALTERNATE_RATING_BATCH_SIZE verarbeiteten Kettengliedern die
+# Richtung: fuer die naechsten ALTERNATE_RATING_BATCH_SIZE (oder weniger,
+# falls die Queue das nicht hergibt) werden aus der Queue NUR Kandidaten
+# mit HOEHEREM Rating als der Referenzwert bevorzugt, danach fuer die
+# naechste Charge nur welche mit NIEDRIGEREM Rating usw.
+ALTERNATE_RATING_BATCH_SIZE = int(os.environ.get("ALTERNATE_RATING_BATCH_SIZE", "50"))
+
+# --- Rating-Refresh fuer die Top-1000-Anzeige ----------------------------
+RATING_REFRESH_COOLDOWN_HOURS = float(os.environ.get("RATING_REFRESH_COOLDOWN_HOURS", "18"))
+RATING_REFRESH_COOLDOWN_SECONDS = RATING_REFRESH_COOLDOWN_HOURS * 3600
+
+# Batch-Groesse fuer den Bulk-User-Endpunkt (POST /api/users), liefert pro
+# Aufruf Bot-Flag, Bann-Status (tosViolation/disabled) UND Rating in einem
+# Rutsch. Lichess erlaubt hier bis zu 300 IDs pro Aufruf.
+PLAYER_INFO_BATCH_SIZE = 300
+
 # --- Abwechselnde Zeitscheiben Crawl <-> Turniere -------------------------
 # WICHTIG: Reihenfolge pro Runde ist jetzt CRAWL ZUERST, dann Turniere -
 # siehe Docstring-Abschnitt weiter oben ("ABWECHSELNDE ZEITBUDGET-PHASEN").
@@ -306,7 +327,9 @@ KNOWN_TOURNAMENTS_FILE = DATA_DIR / "known_tournaments.json"
 CRAWL_QUEUE_FILE = DATA_DIR / "crawl_queue.json"
 KNOWN_CRAWLED_FILE = DATA_DIR / "known_crawled.json"       # username -> ISO-Zeitstempel
 SOURCE_MAP_FILE = DATA_DIR / "player_source.json"          # username -> Quelle (turnier/lobby)
-BOT_STATUS_FILE = DATA_DIR / "bot_status.json"              # username -> true (Bot) / false (Mensch), dauerhafter Cache
+BOT_STATUS_FILE = DATA_DIR / "player_info.json"              # veraltet, wird noch fuer Migration gelesen
+PLAYER_INFO_FILE = DATA_DIR / "player_info.json"            # username -> {"bot", "banned", "rating", "checked_at"}
+CRAWL_DIRECTION_FILE = DATA_DIR / "crawl_direction.json"     # Zustand der Rating-Alternierung im Crawl
 
 STATUS_DIR = REPO_ROOT / "status" / PERF_TYPE
 TOP10_JSON_FILE = STATUS_DIR / "top1000.json"
@@ -348,7 +371,7 @@ def git_commit_and_push(message: str) -> bool:
         candidate_paths = [
             STATUS_DIR, KNOWN_PLAYERS_FILE, KNOWN_TOURNAMENTS_FILE,
             LEADERBOARD_FILE, CRAWL_QUEUE_FILE, KNOWN_CRAWLED_FILE,
-            SOURCE_MAP_FILE,
+            SOURCE_MAP_FILE, PLAYER_INFO_FILE, CRAWL_DIRECTION_FILE,
         ]
         existing_paths = [str(p) for p in candidate_paths if p.exists()]
         if not existing_paths:
@@ -612,12 +635,14 @@ def load_leaderboard() -> dict:
     return {"updated_at": None, "counts": {}, "last_checked": {}}
 
 
-def save_leaderboard(leaderboard: dict, source_map: dict) -> None:
+def save_leaderboard(leaderboard: dict, source_map: dict, player_info: dict = None) -> None:
+    player_info = player_info or {}
     counts = leaderboard.get("counts", {})
     ranking = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)
     leaderboard["ranking"] = [
         {
             "rank": i, "username": name, "games": cnt,
+            "rating": player_info.get(name, {}).get("rating"),
             "source": SOURCE_LABELS.get(source_map.get(name), "?"),
             "profile": profile_url(name),
         }
@@ -707,69 +732,143 @@ def get_tournament_participants(tournament_id: str, kind: str) -> set:
 
 
 # ---------------------------------------------------------------------------
-# BOT-FILTER
+# BOT- & BANN-FILTER + RATING-LOOKUP (kombiniert)
 # ---------------------------------------------------------------------------
-# Lichess markiert Bot-Accounts im Profil mit title == "BOT". Team-Roster,
-# Turnier-Teilnehmerlisten und Lobby-Crawl-Gegner koennen Bots enthalten
-# (Bots duerfen auf Lichess spielen, auch in Arenen/Swiss und normalen
-# Partien). Diese Funktion filtert Bots konsequent an JEDER Stelle raus,
-# an der neue Spieler in den Pool aufgenommen werden.
+# Lichess markiert Bot-Accounts im Profil mit title == "BOT" und gebannte/
+# geschlossene Accounts mit tosViolation == true bzw. disabled == true.
+# Team-Roster, Turnier-Teilnehmerlisten und Lobby-Crawl-Gegner koennen
+# beides enthalten. Diese Funktion filtert Bots UND gebannte/geschlossene
+# Accounts konsequent an JEDER Stelle raus, an der neue Spieler in den
+# Pool aufgenommen werden - gebannte Spieler sollen weder in der
+# Rangliste stehen noch weiterhin (erneut) eingefuegt werden koennen.
 #
-# Um nicht bei jedem Lauf alle ~tausend Spieler erneut abzufragen, wird
-# das Ergebnis dauerhaft in BOT_STATUS_FILE gecacht (username -> bool).
-# Fuer noch unbekannte Spieler wird /api/users/status in Batches von 100
-# IDs abgefragt (das Maximum, das dieser Endpunkt pro Aufruf akzeptiert) -
-# das ist bei tausenden Spielern trotzdem nur eine Handvoll Requests.
-BOT_STATUS_BATCH_SIZE = 100
-
-
-def check_and_filter_bots(usernames, bot_status: dict) -> set:
-    """
-    Nimmt eine Menge Usernamen, aktualisiert bot_status (Cache) fuer alle
-    noch unbekannten Namen via /api/users/status, und gibt die Teilmenge
-    OHNE Bots zurueck.
-    """
-    usernames = set(usernames)
-    unknown = sorted(u for u in usernames if u not in bot_status)
-
-    for i in range(0, len(unknown), BOT_STATUS_BATCH_SIZE):
-        batch = unknown[i:i + BOT_STATUS_BATCH_SIZE]
-        url = f"{BASE_URL}/api/users/status?ids={','.join(batch)}"
+# Genutzt wird dafuer der Bulk-Endpunkt POST /api/users (bis zu 300 IDs
+# pro Aufruf), der zusaetzlich zum Bot-Flag auch tosViolation/disabled
+# UND das aktuelle Perf-Rating (fuer PERF_TYPE) mitliefert - so wird die
+# Top-1000-Anzeige mit Rating "kostenlos" bei diesem ohnehin noetigen
+# Aufruf mitbefuellt.
+#
+# Ergebnis wird dauerhaft in PLAYER_INFO_FILE gecacht:
+#   username -> {"bot": bool, "banned": bool, "rating": int|None,
+#                "checked_at": ISO-Zeitstempel}
+def fetch_player_info_bulk(usernames: list) -> dict:
+    """Fragt eine Liste Usernamen ueber POST /api/users ab (Batches von
+    PLAYER_INFO_BATCH_SIZE) und gibt username -> Rohdaten-Dict zurueck."""
+    result = {}
+    for i in range(0, len(usernames), PLAYER_INFO_BATCH_SIZE):
+        batch = usernames[i:i + PLAYER_INFO_BATCH_SIZE]
+        body = "\n".join(batch).encode("utf-8")
+        req = urllib.request.Request(
+            f"{BASE_URL}/api/users", data=body, method="POST",
+            headers={**HEADERS, "Content-Type": "text/plain"},
+        )
+        _throttle()
         try:
-            data = fetch_json(url)
-        except RateLimitError:
-            raise
-        except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
-            print(f"  [WARNUNG] Bot-Status-Check fehlgeschlagen fuer Batch "
-                  f"({len(batch)} Spieler): {exc} - werden vorerst als "
-                  f"'nicht gecheckt' uebersprungen (bleiben im naechsten "
-                  f"Lauf erneut in der Warteschlange).")
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            if exc.code == 429:
+                raise RateLimitError(f"Rate Limit bei POST /api/users") from exc
+            print(f"  [WARNUNG] Bulk-User-Info fehlgeschlagen fuer Batch "
+                  f"({len(batch)} Spieler): {exc}")
+            continue
+        except (urllib.error.URLError, OSError) as exc:
+            print(f"  [WARNUNG] Bulk-User-Info fehlgeschlagen fuer Batch "
+                  f"({len(batch)} Spieler): {exc}")
             continue
 
-        found_ids = set()
         if isinstance(data, list):
             for entry in data:
                 uid = entry.get("id")
-                if not uid:
-                    continue
-                found_ids.add(uid)
-                bot_status[uid] = (entry.get("title") == "BOT")
+                if uid:
+                    result[uid] = entry
+    return result
 
-        # Spieler, die der Endpunkt nicht zurueckgegeben hat (z.B. geloeschte
-        #/geschlossene Accounts), vorsichtshalber als "kein Bot" werten,
-        # damit sie nicht dauerhaft haengen bleiben.
-        for uid in batch:
-            if uid not in found_ids:
-                bot_status[uid] = False
 
-    save_json_dict(BOT_STATUS_FILE, bot_status)
+def update_player_info_cache(usernames, player_info: dict) -> None:
+    """Fragt alle noch unbekannten (oder faelligen) Usernamen per Bulk-
+    Endpunkt ab und aktualisiert player_info dauerhaft."""
+    usernames = list(dict.fromkeys(usernames))
+    to_fetch = sorted(usernames)
+    if not to_fetch:
+        return
 
-    bots_found = {u for u in usernames if bot_status.get(u) is True}
+    raw = fetch_player_info_bulk(to_fetch)
+    now = now_iso()
+    for uid in to_fetch:
+        entry = raw.get(uid)
+        if entry is None:
+            # Kein Eintrag zurueckgegeben (z.B. geloeschter Account) -
+            # vorsichtshalber als "kein Bot, nicht gebannt" werten, damit
+            # er nicht dauerhaft haengen bleibt, aber ohne Rating.
+            player_info[uid] = {
+                "bot": False, "banned": False, "rating": None,
+                "checked_at": now,
+            }
+            continue
+
+        is_bot = entry.get("title") == "BOT"
+        is_banned = bool(entry.get("tosViolation")) or bool(entry.get("disabled"))
+        perfs = entry.get("perfs", {})
+        perf = perfs.get(PERF_TYPE, {}) if isinstance(perfs, dict) else {}
+        rating = perf.get("rating") if isinstance(perf, dict) else None
+
+        player_info[uid] = {
+            "bot": is_bot, "banned": is_banned, "rating": rating,
+            "checked_at": now,
+        }
+
+    save_json_dict(PLAYER_INFO_FILE, player_info)
+
+
+def check_and_filter_players(usernames, player_info: dict) -> set:
+    """
+    Nimmt eine Menge Usernamen, aktualisiert player_info (Cache) fuer alle
+    noch unbekannten Namen via Bulk-Endpunkt, und gibt die Teilmenge OHNE
+    Bots und OHNE gebannte/geschlossene Accounts zurueck.
+    """
+    usernames = set(usernames)
+    unknown = [u for u in usernames if u not in player_info]
+    if unknown:
+        update_player_info_cache(unknown, player_info)
+
+    bots_found = {u for u in usernames if player_info.get(u, {}).get("bot")}
+    banned_found = {u for u in usernames if player_info.get(u, {}).get("banned")}
+
     if bots_found:
         print(f"  [BOT-FILTER] {len(bots_found)} Bot(s) ausgefiltert: "
               f"{sorted(bots_found)[:8]}{'...' if len(bots_found) > 8 else ''}")
+    if banned_found:
+        print(f"  [BANN-FILTER] {len(banned_found)} gebannte/geschlossene "
+              f"Account(s) ausgefiltert: {sorted(banned_found)[:8]}"
+              f"{'...' if len(banned_found) > 8 else ''}")
 
-    return {u for u in usernames if not bot_status.get(u, False)}
+    return {
+        u for u in usernames
+        if not player_info.get(u, {}).get("bot")
+        and not player_info.get(u, {}).get("banned")
+    }
+
+
+def purge_banned_players(pool: set, counts: dict, last_checked: dict,
+                          source_map: dict, player_info: dict) -> set:
+    """Entfernt bereits bekannte, aber (neu) als gebannt/geschlossen
+    erkannte Spieler dauerhaft aus Pool, Leaderboard und Quellen-Map,
+    damit sie garantiert nicht mehr in der Rangliste auftauchen."""
+    banned = {u for u in pool if player_info.get(u, {}).get("banned")}
+    if not banned:
+        return banned
+
+    for u in banned:
+        pool.discard(u)
+        counts.pop(u, None)
+        last_checked.pop(u, None)
+        source_map.pop(u, None)
+
+    print(f"  [BANN-FILTER] {len(banned)} bereits bekannte Spieler wurden "
+          f"als gebannt/geschlossen erkannt und dauerhaft entfernt: "
+          f"{sorted(banned)[:8]}{'...' if len(banned) > 8 else ''}")
+    return banned
 
 
 # ---------------------------------------------------------------------------
@@ -816,7 +915,57 @@ def get_recent_opponents(username: str, limit: int) -> set:
 # folgen, wodurch der Crawl staendig neu ansetzte statt sich zu
 # verzweigen.
 # ---------------------------------------------------------------------------
-def pick_crawl_seeds(queue: list, known_crawled: dict, pool: set) -> tuple:
+def load_crawl_direction_state() -> dict:
+    state = load_json_dict(CRAWL_DIRECTION_FILE)
+    if not state:
+        state = {"direction": "up", "processed_in_batch": 0, "reference_rating": None}
+    return state
+
+
+def save_crawl_direction_state(state: dict) -> None:
+    save_json_dict(CRAWL_DIRECTION_FILE, state)
+
+
+def rating_matches_direction(name: str, direction_state: dict, player_info: dict) -> bool:
+    """Prueft, ob der Rating eines Kandidaten zur aktuellen Crawl-Richtung
+    passt. Unbekanntes Rating (noch nie gecheckt) gilt als passend, damit
+    die Kette dadurch nicht blockiert wird."""
+    rating = player_info.get(name, {}).get("rating")
+    reference = direction_state.get("reference_rating")
+    if rating is None or reference is None:
+        return True
+    if direction_state.get("direction") == "up":
+        return rating > reference
+    return rating < reference
+
+
+def advance_crawl_direction(processed_names, direction_state: dict, player_info: dict) -> None:
+    """Zaehlt verarbeitete Kettenglieder mit; nach ALTERNATE_RATING_BATCH_SIZE
+    Stueck wird die Richtung (hoeher/niedriger) gewechselt und der
+    Referenz-Rating-Wert aktualisiert (letztes bekanntes Rating aus dieser
+    Charge)."""
+    last_known_rating = None
+    for name in processed_names:
+        rating = player_info.get(name, {}).get("rating")
+        if rating is not None:
+            last_known_rating = rating
+        direction_state["processed_in_batch"] = direction_state.get("processed_in_batch", 0) + 1
+
+    if last_known_rating is not None:
+        direction_state["reference_rating"] = last_known_rating
+
+    if direction_state.get("processed_in_batch", 0) >= ALTERNATE_RATING_BATCH_SIZE:
+        direction_state["direction"] = "down" if direction_state.get("direction") == "up" else "up"
+        direction_state["processed_in_batch"] = 0
+        print(f"  [RATING-ALTERNIERUNG] Charge voll - Crawl-Richtung wechselt "
+              f"jetzt auf '{direction_state['direction']}' "
+              f"(Referenz-Rating: {direction_state.get('reference_rating')}).")
+
+    save_crawl_direction_state(direction_state)
+
+
+def pick_crawl_seeds(queue: list, known_crawled: dict, pool: set,
+                      player_info: dict = None, direction_state: dict = None) -> tuple:
     """
     Waehlt bis zu CRAWL_SEED_COUNT Spieler als naechste Kettenglieder.
 
@@ -837,8 +986,29 @@ def pick_crawl_seeds(queue: list, known_crawled: dict, pool: set) -> tuple:
     # Ballast, und "Queue leer" bedeutet wieder wirklich "leer".
     clean_queue = [c for c in queue if c not in known_crawled]
 
-    seeds = clean_queue[:CRAWL_SEED_COUNT]
-    remaining_queue = clean_queue[len(seeds):]
+    player_info = player_info or {}
+    direction_state = direction_state or {"direction": "up", "reference_rating": None}
+
+    # Innerhalb eines Fensters am Queue-Anfang werden Kandidaten bevorzugt,
+    # deren Rating zur aktuellen Richtung passt (siehe ALTERNATE_RATING_
+    # BATCH_SIZE weiter oben) - das haelt die Kette grundsaetzlich FIFO,
+    # sucht innerhalb des Fensters aber gezielt nach hoeheren/niedrigeren
+    # Ratings, damit der Crawl nicht ewig im gleichen Rating-Band haengt.
+    window_size = max(CRAWL_SEED_COUNT * 20, 200)
+    window = clean_queue[:window_size]
+    rest_after_window = clean_queue[window_size:]
+
+    matching = [c for c in window if rating_matches_direction(c, direction_state, player_info)]
+    matching_set = set(matching)
+    non_matching = [c for c in window if c not in matching_set]
+
+    seeds = matching[:CRAWL_SEED_COUNT]
+    if len(seeds) < CRAWL_SEED_COUNT:
+        seeds += non_matching[:CRAWL_SEED_COUNT - len(seeds)]
+
+    chosen_set = set(seeds)
+    remaining_window = [c for c in window if c not in chosen_set]
+    remaining_queue = remaining_window + rest_after_window
 
     if len(seeds) < CRAWL_SEED_COUNT:
         fresh_candidates = [p for p in pool if p not in known_crawled and p not in seeds]
@@ -914,7 +1084,7 @@ def inject_diverse_crawl_seeds(source_map: dict, count: int = DIVERSE_SEED_COUNT
 
 def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, last_checked: dict,
                               source_map: dict, since_ms: int, leaderboard: dict, stats: dict,
-                              bot_status: dict) -> tuple:
+                              player_info: dict) -> tuple:
     """
     Fuehrt EINE Crawl-Runde aus (bis zu CRAWL_SEED_COUNT Kettenglieder).
     Nimmt das/die naechste(n) Kettenglied(er) strikt FIFO aus der Queue,
@@ -928,8 +1098,9 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
     """
     queue = load_json_list(CRAWL_QUEUE_FILE)
     known_crawled = load_json_dict(KNOWN_CRAWLED_FILE)
+    direction_state = load_crawl_direction_state()
 
-    seeds, remaining_queue = pick_crawl_seeds(queue, known_crawled, pool)
+    seeds, remaining_queue = pick_crawl_seeds(queue, known_crawled, pool, player_info, direction_state)
     if not seeds:
         return set(), 0
 
@@ -941,7 +1112,7 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
     all_new_opponents = set()
     for seed in seeds:
         opponents = get_recent_opponents(seed, CRAWL_GAMES_PER_SEED)
-        opponents = check_and_filter_bots(opponents, bot_status)
+        opponents = check_and_filter_players(opponents, player_info)
         new_opponents = opponents - pool
 
         if new_opponents:
@@ -959,7 +1130,7 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
         stats["seeds_crawled"] += 1
 
         update_players_live(opponents, updated_this_run, counts, last_checked,
-                             source_map, since_ms, leaderboard, stats)
+                             source_map, since_ms, leaderboard, stats, player_info)
 
         # Neue Gegner werden ans ENDE der Queue gehaengt - genau das laesst
         # die Kette immer weiterwachsen, solange neue Gegner auftauchen.
@@ -972,6 +1143,8 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
         save_json_dict(SOURCE_MAP_FILE, source_map)
         save_json_set(KNOWN_PLAYERS_FILE, pool)
 
+    advance_crawl_direction(seeds, direction_state, player_info)
+
     return all_new_opponents, len(seeds)
 # <<< ENDE FIX
 # ---------------------------------------------------------------------------
@@ -979,7 +1152,7 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
 
 def process_crawl_slice(pool: set, updated_this_run: set, counts: dict, last_checked: dict,
                          source_map: dict, since_ms: int, leaderboard: dict, stats: dict,
-                         deadline: float, bot_status: dict) -> tuple:
+                         deadline: float, player_info: dict) -> tuple:
     """Fuehrt so viele Crawl-Runden aus, wie in die Zeitscheibe passen.
     Gibt (alle_neuen_spieler, gesamt_seeds_verarbeitet) zurueck."""
     total_new = set()
@@ -987,7 +1160,7 @@ def process_crawl_slice(pool: set, updated_this_run: set, counts: dict, last_che
     while time.time() < deadline:
         new_players, seeds_processed = run_snowball_crawl_round(
             pool, updated_this_run, counts, last_checked, source_map,
-            since_ms, leaderboard, stats, bot_status,
+            since_ms, leaderboard, stats, player_info,
         )
         total_new |= new_players
         total_seeds += seeds_processed
@@ -999,13 +1172,13 @@ def process_crawl_slice(pool: set, updated_this_run: set, counts: dict, last_che
 def process_tournament_slice(remaining_sources: list, pool: set, known_tournaments: set,
                               updated_this_run: set, counts: dict, last_checked: dict,
                               source_map: dict, since_ms: int, leaderboard: dict, stats: dict,
-                              deadline: float, bot_status: dict) -> list:
+                              deadline: float, player_info: dict) -> list:
     """Verarbeitet Turniere aus remaining_sources, bis entweder die Liste
     leer ist oder die Zeitscheibe abgelaufen ist. Gibt den Rest zurueck."""
     while remaining_sources and time.time() < deadline:
         t_id, kind = remaining_sources.pop(0)
         participants = get_tournament_participants(t_id, kind)
-        participants = check_and_filter_bots(participants, bot_status)
+        participants = check_and_filter_players(participants, player_info)
         new_count = len(participants - pool)
         pool |= participants
         if new_count:
@@ -1013,7 +1186,7 @@ def process_tournament_slice(remaining_sources: list, pool: set, known_tournamen
                   f"({new_count} neu im Pool).")
         tag_source(source_map, participants, "turnier")
         update_players_live(participants, updated_this_run, counts, last_checked,
-                             source_map, since_ms, leaderboard, stats)
+                             source_map, since_ms, leaderboard, stats, player_info)
         known_tournaments.add(t_id)
         save_json_set(KNOWN_PLAYERS_FILE, pool)
         save_json_set(KNOWN_TOURNAMENTS_FILE, known_tournaments)
@@ -1088,7 +1261,8 @@ def flashy_new_entry_banner(rank: int, name: str, count: int, source_label: str)
     print("  " + "*" * 60)
 
 
-def write_top10_snapshot(counts: dict, source_map: dict) -> None:
+def write_top10_snapshot(counts: dict, source_map: dict, player_info: dict = None) -> None:
+    player_info = player_info or {}
     STATUS_DIR.mkdir(parents=True, exist_ok=True)
     ranking = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:TOP_N_LIVE]
     now = now_iso()
@@ -1099,6 +1273,7 @@ def write_top10_snapshot(counts: dict, source_map: dict) -> None:
         "top10": [
             {
                 "rank": i, "username": name, "games": cnt,
+                "rating": player_info.get(name, {}).get("rating"),
                 "source": SOURCE_LABELS.get(source_map.get(name), "?"),
                 "profile": profile_url(name),
             }
@@ -1112,21 +1287,27 @@ def write_top10_snapshot(counts: dict, source_map: dict) -> None:
         "",
         f"_Zuletzt aktualisiert: {now}_",
         "",
-        "| Platz | Spieler | Partien | Quelle | Profil |",
-        "|---|---|---|---|---|",
+        "| Platz | Spieler | Rating | Partien | Quelle | Profil |",
+        "|---|---|---|---|---|---|",
     ]
     for i, (name, cnt) in enumerate(ranking, start=1):
         src = SOURCE_LABELS.get(source_map.get(name), "?")
-        lines.append(f"| {i} | {name} | {cnt} | {src} | [{name}]({profile_url(name)}) |")
+        rating = player_info.get(name, {}).get("rating")
+        rating_str = str(rating) if rating is not None else "?"
+        lines.append(f"| {i} | {name} | {rating_str} | {cnt} | {src} | [{name}]({profile_url(name)}) |")
     TOP10_MD_FILE.write_text("\n".join(lines) + "\n")
 
 
-def print_top(counts: dict, source_map: dict, n: int = TOP_N) -> list:
+def print_top(counts: dict, source_map: dict, player_info: dict = None, n: int = TOP_N) -> list:
+    player_info = player_info or {}
     ranking = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:n]
     print_header(f"TOP {n} AKTIVSTE {PERF_TYPE.upper()}-SPIELER (letzte {SINCE_DAYS} Tage)")
     for i, (name, cnt) in enumerate(ranking, start=1):
         src = SOURCE_LABELS.get(source_map.get(name), "?")
-        print(f"  {i:>3}. {name:<20} {cnt:>5} Partien   [{src:<11}]   {profile_url(name)}")
+        rating = player_info.get(name, {}).get("rating")
+        rating_str = str(rating) if rating is not None else "?"
+        print(f"  {i:>3}. {name:<20} {rating_str:>5}  {cnt:>5} Partien   "
+              f"[{src:<11}]   {profile_url(name)}")
     print("=" * 70)
     return ranking
 
@@ -1136,7 +1317,7 @@ def print_top(counts: dict, source_map: dict, n: int = TOP_N) -> list:
 # ---------------------------------------------------------------------------
 def update_players_live(usernames: set, already_updated: set, counts: dict, last_checked: dict,
                          source_map: dict, since_ms: int, leaderboard: dict,
-                         stats: dict = None) -> None:
+                         stats: dict = None, player_info: dict = None) -> None:
     """
     Aktualisiert die Partienzahl fuer eine Menge Spieler - aber nur, wenn
     es sich lohnt:
@@ -1185,8 +1366,8 @@ def update_players_live(usernames: set, already_updated: set, counts: dict, last
         leaderboard["counts"] = counts
         leaderboard["last_checked"] = last_checked
         leaderboard["updated_at"] = now_iso()
-        save_leaderboard(leaderboard, source_map)
-        write_top10_snapshot(counts, source_map)
+        save_leaderboard(leaderboard, source_map, player_info)
+        write_top10_snapshot(counts, source_map, player_info)
         maybe_live_push()
 
 
@@ -1207,8 +1388,19 @@ def main() -> None:
     crawl_queue_len = len(load_json_list(CRAWL_QUEUE_FILE))
     known_crawled_len = len(load_json_dict(KNOWN_CRAWLED_FILE))
     source_map = load_json_dict(SOURCE_MAP_FILE)
-    bot_status = load_json_dict(BOT_STATUS_FILE)
-    bot_status = {k: (v is True or v == "true") for k, v in bot_status.items()}
+    player_info = load_json_dict(PLAYER_INFO_FILE)
+    # Migration: alte bot_status.json (username -> bool) in das neue,
+    # reichhaltigere Format uebernehmen, falls player_info.json noch leer ist.
+    if not player_info:
+        legacy_bot_status = load_json_dict(BOT_STATUS_FILE)
+        if legacy_bot_status:
+            now = now_iso()
+            for uid, is_bot in legacy_bot_status.items():
+                is_bot = (is_bot is True or is_bot == "true")
+                player_info[uid] = {
+                    "bot": is_bot, "banned": False, "rating": None,
+                    "checked_at": now,
+                }
 
     print_header(f"BLITZ-ACTIVITY RUN - {PERF_TYPE} - {now_iso()}")
     print_stat("Bekannte Spieler im Pool", len(known_players))
@@ -1226,9 +1418,33 @@ def main() -> None:
     last_checked = leaderboard.get("last_checked", {})
     since_ms = int((datetime.now(timezone.utc) - timedelta(days=SINCE_DAYS)).timestamp() * 1000)
 
-    write_top10_snapshot(counts, source_map)
-
     pool = set(known_players)
+
+    # --- Rating/Bann-Refresh fuer die aktuelle Top-1000 -------------------
+    # Aktualisiert Rating UND Bann-/Bot-Status per Bulk-Endpunkt fuer alle
+    # Spieler, die gerade in der Top-1000 stehen und deren letzter Check
+    # laenger als RATING_REFRESH_COOLDOWN_HOURS zurueckliegt. So bleibt das
+    # angezeigte Rating aktuell UND neu gebannte Spieler werden erkannt,
+    # ohne bei jedem Lauf den gesamten (viel groesseren) Spieler-Pool
+    # abzufragen.
+    ranked_now = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:TOP_N_LIVE]
+    due_for_refresh = [
+        name for name, _ in ranked_now
+        if is_due(player_info.get(name, {}).get("checked_at", ""), RATING_REFRESH_COOLDOWN_SECONDS)
+    ]
+    if due_for_refresh:
+        print(f"  [RATING-REFRESH] Aktualisiere Rating/Status fuer "
+              f"{len(due_for_refresh)} Spieler der aktuellen Top-{TOP_N_LIVE}...")
+        update_player_info_cache(due_for_refresh, player_info)
+
+    # --- Gebannte Spieler dauerhaft entfernen ------------------------------
+    # Gebannte/geschlossene Accounts sollen weder in der Rangliste stehen
+    # noch weiterhin (erneut) eingefuegt werden.
+    purge_banned_players(pool, counts, last_checked, source_map, player_info)
+    save_json_dict(PLAYER_INFO_FILE, player_info)
+
+    write_top10_snapshot(counts, source_map, player_info)
+
     updated_this_run = set()
 
     save_json_set(KNOWN_PLAYERS_FILE, pool)
@@ -1283,7 +1499,7 @@ def main() -> None:
                 deadline = time.time() + PHASE_SLICE_SECONDS
                 new_from_crawl, seeds_processed = process_crawl_slice(
                     pool, updated_this_run, counts, last_checked, source_map,
-                    since_ms, leaderboard, overall_stats, deadline, bot_status,
+                    since_ms, leaderboard, overall_stats, deadline, player_info,
                 )
                 pool |= new_from_crawl
                 if seeds_processed == 0:
@@ -1300,7 +1516,7 @@ def main() -> None:
                 remaining_tournaments = process_tournament_slice(
                     remaining_tournaments, pool, known_tournaments, updated_this_run,
                     counts, last_checked, source_map, since_ms, leaderboard,
-                    overall_stats, deadline, bot_status,
+                    overall_stats, deadline, player_info,
                 )
                 if not remaining_tournaments:
                     tournaments_done = True
@@ -1320,11 +1536,12 @@ def main() -> None:
     save_json_set(KNOWN_PLAYERS_FILE, pool)
     save_json_set(KNOWN_TOURNAMENTS_FILE, known_tournaments)
     save_json_dict(SOURCE_MAP_FILE, source_map)
+    save_json_dict(PLAYER_INFO_FILE, player_info)
     leaderboard["counts"] = counts
     leaderboard["last_checked"] = last_checked
     leaderboard["updated_at"] = now_iso()
-    save_leaderboard(leaderboard, source_map)
-    write_top10_snapshot(counts, source_map)
+    save_leaderboard(leaderboard, source_map, player_info)
+    write_top10_snapshot(counts, source_map, player_info)
     maybe_live_push(force=True)
 
     elapsed = time.time() - run_start
@@ -1350,7 +1567,7 @@ def main() -> None:
         f"{label}: {cnt}" for label, cnt in sorted(source_counts.items(), key=lambda kv: -kv[1])
     ))
 
-    print_top(counts, source_map)
+    print_top(counts, source_map, player_info)
     print()
     print("Fertig.")
 
