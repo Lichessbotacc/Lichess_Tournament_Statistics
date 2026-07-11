@@ -2802,6 +2802,7 @@
     "buglog": 0,
     "bugra-celik": 2,
     "buihuudong2017ch": 0,
+    "buildnplay": 0,
     "buitienduong15032018": 0,
     "bukhari174_kingbarou": 0,
     "bukkapu": 0,
@@ -3155,6 +3156,7 @@
     "chess960atharv12": 0,
     "chess_12259": 0,
     "chess_and_dnd_nerd": 0,
+    "chess_art31": 0,
     "chess_avyakththekid": 10,
     "chess_chessss": 3,
     "chess_daniel0": 11,
@@ -4095,6 +4097,7 @@
     "dinan5678": 0,
     "dinara-10_08": 0,
     "dinesh_gerijan": 0,
+    "dingalieng": 0,
     "dinhlong2017": 0,
     "dinis774": 0,
     "dinke68": 0,
@@ -9019,6 +9022,7 @@
     "metalrob": 0,
     "metals-27": 0,
     "meted35": 0,
+    "metetokel": 0,
     "methmi_viyana": 0,
     "methnada2013": 1,
     "methunnethuja1d": 0,
@@ -13474,6 +13478,7 @@
     "vadimk2018": 1,
     "vadimp16": 0,
     "vadsasa": 4,
+    "vagarshakovich": 0,
     "vaibhav0104": 0,
     "vaibhav3118": 0,
     "vaibhavthewinner": 0,
@@ -17178,6 +17183,7 @@
     "buglog": "2026-07-11T15:44:05.882535+00:00",
     "bugra-celik": "2026-07-10T20:12:14.051332+00:00",
     "buihuudong2017ch": "2026-07-10T16:47:02.500155+00:00",
+    "buildnplay": "2026-07-11T19:37:42.989803+00:00",
     "buitienduong15032018": "2026-07-10T15:59:21.474773+00:00",
     "bukhari174_kingbarou": "2026-07-11T17:18:01.852091+00:00",
     "bukkapu": "2026-07-11T00:37:31.724661+00:00",
@@ -17529,6 +17535,7 @@
     "chess960atharv12": "2026-07-10T16:54:32.115001+00:00",
     "chess_12259": "2026-07-10T16:54:35.131693+00:00",
     "chess_and_dnd_nerd": "2026-07-10T12:50:18.675070+00:00",
+    "chess_art31": "2026-07-11T19:37:46.035524+00:00",
     "chess_chessss": "2026-07-11T06:04:36.502461+00:00",
     "chess_daniel0": "2026-07-11T05:30:25.541544+00:00",
     "chess_dragon_hk": "2026-07-10T16:54:38.139886+00:00",
@@ -18465,6 +18472,7 @@
     "dinan5678": "2026-07-10T23:35:40.890631+00:00",
     "dinara-10_08": "2026-07-10T19:03:50.977289+00:00",
     "dinesh_gerijan": "2026-07-10T04:39:48.023434+00:00",
+    "dingalieng": "2026-07-11T19:37:49.006176+00:00",
     "dinhlong2017": "2026-07-10T17:18:26.113748+00:00",
     "dinis774": "2026-07-10T21:02:59.961376+00:00",
     "dinke68": "2026-07-10T03:36:09.267957+00:00",
@@ -22221,7 +22229,7 @@
     "makatamambo": "2026-07-10T08:14:15.684549+00:00",
     "makavelyk": "2026-07-11T18:26:45.478208+00:00",
     "makdouli2anas": "2026-07-10T21:56:53.876123+00:00",
-    "makefetchhappen": "2026-07-10T09:07:03.169368+00:00",
+    "makefetchhappen": "2026-07-11T19:37:51.988978+00:00",
     "makehelltal": "2026-07-10T12:14:25.281933+00:00",
     "makethepawnking": "2026-07-11T03:54:56.074509+00:00",
     "makhov2017": "2026-07-11T06:02:27.948453+00:00",
@@ -22685,6 +22693,7 @@
     "metalrob": "2026-07-11T13:26:53.034335+00:00",
     "metals-27": "2026-07-11T18:51:58.600264+00:00",
     "meted35": "2026-07-10T13:27:11.196866+00:00",
+    "metetokel": "2026-07-11T19:37:54.977528+00:00",
     "methmi_viyana": "2026-07-11T13:26:13.532287+00:00",
     "methnada2013": "2026-07-10T14:54:58.963186+00:00",
     "methunnethuja1d": "2026-07-11T15:04:20.029881+00:00",
@@ -26708,6 +26717,7 @@
     "vadimk2018": "2026-07-10T17:50:04.085804+00:00",
     "vadimp16": "2026-07-11T02:24:15.813759+00:00",
     "vadsasa": "2026-07-10T20:33:50.150771+00:00",
+    "vagarshakovich": "2026-07-11T19:37:58.048621+00:00",
     "vaibhav0104": "2026-07-10T18:40:20.062289+00:00",
     "vaibhav3118": "2026-07-10T20:46:41.957473+00:00",
     "vaibhavthewinner": "2026-07-10T13:59:50.357133+00:00",
@@ -100915,7 +100925,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/makefetchhappen",
       "rank": 9163,
-      "rating": null,
+      "rating": 1962,
       "source": "Lobby-Crawl",
       "username": "makefetchhappen"
     },
@@ -142654,7 +142664,47 @@
       "rating": 1314,
       "source": "Lobby-Crawl",
       "username": "zeyno_solak"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/buildnplay",
+      "rank": 14381,
+      "rating": 1554,
+      "source": "Lobby-Crawl",
+      "username": "buildnplay"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess_art31",
+      "rank": 14382,
+      "rating": 2036,
+      "source": "?",
+      "username": "chess_art31"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/dingalieng",
+      "rank": 14383,
+      "rating": 1217,
+      "source": "Lobby-Crawl",
+      "username": "dingalieng"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/metetokel",
+      "rank": 14384,
+      "rating": 1058,
+      "source": "Lobby-Crawl",
+      "username": "metetokel"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vagarshakovich",
+      "rank": 14385,
+      "rating": 1476,
+      "source": "Lobby-Crawl",
+      "username": "vagarshakovich"
     }
   ],
-  "updated_at": "2026-07-11T19:37:27.830640+00:00"
+  "updated_at": "2026-07-11T19:37:58.048645+00:00"
 }
