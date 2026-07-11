@@ -3419,6 +3419,7 @@
     "crimson9978": 0,
     "criq999": 0,
     "cris75ro": 1,
+    "cris_court": 0,
     "crisalvarez": 0,
     "criskchess_ig": 0,
     "cristi0420en": 0,
@@ -7297,6 +7298,7 @@
     "levian2": 0,
     "levianlasse": 0,
     "leviatan11": 0,
+    "leviatordiem": 0,
     "levib4646": 0,
     "levictor": 0,
     "leviethoang18012017": 19,
@@ -9728,6 +9730,7 @@
     "quok3": 0,
     "quotet": 0,
     "qwe158_rote": 0,
+    "qwerta007": 0,
     "qwerterg": 0,
     "qwerty-the-cool": 0,
     "qwerty880": 2,
@@ -12223,6 +12226,7 @@
     "vihaan2401": 0,
     "vihaan_1110": 0,
     "vihaan_the_gder": 0,
+    "vihaandattha": 0,
     "vihaandatthag1461": 0,
     "vihaanp593": 0,
     "vihaans23": 0,
@@ -12849,6 +12853,7 @@
     "zacwang": 0,
     "zafmeh2330": 0,
     "zahar2017_1": 0,
+    "zahar_proklov": 0,
     "zaharius10": 0,
     "zaharovae": 0,
     "zaid150": 0,
@@ -16352,6 +16357,7 @@
     "crimson9978": "2026-07-11T00:36:08.596250+00:00",
     "criq999": "2026-07-10T13:02:57.010489+00:00",
     "cris75ro": "2026-07-10T17:46:13.730268+00:00",
+    "cris_court": "2026-07-11T17:14:00.792902+00:00",
     "crisalvarez": "2026-07-11T12:43:49.308573+00:00",
     "cristi0420en": "2026-07-10T06:37:14.415299+00:00",
     "cristianobanurea": "2026-07-10T16:48:08.105646+00:00",
@@ -20159,6 +20165,7 @@
     "levian2": "2026-07-10T09:39:49.558997+00:00",
     "levianlasse": "2026-07-11T06:10:41.179949+00:00",
     "leviatan11": "2026-07-10T23:47:29.939137+00:00",
+    "leviatordiem": "2026-07-11T17:13:39.781580+00:00",
     "levib4646": "2026-07-10T22:27:01.222601+00:00",
     "levictor": "2026-07-10T22:01:46.111187+00:00",
     "leviethoang18012017": "2026-07-11T05:26:46.343581+00:00",
@@ -20204,7 +20211,7 @@
     "lightningvishakan934": "2026-07-11T05:23:46.971615+00:00",
     "liguritio": "2026-07-11T00:22:12.559774+00:00",
     "lijingshuo2015": "2026-07-11T05:08:02.697063+00:00",
-    "like12": "2026-07-10T14:53:27.121073+00:00",
+    "like12": "2026-07-11T17:13:42.779554+00:00",
     "likeacheeta": "2026-07-11T13:30:56.694161+00:00",
     "likhith-ramesh2021": "2026-07-11T17:10:36.459259+00:00",
     "likuhznarayazuskikar": "2026-07-10T09:10:25.266539+00:00",
@@ -22555,6 +22562,7 @@
     "quok3": "2026-07-11T06:11:18.492676+00:00",
     "quotet": "2026-07-10T14:45:14.122487+00:00",
     "qwe158_rote": "2026-07-11T00:22:21.565830+00:00",
+    "qwerta007": "2026-07-11T17:13:45.794114+00:00",
     "qwerterg": "2026-07-11T07:37:13.721165+00:00",
     "qwerty-the-cool": "2026-07-11T04:26:54.951683+00:00",
     "qwerty880": "2026-07-11T07:58:17.444771+00:00",
@@ -24997,6 +25005,7 @@
     "vihaan2401": "2026-07-11T07:41:15.856270+00:00",
     "vihaan_1110": "2026-07-10T22:07:39.107719+00:00",
     "vihaan_the_gder": "2026-07-11T11:23:05.270399+00:00",
+    "vihaandattha": "2026-07-11T17:13:48.773885+00:00",
     "vihaandatthag1461": "2026-07-10T09:24:33.365661+00:00",
     "vihaanp593": "2026-07-10T09:05:21.011111+00:00",
     "vihaans23": "2026-07-11T03:11:44.584481+00:00",
@@ -25610,6 +25619,7 @@
     "zacwang": "2026-07-10T17:45:55.718583+00:00",
     "zafmeh2330": "2026-07-10T11:34:54.347142+00:00",
     "zahar2017_1": "2026-07-11T08:27:07.633993+00:00",
+    "zahar_proklov": "2026-07-11T17:13:51.799593+00:00",
     "zaharius10": "2026-07-11T11:47:14.569794+00:00",
     "zaharovae": "2026-07-11T12:19:24.886666+00:00",
     "zaid150": "2026-07-10T17:38:08.910806+00:00",
@@ -129490,7 +129500,47 @@
       "rating": 1648,
       "source": "Lobby-Crawl",
       "username": "chessstarforkids"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/leviatordiem",
+      "rank": 12971,
+      "rating": 2124,
+      "source": "Lobby-Crawl",
+      "username": "leviatordiem"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/qwerta007",
+      "rank": 12972,
+      "rating": 1380,
+      "source": "Lobby-Crawl",
+      "username": "qwerta007"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vihaandattha",
+      "rank": 12973,
+      "rating": 1525,
+      "source": "?",
+      "username": "vihaandattha"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/zahar_proklov",
+      "rank": 12974,
+      "rating": 1798,
+      "source": "Lobby-Crawl",
+      "username": "zahar_proklov"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/cris_court",
+      "rank": 12975,
+      "rating": 1310,
+      "source": "Lobby-Crawl",
+      "username": "cris_court"
     }
   ],
-  "updated_at": "2026-07-11T17:13:29.921760+00:00"
+  "updated_at": "2026-07-11T17:14:00.792923+00:00"
 }
