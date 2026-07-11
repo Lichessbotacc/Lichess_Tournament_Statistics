@@ -916,6 +916,7 @@
     "adventure25": 0,
     "advik_dhamal": 0,
     "advik_rathi": 0,
+    "advikindoria": 0,
     "advikmac": 0,
     "advikmj": 0,
     "adviknp": 0,
@@ -8040,6 +8041,7 @@
     "lee_williams": 0,
     "leeexportbro20014": 0,
     "leehongyi": 0,
+    "leelpha_zero": 0,
     "leeus": 0,
     "lefree1": 0,
     "leftcleverglove": 0,
@@ -11362,6 +11364,7 @@
     "rapidchessleicester": 0,
     "rapidchessmasters": 0,
     "rapidgambitmaestro": 1,
+    "rarchinio": 0,
     "rarelyadraw": 0,
     "rares1977": 0,
     "rarlichess": 2,
@@ -12262,6 +12265,7 @@
     "seththa2012": 2,
     "seungminstay": 0,
     "seungwoomyung": 0,
+    "sev_75": 0,
     "seva1812": 0,
     "severin_22": 0,
     "sevna_eshani": 0,
@@ -15691,6 +15695,7 @@
     "adventure25": "2026-07-10T18:02:39.419897+00:00",
     "advik_dhamal": "2026-07-11T06:59:10.423771+00:00",
     "advik_rathi": "2026-07-10T11:39:43.000230+00:00",
+    "advikindoria": "2026-07-11T21:08:21.745977+00:00",
     "advikmac": "2026-07-11T03:39:25.177862+00:00",
     "advikmj": "2026-07-10T01:06:10.513420+00:00",
     "adviknp": "2026-07-10T01:06:11.800970+00:00",
@@ -19984,7 +19989,7 @@
     "frandres": "2026-07-10T23:37:21.918967+00:00",
     "franek-klekot": "2026-07-10T05:55:24.789573+00:00",
     "franek_2011": "2026-07-10T08:58:51.064485+00:00",
-    "franklinapalomo": "2026-07-10T16:37:54.644658+00:00",
+    "franklinapalomo": "2026-07-11T21:08:25.134414+00:00",
     "franrq": "2026-07-10T02:03:12.276031+00:00",
     "frantictoaster": "2026-07-10T07:37:23.711488+00:00",
     "franz_05": "2026-07-11T11:44:55.029925+00:00",
@@ -22298,6 +22303,7 @@
     "ledangphuc2019": "2026-07-10T08:01:46.391066+00:00",
     "lee_williams": "2026-07-10T09:40:20.026640+00:00",
     "leehongyi": "2026-07-11T09:41:59.853763+00:00",
+    "leelpha_zero": "2026-07-11T21:08:27.790400+00:00",
     "leeus": "2026-07-11T08:22:55.072846+00:00",
     "leftcleverglove": "2026-07-11T10:10:57.645451+00:00",
     "leftprimarypoem": "2026-07-11T04:01:29.583804+00:00",
@@ -23141,7 +23147,7 @@
     "matvey_chernitsyn": "2026-07-11T15:00:29.124116+00:00",
     "matvey_shirihanov555": "2026-07-11T10:45:15.026370+00:00",
     "matveykostin": "2026-07-11T08:04:24.908417+00:00",
-    "matwey123": "2026-07-11T02:25:20.753070+00:00",
+    "matwey123": "2026-07-11T21:08:30.996328+00:00",
     "matyar77": "2026-07-10T07:42:46.389571+00:00",
     "matyassakk": "2026-07-11T13:32:26.211448+00:00",
     "matyim": "2026-07-11T15:00:32.092797+00:00",
@@ -25049,6 +25055,7 @@
     "rapidchessleicester": "2026-07-11T17:54:16.513083+00:00",
     "rapidchessmasters": "2026-07-10T12:43:09.305640+00:00",
     "rapidgambitmaestro": "2026-07-10T10:48:41.223079+00:00",
+    "rarchinio": "2026-07-11T21:08:12.785082+00:00",
     "rarelyadraw": "2026-07-10T08:28:32.410141+00:00",
     "rares1977": "2026-07-11T07:10:16.775239+00:00",
     "rarlichess": "2026-07-10T13:23:48.024709+00:00",
@@ -25905,6 +25912,7 @@
     "seththa2012": "2026-07-10T15:40:08.220594+00:00",
     "seungminstay": "2026-07-10T20:36:01.138934+00:00",
     "seungwoomyung": "2026-07-10T13:26:25.128156+00:00",
+    "sev_75": "2026-07-11T21:08:33.816513+00:00",
     "seva1812": "2026-07-11T10:04:34.550886+00:00",
     "severin_22": "2026-07-10T07:17:27.234087+00:00",
     "sevna_eshani": "2026-07-10T07:41:25.113027+00:00",
@@ -146596,7 +146604,39 @@
       "rating": 1320,
       "source": "Lobby-Crawl",
       "username": "leonardo_savu"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/rarchinio",
+      "rank": 14775,
+      "rating": 1627,
+      "source": "?",
+      "username": "rarchinio"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/advikindoria",
+      "rank": 14776,
+      "rating": 1429,
+      "source": "Lobby-Crawl",
+      "username": "advikindoria"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/leelpha_zero",
+      "rank": 14777,
+      "rating": 2308,
+      "source": "Lobby-Crawl",
+      "username": "leelpha_zero"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/sev_75",
+      "rank": 14778,
+      "rating": 1606,
+      "source": "Lobby-Crawl",
+      "username": "sev_75"
     }
   ],
-  "updated_at": "2026-07-11T21:08:02.587547+00:00"
+  "updated_at": "2026-07-11T21:08:33.816536+00:00"
 }
