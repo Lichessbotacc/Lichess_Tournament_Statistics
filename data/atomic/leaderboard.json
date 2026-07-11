@@ -8481,6 +8481,7 @@
     "player888339": 0,
     "player_221": 11,
     "player_nlm": 0,
+    "player_regional": 0,
     "player_sgm_classic": 39,
     "player_unbeatable": 0,
     "playerege": 0,
@@ -19570,6 +19571,7 @@
     "player888339": "2026-07-11T09:39:37.300302+00:00",
     "player_221": "2026-07-10T23:22:05.323083+00:00",
     "player_nlm": "2026-07-10T03:27:06.041238+00:00",
+    "player_regional": "2026-07-11T09:53:52.885344+00:00",
     "player_sgm_classic": "2026-07-11T05:13:32.924918+00:00",
     "player_unbeatable": "2026-07-10T17:46:38.938053+00:00",
     "playerege": "2026-07-10T21:43:24.390708+00:00",
@@ -99957,7 +99959,14 @@
       "rank": 11109,
       "source": "Lobby-Crawl",
       "username": "paulohsc2"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/player_regional",
+      "rank": 11110,
+      "source": "Lobby-Crawl",
+      "username": "player_regional"
     }
   ],
-  "updated_at": "2026-07-11T09:49:23.362026+00:00"
+  "updated_at": "2026-07-11T09:53:52.885368+00:00"
 }
