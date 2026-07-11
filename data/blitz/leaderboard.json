@@ -1964,7 +1964,7 @@
     "antikomunismus": 114,
     "antiloperibelle": 110,
     "antiok": 130,
-    "antiopa": 324,
+    "antiopa": 332,
     "antipodas": 62,
     "antocharlesvincent": 2,
     "antoine69": 16,
@@ -13408,7 +13408,7 @@
     "antikomunismus": "2026-07-10T16:11:22.704250+00:00",
     "antiloperibelle": "2026-07-11T21:31:12.436842+00:00",
     "antiok": "2026-07-10T03:51:25.205472+00:00",
-    "antiopa": "2026-07-10T16:12:30.264235+00:00",
+    "antiopa": "2026-07-11T21:57:39.765354+00:00",
     "antipodas": "2026-07-11T08:34:01.095352+00:00",
     "antocharlesvincent": "2026-07-10T01:23:41.175571+00:00",
     "antoine69": "2026-07-11T11:58:28.856270+00:00",
@@ -24251,8 +24251,16 @@
     },
     {
       "games": 332,
-      "profile": "https://lichess.org/@/roifou2001",
+      "profile": "https://lichess.org/@/antiopa",
       "rank": 192,
+      "rating": 1697,
+      "source": "Turnier",
+      "username": "antiopa"
+    },
+    {
+      "games": 332,
+      "profile": "https://lichess.org/@/roifou2001",
+      "rank": 193,
       "rating": 2165,
       "source": "Turnier",
       "username": "roifou2001"
@@ -24260,7 +24268,7 @@
     {
       "games": 331,
       "profile": "https://lichess.org/@/rokinvin",
-      "rank": 193,
+      "rank": 194,
       "rating": 1123,
       "source": "Turnier",
       "username": "rokinvin"
@@ -24268,7 +24276,7 @@
     {
       "games": 331,
       "profile": "https://lichess.org/@/sumn111",
-      "rank": 194,
+      "rank": 195,
       "rating": 1695,
       "source": "Turnier",
       "username": "sumn111"
@@ -24276,7 +24284,7 @@
     {
       "games": 329,
       "profile": "https://lichess.org/@/cevorus",
-      "rank": 195,
+      "rank": 196,
       "rating": 1580,
       "source": "Turnier",
       "username": "cevorus"
@@ -24284,7 +24292,7 @@
     {
       "games": 329,
       "profile": "https://lichess.org/@/ilhom_azizov",
-      "rank": 196,
+      "rank": 197,
       "rating": 1743,
       "source": "Turnier",
       "username": "ilhom_azizov"
@@ -24292,7 +24300,7 @@
     {
       "games": 329,
       "profile": "https://lichess.org/@/lesaa66",
-      "rank": 197,
+      "rank": 198,
       "rating": 1957,
       "source": "Lobby-Crawl",
       "username": "lesaa66"
@@ -24300,7 +24308,7 @@
     {
       "games": 328,
       "profile": "https://lichess.org/@/geydarov",
-      "rank": 198,
+      "rank": 199,
       "rating": 2283,
       "source": "Turnier",
       "username": "geydarov"
@@ -24308,7 +24316,7 @@
     {
       "games": 327,
       "profile": "https://lichess.org/@/col007",
-      "rank": 199,
+      "rank": 200,
       "rating": 1701,
       "source": "Lobby-Crawl",
       "username": "col007"
@@ -24316,7 +24324,7 @@
     {
       "games": 327,
       "profile": "https://lichess.org/@/levagil",
-      "rank": 200,
+      "rank": 201,
       "rating": 1849,
       "source": "Lobby-Crawl",
       "username": "levagil"
@@ -24324,7 +24332,7 @@
     {
       "games": 326,
       "profile": "https://lichess.org/@/fleksleon",
-      "rank": 201,
+      "rank": 202,
       "rating": 2249,
       "source": "Turnier",
       "username": "fleksleon"
@@ -24332,7 +24340,7 @@
     {
       "games": 326,
       "profile": "https://lichess.org/@/lok002",
-      "rank": 202,
+      "rank": 203,
       "rating": 1864,
       "source": "Lobby-Crawl",
       "username": "lok002"
@@ -24340,7 +24348,7 @@
     {
       "games": 326,
       "profile": "https://lichess.org/@/russell01",
-      "rank": 203,
+      "rank": 204,
       "rating": 1962,
       "source": "Turnier",
       "username": "russell01"
@@ -24348,7 +24356,7 @@
     {
       "games": 325,
       "profile": "https://lichess.org/@/tomas_75-2014",
-      "rank": 204,
+      "rank": 205,
       "rating": 1244,
       "source": "Lobby-Crawl",
       "username": "tomas_75-2014"
@@ -24356,18 +24364,10 @@
     {
       "games": 325,
       "profile": "https://lichess.org/@/viktor_lalka",
-      "rank": 205,
+      "rank": 206,
       "rating": 1413,
       "source": "Turnier",
       "username": "viktor_lalka"
-    },
-    {
-      "games": 324,
-      "profile": "https://lichess.org/@/antiopa",
-      "rank": 206,
-      "rating": 1697,
-      "source": "Turnier",
-      "username": "antiopa"
     },
     {
       "games": 324,
@@ -114442,5 +114442,5 @@
       "username": "vihas-githsara"
     }
   ],
-  "updated_at": "2026-07-11T21:57:09.303334+00:00"
+  "updated_at": "2026-07-11T21:57:39.769113+00:00"
 }
