@@ -5255,7 +5255,7 @@
     "fr2imperio": 78,
     "fr_sasambo": 26,
     "fraanko": 70,
-    "frabonca13": 538,
+    "frabonca13": 545,
     "fractalchess2": 104,
     "fraerok777": 85,
     "franalvarezb": 64,
@@ -16898,7 +16898,7 @@
     "fr0stl0rd": "2026-07-10T06:04:49.373099+00:00",
     "fr2imperio": "2026-07-11T22:25:37.815934+00:00",
     "fr_sasambo": "2026-07-10T17:03:33.071873+00:00",
-    "frabonca13": "2026-07-10T19:06:56.394086+00:00",
+    "frabonca13": "2026-07-11T23:13:07.444863+00:00",
     "fractalchess2": "2026-07-11T08:45:59.730380+00:00",
     "fraerok777": "2026-07-11T16:37:25.827222+00:00",
     "franalvarezb": "2026-07-11T03:23:30.643512+00:00",
@@ -23640,8 +23640,16 @@
     },
     {
       "games": 545,
-      "profile": "https://lichess.org/@/graymayster",
+      "profile": "https://lichess.org/@/frabonca13",
       "rank": 32,
+      "rating": 2021,
+      "source": "Lobby-Crawl",
+      "username": "frabonca13"
+    },
+    {
+      "games": 545,
+      "profile": "https://lichess.org/@/graymayster",
+      "rank": 33,
       "rating": 2097,
       "source": "Turnier",
       "username": "graymayster"
@@ -23649,7 +23657,7 @@
     {
       "games": 544,
       "profile": "https://lichess.org/@/silentbloc",
-      "rank": 33,
+      "rank": 34,
       "rating": 1939,
       "source": "Turnier",
       "username": "silentbloc"
@@ -23657,18 +23665,10 @@
     {
       "games": 542,
       "profile": "https://lichess.org/@/bestmateever",
-      "rank": 34,
+      "rank": 35,
       "rating": 1774,
       "source": "?",
       "username": "bestmateever"
-    },
-    {
-      "games": 538,
-      "profile": "https://lichess.org/@/frabonca13",
-      "rank": 35,
-      "rating": 2021,
-      "source": "Lobby-Crawl",
-      "username": "frabonca13"
     },
     {
       "games": 535,
@@ -117775,5 +117775,5 @@
       "username": "machine_kay"
     }
   ],
-  "updated_at": "2026-07-11T23:12:23.416399+00:00"
+  "updated_at": "2026-07-11T23:13:07.448110+00:00"
 }
