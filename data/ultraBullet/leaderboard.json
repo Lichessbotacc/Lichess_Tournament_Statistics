@@ -1001,7 +1001,7 @@
     "agkh": 19,
     "aglassofwater1": 109,
     "agm_datuali_sinsuat": 0,
-    "agmpraveensagar": 981,
+    "agmpraveensagar": 942,
     "agney100": 0,
     "agni_06": 0,
     "agni_astra": 0,
@@ -12195,7 +12195,7 @@
     "agkh": "2026-07-11T19:06:19.399458+00:00",
     "aglassofwater1": "2026-07-11T00:35:36.836530+00:00",
     "agm_datuali_sinsuat": "2026-07-10T02:40:49.562216+00:00",
-    "agmpraveensagar": "2026-07-11T01:49:19.495831+00:00",
+    "agmpraveensagar": "2026-07-11T20:46:47.628511+00:00",
     "agney100": "2026-07-10T02:40:52.555972+00:00",
     "agni_06": "2026-07-10T02:40:55.555187+00:00",
     "agnia-aleksandrovna": "2026-07-10T02:40:58.560587+00:00",
@@ -22087,17 +22087,9 @@
       "username": "elapachealdo"
     },
     {
-      "games": 981,
-      "profile": "https://lichess.org/@/agmpraveensagar",
-      "rank": 22,
-      "rating": 2142,
-      "source": "Lobby-Crawl",
-      "username": "agmpraveensagar"
-    },
-    {
       "games": 960,
       "profile": "https://lichess.org/@/giuliog",
-      "rank": 23,
+      "rank": 22,
       "rating": 2200,
       "source": "Lobby-Crawl",
       "username": "giuliog"
@@ -22105,10 +22097,18 @@
     {
       "games": 960,
       "profile": "https://lichess.org/@/maxentius9",
-      "rank": 24,
+      "rank": 23,
       "rating": 1915,
       "source": "Lobby-Crawl",
       "username": "maxentius9"
+    },
+    {
+      "games": 942,
+      "profile": "https://lichess.org/@/agmpraveensagar",
+      "rank": 24,
+      "rating": 2142,
+      "source": "Lobby-Crawl",
+      "username": "agmpraveensagar"
     },
     {
       "games": 925,
@@ -111543,5 +111543,5 @@
       "username": "grigoryev_semen"
     }
   ],
-  "updated_at": "2026-07-11T20:46:03.998440+00:00"
+  "updated_at": "2026-07-11T20:46:47.631367+00:00"
 }
