@@ -2998,6 +2998,7 @@
     "bezpalyi_max": 7,
     "bferi50": 0,
     "bgs3c1_dtbminh": 0,
+    "bhadr": 0,
     "bhafan84": 0,
     "bharat_mata_ki_jai": 93,
     "bharata": 0,
@@ -18894,6 +18895,7 @@
     "bezpalyi_max": "2026-07-11T07:16:14.654017+00:00",
     "bferi50": "2026-07-10T01:30:03.825988+00:00",
     "bgs3c1_dtbminh": "2026-07-11T04:41:42.819692+00:00",
+    "bhadr": "2026-07-11T23:35:15.806501+00:00",
     "bharat_mata_ki_jai": "2026-07-11T05:09:22.188340+00:00",
     "bharata": "2026-07-11T19:33:24.974415+00:00",
     "bharatbhushanverma": "2026-07-11T19:49:44.520232+00:00",
@@ -43424,7 +43426,7 @@
       "games": 19,
       "profile": "https://lichess.org/@/tzo1456086",
       "rank": 1621,
-      "rating": null,
+      "rating": 1672,
       "source": "Lobby-Crawl",
       "username": "tzo1456086"
     },
@@ -159387,7 +159389,15 @@
       "rating": 1682,
       "source": "Lobby-Crawl",
       "username": "rhoentgen"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/bhadr",
+      "rank": 16117,
+      "rating": 1711,
+      "source": "Lobby-Crawl",
+      "username": "bhadr"
     }
   ],
-  "updated_at": "2026-07-11T23:34:01.255652+00:00"
+  "updated_at": "2026-07-11T23:35:15.806521+00:00"
 }
