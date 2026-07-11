@@ -4681,6 +4681,7 @@
     "ekkojensen": 43,
     "eko99_sasambo": 0,
     "ekor_kpcc": 0,
+    "ekrem12emir": 0,
     "ekrook": 0,
     "eksperto1925": 0,
     "el-amigo": 0,
@@ -6486,6 +6487,7 @@
     "idhant2010": 0,
     "idk_1215": 1,
     "idk_shi_about_chess": 0,
+    "idkdawg": 0,
     "idkevenwhatodo": 0,
     "idn": 0,
     "idoine_7337": 0,
@@ -8903,6 +8905,7 @@
     "malikcosmo": 0,
     "malindu44": 0,
     "malinmorosan_martin": 0,
+    "malishious": 0,
     "mallochtaylor": 31,
     "malpalsam": 0,
     "maltyznikolay": 60,
@@ -12203,6 +12206,7 @@
     "rudra-09": 0,
     "rudra2212": 0,
     "rudra_ghadge": 0,
+    "rudra_rook11": 0,
     "rudrakishansuda": 0,
     "rudranilmitra": 0,
     "rudransh-1617": 0,
@@ -13411,6 +13415,7 @@
     "sukh41": 0,
     "sukier": 0,
     "sukkuda": 0,
+    "sukrantperla": 0,
     "sukrit_s": 0,
     "sukron_ltc": 0,
     "sukru2012": 0,
@@ -20160,6 +20165,7 @@
     "ekkojensen": "2026-07-11T02:47:07.161992+00:00",
     "eko99_sasambo": "2026-07-10T16:57:05.737832+00:00",
     "ekor_kpcc": "2026-07-10T14:17:08.732859+00:00",
+    "ekrem12emir": "2026-07-11T18:43:10.004763+00:00",
     "ekrook": "2026-07-10T14:19:43.656673+00:00",
     "eksperto1925": "2026-07-10T16:57:08.736178+00:00",
     "el-amigo": "2026-07-11T06:23:19.579607+00:00",
@@ -21963,6 +21969,7 @@
     "idhant2010": "2026-07-11T09:12:28.367176+00:00",
     "idk_1215": "2026-07-10T15:38:13.663446+00:00",
     "idk_shi_about_chess": "2026-07-10T17:14:41.886445+00:00",
+    "idkdawg": "2026-07-11T18:43:13.017712+00:00",
     "idkevenwhatodo": "2026-07-11T09:34:33.008734+00:00",
     "idn": "2026-07-10T22:10:11.140298+00:00",
     "idoine_7337": "2026-07-10T21:07:05.289613+00:00",
@@ -24139,6 +24146,7 @@
     "malikcosmo": "2026-07-10T12:28:44.749363+00:00",
     "malindu44": "2026-07-10T19:20:07.437782+00:00",
     "malinmorosan_martin": "2026-07-11T07:41:54.949909+00:00",
+    "malishious": "2026-07-11T18:42:55.008640+00:00",
     "mallochtaylor": "2026-07-11T00:19:02.758646+00:00",
     "maltyznikolay": "2026-07-11T04:23:27.533293+00:00",
     "maluneevkirill": "2026-07-10T22:38:10.833033+00:00",
@@ -26886,6 +26894,7 @@
     "rudolf-pieter_cam": "2026-07-10T12:35:14.637957+00:00",
     "rudra-09": "2026-07-10T04:39:43.488609+00:00",
     "rudra2212": "2026-07-10T08:21:40.071642+00:00",
+    "rudra_rook11": "2026-07-11T18:42:58.007698+00:00",
     "rudranilmitra": "2026-07-10T19:22:01.995568+00:00",
     "rudransh-1stjuly2013": "2026-07-11T08:15:46.831033+00:00",
     "rudransh-gbs": "2026-07-10T21:39:19.876503+00:00",
@@ -27249,7 +27258,7 @@
     "schachtrainer_76": "2026-07-11T02:02:36.452124+00:00",
     "schaf2009": "2026-07-10T20:00:13.459868+00:00",
     "schappi_beaver": "2026-07-11T10:57:02.355736+00:00",
-    "schbaggs": "2026-07-10T23:48:24.480519+00:00",
+    "schbaggs": "2026-07-11T18:43:16.014660+00:00",
     "schcddfh": "2026-07-11T05:45:25.955192+00:00",
     "schleppster": "2026-07-11T10:51:31.305544+00:00",
     "schlumpfvater": "2026-07-11T05:58:33.115044+00:00",
@@ -27967,6 +27976,7 @@
     "sukh41": "2026-07-11T01:18:35.562979+00:00",
     "sukier": "2026-07-11T14:53:15.752880+00:00",
     "sukkuda": "2026-07-11T04:53:13.142003+00:00",
+    "sukrantperla": "2026-07-11T18:43:01.027326+00:00",
     "sukrit_s": "2026-07-10T12:27:35.102696+00:00",
     "sukron_ltc": "2026-07-10T23:13:21.863568+00:00",
     "sukru2012": "2026-07-10T16:23:40.889671+00:00",
@@ -130178,7 +130188,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/schbaggs",
       "rank": 12518,
-      "rating": null,
+      "rating": 1819,
       "source": "Lobby-Crawl",
       "username": "schbaggs"
     },
@@ -153877,7 +153887,47 @@
       "rating": 950,
       "source": "Lobby-Crawl",
       "username": "klondke"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/malishious",
+      "rank": 15481,
+      "rating": 2086,
+      "source": "Lobby-Crawl",
+      "username": "malishious"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/rudra_rook11",
+      "rank": 15482,
+      "rating": 1032,
+      "source": "Lobby-Crawl",
+      "username": "rudra_rook11"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/sukrantperla",
+      "rank": 15483,
+      "rating": 1323,
+      "source": "Lobby-Crawl",
+      "username": "sukrantperla"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ekrem12emir",
+      "rank": 15484,
+      "rating": 1585,
+      "source": "Lobby-Crawl",
+      "username": "ekrem12emir"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/idkdawg",
+      "rank": 15485,
+      "rating": 1342,
+      "source": "Lobby-Crawl",
+      "username": "idkdawg"
     }
   ],
-  "updated_at": "2026-07-11T18:42:45.836445+00:00"
+  "updated_at": "2026-07-11T18:43:16.014681+00:00"
 }
