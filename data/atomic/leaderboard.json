@@ -3026,6 +3026,7 @@
     "calixtenes": 5,
     "callina1": 0,
     "calmascows": 0,
+    "calumpa": 0,
     "cam-vascovallebuona": 0,
     "cam_4210": 0,
     "cameron2017": 6,
@@ -3846,6 +3847,7 @@
     "dansaijin": 0,
     "dansemdan": 0,
     "danttasz": 0,
+    "danweider": 0,
     "danya1915": 102,
     "danya_d": 31,
     "danyak_2025": 1,
@@ -5492,6 +5494,7 @@
     "granpamini": 0,
     "graphical06": 0,
     "graticul8r": 0,
+    "grave-digger01": 0,
     "graylights": 0,
     "graymayster": 0,
     "greatjohn": 0,
@@ -7773,6 +7776,7 @@
     "loveandwar01": 12,
     "lovediamorphine": 0,
     "loveurselfbro": 0,
+    "lowdel": 0,
     "loyalrose": 0,
     "lozovoy_25": 0,
     "lp_77_pro_max": 0,
@@ -8899,6 +8903,7 @@
     "ndp0613": 1,
     "ndu2100": 0,
     "ndzy09": 14,
+    "neaapollonia": 0,
     "nealindla": 36,
     "nealkrishna": 0,
     "nebunejuksd": 0,
@@ -10081,6 +10086,7 @@
     "reisimio": 0,
     "relampago07": 3,
     "relax2600": 8,
+    "relmaster": 0,
     "rembl_5": 0,
     "remcobrobbel": 1,
     "reminone": 0,
@@ -15884,6 +15890,7 @@
     "calixtenes": "2026-07-11T10:18:46.882125+00:00",
     "callina1": "2026-07-10T19:41:50.398414+00:00",
     "calmascows": "2026-07-10T18:14:05.740756+00:00",
+    "calumpa": "2026-07-11T19:09:30.444131+00:00",
     "cam-vascovallebuona": "2026-07-10T01:37:30.370769+00:00",
     "cam_4210": "2026-07-10T01:37:31.711706+00:00",
     "cameron2017": "2026-07-11T02:00:45.693971+00:00",
@@ -16700,6 +16707,7 @@
     "dansaijin": "2026-07-11T13:14:41.548679+00:00",
     "dansemdan": "2026-07-11T16:11:13.422395+00:00",
     "danttasz": "2026-07-11T07:30:29.259027+00:00",
+    "danweider": "2026-07-11T19:09:33.452693+00:00",
     "danya1915": "2026-07-11T12:40:10.284101+00:00",
     "danya_d": "2026-07-11T02:49:23.142123+00:00",
     "danyak_2025": "2026-07-11T03:33:20.830196+00:00",
@@ -18340,6 +18348,7 @@
     "granpamini": "2026-07-10T11:06:38.720694+00:00",
     "graphical06": "2026-07-11T03:17:36.256771+00:00",
     "graticul8r": "2026-07-10T08:58:19.548375+00:00",
+    "grave-digger01": "2026-07-11T19:09:48.436008+00:00",
     "graylights": "2026-07-11T04:08:44.239120+00:00",
     "graymayster": "2026-07-11T04:20:33.570465+00:00",
     "greatjohn": "2026-07-10T07:16:04.663497+00:00",
@@ -20617,6 +20626,7 @@
     "loveandwar01": "2026-07-10T22:40:20.818629+00:00",
     "lovediamorphine": "2026-07-11T09:33:32.684588+00:00",
     "loveurselfbro": "2026-07-10T10:49:03.278884+00:00",
+    "lowdel": "2026-07-11T19:09:36.459008+00:00",
     "loyalrose": "2026-07-11T00:12:09.046111+00:00",
     "lozovoy_25": "2026-07-10T15:17:23.317123+00:00",
     "lp_77_pro_max": "2026-07-11T08:43:59.685547+00:00",
@@ -21742,6 +21752,7 @@
     "ndp0613": "2026-07-10T18:14:11.723698+00:00",
     "ndu2100": "2026-07-11T02:35:04.841597+00:00",
     "ndzy09": "2026-07-10T13:15:41.664165+00:00",
+    "neaapollonia": "2026-07-11T19:09:51.430698+00:00",
     "nealindla": "2026-07-11T01:06:09.224457+00:00",
     "nealkrishna": "2026-07-10T06:50:09.188040+00:00",
     "nebunejuksd": "2026-07-10T23:20:30.968908+00:00",
@@ -22919,6 +22930,7 @@
     "reisimio": "2026-07-11T03:45:34.579198+00:00",
     "relampago07": "2026-07-10T11:47:53.742133+00:00",
     "relax2600": "2026-07-11T10:13:58.022425+00:00",
+    "relmaster": "2026-07-11T19:09:39.448024+00:00",
     "rembl_5": "2026-07-11T03:35:44.383311+00:00",
     "remcobrobbel": "2026-07-10T14:29:00.433528+00:00",
     "reminone": "2026-07-10T19:48:52.170636+00:00",
@@ -128576,7 +128588,55 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "alvaro100000000"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/calumpa",
+      "rank": 12861,
+      "rating": 1330,
+      "source": "Lobby-Crawl",
+      "username": "calumpa"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/danweider",
+      "rank": 12862,
+      "rating": 1460,
+      "source": "Lobby-Crawl",
+      "username": "danweider"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/lowdel",
+      "rank": 12863,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "lowdel"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/relmaster",
+      "rank": 12864,
+      "rating": 1509,
+      "source": "Lobby-Crawl",
+      "username": "relmaster"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/grave-digger01",
+      "rank": 12865,
+      "rating": 1610,
+      "source": "Lobby-Crawl",
+      "username": "grave-digger01"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/neaapollonia",
+      "rank": 12866,
+      "rating": 2052,
+      "source": "Lobby-Crawl",
+      "username": "neaapollonia"
     }
   ],
-  "updated_at": "2026-07-11T19:09:19.911310+00:00"
+  "updated_at": "2026-07-11T19:09:51.430761+00:00"
 }
