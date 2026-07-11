@@ -3549,6 +3549,7 @@
     "cseni": 116,
     "csiribu": 0,
     "csisac": 0,
+    "csvnc": 0,
     "ct_elijahs": 11,
     "ctdtienthanh123": 0,
     "cthfabv2008": 0,
@@ -15573,6 +15574,7 @@
     "cseni": "2026-07-11T10:46:21.661817+00:00",
     "csiribu": "2026-07-11T06:56:25.839243+00:00",
     "csisac": "2026-07-10T14:17:10.129057+00:00",
+    "csvnc": "2026-07-11T20:20:20.244069+00:00",
     "ct_elijahs": "2026-07-10T15:44:47.809040+00:00",
     "ctdtienthanh123": "2026-07-11T00:23:33.009028+00:00",
     "cthfabv2008": "2026-07-10T12:52:48.795842+00:00",
@@ -119500,7 +119502,15 @@
       "rating": 1336,
       "source": "Lobby-Crawl",
       "username": "sebstappen"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/csvnc",
+      "rank": 12025,
+      "rating": 1163,
+      "source": "Lobby-Crawl",
+      "username": "csvnc"
     }
   ],
-  "updated_at": "2026-07-11T20:18:06.704461+00:00"
+  "updated_at": "2026-07-11T20:20:20.244087+00:00"
 }
