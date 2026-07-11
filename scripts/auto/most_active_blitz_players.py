@@ -1398,15 +1398,20 @@ def main() -> None:
     player_info = load_json_dict(PLAYER_INFO_FILE)
     # Migration: alte bot_status.json (username -> bool) in das neue,
     # reichhaltigere Format uebernehmen, falls player_info.json noch leer ist.
+    # WICHTIG: checked_at bleibt leer ("nie geprueft") statt "jetzt" - die
+    # alte Datei enthielt NUR den Bot-Status, keine echte Bann-Pruefung.
+    # Wuerde man hier "jetzt" eintragen, wuerde das Skript faelschlich
+    # denken, der Bann-Status sei frisch verifiziert, und wuerde den
+    # echten Stand (inkl. bereits gebannter Accounts) bis zum Ablauf von
+    # RATING_REFRESH_COOLDOWN_HOURS nicht pruefen.
     if not player_info:
         legacy_bot_status = load_json_dict(BOT_STATUS_FILE)
         if legacy_bot_status:
-            now = now_iso()
             for uid, is_bot in legacy_bot_status.items():
                 is_bot = (is_bot is True or is_bot == "true")
                 player_info[uid] = {
                     "bot": is_bot, "banned": False, "rating": None,
-                    "checked_at": now,
+                    "checked_at": "",
                 }
 
     print_header(f"BLITZ-ACTIVITY RUN - {PERF_TYPE} - {now_iso()}")
