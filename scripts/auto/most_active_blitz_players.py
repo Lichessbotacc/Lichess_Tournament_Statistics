@@ -340,7 +340,14 @@ TOP_N_LIVE = 1000
 # LIVE GIT PUSH
 # ---------------------------------------------------------------------------
 LIVE_GIT_PUSH = os.environ.get("GITHUB_ACTIONS", "").lower() == "true"
-GIT_PUSH_MIN_INTERVAL_SECONDS = 30
+GIT_PUSH_MIN_INTERVAL_SECONDS = float(os.environ.get("GIT_PUSH_MIN_INTERVAL_SECONDS", "300"))
+# GEAENDERT: von 30s auf 300s (5min) hochskaliert. Grund: MAX_TOTAL_RUNTIME_SECONDS
+# wurde von frueher ~240s auf jetzt 19800s (5h30m) angehoben, damit ein Lauf das
+# GitHub-Actions-Zeitlimit voll ausnutzt - der alte 30s-Push-Abstand haette dabei
+# aber bis zu ~660 Commits/Push-Zyklen PRO LAUF erzeugt (statt vorher ~8), was die
+# .git-Historie unnoetig aufblaeht und "Repo auschecken" spuerbar verlangsamt.
+# Mit 300s sind es nur noch max. ~65 Commits pro Lauf, bei weiterhin recht
+# aktuellem Live-Stand.
 _last_git_push_ts = 0.0
 GIT_PUSH_MAX_RETRIES = 8
 GIT_PUSH_RETRY_BASE_DELAY_SECONDS = 3
