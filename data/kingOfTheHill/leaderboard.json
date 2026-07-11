@@ -3488,6 +3488,7 @@
     "cosminbz": 0,
     "couldbeplayingchess": 0,
     "coupdouteux": 0,
+    "courage2take": 0,
     "covalyov": 0,
     "covuasaigon_05": 0,
     "covuasaigon_06": 0,
@@ -4104,6 +4105,7 @@
     "discovery9": 11,
     "discoworldchampion": 0,
     "dishen_prajapati81": 0,
+    "dishenath": 0,
     "dislikebutton": 0,
     "dismoitout": 0,
     "disto": 10,
@@ -6606,6 +6608,7 @@
     "jcarpenault": 0,
     "jchcz": 0,
     "jchifashu1981": 33,
+    "jcluke33562": 0,
     "jcskrabacz": 1,
     "jd_48": 0,
     "jdrsantosss": 0,
@@ -11636,6 +11639,7 @@
     "samischach": 0,
     "sammerb": 31,
     "sammythedragon": 10,
+    "samokhvalovs": 0,
     "samory19": 1,
     "sampg": 0,
     "samraatraja": 0,
@@ -13095,6 +13099,7 @@
     "tks-ausn-deanh": 18,
     "tks-ausn-jeremiahb": 1,
     "tks-auss-jacobt": 0,
+    "tks-houn-juanpablos": 0,
     "tks-houn-krishh": 0,
     "tks-jack-carsonp": 6,
     "tks-jack-kylep": 15,
@@ -17807,6 +17812,7 @@
     "cosminbz": "2026-07-10T17:03:03.718468+00:00",
     "couldbeplayingchess": "2026-07-11T02:41:40.189836+00:00",
     "coupdouteux": "2026-07-11T09:15:38.310075+00:00",
+    "courage2take": "2026-07-11T19:25:47.654378+00:00",
     "covalyov": "2026-07-10T17:03:06.715021+00:00",
     "covuasaigon_05": "2026-07-11T06:38:18.178387+00:00",
     "covuasaigon_06": "2026-07-10T20:59:56.235156+00:00",
@@ -18421,6 +18427,7 @@
     "discovery9": "2026-07-10T22:20:01.129641+00:00",
     "discoworldchampion": "2026-07-11T06:07:28.495395+00:00",
     "dishen_prajapati81": "2026-07-10T17:18:44.104642+00:00",
+    "dishenath": "2026-07-11T19:25:50.628157+00:00",
     "dislikebutton": "2026-07-10T17:18:47.110322+00:00",
     "dismoitout": "2026-07-11T02:40:19.230680+00:00",
     "disto": "2026-07-10T00:48:55.037905+00:00",
@@ -20641,6 +20648,7 @@
     "jcarpenault": "2026-07-11T08:01:33.100616+00:00",
     "jchcz": "2026-07-11T02:48:11.688794+00:00",
     "jchifashu1981": "2026-07-10T20:39:25.011002+00:00",
+    "jcluke33562": "2026-07-11T19:25:53.645609+00:00",
     "jcskrabacz": "2026-07-10T06:45:18.476605+00:00",
     "jd_48": "2026-07-11T02:37:00.581614+00:00",
     "jean1019": "2026-07-11T00:32:43.556607+00:00",
@@ -24833,6 +24841,7 @@
     "samischach": "2026-07-10T16:21:09.447621+00:00",
     "sammerb": "2026-07-10T06:20:55.665826+00:00",
     "sammythedragon": "2026-07-10T22:19:46.039667+00:00",
+    "samokhvalovs": "2026-07-11T19:25:56.673543+00:00",
     "samory19": "2026-07-10T12:42:12.527198+00:00",
     "sampg": "2026-07-10T20:44:18.921814+00:00",
     "samraatraja": "2026-07-10T08:04:17.129526+00:00",
@@ -26282,6 +26291,7 @@
     "tks-ausn-deanh": "2026-07-11T18:16:29.106781+00:00",
     "tks-ausn-jeremiahb": "2026-07-11T10:14:43.542451+00:00",
     "tks-auss-jacobt": "2026-07-10T18:42:31.900011+00:00",
+    "tks-houn-juanpablos": "2026-07-11T19:25:59.612138+00:00",
     "tks-houn-krishh": "2026-07-11T16:18:40.039590+00:00",
     "tks-jack-carsonp": "2026-07-11T15:05:29.171130+00:00",
     "tks-jack-kylep": "2026-07-11T09:32:17.252337+00:00",
@@ -142124,7 +142134,47 @@
       "rating": 1303,
       "source": "Lobby-Crawl",
       "username": "carlocw"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/courage2take",
+      "rank": 14328,
+      "rating": 1670,
+      "source": "Lobby-Crawl",
+      "username": "courage2take"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/dishenath",
+      "rank": 14329,
+      "rating": 1294,
+      "source": "Lobby-Crawl",
+      "username": "dishenath"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/jcluke33562",
+      "rank": 14330,
+      "rating": 1650,
+      "source": "Lobby-Crawl",
+      "username": "jcluke33562"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/samokhvalovs",
+      "rank": 14331,
+      "rating": 1432,
+      "source": "Lobby-Crawl",
+      "username": "samokhvalovs"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tks-houn-juanpablos",
+      "rank": 14332,
+      "rating": 1245,
+      "source": "Lobby-Crawl",
+      "username": "tks-houn-juanpablos"
     }
   ],
-  "updated_at": "2026-07-11T19:25:28.133845+00:00"
+  "updated_at": "2026-07-11T19:25:59.612158+00:00"
 }
