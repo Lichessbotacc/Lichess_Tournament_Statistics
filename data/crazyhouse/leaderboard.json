@@ -3494,6 +3494,7 @@
     "csakapuku": 0,
     "csarmi": 0,
     "csdark": 0,
+    "ctefon": 0,
     "ctepchenko": 0,
     "cthutq7511": 115,
     "cts112625": 1,
@@ -5417,6 +5418,7 @@
     "hawaipizza": 0,
     "hawawshi511": 0,
     "hawkmansquid": 0,
+    "hawkskz": 0,
     "haydarindan": 0,
     "haylazefe": 0,
     "hayri_canavargil": 0,
@@ -6478,6 +6480,7 @@
     "kaankocak2": 4,
     "kaanpro3000": 16,
     "kaanselim11": 10,
+    "kabanz": 0,
     "kaberoov": 0,
     "kabirghalib": 0,
     "kabirkulkarni762019": 12,
@@ -8088,6 +8091,7 @@
     "meathead2000": 86,
     "medel22": 0,
     "medetzhomartovich": 0,
+    "medhansh_dabre": 0,
     "medhanshjoshi": 4,
     "medina2013": 0,
     "medslimen": 0,
@@ -9734,6 +9738,7 @@
     "renatos2026": 16,
     "rene4096": 43,
     "renounce_capitalism": 0,
+    "renso_the_great": 0,
     "resanever": 0,
     "reservecurrency": 6,
     "reshu2013": 0,
@@ -15843,6 +15848,7 @@
     "csakapuku": "2026-07-11T15:33:17.304837+00:00",
     "csarmi": "2026-07-11T03:23:50.615685+00:00",
     "csdark": "2026-07-10T01:39:28.511414+00:00",
+    "ctefon": "2026-07-11T16:06:25.919964+00:00",
     "ctepchenko": "2026-07-11T02:52:54.828865+00:00",
     "cthutq7511": "2026-07-11T00:08:35.273231+00:00",
     "cts112625": "2026-07-11T11:26:07.967627+00:00",
@@ -17717,6 +17723,7 @@
     "hawaipizza": "2026-07-10T16:42:44.441892+00:00",
     "hawawshi511": "2026-07-10T16:42:47.451204+00:00",
     "hawkmansquid": "2026-07-11T08:52:17.807764+00:00",
+    "hawkskz": "2026-07-11T16:06:07.923061+00:00",
     "haydarindan": "2026-07-11T13:22:38.463709+00:00",
     "haylazefe": "2026-07-10T08:13:46.016133+00:00",
     "hayri_canavargil": "2026-07-11T04:38:43.244225+00:00",
@@ -18756,6 +18763,7 @@
     "kaanalp5967": "2026-07-10T19:56:51.964103+00:00",
     "kaankocak2": "2026-07-10T10:52:17.236994+00:00",
     "kaanselim11": "2026-07-10T11:30:51.037268+00:00",
+    "kabanz": "2026-07-11T16:06:10.923417+00:00",
     "kaberoov": "2026-07-10T14:57:39.721184+00:00",
     "kabirghalib": "2026-07-11T13:28:10.219465+00:00",
     "kabirkulkarni762019": "2026-07-11T16:00:54.229027+00:00",
@@ -20319,6 +20327,7 @@
     "meathead2000": "2026-07-11T03:37:29.754266+00:00",
     "medel22": "2026-07-11T12:39:17.317919+00:00",
     "medetzhomartovich": "2026-07-10T08:38:07.113253+00:00",
+    "medhansh_dabre": "2026-07-11T16:06:13.926189+00:00",
     "medhanshjoshi": "2026-07-10T17:37:48.739111+00:00",
     "medina2013": "2026-07-10T20:20:37.492322+00:00",
     "medslimen": "2026-07-11T01:18:55.280543+00:00",
@@ -21920,6 +21929,7 @@
     "renatos2026": "2026-07-11T02:19:16.742339+00:00",
     "rene4096": "2026-07-10T14:49:41.459650+00:00",
     "renounce_capitalism": "2026-07-11T13:43:40.534931+00:00",
+    "renso_the_great": "2026-07-11T16:06:16.954416+00:00",
     "resanever": "2026-07-11T09:51:44.709472+00:00",
     "reservecurrency": "2026-07-11T15:02:26.452795+00:00",
     "reshu2013": "2026-07-11T05:13:41.426797+00:00",
@@ -123716,7 +123726,47 @@
       "rating": 1517,
       "source": "Lobby-Crawl",
       "username": "barsik-1306"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/hawkskz",
+      "rank": 12403,
+      "rating": 2353,
+      "source": "Lobby-Crawl",
+      "username": "hawkskz"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/kabanz",
+      "rank": 12404,
+      "rating": 1373,
+      "source": "Lobby-Crawl",
+      "username": "kabanz"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/medhansh_dabre",
+      "rank": 12405,
+      "rating": 1706,
+      "source": "Lobby-Crawl",
+      "username": "medhansh_dabre"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/renso_the_great",
+      "rank": 12406,
+      "rating": 1087,
+      "source": "Lobby-Crawl",
+      "username": "renso_the_great"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ctefon",
+      "rank": 12407,
+      "rating": 1306,
+      "source": "Lobby-Crawl",
+      "username": "ctefon"
     }
   ],
-  "updated_at": "2026-07-11T16:05:48.373836+00:00"
+  "updated_at": "2026-07-11T16:06:25.919986+00:00"
 }
