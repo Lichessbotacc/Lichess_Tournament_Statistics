@@ -2224,6 +2224,8 @@
     "atahualpas": 0,
     "atakaanmrc": 0,
     "atalhatabak": 26,
+    "atbascalia": 0,
+    "atcomrat": 0,
     "athakzx": 0,
     "atharv0707": 0,
     "atharv89gp": 0,
@@ -15382,6 +15384,8 @@
     "atahualpas": "2026-07-10T01:27:21.843800+00:00",
     "atakaanmrc": "2026-07-11T02:41:02.339234+00:00",
     "atalhatabak": "2026-07-11T08:38:44.049287+00:00",
+    "atbascalia": "2026-07-11T21:10:48.819770+00:00",
+    "atcomrat": "2026-07-11T21:10:51.784562+00:00",
     "athakzx": "2026-07-10T01:27:23.125604+00:00",
     "atharv0707": "2026-07-10T01:27:44.692799+00:00",
     "atharv89gp": "2026-07-10T01:27:47.630897+00:00",
@@ -20216,7 +20220,7 @@
     "kingyirmi": "2026-07-11T04:04:48.118477+00:00",
     "kinkan": "2026-07-11T04:41:10.270984+00:00",
     "kinterbox": "2026-07-10T15:24:51.320027+00:00",
-    "kir_24": "2026-07-10T12:20:53.683349+00:00",
+    "kir_24": "2026-07-11T21:10:54.796503+00:00",
     "kir_next": "2026-07-10T17:11:22.954531+00:00",
     "kira169": "2026-07-10T05:34:19.324391+00:00",
     "kira_konovalova_2013": "2026-07-11T19:47:26.538702+00:00",
@@ -103687,7 +103691,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/kir_24",
       "rank": 9702,
-      "rating": null,
+      "rating": 1406,
       "source": "Lobby-Crawl",
       "username": "kir_24"
     },
@@ -131570,7 +131574,23 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "miron0503"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/atbascalia",
+      "rank": 13188,
+      "rating": 1208,
+      "source": "Lobby-Crawl",
+      "username": "atbascalia"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/atcomrat",
+      "rank": 13189,
+      "rating": 1459,
+      "source": "Lobby-Crawl",
+      "username": "atcomrat"
     }
   ],
-  "updated_at": "2026-07-11T21:10:33.271774+00:00"
+  "updated_at": "2026-07-11T21:10:55.048092+00:00"
 }
