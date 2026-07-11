@@ -3410,6 +3410,7 @@
     "crystal20": 0,
     "cs48": 0,
     "csdark": 0,
+    "cseiwald-rms": 0,
     "csengerke": 1,
     "cseni": 0,
     "csiribu": 0,
@@ -3696,6 +3697,7 @@
     "davidmichonneau": 0,
     "davidnc17": 0,
     "davidpotosi-8": 0,
+    "davidrq": 0,
     "davidstahr": 0,
     "davidthegoat": 0,
     "davidtourier": 0,
@@ -6526,6 +6528,7 @@
     "javith123": 3,
     "javith1311": 0,
     "javitu77": 0,
+    "javohir2010": 0,
     "jawahariadi": 0,
     "jawatakjawa": 0,
     "jaxon47": 0,
@@ -13280,6 +13283,7 @@
     "trinhthanhlong011012": 0,
     "triplecenterpawn": 0,
     "tristan_keener": 0,
+    "tritondays": 0,
     "trivaaaas": 0,
     "triwijaya": 0,
     "troeltsch1985": 0,
@@ -13976,6 +13980,7 @@
     "xaris36": 0,
     "xav72200": 0,
     "xavier2017": 0,
+    "xavierpentico": 0,
     "xavierxdn": 0,
     "xbarisc": 0,
     "xblaaaa": 5,
@@ -17769,6 +17774,7 @@
     "crystal20": "2026-07-10T16:43:17.200268+00:00",
     "cs48": "2026-07-10T16:43:20.201772+00:00",
     "csdark": "2026-07-10T16:43:23.190800+00:00",
+    "cseiwald-rms": "2026-07-11T13:55:20.039425+00:00",
     "csengerke": "2026-07-10T06:14:51.681414+00:00",
     "cseni": "2026-07-10T14:36:02.456613+00:00",
     "csiribu": "2026-07-10T23:01:30.695826+00:00",
@@ -18055,6 +18061,7 @@
     "davidmichonneau": "2026-07-11T06:31:53.132285+00:00",
     "davidnc17": "2026-07-10T15:16:50.261370+00:00",
     "davidpotosi-8": "2026-07-10T20:18:50.809447+00:00",
+    "davidrq": "2026-07-11T13:55:23.063780+00:00",
     "davidstahr": "2026-07-10T06:09:45.458594+00:00",
     "davidthegoat": "2026-07-10T16:49:14.381418+00:00",
     "davidtourier": "2026-07-10T05:54:30.781980+00:00",
@@ -20882,6 +20889,7 @@
     "javith123": "2026-07-10T23:10:42.843939+00:00",
     "javith1311": "2026-07-10T17:19:22.839255+00:00",
     "javitu77": "2026-07-10T18:54:19.553807+00:00",
+    "javohir2010": "2026-07-11T13:55:26.029456+00:00",
     "jawahariadi": "2026-07-10T06:23:46.668385+00:00",
     "jawatakjawa": "2026-07-10T17:50:49.890109+00:00",
     "jaxon47": "2026-07-11T08:49:51.845009+00:00",
@@ -24078,7 +24086,7 @@
     "paulo29": "2026-07-11T06:31:05.912942+00:00",
     "paulogaspar": "2026-07-10T11:32:34.129447+00:00",
     "paulyudin": "2026-07-10T09:00:38.160078+00:00",
-    "pauperrimo": "2026-07-10T05:24:08.034515+00:00",
+    "pauperrimo": "2026-07-11T13:55:11.050771+00:00",
     "pauu_loopezz": "2026-07-10T06:02:55.833170+00:00",
     "pavan_2024": "2026-07-11T13:12:30.929959+00:00",
     "pavel-shelepin_1982": "2026-07-10T13:43:09.521906+00:00",
@@ -26714,6 +26722,7 @@
     "trinhthanhlong011012": "2026-07-11T09:05:35.688412+00:00",
     "triplecenterpawn": "2026-07-11T02:34:47.693381+00:00",
     "tristan_keener": "2026-07-10T11:46:14.574144+00:00",
+    "tritondays": "2026-07-11T13:55:29.071090+00:00",
     "trivaaaas": "2026-07-10T11:26:22.860599+00:00",
     "triwijaya": "2026-07-10T15:31:06.329674+00:00",
     "troeltsch1985": "2026-07-11T05:09:02.282224+00:00",
@@ -27410,6 +27419,7 @@
     "xaris36": "2026-07-11T09:01:26.906765+00:00",
     "xav72200": "2026-07-10T14:39:20.746713+00:00",
     "xavier2017": "2026-07-11T02:15:48.938757+00:00",
+    "xavierpentico": "2026-07-11T13:55:32.047273+00:00",
     "xavierxdn": "2026-07-11T02:47:35.656231+00:00",
     "xbarisc": "2026-07-10T08:23:14.667498+00:00",
     "xblaaaa": "2026-07-10T12:04:13.333101+00:00",
@@ -128307,7 +128317,42 @@
       "rank": 14359,
       "source": "Lobby-Crawl",
       "username": "kushagra_12"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/cseiwald-rms",
+      "rank": 14360,
+      "source": "Lobby-Crawl",
+      "username": "cseiwald-rms"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/davidrq",
+      "rank": 14361,
+      "source": "Lobby-Crawl",
+      "username": "davidrq"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/javohir2010",
+      "rank": 14362,
+      "source": "Lobby-Crawl",
+      "username": "javohir2010"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tritondays",
+      "rank": 14363,
+      "source": "Lobby-Crawl",
+      "username": "tritondays"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/xavierpentico",
+      "rank": 14364,
+      "source": "Lobby-Crawl",
+      "username": "xavierpentico"
     }
   ],
-  "updated_at": "2026-07-11T13:55:01.655539+00:00"
+  "updated_at": "2026-07-11T13:55:32.047292+00:00"
 }
