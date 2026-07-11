@@ -11301,7 +11301,7 @@
     "polnocniak2": 5,
     "polvazo": 0,
     "polykarpov": 0,
-    "polymer13": 180,
+    "polymer13": 215,
     "pomal": 0,
     "pompeu04": 0,
     "pompeymagnus": 5,
@@ -25492,7 +25492,7 @@
     "polnocniak2": "2026-07-10T06:12:53.078171+00:00",
     "polvazo": "2026-07-11T23:12:31.526378+00:00",
     "polykarpov": "2026-07-11T14:08:43.223396+00:00",
-    "polymer13": "2026-07-11T00:20:50.988938+00:00",
+    "polymer13": "2026-07-11T23:38:22.602826+00:00",
     "pomal": "2026-07-11T01:21:55.830155+00:00",
     "pompeymagnus": "2026-07-11T07:09:53.130848+00:00",
     "pompitarelojerita": "2026-07-11T00:35:56.834140+00:00",
@@ -29397,9 +29397,17 @@
       "username": "thorod"
     },
     {
+      "games": 215,
+      "profile": "https://lichess.org/@/polymer13",
+      "rank": 15,
+      "rating": 2058,
+      "source": "Lobby-Crawl",
+      "username": "polymer13"
+    },
+    {
       "games": 210,
       "profile": "https://lichess.org/@/gamen",
-      "rank": 15,
+      "rank": 16,
       "rating": 1883,
       "source": "Lobby-Crawl",
       "username": "gamen"
@@ -29407,7 +29415,7 @@
     {
       "games": 200,
       "profile": "https://lichess.org/@/pitagoraschile",
-      "rank": 16,
+      "rank": 17,
       "rating": 2088,
       "source": "Lobby-Crawl",
       "username": "pitagoraschile"
@@ -29415,7 +29423,7 @@
     {
       "games": 195,
       "profile": "https://lichess.org/@/kuki_2000",
-      "rank": 17,
+      "rank": 18,
       "rating": 1884,
       "source": "Lobby-Crawl",
       "username": "kuki_2000"
@@ -29423,7 +29431,7 @@
     {
       "games": 191,
       "profile": "https://lichess.org/@/phuancaulong",
-      "rank": 18,
+      "rank": 19,
       "rating": 2070,
       "source": "?",
       "username": "phuancaulong"
@@ -29431,7 +29439,7 @@
     {
       "games": 189,
       "profile": "https://lichess.org/@/aceshigh",
-      "rank": 19,
+      "rank": 20,
       "rating": 1990,
       "source": "Lobby-Crawl",
       "username": "aceshigh"
@@ -29439,18 +29447,10 @@
     {
       "games": 183,
       "profile": "https://lichess.org/@/ottowolf",
-      "rank": 20,
+      "rank": 21,
       "rating": 1960,
       "source": "Lobby-Crawl",
       "username": "ottowolf"
-    },
-    {
-      "games": 180,
-      "profile": "https://lichess.org/@/polymer13",
-      "rank": 21,
-      "rating": 2058,
-      "source": "Lobby-Crawl",
-      "username": "polymer13"
     },
     {
       "games": 178,
@@ -150989,5 +150989,5 @@
       "username": "jacskahu"
     }
   ],
-  "updated_at": "2026-07-11T23:37:35.563630+00:00"
+  "updated_at": "2026-07-11T23:38:22.605870+00:00"
 }
