@@ -4193,6 +4193,7 @@
     "dima2308": 3,
     "dima2ashihmin": 0,
     "dima_kusnetsov": 0,
+    "dima_movchan": 0,
     "dima_tmsk": 0,
     "dima_vlasenko_chess": 0,
     "dimafda2015": 0,
@@ -11150,6 +11151,7 @@
     "sestoses": 23,
     "setace": 29,
     "setfreeyou": 0,
+    "seva_fufurin2015": 0,
     "seventeen666": 14,
     "sevillaner79": 114,
     "sevimacar15": 0,
@@ -11404,6 +11406,7 @@
     "siyuoak17": 2,
     "sizedru": 68,
     "sizo17": 2,
+    "sj00": 0,
     "sjakk78": 0,
     "sjay88": 0,
     "sjbros": 0,
@@ -17548,6 +17551,7 @@
     "dima2308": "2026-07-10T18:20:47.436879+00:00",
     "dima2ashihmin": "2026-07-11T03:29:26.986459+00:00",
     "dima_kusnetsov": "2026-07-11T00:56:53.986454+00:00",
+    "dima_movchan": "2026-07-11T23:52:47.377486+00:00",
     "dima_tmsk": "2026-07-11T03:47:08.694937+00:00",
     "dima_vlasenko_chess": "2026-07-10T12:25:26.288949+00:00",
     "dimafda2015": "2026-07-10T14:00:48.799056+00:00",
@@ -19124,7 +19128,7 @@
     "hdrn": "2026-07-10T19:07:40.607130+00:00",
     "he4obek": "2026-07-11T12:58:03.204860+00:00",
     "head_of_state": "2026-07-11T04:26:45.773446+00:00",
-    "heallan": "2026-07-11T02:20:34.642714+00:00",
+    "heallan": "2026-07-11T23:53:02.360501+00:00",
     "hearna": "2026-07-11T00:43:07.503998+00:00",
     "hectoruko": "2026-07-11T05:32:53.259273+00:00",
     "hedyachess": "2026-07-10T16:42:53.445088+00:00",
@@ -24336,6 +24340,7 @@
     "sestoses": "2026-07-10T21:51:45.135450+00:00",
     "setace": "2026-07-10T09:38:00.693958+00:00",
     "setfreeyou": "2026-07-11T13:16:24.476175+00:00",
+    "seva_fufurin2015": "2026-07-11T23:52:50.379093+00:00",
     "sevillaner79": "2026-07-10T18:45:27.016747+00:00",
     "sevimacar15": "2026-07-11T00:41:46.627444+00:00",
     "seviyorumlann": "2026-07-11T11:11:55.289270+00:00",
@@ -24583,6 +24588,7 @@
     "siyp": "2026-07-11T04:02:13.384576+00:00",
     "siyuoak17": "2026-07-11T17:55:55.899162+00:00",
     "sizedru": "2026-07-11T15:00:30.482144+00:00",
+    "sj00": "2026-07-11T23:52:53.381166+00:00",
     "sjakk78": "2026-07-11T17:52:41.364799+00:00",
     "sjay88": "2026-07-11T08:47:18.947992+00:00",
     "sjbros": "2026-07-11T05:39:45.511034+00:00",
@@ -99318,7 +99324,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/heallan",
       "rank": 9098,
-      "rating": null,
+      "rating": 1692,
       "source": "Lobby-Crawl",
       "username": "heallan"
     },
@@ -105830,7 +105836,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/kenenisha",
       "rank": 9912,
-      "rating": null,
+      "rating": 1852,
       "source": "Lobby-Crawl",
       "username": "kenenisha"
     },
@@ -133873,7 +133879,31 @@
       "rating": 1840,
       "source": "Lobby-Crawl",
       "username": "gipar"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/dima_movchan",
+      "rank": 13418,
+      "rating": 1357,
+      "source": "Lobby-Crawl",
+      "username": "dima_movchan"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/seva_fufurin2015",
+      "rank": 13419,
+      "rating": 1517,
+      "source": "?",
+      "username": "seva_fufurin2015"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/sj00",
+      "rank": 13420,
+      "rating": 1623,
+      "source": "Lobby-Crawl",
+      "username": "sj00"
     }
   ],
-  "updated_at": "2026-07-11T23:52:26.804655+00:00"
+  "updated_at": "2026-07-11T23:53:02.360523+00:00"
 }
