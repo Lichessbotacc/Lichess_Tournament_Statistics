@@ -5678,6 +5678,7 @@
     "fxdestek": 0,
     "fxkn": 1,
     "fxye": 0,
+    "fynnun": 0,
     "g-67wp": 0,
     "g-m-phoenix": 0,
     "g3mk12": 0,
@@ -8376,7 +8377,7 @@
     "konnikon": 0,
     "konri": 0,
     "konstantikus": 0,
-    "konstantin-74": 433,
+    "konstantin-74": 410,
     "konstantin0709": 0,
     "konstantin10": 23,
     "konstantin_1973-1220": 0,
@@ -8702,6 +8703,7 @@
     "legasepra": 0,
     "legend_storm": 0,
     "legendary_sannin": 0,
+    "legendarypow": 0,
     "legeniechampion": 0,
     "legoatdumidi": 0,
     "legolasgreenleaf18": 0,
@@ -8758,6 +8760,7 @@
     "leon-wang": 7,
     "leon031110": 0,
     "leon1616": 94,
+    "leon2011": 0,
     "leon6666": 0,
     "leon_87": 0,
     "leon_dealmeida": 1,
@@ -22018,6 +22021,7 @@
     "fxdestek": "2026-07-11T22:25:06.712954+00:00",
     "fxkn": "2026-07-10T13:18:08.579096+00:00",
     "fxye": "2026-07-11T20:48:19.077188+00:00",
+    "fynnun": "2026-07-11T22:30:17.661772+00:00",
     "g-67wp": "2026-07-11T08:12:03.957606+00:00",
     "g-m-phoenix": "2026-07-10T11:27:42.372322+00:00",
     "g3mk12": "2026-07-10T17:04:08.072367+00:00",
@@ -24634,7 +24638,7 @@
     "konnikon": "2026-07-11T14:41:58.986091+00:00",
     "konri": "2026-07-11T09:57:41.079821+00:00",
     "konstantikus": "2026-07-11T20:17:29.759540+00:00",
-    "konstantin-74": "2026-07-10T23:44:30.521917+00:00",
+    "konstantin-74": "2026-07-11T22:30:37.829286+00:00",
     "konstantin0709": "2026-07-10T11:45:41.540628+00:00",
     "konstantin10": "2026-07-11T08:24:29.099811+00:00",
     "konstantin_1973-1220": "2026-07-10T23:00:44.605528+00:00",
@@ -24907,6 +24911,7 @@
     "leela_chess_zero": "2026-07-10T12:47:59.919939+00:00",
     "leemeshsingh": "2026-07-11T01:01:05.840521+00:00",
     "legendary_sannin": "2026-07-10T17:38:25.621225+00:00",
+    "legendarypow": "2026-07-11T22:30:38.478099+00:00",
     "legoatdumidi": "2026-07-10T15:43:18.065648+00:00",
     "legolasgreenleaf18": "2026-07-10T14:47:43.586748+00:00",
     "lehaha-ha": "2026-07-11T02:29:18.324924+00:00",
@@ -24952,6 +24957,7 @@
     "leon-wang": "2026-07-10T20:40:23.094199+00:00",
     "leon031110": "2026-07-11T16:25:56.566360+00:00",
     "leon1616": "2026-07-11T22:01:53.238952+00:00",
+    "leon2011": "2026-07-11T22:30:41.445924+00:00",
     "leon6666": "2026-07-10T22:38:47.670663+00:00",
     "leon_87": "2026-07-10T03:35:36.232855+00:00",
     "leon_dealmeida": "2026-07-10T07:37:14.674639+00:00",
@@ -31800,20 +31806,20 @@
       "username": "generalc_24"
     },
     {
-      "games": 433,
-      "profile": "https://lichess.org/@/konstantin-74",
-      "rank": 5,
-      "rating": 1931,
-      "source": "Lobby-Crawl",
-      "username": "konstantin-74"
-    },
-    {
       "games": 428,
       "profile": "https://lichess.org/@/horus_88",
-      "rank": 6,
+      "rank": 5,
       "rating": 2638,
       "source": "?",
       "username": "horus_88"
+    },
+    {
+      "games": 410,
+      "profile": "https://lichess.org/@/konstantin-74",
+      "rank": 6,
+      "rating": 1931,
+      "source": "Lobby-Crawl",
+      "username": "konstantin-74"
     },
     {
       "games": 296,
@@ -145627,7 +145633,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/stokedal000",
       "rank": 14233,
-      "rating": null,
+      "rating": 1026,
       "source": "Lobby-Crawl",
       "username": "stokedal000"
     },
@@ -162502,7 +162508,31 @@
       "rating": 1292,
       "source": "Lobby-Crawl",
       "username": "yusufay17"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/fynnun",
+      "rank": 16343,
+      "rating": 1500,
+      "source": "Lobby-Crawl",
+      "username": "fynnun"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/legendarypow",
+      "rank": 16344,
+      "rating": 1235,
+      "source": "?",
+      "username": "legendarypow"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/leon2011",
+      "rank": 16345,
+      "rating": 1131,
+      "source": "Lobby-Crawl",
+      "username": "leon2011"
     }
   ],
-  "updated_at": "2026-07-11T22:30:08.650008+00:00"
+  "updated_at": "2026-07-11T22:30:41.445963+00:00"
 }
