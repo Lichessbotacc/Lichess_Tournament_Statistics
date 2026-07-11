@@ -10910,6 +10910,7 @@
     "nbah-mack": 0,
     "nblatt": 0,
     "nchess2013": 3,
+    "ncs-chess": 0,
     "ndechikare": 0,
     "ndolip": 0,
     "ndp0613": 0,
@@ -26967,6 +26968,7 @@
     "nazmutdinovff": "2026-07-10T13:21:28.479761+00:00",
     "nbah-mack": "2026-07-11T16:52:53.046367+00:00",
     "nchess2013": "2026-07-11T01:26:03.843191+00:00",
+    "ncs-chess": "2026-07-11T23:55:01.306648+00:00",
     "ndechikare": "2026-07-10T04:56:04.687127+00:00",
     "ndolip": "2026-07-10T23:13:09.871111+00:00",
     "ndungu": "2026-07-10T16:08:16.097928+00:00",
@@ -164273,7 +164275,15 @@
       "rating": 1741,
       "source": "Lobby-Crawl",
       "username": "karthi071214"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ncs-chess",
+      "rank": 16520,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "ncs-chess"
     }
   ],
-  "updated_at": "2026-07-11T23:54:25.968052+00:00"
+  "updated_at": "2026-07-11T23:55:01.306669+00:00"
 }
