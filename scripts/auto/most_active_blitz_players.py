@@ -757,7 +757,11 @@ def fetch_player_info_bulk(usernames: list) -> dict:
     result = {}
     for i in range(0, len(usernames), PLAYER_INFO_BATCH_SIZE):
         batch = usernames[i:i + PLAYER_INFO_BATCH_SIZE]
-        body = "\n".join(batch).encode("utf-8")
+        # WICHTIG: Lichess erwartet hier KOMMA-getrennte IDs im Body,
+        # NICHT zeilengetrennt - mit Zeilenumbruch hat der Endpunkt die
+        # IDs nicht korrekt erkannt, wodurch Rating/Bann-Status nie
+        # aktualisiert wurden (Rating blieb "?", Bann wurde nie erkannt).
+        body = ",".join(batch).encode("utf-8")
         req = urllib.request.Request(
             f"{BASE_URL}/api/users", data=body, method="POST",
             headers={**HEADERS, "Content-Type": "text/plain"},
