@@ -2722,6 +2722,7 @@
     "bvsera": 0,
     "bxbcchess": 0,
     "bychessandmat": 108,
+    "byproo": 0,
     "byronalejadandrom": 134,
     "bysengali": 0,
     "bytecraf": 0,
@@ -3355,6 +3356,7 @@
     "costachess_uy": 12,
     "coups99": 8,
     "covalyov": 0,
+    "cpusarla527": 0,
     "cr1000000000000": 0,
     "cr1pz": 0,
     "cr7_chess_1": 13,
@@ -9366,6 +9368,7 @@
     "rrpssss": 9,
     "rs_icon": 38,
     "rskollu": 218,
+    "rsuchesscatalyst": 0,
     "rubblechess": 0,
     "ruben13458": 0,
     "rubengtz": 64,
@@ -14356,6 +14359,7 @@
     "bvsera": "2026-07-11T08:56:28.334635+00:00",
     "bxbcchess": "2026-07-10T13:09:39.708507+00:00",
     "bychessandmat": "2026-07-11T03:56:44.353766+00:00",
+    "byproo": "2026-07-11T23:15:44.696624+00:00",
     "byronalejadandrom": "2026-07-11T18:09:00.450827+00:00",
     "bysengali": "2026-07-11T19:31:25.660182+00:00",
     "bytecraf": "2026-07-10T01:40:18.436062+00:00",
@@ -14961,6 +14965,7 @@
     "costachess_uy": "2026-07-10T04:41:37.031263+00:00",
     "coups99": "2026-07-11T05:22:30.945858+00:00",
     "covalyov": "2026-07-10T16:32:33.452213+00:00",
+    "cpusarla527": "2026-07-11T23:15:20.708036+00:00",
     "cr1000000000000": "2026-07-11T17:58:03.484965+00:00",
     "cr1pz": "2026-07-11T22:35:09.892940+00:00",
     "cr7_chess_1": "2026-07-11T05:18:13.895553+00:00",
@@ -15750,7 +15755,7 @@
     "eel9": "2026-07-10T08:32:44.103844+00:00",
     "eesakazi1234": "2026-07-11T02:36:15.833397+00:00",
     "eetaow": "2026-07-11T16:36:19.719862+00:00",
-    "efe03g": "2026-07-10T16:03:22.250420+00:00",
+    "efe03g": "2026-07-11T23:15:23.698968+00:00",
     "efecarlsen5734": "2026-07-10T16:43:06.814536+00:00",
     "efecixxx": "2026-07-11T00:56:48.461552+00:00",
     "efegg": "2026-07-10T16:43:09.902528+00:00",
@@ -20494,7 +20499,7 @@
     "rei_madruva": "2026-07-11T19:15:54.829603+00:00",
     "rejectedquadratic": "2026-07-10T10:58:10.301284+00:00",
     "rejitha123": "2026-07-11T16:03:58.459780+00:00",
-    "remariseangreen": "2026-07-10T19:47:00.353104+00:00",
+    "remariseangreen": "2026-07-11T23:15:26.702451+00:00",
     "remembersl": "2026-07-10T19:54:20.899417+00:00",
     "remo02": "2026-07-11T15:06:40.084814+00:00",
     "rena55": "2026-07-11T09:45:37.717277+00:00",
@@ -20648,7 +20653,7 @@
     "rohit_vallutla": "2026-07-11T22:27:44.761409+00:00",
     "rohith_vadivel": "2026-07-10T16:05:03.838498+00:00",
     "rohitram": "2026-07-11T13:16:35.776228+00:00",
-    "roi-georges": "2026-07-10T19:47:03.395534+00:00",
+    "roi-georges": "2026-07-11T23:15:29.747504+00:00",
     "rokenrola": "2026-07-11T14:56:16.529740+00:00",
     "rolandseck": "2026-07-11T03:33:26.812420+00:00",
     "rollerl": "2026-07-11T01:35:59.268239+00:00",
@@ -20716,6 +20721,7 @@
     "rrpssss": "2026-07-11T21:55:41.441520+00:00",
     "rs_icon": "2026-07-10T19:49:59.119460+00:00",
     "rskollu": "2026-07-11T16:22:31.270257+00:00",
+    "rsuchesscatalyst": "2026-07-11T23:15:32.723286+00:00",
     "rubblechess": "2026-07-11T04:01:11.493119+00:00",
     "ruben13458": "2026-07-10T05:55:53.944972+00:00",
     "rubengtz": "2026-07-11T02:04:18.251581+00:00",
@@ -102679,7 +102685,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/ownerofroger",
       "rank": 9969,
-      "rating": null,
+      "rating": 1257,
       "source": "Lobby-Crawl",
       "username": "ownerofroger"
     },
@@ -109319,7 +109325,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/supersnake7573y",
       "rank": 10799,
-      "rating": null,
+      "rating": 990,
       "source": "Lobby-Crawl",
       "username": "supersnake7573y"
     },
@@ -116586,7 +116592,31 @@
       "rating": 1595,
       "source": "Lobby-Crawl",
       "username": "akbarali78_scc"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/cpusarla527",
+      "rank": 11708,
+      "rating": 1477,
+      "source": "Lobby-Crawl",
+      "username": "cpusarla527"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/rsuchesscatalyst",
+      "rank": 11709,
+      "rating": 1218,
+      "source": "Lobby-Crawl",
+      "username": "rsuchesscatalyst"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/byproo",
+      "rank": 11710,
+      "rating": 1615,
+      "source": "?",
+      "username": "byproo"
     }
   ],
-  "updated_at": "2026-07-11T23:15:02.745774+00:00"
+  "updated_at": "2026-07-11T23:15:44.696645+00:00"
 }
