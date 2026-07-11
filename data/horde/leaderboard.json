@@ -1913,6 +1913,7 @@
     "arrosalforn": 0,
     "ars1245": 0,
     "arsen_guvenc14": 0,
+    "arsenekatz": 0,
     "arsenii120": 0,
     "arsenii_trofimov": 0,
     "arsenij9302": 0,
@@ -2335,6 +2336,7 @@
     "barbara_19": 2,
     "barbarlothbrok": 0,
     "barcelona444": 0,
+    "bardugoravka": 0,
     "bargavp10": 0,
     "baris_15": 0,
     "barissbzdg": 0,
@@ -7303,6 +7305,7 @@
     "julian_garcia": 0,
     "juliana-villada_514": 0,
     "juliancolombia": 0,
+    "juliangil04": 0,
     "julius_gonzaga": 5,
     "julka2015": 0,
     "julo0607": 0,
@@ -9133,6 +9136,7 @@
     "matvei_nav14": 0,
     "matvei_peltek": 7,
     "matveika041213": 0,
+    "matvey_kasch_98": 0,
     "matveykrupke": 0,
     "matveylagovskiy": 0,
     "matveymatyuha": 0,
@@ -10832,6 +10836,7 @@
     "palaniappanpalani": 0,
     "pale003": 0,
     "palentorios": 0,
+    "palepehlwan": 0,
     "paliblaise": 0,
     "palmerapool": 0,
     "palomalcala": 0,
@@ -17218,6 +17223,7 @@
     "arrosalforn": "2026-07-10T14:02:21.767552+00:00",
     "ars1245": "2026-07-10T08:42:08.224960+00:00",
     "arsen_guvenc14": "2026-07-10T15:26:30.646004+00:00",
+    "arsenekatz": "2026-07-11T17:48:32.626764+00:00",
     "arsenii120": "2026-07-11T07:37:01.284990+00:00",
     "arsenii_trofimov": "2026-07-10T19:42:38.914020+00:00",
     "arsenij9302": "2026-07-10T19:15:48.979018+00:00",
@@ -17640,6 +17646,7 @@
     "barbara_19": "2026-07-11T14:00:14.894582+00:00",
     "barbarlothbrok": "2026-07-11T02:30:44.654599+00:00",
     "barcelona444": "2026-07-10T01:11:57.394414+00:00",
+    "bardugoravka": "2026-07-11T17:48:20.584469+00:00",
     "bargavp10": "2026-07-10T18:42:05.361832+00:00",
     "baris_15": "2026-07-10T07:56:37.284797+00:00",
     "barissbzdg": "2026-07-11T00:09:01.400205+00:00",
@@ -22390,7 +22397,7 @@
     "jljljljl": "2026-07-10T11:52:38.013761+00:00",
     "jm250": "2026-07-10T18:30:00.086681+00:00",
     "jmcastellano": "2026-07-10T17:25:44.164235+00:00",
-    "jmccarthy1969": "2026-07-10T23:12:02.689213+00:00",
+    "jmccarthy1969": "2026-07-11T17:48:35.580724+00:00",
     "jmcgill": "2026-07-11T06:46:08.268301+00:00",
     "jmmchess317": "2026-07-10T14:07:34.734270+00:00",
     "jmpdc": "2026-07-10T13:32:49.729593+00:00",
@@ -22605,6 +22612,7 @@
     "julian_garcia": "2026-07-11T16:22:55.445955+00:00",
     "juliana-villada_514": "2026-07-10T12:43:01.571223+00:00",
     "juliancolombia": "2026-07-11T16:37:03.236116+00:00",
+    "juliangil04": "2026-07-11T17:48:38.590294+00:00",
     "julius_gonzaga": "2026-07-11T10:09:25.008438+00:00",
     "julka2015": "2026-07-10T03:58:43.383853+00:00",
     "julo0607": "2026-07-11T11:46:58.269497+00:00",
@@ -24143,6 +24151,7 @@
     "matvei-e2e4": "2026-07-10T23:51:55.098811+00:00",
     "matvei_peltek": "2026-07-10T14:40:59.644881+00:00",
     "matveika041213": "2026-07-11T06:01:37.657229+00:00",
+    "matvey_kasch_98": "2026-07-11T17:48:41.571075+00:00",
     "matveykrupke": "2026-07-11T17:29:15.696296+00:00",
     "matveylagovskiy": "2026-07-11T16:26:30.319529+00:00",
     "matveymatyuha": "2026-07-11T08:07:43.232183+00:00",
@@ -25569,6 +25578,7 @@
     "palangka25": "2026-07-10T07:53:54.856095+00:00",
     "pale003": "2026-07-10T22:58:17.996692+00:00",
     "palentorios": "2026-07-11T05:51:37.300192+00:00",
+    "palepehlwan": "2026-07-11T17:48:23.599341+00:00",
     "palmerapool": "2026-07-11T03:31:25.256378+00:00",
     "palomalcala": "2026-07-10T10:45:17.441195+00:00",
     "pamil": "2026-07-10T13:11:32.962687+00:00",
@@ -95324,7 +95334,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/jmccarthy1969",
       "rank": 8205,
-      "rating": null,
+      "rating": 1578,
       "source": "Lobby-Crawl",
       "username": "jmccarthy1969"
     },
@@ -152127,7 +152137,47 @@
       "rating": 1681,
       "source": "Lobby-Crawl",
       "username": "kenancinar"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/bardugoravka",
+      "rank": 15306,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "bardugoravka"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/palepehlwan",
+      "rank": 15307,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "palepehlwan"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/arsenekatz",
+      "rank": 15308,
+      "rating": 1230,
+      "source": "Lobby-Crawl",
+      "username": "arsenekatz"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/juliangil04",
+      "rank": 15309,
+      "rating": 1627,
+      "source": "Lobby-Crawl",
+      "username": "juliangil04"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/matvey_kasch_98",
+      "rank": 15310,
+      "rating": 1185,
+      "source": "Lobby-Crawl",
+      "username": "matvey_kasch_98"
     }
   ],
-  "updated_at": "2026-07-11T17:48:09.453821+00:00"
+  "updated_at": "2026-07-11T17:48:41.571094+00:00"
 }
