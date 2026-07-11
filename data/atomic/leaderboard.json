@@ -5673,7 +5673,7 @@
     "grillojc": 0,
     "grindaolga": 0,
     "grisha_kar": 6,
-    "grisha_pauli": 795,
+    "grisha_pauli": 670,
     "grishasixseven": 0,
     "grishinav": 0,
     "grishkovplaton": 0,
@@ -18987,7 +18987,7 @@
     "grillojc": "2026-07-11T07:45:54.882721+00:00",
     "grindaolga": "2026-07-11T05:46:23.683177+00:00",
     "grisha_kar": "2026-07-10T18:22:37.733093+00:00",
-    "grisha_pauli": "2026-07-10T23:40:06.034840+00:00",
+    "grisha_pauli": "2026-07-11T22:41:31.278174+00:00",
     "grishasixseven": "2026-07-10T17:38:05.485983+00:00",
     "grishinav": "2026-07-11T20:36:29.767177+00:00",
     "grishkovplaton": "2026-07-11T15:32:36.107035+00:00",
@@ -26671,17 +26671,9 @@
       "username": "goroarmet"
     },
     {
-      "games": 795,
-      "profile": "https://lichess.org/@/grisha_pauli",
-      "rank": 6,
-      "rating": 1801,
-      "source": "?",
-      "username": "grisha_pauli"
-    },
-    {
       "games": 762,
       "profile": "https://lichess.org/@/themostunanonymous",
-      "rank": 7,
+      "rank": 6,
       "rating": 1497,
       "source": "Lobby-Crawl",
       "username": "themostunanonymous"
@@ -26689,7 +26681,7 @@
     {
       "games": 720,
       "profile": "https://lichess.org/@/nulla_totale",
-      "rank": 8,
+      "rank": 7,
       "rating": 1726,
       "source": "Lobby-Crawl",
       "username": "nulla_totale"
@@ -26697,10 +26689,18 @@
     {
       "games": 673,
       "profile": "https://lichess.org/@/renaudmerle",
-      "rank": 9,
+      "rank": 8,
       "rating": 2086,
       "source": "?",
       "username": "renaudmerle"
+    },
+    {
+      "games": 670,
+      "profile": "https://lichess.org/@/grisha_pauli",
+      "rank": 9,
+      "rating": 1801,
+      "source": "?",
+      "username": "grisha_pauli"
     },
     {
       "games": 636,
@@ -34722,7 +34722,7 @@
       "games": 31,
       "profile": "https://lichess.org/@/roadtomaster141",
       "rank": 1012,
-      "rating": null,
+      "rating": 1884,
       "source": "Lobby-Crawl",
       "username": "roadtomaster141"
     },
@@ -133239,5 +133239,5 @@
       "username": "geachezeta4"
     }
   ],
-  "updated_at": "2026-07-11T22:39:06.748145+00:00"
+  "updated_at": "2026-07-11T22:41:31.281254+00:00"
 }
