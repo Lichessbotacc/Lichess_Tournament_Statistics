@@ -10247,7 +10247,7 @@
     "rcago": 3,
     "rd1234": 4,
     "rd661": 239,
-    "rdcast": 245,
+    "rdcast": 234,
     "rdgrimes2242": 0,
     "rdgrimes2242alt": 0,
     "rds-dcb": 8,
@@ -23198,7 +23198,7 @@
     "rcago": "2026-07-11T14:40:24.623576+00:00",
     "rd1234": "2026-07-10T22:19:00.386030+00:00",
     "rd661": "2026-07-10T05:14:56.003621+00:00",
-    "rdcast": "2026-07-10T23:56:13.168246+00:00",
+    "rdcast": "2026-07-11T21:07:10.758181+00:00",
     "rdgrimes2242": "2026-07-10T09:08:42.644506+00:00",
     "rdgrimes2242alt": "2026-07-11T09:34:54.950054+00:00",
     "rds-dcb": "2026-07-11T09:24:47.410072+00:00",
@@ -26444,17 +26444,9 @@
       "username": "justoblockthe2secinc"
     },
     {
-      "games": 245,
-      "profile": "https://lichess.org/@/rdcast",
-      "rank": 53,
-      "rating": 1623,
-      "source": "Lobby-Crawl",
-      "username": "rdcast"
-    },
-    {
       "games": 243,
       "profile": "https://lichess.org/@/rogerio_ceni_sp",
-      "rank": 54,
+      "rank": 53,
       "rating": 2313,
       "source": "Lobby-Crawl",
       "username": "rogerio_ceni_sp"
@@ -26462,7 +26454,7 @@
     {
       "games": 242,
       "profile": "https://lichess.org/@/mramadeo",
-      "rank": 55,
+      "rank": 54,
       "rating": 1836,
       "source": "Lobby-Crawl",
       "username": "mramadeo"
@@ -26470,7 +26462,7 @@
     {
       "games": 242,
       "profile": "https://lichess.org/@/swl",
-      "rank": 56,
+      "rank": 55,
       "rating": 1901,
       "source": "Lobby-Crawl",
       "username": "swl"
@@ -26478,7 +26470,7 @@
     {
       "games": 240,
       "profile": "https://lichess.org/@/kravchenko_petr",
-      "rank": 57,
+      "rank": 56,
       "rating": 1339,
       "source": "Lobby-Crawl",
       "username": "kravchenko_petr"
@@ -26486,7 +26478,7 @@
     {
       "games": 239,
       "profile": "https://lichess.org/@/rd661",
-      "rank": 58,
+      "rank": 57,
       "rating": 1668,
       "source": "Lobby-Crawl",
       "username": "rd661"
@@ -26494,7 +26486,7 @@
     {
       "games": 234,
       "profile": "https://lichess.org/@/cabinetinstaller",
-      "rank": 59,
+      "rank": 58,
       "rating": 1610,
       "source": "Lobby-Crawl",
       "username": "cabinetinstaller"
@@ -26502,10 +26494,18 @@
     {
       "games": 234,
       "profile": "https://lichess.org/@/cashoutcrown",
-      "rank": 60,
+      "rank": 59,
       "rating": 1948,
       "source": "Lobby-Crawl",
       "username": "cashoutcrown"
+    },
+    {
+      "games": 234,
+      "profile": "https://lichess.org/@/rdcast",
+      "rank": 60,
+      "rating": 1623,
+      "source": "Lobby-Crawl",
+      "username": "rdcast"
     },
     {
       "games": 234,
@@ -131332,5 +131332,5 @@
       "username": "yigit_mecit12"
     }
   ],
-  "updated_at": "2026-07-11T21:06:20.711996+00:00"
+  "updated_at": "2026-07-11T21:07:10.761553+00:00"
 }
