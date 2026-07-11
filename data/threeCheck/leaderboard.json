@@ -4989,6 +4989,7 @@
     "fc7play": 0,
     "fc_barsa": 0,
     "fchch": 0,
+    "fcovga": 0,
     "fcsm_2017": 0,
     "fdsatranc64": 0,
     "fearless_2": 0,
@@ -19589,6 +19590,7 @@
     "fc7play": "2026-07-10T20:48:36.376749+00:00",
     "fc_barsa": "2026-07-10T06:38:41.641039+00:00",
     "fchch": "2026-07-10T17:00:55.770164+00:00",
+    "fcovga": "2026-07-11T16:18:18.824082+00:00",
     "fcsm_2017": "2026-07-10T17:01:30.454229+00:00",
     "fdsatranc64": "2026-07-10T04:58:40.133124+00:00",
     "fearless_2": "2026-07-11T07:49:05.295712+00:00",
@@ -43408,7 +43410,7 @@
       "games": 3,
       "profile": "https://lichess.org/@/gc829",
       "rank": 1894,
-      "rating": null,
+      "rating": 1553,
       "source": "Lobby-Crawl",
       "username": "gc829"
     },
@@ -138552,7 +138554,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/vadim06",
       "rank": 13787,
-      "rating": null,
+      "rating": 2066,
       "source": "Lobby-Crawl",
       "username": "vadim06"
     },
@@ -145339,7 +145341,15 @@
       "rating": 1016,
       "source": "Lobby-Crawl",
       "username": "kiti_alba80"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/fcovga",
+      "rank": 14636,
+      "rating": 1394,
+      "source": "Lobby-Crawl",
+      "username": "fcovga"
     }
   ],
-  "updated_at": "2026-07-11T16:13:52.016035+00:00"
+  "updated_at": "2026-07-11T16:18:18.824104+00:00"
 }
