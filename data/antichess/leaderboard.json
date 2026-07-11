@@ -1319,6 +1319,7 @@
     "ail2011": 4,
     "aim_betterbro": 0,
     "aim_chessplayer": 0,
+    "aimarescudero": 0,
     "ainesh23": 0,
     "aingeru38": 0,
     "airaishani2017": 0,
@@ -1655,6 +1656,7 @@
     "alexandraakhmetova": 0,
     "alexandrborin": 0,
     "alexandre41rn": 0,
+    "alexandrgomosekin": 0,
     "alexargus": 0,
     "alexazefir": 0,
     "alexboy14": 0,
@@ -5560,6 +5562,7 @@
     "jellygoose": 0,
     "jelond": 0,
     "jemie19292": 0,
+    "jemslow": 0,
     "jendast": 28,
     "jenilp_chess": 1,
     "jenimelanee": 1,
@@ -6074,6 +6077,7 @@
     "kilobyte05": 72,
     "kimo09a": 0,
     "kimpa": 0,
+    "kimse66": 0,
     "kinderekpolska12345": 2,
     "king-of-2-seconds": 110,
     "king11111": 0,
@@ -7928,6 +7932,7 @@
     "oas57": 285,
     "obabaluba": 1,
     "obaidarihawi": 0,
+    "obscurosonido": 0,
     "observadordeljaque": 0,
     "obviously_magnus": 0,
     "occultmustard": 3,
@@ -8555,6 +8560,7 @@
     "rastaman6391": 0,
     "ratkhantorekhan": 0,
     "raularranzperez": 0,
+    "raulcorream": 0,
     "ravelfett": 0,
     "ravelposh": 0,
     "ravigarg": 210,
@@ -11983,6 +11989,7 @@
     "ail2011": "2026-07-10T18:15:01.752629+00:00",
     "aim_betterbro": "2026-07-10T02:43:09.548809+00:00",
     "aim_chessplayer": "2026-07-10T02:43:12.555584+00:00",
+    "aimarescudero": "2026-07-11T11:04:17.862503+00:00",
     "ainesh23": "2026-07-10T02:43:15.567766+00:00",
     "aingeru38": "2026-07-11T01:32:19.561239+00:00",
     "airaishani2017": "2026-07-10T02:43:18.550779+00:00",
@@ -12318,6 +12325,7 @@
     "alexandraakhmetova": "2026-07-10T01:50:22.294349+00:00",
     "alexandrborin": "2026-07-10T04:57:26.169818+00:00",
     "alexandre41rn": "2026-07-10T01:50:25.304569+00:00",
+    "alexandrgomosekin": "2026-07-11T11:04:20.842679+00:00",
     "alexargus": "2026-07-10T01:50:28.299474+00:00",
     "alexazefir": "2026-07-10T22:08:33.938806+00:00",
     "alexboy14": "2026-07-11T07:15:06.209623+00:00",
@@ -15981,6 +15989,7 @@
     "jehicopv": "2026-07-11T05:45:26.189254+00:00",
     "jelibonlupide_58": "2026-07-10T15:57:17.710678+00:00",
     "jelleloper": "2026-07-10T12:41:19.381064+00:00",
+    "jemslow": "2026-07-11T11:03:56.834803+00:00",
     "jendast": "2026-07-10T13:20:53.624316+00:00",
     "jenilp_chess": "2026-07-11T05:11:39.992811+00:00",
     "jenimelanee": "2026-07-10T18:25:57.207543+00:00",
@@ -16357,6 +16366,7 @@
     "killer9": "2026-07-11T00:17:47.589365+00:00",
     "killervss": "2026-07-11T02:14:31.416234+00:00",
     "kilobyte05": "2026-07-10T20:41:11.302206+00:00",
+    "kimse66": "2026-07-11T11:03:59.841038+00:00",
     "kinderekpolska12345": "2026-07-11T09:43:02.680664+00:00",
     "king-of-2-seconds": "2026-07-11T10:42:10.331210+00:00",
     "king274": "2026-07-11T01:38:32.961455+00:00",
@@ -17861,6 +17871,7 @@
     "oas57": "2026-07-10T13:54:11.339553+00:00",
     "obabaluba": "2026-07-10T14:49:09.586251+00:00",
     "obaidarihawi": "2026-07-10T14:10:58.583416+00:00",
+    "obscurosonido": "2026-07-11T11:04:05.858119+00:00",
     "observadordeljaque": "2026-07-11T03:50:30.139456+00:00",
     "obviously_magnus": "2026-07-11T08:56:18.847795+00:00",
     "occultmustard": "2026-07-11T03:02:48.161338+00:00",
@@ -18485,6 +18496,7 @@
     "rastaman6391": "2026-07-10T20:55:47.326279+00:00",
     "ratkhantorekhan": "2026-07-10T20:18:58.229119+00:00",
     "raularranzperez": "2026-07-11T06:29:41.145728+00:00",
+    "raulcorream": "2026-07-11T11:04:08.849704+00:00",
     "ravelfett": "2026-07-10T11:18:18.900164+00:00",
     "ravelposh": "2026-07-10T17:33:59.239623+00:00",
     "ravigarg": "2026-07-11T02:10:21.845461+00:00",
@@ -95213,7 +95225,49 @@
       "rank": 10662,
       "source": "Lobby-Crawl",
       "username": "farhaad48"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/jemslow",
+      "rank": 10663,
+      "source": "Lobby-Crawl",
+      "username": "jemslow"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/kimse66",
+      "rank": 10664,
+      "source": "Lobby-Crawl",
+      "username": "kimse66"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/obscurosonido",
+      "rank": 10665,
+      "source": "Lobby-Crawl",
+      "username": "obscurosonido"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/raulcorream",
+      "rank": 10666,
+      "source": "Lobby-Crawl",
+      "username": "raulcorream"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/aimarescudero",
+      "rank": 10667,
+      "source": "Lobby-Crawl",
+      "username": "aimarescudero"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/alexandrgomosekin",
+      "rank": 10668,
+      "source": "Lobby-Crawl",
+      "username": "alexandrgomosekin"
     }
   ],
-  "updated_at": "2026-07-11T11:03:48.117118+00:00"
+  "updated_at": "2026-07-11T11:04:20.842696+00:00"
 }
