@@ -992,6 +992,7 @@
     "agsrinika": 0,
     "agus_dwi_subekti": 0,
     "agusdd_bkd": 0,
+    "agvan19": 0,
     "ah_sayed18": 0,
     "ahaan2308": 0,
     "ahaas": 1,
@@ -6013,6 +6014,7 @@
     "haidrikhender": 2,
     "haikovichsm": 0,
     "hainhat14102016": 16,
+    "hainhat2016": 0,
     "hajtxa67": 0,
     "hakanemir54": 0,
     "hakansvm": 0,
@@ -10737,6 +10739,7 @@
     "noureldeen_mohamed_e": 0,
     "noustie63": 0,
     "novaheroan": 0,
+    "novaux": 0,
     "novel79": 0,
     "noviorbis": 0,
     "novosibirsk1984": 48,
@@ -13413,6 +13416,7 @@
     "sostratus": 0,
     "soswi": 0,
     "souinozawa0612": 0,
+    "soumyadip_001": 0,
     "sourav301216": 0,
     "sourav_mani": 0,
     "souravvvv_95": 0,
@@ -14882,6 +14886,7 @@
     "vihaan2018chess": 0,
     "vihaan2808": 0,
     "vihaan_g": 3,
+    "vihaanmittal64": 0,
     "vihaans14": 0,
     "vihaanshah101019": 2,
     "vihaanvenu": 0,
@@ -16696,6 +16701,7 @@
     "agsrinika": "2026-07-10T17:52:13.545205+00:00",
     "agus_dwi_subekti": "2026-07-11T14:05:50.441859+00:00",
     "agusdd_bkd": "2026-07-11T06:03:42.053940+00:00",
+    "agvan19": "2026-07-11T19:44:29.157785+00:00",
     "ah_sayed18": "2026-07-11T04:37:00.156548+00:00",
     "ahaan2308": "2026-07-10T04:33:24.567750+00:00",
     "ahaas": "2026-07-10T15:39:30.880797+00:00",
@@ -21714,6 +21720,7 @@
     "haidrikhender": "2026-07-10T15:37:14.985256+00:00",
     "haikovichsm": "2026-07-10T18:47:09.607712+00:00",
     "hainhat14102016": "2026-07-10T15:52:49.063179+00:00",
+    "hainhat2016": "2026-07-11T19:44:08.153688+00:00",
     "hajtxa67": "2026-07-11T04:25:02.437212+00:00",
     "hakanemir54": "2026-07-10T17:34:47.853386+00:00",
     "hakansvm": "2026-07-10T17:09:17.273522+00:00",
@@ -25923,6 +25930,7 @@
     "noureldeen_mohamed_e": "2026-07-11T16:59:35.091410+00:00",
     "noustie63": "2026-07-11T04:25:45.779645+00:00",
     "novaheroan": "2026-07-10T22:54:43.709299+00:00",
+    "novaux": "2026-07-11T19:44:11.168168+00:00",
     "novel79": "2026-07-11T14:18:44.829739+00:00",
     "noviorbis": "2026-07-11T06:31:02.919583+00:00",
     "novosibirsk1984": "2026-07-11T05:12:30.223832+00:00",
@@ -28194,6 +28202,7 @@
     "sostratus": "2026-07-10T08:23:36.290537+00:00",
     "soswi": "2026-07-11T09:24:38.536269+00:00",
     "souinozawa0612": "2026-07-10T06:22:32.982017+00:00",
+    "soumyadip_001": "2026-07-11T19:44:14.148263+00:00",
     "sourav301216": "2026-07-11T18:20:44.149877+00:00",
     "sourav_mani": "2026-07-11T09:55:56.643919+00:00",
     "souravvvv_95": "2026-07-11T09:55:19.023703+00:00",
@@ -29639,7 +29648,7 @@
     "vickyashta": "2026-07-11T06:42:15.707139+00:00",
     "victor_carlos": "2026-07-11T16:07:39.280484+00:00",
     "victor_kruse06": "2026-07-11T15:06:16.751932+00:00",
-    "victoracc": "2026-07-10T14:38:26.453198+00:00",
+    "victoracc": "2026-07-11T19:44:17.391614+00:00",
     "victorandadam": "2026-07-10T15:50:37.843708+00:00",
     "victorbayoni": "2026-07-10T22:38:19.837567+00:00",
     "victordzc18": "2026-07-10T15:48:15.226302+00:00",
@@ -29663,6 +29672,7 @@
     "vihaan2018chess": "2026-07-10T18:04:09.811323+00:00",
     "vihaan2808": "2026-07-10T13:55:31.838090+00:00",
     "vihaan_g": "2026-07-11T07:14:27.693660+00:00",
+    "vihaanmittal64": "2026-07-11T19:43:59.143681+00:00",
     "vihaans14": "2026-07-11T19:39:46.446639+00:00",
     "vihaanshah101019": "2026-07-11T16:20:55.836685+00:00",
     "vihaanvenu": "2026-07-11T11:03:30.412765+00:00",
@@ -156109,7 +156119,47 @@
       "rating": 1678,
       "source": "Lobby-Crawl",
       "username": "maxmudjonakhmadaliev"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vihaanmittal64",
+      "rank": 15704,
+      "rating": 1589,
+      "source": "?",
+      "username": "vihaanmittal64"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/hainhat2016",
+      "rank": 15705,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "hainhat2016"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/novaux",
+      "rank": 15706,
+      "rating": 1549,
+      "source": "Lobby-Crawl",
+      "username": "novaux"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/soumyadip_001",
+      "rank": 15707,
+      "rating": 1422,
+      "source": "Lobby-Crawl",
+      "username": "soumyadip_001"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/agvan19",
+      "rank": 15708,
+      "rating": 1412,
+      "source": "Lobby-Crawl",
+      "username": "agvan19"
     }
   ],
-  "updated_at": "2026-07-11T19:43:55.614882+00:00"
+  "updated_at": "2026-07-11T19:44:29.157806+00:00"
 }
