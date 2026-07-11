@@ -3647,7 +3647,7 @@
     "crazybugg": 0,
     "crazychess0405": 1,
     "crazychesschef": 6,
-    "crazydudecrazyhouse": 159,
+    "crazydudecrazyhouse": 163,
     "crazygreghouse": 0,
     "crazyhorses": 3,
     "crazyhouse_berserker": 11,
@@ -16971,7 +16971,7 @@
     "crazybugg": "2026-07-11T14:06:21.851370+00:00",
     "crazychess0405": "2026-07-11T07:02:45.786426+00:00",
     "crazychesschef": "2026-07-11T05:40:19.662547+00:00",
-    "crazydudecrazyhouse": "2026-07-11T01:26:42.382764+00:00",
+    "crazydudecrazyhouse": "2026-07-11T23:16:50.482650+00:00",
     "crazygreghouse": "2026-07-11T21:06:16.701012+00:00",
     "crazyhorses": "2026-07-11T08:07:43.339338+00:00",
     "crazyhouse_berserker": "2026-07-10T09:28:38.843367+00:00",
@@ -27576,8 +27576,16 @@
     },
     {
       "games": 163,
-      "profile": "https://lichess.org/@/klam82",
+      "profile": "https://lichess.org/@/crazydudecrazyhouse",
       "rank": 141,
+      "rating": 2175,
+      "source": "Lobby-Crawl",
+      "username": "crazydudecrazyhouse"
+    },
+    {
+      "games": 163,
+      "profile": "https://lichess.org/@/klam82",
+      "rank": 142,
       "rating": 2023,
       "source": "Lobby-Crawl",
       "username": "klam82"
@@ -27585,7 +27593,7 @@
     {
       "games": 161,
       "profile": "https://lichess.org/@/serkan_76",
-      "rank": 142,
+      "rank": 143,
       "rating": 2033,
       "source": "Lobby-Crawl",
       "username": "serkan_76"
@@ -27593,18 +27601,10 @@
     {
       "games": 160,
       "profile": "https://lichess.org/@/chefkoch1887",
-      "rank": 143,
+      "rank": 144,
       "rating": 1762,
       "source": "Lobby-Crawl",
       "username": "chefkoch1887"
-    },
-    {
-      "games": 159,
-      "profile": "https://lichess.org/@/crazydudecrazyhouse",
-      "rank": 144,
-      "rating": 2175,
-      "source": "Lobby-Crawl",
-      "username": "crazydudecrazyhouse"
     },
     {
       "games": 158,
@@ -133463,5 +133463,5 @@
       "username": "alexwis"
     }
   ],
-  "updated_at": "2026-07-11T23:16:09.302954+00:00"
+  "updated_at": "2026-07-11T23:16:50.485651+00:00"
 }
