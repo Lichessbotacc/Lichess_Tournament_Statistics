@@ -1984,7 +1984,7 @@
     "arkby96": 0,
     "arkhamknight77": 10,
     "arkhipmx": 1,
-    "arkmanne": 112,
+    "arkmanne": 109,
     "arm64": 0,
     "armaanbal": 1,
     "armaanlittty21": 0,
@@ -8448,7 +8448,7 @@
     "maurya2023": 20,
     "mavis1906": 0,
     "mavislin": 0,
-    "mavrenty": 109,
+    "mavrenty": 115,
     "mawasesnet": 0,
     "max-shustov-52": 0,
     "max012": 0,
@@ -15262,7 +15262,7 @@
     "arkby96": "2026-07-10T18:20:31.548055+00:00",
     "arkhamknight77": "2026-07-11T12:55:22.022351+00:00",
     "arkhipmx": "2026-07-10T13:13:52.991821+00:00",
-    "arkmanne": "2026-07-11T02:37:16.755501+00:00",
+    "arkmanne": "2026-07-11T21:31:20.776918+00:00",
     "arm64": "2026-07-10T14:23:54.161817+00:00",
     "armaanbal": "2026-07-11T03:36:26.753299+00:00",
     "armaanlittty21": "2026-07-11T18:18:04.018284+00:00",
@@ -21712,7 +21712,7 @@
     "maurya2023": "2026-07-10T18:50:48.498521+00:00",
     "mavis1906": "2026-07-10T15:58:30.271816+00:00",
     "mavislin": "2026-07-10T14:30:48.615162+00:00",
-    "mavrenty": "2026-07-11T01:38:07.970163+00:00",
+    "mavrenty": "2026-07-11T21:31:44.167574+00:00",
     "mawasesnet": "2026-07-11T03:00:30.166062+00:00",
     "max-shustov-52": "2026-07-10T22:06:33.623985+00:00",
     "max012": "2026-07-10T20:25:10.060495+00:00",
@@ -28620,8 +28620,16 @@
     },
     {
       "games": 115,
-      "profile": "https://lichess.org/@/n_e_p_o",
+      "profile": "https://lichess.org/@/mavrenty",
       "rank": 261,
+      "rating": 1911,
+      "source": "Lobby-Crawl",
+      "username": "mavrenty"
+    },
+    {
+      "games": 115,
+      "profile": "https://lichess.org/@/n_e_p_o",
+      "rank": 262,
       "rating": 1856,
       "source": "Lobby-Crawl",
       "username": "n_e_p_o"
@@ -28629,7 +28637,7 @@
     {
       "games": 115,
       "profile": "https://lichess.org/@/sutcunuri",
-      "rank": 262,
+      "rank": 263,
       "rating": 2404,
       "source": "?",
       "username": "sutcunuri"
@@ -28637,7 +28645,7 @@
     {
       "games": 114,
       "profile": "https://lichess.org/@/blo0od",
-      "rank": 263,
+      "rank": 264,
       "rating": 1500,
       "source": "Lobby-Crawl",
       "username": "blo0od"
@@ -28645,7 +28653,7 @@
     {
       "games": 114,
       "profile": "https://lichess.org/@/onuqense",
-      "rank": 264,
+      "rank": 265,
       "rating": 2258,
       "source": "Lobby-Crawl",
       "username": "onuqense"
@@ -28653,7 +28661,7 @@
     {
       "games": 114,
       "profile": "https://lichess.org/@/sridhar17",
-      "rank": 265,
+      "rank": 266,
       "rating": 1262,
       "source": "Lobby-Crawl",
       "username": "sridhar17"
@@ -28661,7 +28669,7 @@
     {
       "games": 114,
       "profile": "https://lichess.org/@/ved0206",
-      "rank": 266,
+      "rank": 267,
       "rating": 1028,
       "source": "Lobby-Crawl",
       "username": "ved0206"
@@ -28669,7 +28677,7 @@
     {
       "games": 113,
       "profile": "https://lichess.org/@/knightofthenuke",
-      "rank": 267,
+      "rank": 268,
       "rating": 1667,
       "source": "Lobby-Crawl",
       "username": "knightofthenuke"
@@ -28677,7 +28685,7 @@
     {
       "games": 113,
       "profile": "https://lichess.org/@/mirko208",
-      "rank": 268,
+      "rank": 269,
       "rating": 1488,
       "source": "Lobby-Crawl",
       "username": "mirko208"
@@ -28685,7 +28693,7 @@
     {
       "games": 113,
       "profile": "https://lichess.org/@/shahmati23",
-      "rank": 269,
+      "rank": 270,
       "rating": 1760,
       "source": "Lobby-Crawl",
       "username": "shahmati23"
@@ -28693,18 +28701,10 @@
     {
       "games": 112,
       "profile": "https://lichess.org/@/adrian_khomiachuk",
-      "rank": 270,
+      "rank": 271,
       "rating": 1439,
       "source": "Lobby-Crawl",
       "username": "adrian_khomiachuk"
-    },
-    {
-      "games": 112,
-      "profile": "https://lichess.org/@/arkmanne",
-      "rank": 271,
-      "rating": 1811,
-      "source": "Lobby-Crawl",
-      "username": "arkmanne"
     },
     {
       "games": 112,
@@ -28780,8 +28780,16 @@
     },
     {
       "games": 109,
-      "profile": "https://lichess.org/@/atomicmasternewo23",
+      "profile": "https://lichess.org/@/arkmanne",
       "rank": 281,
+      "rating": 1811,
+      "source": "Lobby-Crawl",
+      "username": "arkmanne"
+    },
+    {
+      "games": 109,
+      "profile": "https://lichess.org/@/atomicmasternewo23",
+      "rank": 282,
       "rating": 1895,
       "source": "Lobby-Crawl",
       "username": "atomicmasternewo23"
@@ -28789,7 +28797,7 @@
     {
       "games": 109,
       "profile": "https://lichess.org/@/hulka416",
-      "rank": 282,
+      "rank": 283,
       "rating": 1561,
       "source": "?",
       "username": "hulka416"
@@ -28797,7 +28805,7 @@
     {
       "games": 109,
       "profile": "https://lichess.org/@/levmorozovkor",
-      "rank": 283,
+      "rank": 284,
       "rating": 1439,
       "source": "Lobby-Crawl",
       "username": "levmorozovkor"
@@ -28805,18 +28813,10 @@
     {
       "games": 109,
       "profile": "https://lichess.org/@/looksplayable",
-      "rank": 284,
+      "rank": 285,
       "rating": 1671,
       "source": "Lobby-Crawl",
       "username": "looksplayable"
-    },
-    {
-      "games": 109,
-      "profile": "https://lichess.org/@/mavrenty",
-      "rank": 285,
-      "rating": 1911,
-      "source": "Lobby-Crawl",
-      "username": "mavrenty"
     },
     {
       "games": 108,
@@ -132779,5 +132779,5 @@
       "username": "omarmukhtar12"
     }
   ],
-  "updated_at": "2026-07-11T21:30:52.100414+00:00"
+  "updated_at": "2026-07-11T21:31:44.170776+00:00"
 }
