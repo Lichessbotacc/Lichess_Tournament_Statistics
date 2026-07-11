@@ -12437,6 +12437,7 @@
     "tjroxx": 0,
     "tkachevoleg": 0,
     "tking_789": 0,
+    "tks-atl-drewh": 0,
     "tks-atl-naveenh": 0,
     "tks-atl-owenno": 0,
     "tks-atx-clairel": 0,
@@ -12488,6 +12489,7 @@
     "tks-hou-davidb": 0,
     "tks-hou-dexterd": 0,
     "tks-hou-ethana": 0,
+    "tks-hou-gabrielg2": 0,
     "tks-hou-gabriels1": 0,
     "tks-hou-ganeevb": 0,
     "tks-hou-ians": 0,
@@ -12540,6 +12542,7 @@
     "tks-kc-aadharshk": 0,
     "tks-kc-aaronv": 0,
     "tks-kc-antonl": 2,
+    "tks-kc-aristotlew": 0,
     "tks-kc-beng": 0,
     "tks-kc-brijd1": 0,
     "tks-kc-charlieb": 0,
@@ -25273,6 +25276,7 @@
     "tjroxx": "2026-07-10T11:29:04.925957+00:00",
     "tkachevoleg": "2026-07-11T09:33:50.295326+00:00",
     "tking_789": "2026-07-11T09:58:42.277980+00:00",
+    "tks-atl-drewh": "2026-07-11T11:16:10.122497+00:00",
     "tks-atl-naveenh": "2026-07-10T12:10:40.552016+00:00",
     "tks-atl-owenno": "2026-07-11T11:14:15.461653+00:00",
     "tks-atx-clairel": "2026-07-10T03:03:32.720953+00:00",
@@ -25324,6 +25328,7 @@
     "tks-hou-davidb": "2026-07-11T11:08:27.434506+00:00",
     "tks-hou-dexterd": "2026-07-11T11:08:30.424882+00:00",
     "tks-hou-ethana": "2026-07-11T11:08:33.416127+00:00",
+    "tks-hou-gabrielg2": "2026-07-11T11:16:13.125990+00:00",
     "tks-hou-gabriels1": "2026-07-10T12:20:25.861449+00:00",
     "tks-hou-ganeevb": "2026-07-10T12:21:05.387400+00:00",
     "tks-hou-ians": "2026-07-11T11:08:36.432920+00:00",
@@ -25349,12 +25354,12 @@
     "tks-jack-meghashyac": "2026-07-10T04:31:07.728007+00:00",
     "tks-jax-aadhanan": "2026-07-10T12:12:26.490849+00:00",
     "tks-jax-alexandrad": "2026-07-11T11:07:05.305202+00:00",
-    "tks-jax-atharvg": "2026-07-10T05:17:18.811475+00:00",
+    "tks-jax-atharvg": "2026-07-11T11:16:01.126706+00:00",
     "tks-jax-briank": "2026-07-10T05:17:49.069486+00:00",
     "tks-jax-daniela": "2026-07-10T05:19:30.138475+00:00",
     "tks-jax-dashf": "2026-07-10T12:12:38.488848+00:00",
     "tks-jax-ethanf": "2026-07-10T03:03:41.721617+00:00",
-    "tks-jax-giannaz": "2026-07-10T12:12:29.494713+00:00",
+    "tks-jax-giannaz": "2026-07-11T11:16:16.128599+00:00",
     "tks-jax-jacem": "2026-07-10T12:14:23.300233+00:00",
     "tks-jax-jamesk": "2026-07-11T11:07:46.251620+00:00",
     "tks-jax-janb": "2026-07-10T12:23:26.891937+00:00",
@@ -25376,6 +25381,7 @@
     "tks-kc-aadharshk": "2026-07-10T12:23:02.888373+00:00",
     "tks-kc-aaronv": "2026-07-10T03:03:44.716693+00:00",
     "tks-kc-antonl": "2026-07-10T12:22:34.203738+00:00",
+    "tks-kc-aristotlew": "2026-07-11T11:16:19.133870+00:00",
     "tks-kc-beng": "2026-07-11T11:07:55.257243+00:00",
     "tks-kc-brijd1": "2026-07-10T12:22:41.887385+00:00",
     "tks-kc-charlieb": "2026-07-11T11:07:58.248656+00:00",
@@ -25399,7 +25405,7 @@
     "tks-kc-owenw": "2026-07-11T11:14:33.784011+00:00",
     "tks-kc-romans": "2026-07-11T11:14:48.789001+00:00",
     "tks-kc-sammyb": "2026-07-10T12:23:38.890616+00:00",
-    "tks-kc-samr": "2026-07-10T12:23:08.892697+00:00",
+    "tks-kc-samr": "2026-07-11T11:16:22.127900+00:00",
     "tks-kc-samw": "2026-07-11T11:06:50.321505+00:00",
     "tks-kc-sebastianc": "2026-07-11T11:07:27.628654+00:00",
     "tks-kc-shebaa": "2026-07-10T05:19:42.153588+00:00",
@@ -122933,7 +122939,28 @@
       "rank": 13762,
       "source": "Lobby-Crawl",
       "username": "luigicarratello2002"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tks-atl-drewh",
+      "rank": 13763,
+      "source": "Lobby-Crawl",
+      "username": "tks-atl-drewh"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tks-hou-gabrielg2",
+      "rank": 13764,
+      "source": "Lobby-Crawl",
+      "username": "tks-hou-gabrielg2"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tks-kc-aristotlew",
+      "rank": 13765,
+      "source": "Lobby-Crawl",
+      "username": "tks-kc-aristotlew"
     }
   ],
-  "updated_at": "2026-07-11T11:15:51.719951+00:00"
+  "updated_at": "2026-07-11T11:16:22.127917+00:00"
 }
