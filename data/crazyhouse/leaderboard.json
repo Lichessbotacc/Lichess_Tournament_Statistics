@@ -2970,7 +2970,7 @@
     "buyi2014": 0,
     "buzulcehennemi": 19,
     "buzzone": 2,
-    "bvanvliet9": 361,
+    "bvanvliet9": 372,
     "bxjdd": 0,
     "byblik33333333": 0,
     "byheron": 38,
@@ -8911,6 +8911,7 @@
     "momo_64": 1,
     "mon3em3": 0,
     "mon_xadrez": 0,
+    "monalisa_14": 0,
     "monarch_7": 3,
     "monarch_jai_vishal": 0,
     "moncalves": 23,
@@ -16177,7 +16178,7 @@
     "butterbrot": "2026-07-11T12:56:14.490705+00:00",
     "buyi2014": "2026-07-10T03:34:28.591309+00:00",
     "buzulcehennemi": "2026-07-10T21:43:55.693506+00:00",
-    "bvanvliet9": "2026-07-11T00:07:11.602667+00:00",
+    "bvanvliet9": "2026-07-11T22:06:41.382924+00:00",
     "bxjdd": "2026-07-10T18:56:51.399486+00:00",
     "byblik33333333": "2026-07-11T20:36:22.533793+00:00",
     "byheron": "2026-07-11T18:28:53.739784+00:00",
@@ -21978,6 +21979,7 @@
     "momo_64": "2026-07-11T02:08:47.718394+00:00",
     "mon3em3": "2026-07-10T07:45:28.175106+00:00",
     "mon_xadrez": "2026-07-11T07:34:49.200045+00:00",
+    "monalisa_14": "2026-07-11T22:05:18.176137+00:00",
     "monarch_7": "2026-07-10T17:34:46.666436+00:00",
     "monarch_jai_vishal": "2026-07-11T12:29:14.995017+00:00",
     "moncalves": "2026-07-11T01:10:56.165535+00:00",
@@ -26377,8 +26379,16 @@
     },
     {
       "games": 372,
-      "profile": "https://lichess.org/@/wanyonyi",
+      "profile": "https://lichess.org/@/bvanvliet9",
       "rank": 24,
+      "rating": 2340,
+      "source": "?",
+      "username": "bvanvliet9"
+    },
+    {
+      "games": 372,
+      "profile": "https://lichess.org/@/wanyonyi",
+      "rank": 25,
       "rating": 2108,
       "source": "Lobby-Crawl",
       "username": "wanyonyi"
@@ -26386,18 +26396,10 @@
     {
       "games": 363,
       "profile": "https://lichess.org/@/alemogh",
-      "rank": 25,
+      "rank": 26,
       "rating": 1959,
       "source": "Lobby-Crawl",
       "username": "alemogh"
-    },
-    {
-      "games": 361,
-      "profile": "https://lichess.org/@/bvanvliet9",
-      "rank": 26,
-      "rating": 2340,
-      "source": "?",
-      "username": "bvanvliet9"
     },
     {
       "games": 357,
@@ -127803,7 +127805,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/unmaskedscorp",
       "rank": 12702,
-      "rating": null,
+      "rating": 2025,
       "source": "Lobby-Crawl",
       "username": "unmaskedscorp"
     },
@@ -128011,7 +128013,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/uygariya",
       "rank": 12728,
-      "rating": null,
+      "rating": 1862,
       "source": "Lobby-Crawl",
       "username": "uygariya"
     },
@@ -132150,7 +132152,15 @@
       "rating": 1839,
       "source": "Lobby-Crawl",
       "username": "zgarek"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/monalisa_14",
+      "rank": 13246,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "monalisa_14"
     }
   ],
-  "updated_at": "2026-07-11T22:05:07.655841+00:00"
+  "updated_at": "2026-07-11T22:06:41.385807+00:00"
 }
