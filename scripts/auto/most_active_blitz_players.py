@@ -340,14 +340,7 @@ TOP_N_LIVE = 1000
 # LIVE GIT PUSH
 # ---------------------------------------------------------------------------
 LIVE_GIT_PUSH = os.environ.get("GITHUB_ACTIONS", "").lower() == "true"
-GIT_PUSH_MIN_INTERVAL_SECONDS = float(os.environ.get("GIT_PUSH_MIN_INTERVAL_SECONDS", "300"))
-# GEAENDERT: von 30s auf 300s (5min) hochskaliert. Grund: MAX_TOTAL_RUNTIME_SECONDS
-# wurde von frueher ~240s auf jetzt 19800s (5h30m) angehoben, damit ein Lauf das
-# GitHub-Actions-Zeitlimit voll ausnutzt - der alte 30s-Push-Abstand haette dabei
-# aber bis zu ~660 Commits/Push-Zyklen PRO LAUF erzeugt (statt vorher ~8), was die
-# .git-Historie unnoetig aufblaeht und "Repo auschecken" spuerbar verlangsamt.
-# Mit 300s sind es nur noch max. ~65 Commits pro Lauf, bei weiterhin recht
-# aktuellem Live-Stand.
+GIT_PUSH_MIN_INTERVAL_SECONDS = float(os.environ.get("GIT_PUSH_MIN_INTERVAL_SECONDS", "30"))
 _last_git_push_ts = 0.0
 GIT_PUSH_MAX_RETRIES = 8
 GIT_PUSH_RETRY_BASE_DELAY_SECONDS = 3
@@ -1433,21 +1426,19 @@ def main() -> None:
     pool = set(known_players)
 
     # --- Rating/Bann-Refresh fuer die aktuelle Top-1000 -------------------
-    # Aktualisiert Rating UND Bann-/Bot-Status per Bulk-Endpunkt fuer alle
-    # Spieler, die gerade in der Top-1000 stehen und deren letzter Check
-    # laenger als RATING_REFRESH_COOLDOWN_HOURS zurueckliegt. So bleibt das
-    # angezeigte Rating aktuell UND neu gebannte Spieler werden erkannt,
-    # ohne bei jedem Lauf den gesamten (viel groesseren) Spieler-Pool
-    # abzufragen.
+    # Wird JETZT bei JEDEM Lauf unbedingt ausgefuehrt (kein Cooldown mehr) -
+    # kostet bei max. TOP_N_LIVE (1000) Spielern nur eine Handvoll Bulk-
+    # Requests (max. ~4 bei Batch-Groesse 300), stellt aber sicher, dass
+    # Bann-Status UND Rating fuer die Top-1000 garantiert bei jedem
+    # Lauf-Start frisch geprueft werden - auch wenn ein Spieler z.B. durch
+    # eine alte/migrierte checked_at-Angabe faelschlich als "frisch
+    # geprueft" galt.
     ranked_now = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:TOP_N_LIVE]
-    due_for_refresh = [
-        name for name, _ in ranked_now
-        if is_due(player_info.get(name, {}).get("checked_at", ""), RATING_REFRESH_COOLDOWN_SECONDS)
-    ]
-    if due_for_refresh:
-        print(f"  [RATING-REFRESH] Aktualisiere Rating/Status fuer "
-              f"{len(due_for_refresh)} Spieler der aktuellen Top-{TOP_N_LIVE}...")
-        update_player_info_cache(due_for_refresh, player_info)
+    top1000_names = [name for name, _ in ranked_now]
+    if top1000_names:
+        print(f"  [RATING/BANN-REFRESH] Aktualisiere Rating/Status fuer "
+              f"{len(top1000_names)} Spieler der aktuellen Top-{TOP_N_LIVE}...")
+        update_player_info_cache(top1000_names, player_info)
 
     # --- Gebannte Spieler dauerhaft entfernen ------------------------------
     # Gebannte/geschlossene Accounts sollen weder in der Rangliste stehen
