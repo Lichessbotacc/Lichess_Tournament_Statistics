@@ -9652,7 +9652,7 @@
     "opikap": 12,
     "opitach1": 0,
     "orabi1880": 0,
-    "orcinus_orca": 499,
+    "orcinus_orca": 424,
     "oreochad": 56,
     "orestis_123": 0,
     "oriademonsieur4u": 0,
@@ -22977,7 +22977,7 @@
     "opikap": "2026-07-10T12:30:20.692625+00:00",
     "opitach1": "2026-07-11T09:07:06.854305+00:00",
     "orabi1880": "2026-07-10T09:32:04.238507+00:00",
-    "orcinus_orca": "2026-07-10T23:36:26.774659+00:00",
+    "orcinus_orca": "2026-07-11T22:54:52.647860+00:00",
     "oreochad": "2026-07-11T14:44:20.370741+00:00",
     "orestis_123": "2026-07-11T20:27:35.455832+00:00",
     "oriademonsieur4u": "2026-07-10T18:29:04.759555+00:00",
@@ -26795,17 +26795,9 @@
       "username": "paul8900"
     },
     {
-      "games": 499,
-      "profile": "https://lichess.org/@/orcinus_orca",
-      "rank": 17,
-      "rating": 2300,
-      "source": "?",
-      "username": "orcinus_orca"
-    },
-    {
       "games": 463,
       "profile": "https://lichess.org/@/aschorn",
-      "rank": 18,
+      "rank": 17,
       "rating": 2087,
       "source": "Lobby-Crawl",
       "username": "aschorn"
@@ -26813,7 +26805,7 @@
     {
       "games": 459,
       "profile": "https://lichess.org/@/burak-t",
-      "rank": 19,
+      "rank": 18,
       "rating": 1972,
       "source": "Lobby-Crawl",
       "username": "burak-t"
@@ -26821,7 +26813,7 @@
     {
       "games": 459,
       "profile": "https://lichess.org/@/kc86",
-      "rank": 20,
+      "rank": 19,
       "rating": 1951,
       "source": "Lobby-Crawl",
       "username": "kc86"
@@ -26829,7 +26821,7 @@
     {
       "games": 454,
       "profile": "https://lichess.org/@/cevlrl",
-      "rank": 21,
+      "rank": 20,
       "rating": 2006,
       "source": "Lobby-Crawl",
       "username": "cevlrl"
@@ -26837,7 +26829,7 @@
     {
       "games": 439,
       "profile": "https://lichess.org/@/stron1237",
-      "rank": 22,
+      "rank": 21,
       "rating": 1525,
       "source": "Lobby-Crawl",
       "username": "stron1237"
@@ -26845,7 +26837,7 @@
     {
       "games": 432,
       "profile": "https://lichess.org/@/losergl",
-      "rank": 23,
+      "rank": 22,
       "rating": 1704,
       "source": "Lobby-Crawl",
       "username": "losergl"
@@ -26853,7 +26845,7 @@
     {
       "games": 432,
       "profile": "https://lichess.org/@/matthevg",
-      "rank": 24,
+      "rank": 23,
       "rating": 2252,
       "source": "?",
       "username": "matthevg"
@@ -26861,10 +26853,18 @@
     {
       "games": 425,
       "profile": "https://lichess.org/@/abhisar007",
-      "rank": 25,
+      "rank": 24,
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "abhisar007"
+    },
+    {
+      "games": 424,
+      "profile": "https://lichess.org/@/orcinus_orca",
+      "rank": 25,
+      "rating": 2300,
+      "source": "?",
+      "username": "orcinus_orca"
     },
     {
       "games": 403,
@@ -133419,5 +133419,5 @@
       "username": "flameflags"
     }
   ],
-  "updated_at": "2026-07-11T22:52:47.651324+00:00"
+  "updated_at": "2026-07-11T22:54:52.650939+00:00"
 }
