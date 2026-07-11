@@ -5198,6 +5198,7 @@
     "king0729": 0,
     "king11111": 0,
     "king274": 27,
+    "king_chesssd": 0,
     "king_darwish2": 4,
     "king_shokh": 0,
     "kingchess1991": 0,
@@ -13856,6 +13857,7 @@
     "king0729": "2026-07-10T07:08:04.312818+00:00",
     "king11111": "2026-07-10T17:29:03.884477+00:00",
     "king274": "2026-07-10T09:18:32.419563+00:00",
+    "king_chesssd": "2026-07-11T02:24:19.207916+00:00",
     "king_darwish2": "2026-07-10T22:09:50.818839+00:00",
     "king_shokh": "2026-07-10T15:59:45.865584+00:00",
     "kingchess1991": "2026-07-10T23:16:47.719512+00:00",
@@ -78048,7 +78050,14 @@
       "rank": 8675,
       "source": "Lobby-Crawl",
       "username": "elonasky"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/king_chesssd",
+      "rank": 8676,
+      "source": "Lobby-Crawl",
+      "username": "king_chesssd"
     }
   ],
-  "updated_at": "2026-07-11T02:23:35.826268+00:00"
+  "updated_at": "2026-07-11T02:24:19.207934+00:00"
 }
