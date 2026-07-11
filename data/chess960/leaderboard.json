@@ -2171,6 +2171,7 @@
     "as-xx-40t": 4,
     "as00110110": 4,
     "as1967": 0,
+    "as_de_picas": 0,
     "asa-santafe": 0,
     "asad-uwais-alfatih": 0,
     "asaf8181": 0,
@@ -5607,6 +5608,7 @@
     "gticket": 16,
     "gtscorcher": 0,
     "gu_stl72": 8,
+    "guajara22": 0,
     "guangzhou": 10,
     "guary1": 28,
     "gudinigarik": 9,
@@ -6229,6 +6231,7 @@
     "initha_t": 0,
     "ink_n_knight": 0,
     "inlivingwater": 83,
+    "innercoyote": 0,
     "innominis": 0,
     "input-error": 5,
     "insalvbre": 9,
@@ -9426,6 +9429,7 @@
     "nurlan_kos10": 65,
     "nurlesen": 72,
     "nurshahmatist": 0,
+    "nurullah3452": 0,
     "nusantara_04": 6,
     "nusaryo95": 0,
     "nutlislesa1": 0,
@@ -9968,6 +9972,7 @@
     "plich": 0,
     "plojhar": 0,
     "plotrelevant": 1,
+    "ploy66": 0,
     "plsdontclosemyacc": 0,
     "plyffer": 0,
     "pmanojprabakar": 0,
@@ -11559,6 +11564,7 @@
     "stamatis3": 45,
     "stambul65": 0,
     "stancashew": 0,
+    "standart-player": 0,
     "standoff4": 0,
     "staneeq": 0,
     "stani_chess": 0,
@@ -15237,6 +15243,7 @@
     "as-maloy13": "2026-07-11T03:34:36.247108+00:00",
     "as00110110": "2026-07-11T03:06:31.031661+00:00",
     "as1967": "2026-07-10T08:40:53.527410+00:00",
+    "as_de_picas": "2026-07-11T07:25:10.564543+00:00",
     "asa-santafe": "2026-07-10T01:25:51.603496+00:00",
     "asad-uwais-alfatih": "2026-07-10T01:25:53.090505+00:00",
     "asan19829021": "2026-07-10T01:25:54.552753+00:00",
@@ -18203,6 +18210,7 @@
     "gtee": "2026-07-10T22:31:28.060846+00:00",
     "gticket": "2026-07-11T02:40:16.650446+00:00",
     "gu_stl72": "2026-07-10T01:03:11.546179+00:00",
+    "guajara22": "2026-07-11T07:24:43.567369+00:00",
     "guangzhou": "2026-07-11T01:45:17.117854+00:00",
     "guary1": "2026-07-11T02:22:14.163027+00:00",
     "gudinigarik": "2026-07-11T07:12:35.757550+00:00",
@@ -18753,6 +18761,7 @@
     "initha_t": "2026-07-11T06:34:25.633187+00:00",
     "ink_n_knight": "2026-07-10T16:47:50.159209+00:00",
     "inlivingwater": "2026-07-10T23:37:51.286896+00:00",
+    "innercoyote": "2026-07-11T07:24:46.574576+00:00",
     "innominis": "2026-07-10T08:13:47.516439+00:00",
     "input-error": "2026-07-10T21:12:10.999751+00:00",
     "insaneostyle": "2026-07-10T05:34:02.446925+00:00",
@@ -21518,6 +21527,7 @@
     "nurapika": "2026-07-10T13:36:28.357694+00:00",
     "nurlan_kos10": "2026-07-11T04:35:46.520150+00:00",
     "nurlesen": "2026-07-10T21:59:51.189960+00:00",
+    "nurullah3452": "2026-07-11T07:24:49.576889+00:00",
     "nusantara_04": "2026-07-10T21:17:53.200594+00:00",
     "nusaryo95": "2026-07-11T04:20:52.950697+00:00",
     "nutlislesa1": "2026-07-10T20:09:51.135957+00:00",
@@ -21960,6 +21970,7 @@
     "plaza08": "2026-07-10T03:00:51.617051+00:00",
     "plich": "2026-07-10T05:47:12.310242+00:00",
     "plotrelevant": "2026-07-10T01:11:27.282742+00:00",
+    "ploy66": "2026-07-11T07:24:52.556218+00:00",
     "plyffer": "2026-07-10T11:51:14.964591+00:00",
     "pmanojprabakar": "2026-07-10T03:34:11.165574+00:00",
     "pmdfun": "2026-07-10T16:01:09.845092+00:00",
@@ -23265,6 +23276,7 @@
     "stamatis3": "2026-07-11T02:19:37.786739+00:00",
     "stambul65": "2026-07-10T05:20:54.690571+00:00",
     "stancashew": "2026-07-11T04:19:46.465827+00:00",
+    "standart-player": "2026-07-11T07:24:58.553917+00:00",
     "standoff4": "2026-07-10T19:32:35.671960+00:00",
     "staneeq": "2026-07-11T01:29:05.363773+00:00",
     "stani_chess": "2026-07-10T21:07:41.892375+00:00",
@@ -117278,7 +117290,49 @@
       "rank": 13231,
       "source": "Lobby-Crawl",
       "username": "davidmichelpsy"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/guajara22",
+      "rank": 13232,
+      "source": "Lobby-Crawl",
+      "username": "guajara22"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/innercoyote",
+      "rank": 13233,
+      "source": "Lobby-Crawl",
+      "username": "innercoyote"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/nurullah3452",
+      "rank": 13234,
+      "source": "Lobby-Crawl",
+      "username": "nurullah3452"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ploy66",
+      "rank": 13235,
+      "source": "Lobby-Crawl",
+      "username": "ploy66"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/standart-player",
+      "rank": 13236,
+      "source": "Lobby-Crawl",
+      "username": "standart-player"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/as_de_picas",
+      "rank": 13237,
+      "source": "Lobby-Crawl",
+      "username": "as_de_picas"
     }
   ],
-  "updated_at": "2026-07-11T07:24:34.837837+00:00"
+  "updated_at": "2026-07-11T07:25:10.564563+00:00"
 }
