@@ -2555,6 +2555,7 @@
     "chess_killer12": 4,
     "chess_king_1000": 0,
     "chess_kong_kostia": 0,
+    "chess_legacy_am": 0,
     "chess_master62": 0,
     "chess_master_1985": 4,
     "chess_ninja_01": 4,
@@ -13651,6 +13652,7 @@
     "chess_killer12": "2026-07-10T00:47:22.866144+00:00",
     "chess_king_1000": "2026-07-10T23:14:13.639440+00:00",
     "chess_kong_kostia": "2026-07-10T05:08:23.970251+00:00",
+    "chess_legacy_am": "2026-07-11T02:16:03.962151+00:00",
     "chess_master62": "2026-07-10T20:28:05.013670+00:00",
     "chess_master_1985": "2026-07-10T18:00:23.518575+00:00",
     "chess_ninja_01": "2026-07-11T00:14:00.762202+00:00",
@@ -100153,7 +100155,14 @@
       "rank": 11217,
       "source": "Lobby-Crawl",
       "username": "paradise79place"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess_legacy_am",
+      "rank": 11218,
+      "source": "?",
+      "username": "chess_legacy_am"
     }
   ],
-  "updated_at": "2026-07-11T02:12:38.944710+00:00"
+  "updated_at": "2026-07-11T02:16:03.962169+00:00"
 }
