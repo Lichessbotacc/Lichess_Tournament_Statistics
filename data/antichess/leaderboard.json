@@ -2502,6 +2502,7 @@
     "bz333": 0,
     "c-auris": 0,
     "c-sindarov": 0,
+    "c03m1c": 0,
     "c09j21": 0,
     "c2zi6": 0,
     "c4betterthane3": 170,
@@ -2705,6 +2706,7 @@
     "chessconqueror21": 0,
     "chessdemon989": 1,
     "chessdrei1": 0,
+    "chessecuador": 0,
     "chesserpratyush": 0,
     "chessflolo": 0,
     "chessforclass": 0,
@@ -4555,6 +4557,7 @@
     "inervus": 0,
     "inet_4": 3,
     "infernape135": 136,
+    "infernape918": 0,
     "infinite_way": 60,
     "infinitekavin": 0,
     "ingeco": 1,
@@ -7285,7 +7288,7 @@
     "rlp61": 53,
     "rmilin": 151,
     "rnbastos": 0,
-    "rnbqkrva": 657,
+    "rnbqkrva": 641,
     "road2agm": 3,
     "rob826": 0,
     "robbinzon": 0,
@@ -11297,6 +11300,7 @@
     "bz333": "2026-07-10T22:08:36.936257+00:00",
     "c-auris": "2026-07-10T17:59:02.704400+00:00",
     "c-sindarov": "2026-07-10T16:49:07.967599+00:00",
+    "c03m1c": "2026-07-11T02:55:50.798562+00:00",
     "c09j21": "2026-07-10T15:26:09.811786+00:00",
     "c2zi6": "2026-07-10T11:22:46.901016+00:00",
     "c4betterthane3": "2026-07-10T12:20:31.099763+00:00",
@@ -11500,6 +11504,7 @@
     "chessconqueror21": "2026-07-10T06:40:35.074217+00:00",
     "chessdemon989": "2026-07-10T04:38:45.356674+00:00",
     "chessdrei1": "2026-07-10T14:27:38.732242+00:00",
+    "chessecuador": "2026-07-11T02:55:53.789899+00:00",
     "chesserpratyush": "2026-07-10T16:54:11.995867+00:00",
     "chessflolo": "2026-07-11T00:21:25.250566+00:00",
     "chessforclass": "2026-07-10T16:54:27.465920+00:00",
@@ -13191,6 +13196,7 @@
     "indominus1": "2026-07-10T11:08:55.269564+00:00",
     "inet_4": "2026-07-10T13:24:08.964042+00:00",
     "infernape135": "2026-07-10T17:37:02.142167+00:00",
+    "infernape918": "2026-07-11T02:55:56.773214+00:00",
     "infinite_way": "2026-07-10T13:06:07.179526+00:00",
     "infinitekavin": "2026-07-10T12:42:12.713950+00:00",
     "ingeco": "2026-07-10T14:49:45.762712+00:00",
@@ -15347,7 +15353,7 @@
     "rlp61": "2026-07-10T09:42:49.159828+00:00",
     "rmilin": "2026-07-10T13:32:25.759564+00:00",
     "rnbastos": "2026-07-10T06:11:10.422368+00:00",
-    "rnbqkrva": "2026-07-10T07:47:53.168542+00:00",
+    "rnbqkrva": "2026-07-11T02:56:28.399659+00:00",
     "road2agm": "2026-07-10T10:55:28.349028+00:00",
     "rob826": "2026-07-10T05:13:22.630981+00:00",
     "robbinzon": "2026-07-10T16:27:19.751141+00:00",
@@ -16890,18 +16896,18 @@
       "username": "hassan_gamal1998"
     },
     {
-      "games": 657,
-      "profile": "https://lichess.org/@/rnbqkrva",
-      "rank": 7,
-      "source": "Lobby-Crawl",
-      "username": "rnbqkrva"
-    },
-    {
       "games": 656,
       "profile": "https://lichess.org/@/voidtyrant",
-      "rank": 8,
+      "rank": 7,
       "source": "?",
       "username": "voidtyrant"
+    },
+    {
+      "games": 641,
+      "profile": "https://lichess.org/@/rnbqkrva",
+      "rank": 8,
+      "source": "Lobby-Crawl",
+      "username": "rnbqkrva"
     },
     {
       "games": 595,
@@ -78418,7 +78424,28 @@
       "rank": 8796,
       "source": "Lobby-Crawl",
       "username": "antichessbich"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/c03m1c",
+      "rank": 8797,
+      "source": "Lobby-Crawl",
+      "username": "c03m1c"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chessecuador",
+      "rank": 8798,
+      "source": "Lobby-Crawl",
+      "username": "chessecuador"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/infernape918",
+      "rank": 8799,
+      "source": "Lobby-Crawl",
+      "username": "infernape918"
     }
   ],
-  "updated_at": "2026-07-11T02:55:41.755470+00:00"
+  "updated_at": "2026-07-11T02:56:28.401353+00:00"
 }
