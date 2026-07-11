@@ -3732,6 +3732,7 @@
     "deflection_chess": 0,
     "defnecelikk": 0,
     "degemen61": 0,
+    "dehanced": 0,
     "deinebewegung": 14,
     "dekosq": 0,
     "delajonte": 0,
@@ -6799,6 +6800,7 @@
     "korsar11": 0,
     "korshunov_ivan2018": 0,
     "korusemp3": 0,
+    "korypheus": 0,
     "kosasih_lckb": 0,
     "koshka2010": 0,
     "kosmonaftethan": 8,
@@ -8467,6 +8469,7 @@
     "napoleonvo": 4,
     "narain30": 0,
     "narayananchess": 5,
+    "nare2008": 0,
     "naree2012": 0,
     "nareksisi12345": 0,
     "narendca1234": 0,
@@ -10991,6 +10994,7 @@
     "stefanzarzycki": 0,
     "steffi2000": 1,
     "stefil": 0,
+    "stegorm": 0,
     "stelios_16": 4,
     "stellification": 5,
     "stepan-0612": 0,
@@ -16375,6 +16379,7 @@
     "deflection_chess": "2026-07-10T22:55:36.611961+00:00",
     "defnecelikk": "2026-07-11T09:59:38.118250+00:00",
     "degemen61": "2026-07-11T11:41:28.393572+00:00",
+    "dehanced": "2026-07-11T16:13:23.879470+00:00",
     "deinebewegung": "2026-07-11T02:10:12.925643+00:00",
     "dekosq": "2026-07-11T13:22:03.552598+00:00",
     "delajonte": "2026-07-11T01:45:24.702399+00:00",
@@ -19381,6 +19386,7 @@
     "korsar11": "2026-07-11T01:10:50.145069+00:00",
     "korshunov_ivan2018": "2026-07-11T12:18:45.631449+00:00",
     "korusemp3": "2026-07-11T10:10:44.265180+00:00",
+    "korypheus": "2026-07-11T16:12:56.888449+00:00",
     "kosasih_lckb": "2026-07-11T02:36:27.849672+00:00",
     "koshka2010": "2026-07-11T11:14:05.334397+00:00",
     "kosmonaftethan": "2026-07-10T18:03:36.106815+00:00",
@@ -21022,6 +21028,7 @@
     "napoleonvo": "2026-07-11T01:50:22.556029+00:00",
     "narain30": "2026-07-11T01:28:53.166753+00:00",
     "narayananchess": "2026-07-11T11:30:32.824100+00:00",
+    "nare2008": "2026-07-11T16:12:59.906443+00:00",
     "naree2012": "2026-07-10T14:11:49.105747+00:00",
     "nareksisi12345": "2026-07-11T01:40:19.184503+00:00",
     "narendca1234": "2026-07-11T06:40:56.420989+00:00",
@@ -23500,6 +23507,7 @@
     "stefanzarzycki": "2026-07-10T13:57:29.949424+00:00",
     "steffi2000": "2026-07-10T22:31:27.672510+00:00",
     "stefil": "2026-07-11T12:54:53.793782+00:00",
+    "stegorm": "2026-07-11T16:13:02.880441+00:00",
     "stelios_16": "2026-07-10T15:48:17.490745+00:00",
     "stellification": "2026-07-10T21:24:29.054426+00:00",
     "stepan-0612": "2026-07-10T03:37:39.575930+00:00",
@@ -24527,7 +24535,7 @@
     "vityandra": "2026-07-11T07:46:46.124812+00:00",
     "vivaan_pradhananga": "2026-07-10T09:31:08.510816+00:00",
     "vivaansuraj": "2026-07-11T07:13:44.034247+00:00",
-    "vivaantg": "2026-07-10T06:00:04.748738+00:00",
+    "vivaantg": "2026-07-11T16:13:05.894998+00:00",
     "vivaclover": "2026-07-10T05:27:52.034848+00:00",
     "vivanakashchowdary": "2026-07-10T06:47:28.559709+00:00",
     "vivaswank": "2026-07-11T11:18:51.546983+00:00",
@@ -55988,7 +55996,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/briangd",
       "rank": 3854,
-      "rating": null,
+      "rating": 1915,
       "source": "?",
       "username": "briangd"
     },
@@ -61148,7 +61156,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/contelles85",
       "rank": 4499,
-      "rating": null,
+      "rating": 1617,
       "source": "Lobby-Crawl",
       "username": "contelles85"
     },
@@ -62300,7 +62308,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/danekra",
       "rank": 4643,
-      "rating": null,
+      "rating": 1606,
       "source": "?",
       "username": "danekra"
     },
@@ -120588,7 +120596,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/vivaantg",
       "rank": 11929,
-      "rating": null,
+      "rating": 1402,
       "source": "Lobby-Crawl",
       "username": "vivaantg"
     },
@@ -126639,7 +126647,39 @@
       "rating": 1102,
       "source": "Lobby-Crawl",
       "username": "kocmo_kot"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/korypheus",
+      "rank": 12686,
+      "rating": 1002,
+      "source": "Lobby-Crawl",
+      "username": "korypheus"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/nare2008",
+      "rank": 12687,
+      "rating": 1768,
+      "source": "?",
+      "username": "nare2008"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/stegorm",
+      "rank": 12688,
+      "rating": 1102,
+      "source": "Lobby-Crawl",
+      "username": "stegorm"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/dehanced",
+      "rank": 12689,
+      "rating": 1064,
+      "source": "Lobby-Crawl",
+      "username": "dehanced"
     }
   ],
-  "updated_at": "2026-07-11T16:12:41.731236+00:00"
+  "updated_at": "2026-07-11T16:13:23.879485+00:00"
 }
