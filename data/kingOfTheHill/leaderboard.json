@@ -9790,6 +9790,7 @@
     "netalie": 0,
     "nethransk": 0,
     "netognos": 0,
+    "netolkaw": 0,
     "netyxi_97": 0,
     "neuisenburger": 0,
     "neuron11": 0,
@@ -12499,6 +12500,7 @@
     "sssarper": 0,
     "sssemen2014": 0,
     "sssserge": 0,
+    "ssukivarsan": 0,
     "sswalawege": 0,
     "st3fan2001": 0,
     "st96": 0,
@@ -12876,6 +12878,7 @@
     "telyatnikov_mikhail": 0,
     "tem_2012": 0,
     "temad2018": 0,
+    "temasandrakov": 0,
     "temirzhan_m": 0,
     "temperense": 0,
     "tempest_dragon": 0,
@@ -14258,6 +14261,7 @@
     "yusuf3361": 0,
     "yusuf77777": 3,
     "yusufariq": 0,
+    "yusufedelen": 0,
     "yusufmelihakkus": 0,
     "yusufsanz": 0,
     "yusufshihar": 0,
@@ -17827,7 +17831,7 @@
     "clevelandtribe": "2026-07-10T17:02:03.046912+00:00",
     "cleverdestroyer": "2026-07-10T23:50:08.349822+00:00",
     "cleverklaus": "2026-07-11T17:38:18.133394+00:00",
-    "clijsters": "2026-07-10T08:18:37.936159+00:00",
+    "clijsters": "2026-07-11T19:42:27.743954+00:00",
     "climbcult": "2026-07-10T16:14:26.050764+00:00",
     "cloche-dor": "2026-07-10T03:39:49.856741+00:00",
     "clopf": "2026-07-11T05:37:49.561105+00:00",
@@ -23350,6 +23354,7 @@
     "netalie": "2026-07-10T21:24:20.895067+00:00",
     "nethransk": "2026-07-11T14:16:32.118753+00:00",
     "netognos": "2026-07-11T17:53:38.293808+00:00",
+    "netolkaw": "2026-07-11T19:42:12.709070+00:00",
     "netyxi_97": "2026-07-11T07:22:25.610705+00:00",
     "neuisenburger": "2026-07-11T15:55:51.858993+00:00",
     "nevadimka": "2026-07-10T08:28:55.041562+00:00",
@@ -24403,7 +24408,7 @@
     "rakshanparameshwaran": "2026-07-11T05:26:49.262519+00:00",
     "rakso98": "2026-07-10T21:15:59.642790+00:00",
     "raktdas": "2026-07-11T05:41:15.159958+00:00",
-    "raleel": "2026-07-10T08:07:46.154491+00:00",
+    "raleel": "2026-07-11T19:42:30.757401+00:00",
     "ralex2017": "2026-07-11T02:44:41.789285+00:00",
     "ram_nandan": "2026-07-10T16:12:21.710272+00:00",
     "rama2727": "2026-07-10T16:27:01.498214+00:00",
@@ -25772,6 +25777,7 @@
     "sssarper": "2026-07-11T00:43:17.687136+00:00",
     "sssemen2014": "2026-07-10T08:11:33.937963+00:00",
     "sssserge": "2026-07-11T17:17:15.446187+00:00",
+    "ssukivarsan": "2026-07-11T19:42:33.715780+00:00",
     "sswalawege": "2026-07-10T05:56:20.278264+00:00",
     "st3fan2001": "2026-07-10T03:46:28.013191+00:00",
     "st96": "2026-07-10T15:26:56.552695+00:00",
@@ -26146,6 +26152,7 @@
     "telyatnikov_mikhail": "2026-07-11T17:24:43.858774+00:00",
     "tem_2012": "2026-07-10T23:04:16.460026+00:00",
     "temad2018": "2026-07-10T16:17:06.929172+00:00",
+    "temasandrakov": "2026-07-11T19:42:15.756244+00:00",
     "temirzhan_m": "2026-07-10T02:52:44.192827+00:00",
     "temperense": "2026-07-10T15:50:22.263384+00:00",
     "tempest_dragon": "2026-07-11T12:34:45.986922+00:00",
@@ -27521,6 +27528,7 @@
     "yusuf3361": "2026-07-10T18:53:17.407507+00:00",
     "yusuf77777": "2026-07-11T09:04:46.921651+00:00",
     "yusufariq": "2026-07-11T18:28:07.534242+00:00",
+    "yusufedelen": "2026-07-11T19:42:18.751715+00:00",
     "yusufmelihakkus": "2026-07-11T17:27:28.525111+00:00",
     "yusufsanz": "2026-07-11T03:54:59.072219+00:00",
     "yusufshihar": "2026-07-11T10:32:24.016174+00:00",
@@ -70175,7 +70183,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/clijsters",
       "rank": 5313,
-      "rating": null,
+      "rating": 2202,
       "source": "Lobby-Crawl",
       "username": "clijsters"
     },
@@ -116319,7 +116327,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/raleel",
       "rank": 11081,
-      "rating": null,
+      "rating": 2033,
       "source": "Lobby-Crawl",
       "username": "raleel"
     },
@@ -142954,7 +142962,39 @@
       "rating": 1760,
       "source": "Lobby-Crawl",
       "username": "floodzonechess"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/netolkaw",
+      "rank": 14411,
+      "rating": 1160,
+      "source": "Lobby-Crawl",
+      "username": "netolkaw"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/temasandrakov",
+      "rank": 14412,
+      "rating": 1250,
+      "source": "?",
+      "username": "temasandrakov"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/yusufedelen",
+      "rank": 14413,
+      "rating": 1118,
+      "source": "Lobby-Crawl",
+      "username": "yusufedelen"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ssukivarsan",
+      "rank": 14414,
+      "rating": 1427,
+      "source": "?",
+      "username": "ssukivarsan"
     }
   ],
-  "updated_at": "2026-07-11T19:42:03.161765+00:00"
+  "updated_at": "2026-07-11T19:42:33.715800+00:00"
 }
