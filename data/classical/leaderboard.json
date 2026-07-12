@@ -2728,7 +2728,7 @@
     "bferi50": 0,
     "bflam": 3,
     "bflanigen": 30,
-    "bgaylor": 80,
+    "bgaylor": 82,
     "bgryz": 0,
     "bhagavatiprasad": 10,
     "bhanwer07": 18,
@@ -19745,7 +19745,7 @@
     "bferi50": "2026-07-10T01:08:47.875033+00:00",
     "bflam": "2026-07-11T09:07:08.391210+00:00",
     "bflanigen": "2026-07-12T00:12:00.528169+00:00",
-    "bgaylor": "2026-07-10T21:01:28.570339+00:00",
+    "bgaylor": "2026-07-12T01:53:34.018058+00:00",
     "bgryz": "2026-07-10T22:30:48.668188+00:00",
     "bhagavatiprasad": "2026-07-11T23:44:02.312288+00:00",
     "bhanwer07": "2026-07-11T07:00:24.733947+00:00",
@@ -34324,8 +34324,16 @@
     },
     {
       "games": 82,
-      "profile": "https://lichess.org/@/pelesantos55",
+      "profile": "https://lichess.org/@/bgaylor",
       "rank": 110,
+      "rating": 1174,
+      "source": "Lobby-Crawl",
+      "username": "bgaylor"
+    },
+    {
+      "games": 82,
+      "profile": "https://lichess.org/@/pelesantos55",
+      "rank": 111,
       "rating": 1135,
       "source": "Lobby-Crawl",
       "username": "pelesantos55"
@@ -34333,7 +34341,7 @@
     {
       "games": 82,
       "profile": "https://lichess.org/@/wolfgang777",
-      "rank": 111,
+      "rank": 112,
       "rating": 1628,
       "source": "Lobby-Crawl",
       "username": "wolfgang777"
@@ -34341,7 +34349,7 @@
     {
       "games": 81,
       "profile": "https://lichess.org/@/dianeden",
-      "rank": 112,
+      "rank": 113,
       "rating": 1709,
       "source": "Lobby-Crawl",
       "username": "dianeden"
@@ -34349,7 +34357,7 @@
     {
       "games": 81,
       "profile": "https://lichess.org/@/farzad_parniani",
-      "rank": 113,
+      "rank": 114,
       "rating": 1673,
       "source": "Lobby-Crawl",
       "username": "farzad_parniani"
@@ -34357,18 +34365,10 @@
     {
       "games": 81,
       "profile": "https://lichess.org/@/omoruyiosatohanmwen",
-      "rank": 114,
+      "rank": 115,
       "rating": 2106,
       "source": "Lobby-Crawl",
       "username": "omoruyiosatohanmwen"
-    },
-    {
-      "games": 80,
-      "profile": "https://lichess.org/@/bgaylor",
-      "rank": 115,
-      "rating": 1174,
-      "source": "Lobby-Crawl",
-      "username": "bgaylor"
     },
     {
       "games": 80,
@@ -62998,7 +62998,7 @@
       "games": 11,
       "profile": "https://lichess.org/@/gemini50",
       "rank": 3694,
-      "rating": null,
+      "rating": 1235,
       "source": "Lobby-Crawl",
       "username": "gemini50"
     },
@@ -78998,7 +78998,7 @@
       "games": 6,
       "profile": "https://lichess.org/@/roman5523",
       "rank": 5694,
-      "rating": null,
+      "rating": 1213,
       "source": "Lobby-Crawl",
       "username": "roman5523"
     },
@@ -170275,5 +170275,5 @@
       "username": "titan_228"
     }
   ],
-  "updated_at": "2026-07-12T01:51:15.208210+00:00"
+  "updated_at": "2026-07-12T01:53:34.027973+00:00"
 }
