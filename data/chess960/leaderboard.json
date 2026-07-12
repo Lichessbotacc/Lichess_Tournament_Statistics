@@ -7370,6 +7370,7 @@
     "gold-chess2015": 0,
     "gold11": 0,
     "goldarrow": 0,
+    "goldbart": 0,
     "golden-lion": 0,
     "goldenchess10": 0,
     "goldendrgonfly": 0,
@@ -25577,6 +25578,7 @@
     "gold-chess2015": "2026-07-10T16:36:40.776206+00:00",
     "gold11": "2026-07-11T19:25:37.896731+00:00",
     "goldarrow": "2026-07-10T07:59:59.255758+00:00",
+    "goldbart": "2026-07-12T12:37:32.611979+00:00",
     "golden-lion": "2026-07-10T16:36:43.774292+00:00",
     "goldenchess10": "2026-07-10T16:36:46.771255+00:00",
     "goldendrgonfly": "2026-07-10T16:36:49.775529+00:00",
@@ -186268,7 +186270,15 @@
       "rating": 2201,
       "source": "Lobby-Crawl",
       "username": "themunky"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/goldbart",
+      "rank": 18798,
+      "rating": 2485,
+      "source": "Lobby-Crawl",
+      "username": "goldbart"
     }
   ],
-  "updated_at": "2026-07-12T12:32:50.227742+00:00"
+  "updated_at": "2026-07-12T12:37:32.612000+00:00"
 }
