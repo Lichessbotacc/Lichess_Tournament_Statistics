@@ -2900,6 +2900,7 @@
     "babechan06130": 0,
     "babiymisha": 0,
     "babkanachili": 0,
+    "babosos": 0,
     "babu030": 0,
     "baburindenni": 0,
     "babursh": 0,
@@ -3118,6 +3119,7 @@
     "belyaevmaksim": 0,
     "ben11220": 0,
     "ben2020tor": 0,
+    "ben_634": 0,
     "ben_epl": 0,
     "benburger64": 26,
     "benci0320": 2,
@@ -16182,6 +16184,7 @@
     "sinto123": 0,
     "sioc6": 0,
     "sionoo": 0,
+    "siovitt": 0,
     "siponchik": 0,
     "sipsaplol3": 0,
     "sipsisg2004": 0,
@@ -17458,6 +17461,7 @@
     "tirthankar-barmam": 0,
     "tirthbhalala321": 0,
     "tirthsoni10": 0,
+    "tisha143": 0,
     "tishan_lalithya_mrc": 0,
     "titaniel": 0,
     "titanregulus": 0,
@@ -22241,6 +22245,7 @@
     "babechan06130": "2026-07-11T18:17:03.804971+00:00",
     "babiymisha": "2026-07-12T16:49:57.934421+00:00",
     "babkanachili": "2026-07-11T13:53:56.140904+00:00",
+    "babosos": "2026-07-12T18:46:14.814872+00:00",
     "babu030": "2026-07-10T01:14:00.968438+00:00",
     "baburindenni": "2026-07-11T20:55:09.920064+00:00",
     "babursh": "2026-07-12T16:30:08.383529+00:00",
@@ -22457,6 +22462,7 @@
     "belyaevmaksim": "2026-07-11T21:58:34.369807+00:00",
     "ben11220": "2026-07-12T12:10:10.367871+00:00",
     "ben2020tor": "2026-07-12T11:40:16.414230+00:00",
+    "ben_634": "2026-07-12T18:46:15.307543+00:00",
     "ben_epl": "2026-07-11T21:06:47.180172+00:00",
     "benburger64": "2026-07-11T04:41:04.446573+00:00",
     "benci0320": "2026-07-10T07:33:00.190284+00:00",
@@ -29732,7 +29738,7 @@
     "leonid_1954": "2026-07-12T04:32:27.143959+00:00",
     "leonid_artamonov": "2026-07-12T09:45:39.695811+00:00",
     "leonid_kt": "2026-07-12T09:50:59.504927+00:00",
-    "leonidas222": "2026-07-10T09:41:07.140441+00:00",
+    "leonidas222": "2026-07-12T18:46:38.031870+00:00",
     "leonidbar": "2026-07-11T07:34:03.587850+00:00",
     "leonidkim": "2026-07-12T12:21:09.760596+00:00",
     "leonie-r": "2026-07-12T04:45:09.112011+00:00",
@@ -35391,6 +35397,7 @@
     "sinto123": "2026-07-11T23:08:33.123892+00:00",
     "sioc6": "2026-07-12T12:36:30.581902+00:00",
     "sionoo": "2026-07-10T18:31:16.473028+00:00",
+    "siovitt": "2026-07-12T18:46:11.563497+00:00",
     "siponchik": "2026-07-10T19:13:32.207669+00:00",
     "sipsaplol3": "2026-07-11T00:07:42.066068+00:00",
     "sipsisg2004": "2026-07-11T13:41:35.271600+00:00",
@@ -36365,7 +36372,7 @@
     "thbosson": "2026-07-12T12:35:53.783638+00:00",
     "the-gambiter": "2026-07-11T07:47:37.852038+00:00",
     "the-king22": "2026-07-12T08:58:27.688060+00:00",
-    "the-long-con": "2026-07-10T09:26:19.480540+00:00",
+    "the-long-con": "2026-07-12T18:46:15.791208+00:00",
     "the-rk-player": "2026-07-11T14:09:14.207353+00:00",
     "the24kcarrot": "2026-07-11T03:16:00.294094+00:00",
     "the49ersfan": "2026-07-10T03:47:04.455974+00:00",
@@ -36652,6 +36659,7 @@
     "tirthankar-barmam": "2026-07-11T15:46:15.582122+00:00",
     "tirthbhalala321": "2026-07-11T16:58:36.505852+00:00",
     "tirthsoni10": "2026-07-11T14:00:28.391016+00:00",
+    "tisha143": "2026-07-12T18:46:12.813435+00:00",
     "tishan_lalithya_mrc": "2026-07-10T18:30:40.898511+00:00",
     "titaniel": "2026-07-11T18:17:56.240712+00:00",
     "titanregulus": "2026-07-10T09:28:57.072932+00:00",
@@ -52465,7 +52473,7 @@
       "games": 1,
       "profile": "https://lichess.org/@/leonidas222",
       "rank": 1741,
-      "rating": null,
+      "rating": 1719,
       "source": "Lobby-Crawl",
       "username": "leonidas222"
     },
@@ -169297,7 +169305,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/the-long-con",
       "rank": 16345,
-      "rating": null,
+      "rating": 2166,
       "source": "Lobby-Crawl",
       "username": "the-long-con"
     },
@@ -193412,7 +193420,39 @@
       "rating": 1998,
       "source": "Lobby-Crawl",
       "username": "jackson_william"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/siovitt",
+      "rank": 19360,
+      "rating": 1888,
+      "source": "Lobby-Crawl",
+      "username": "siovitt"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tisha143",
+      "rank": 19361,
+      "rating": 1777,
+      "source": "Lobby-Crawl",
+      "username": "tisha143"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/babosos",
+      "rank": 19362,
+      "rating": 2151,
+      "source": "Lobby-Crawl",
+      "username": "babosos"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ben_634",
+      "rank": 19363,
+      "rating": 1936,
+      "source": "Lobby-Crawl",
+      "username": "ben_634"
     }
   ],
-  "updated_at": "2026-07-12T18:46:00.915405+00:00"
+  "updated_at": "2026-07-12T18:46:38.031890+00:00"
 }
