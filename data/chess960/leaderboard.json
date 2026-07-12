@@ -2894,6 +2894,7 @@
     "bechplofalltime": 0,
     "bediralpozturk": 0,
     "bedirhan493": 1,
+    "beelinegsm": 0,
     "beelzebubseraph": 0,
     "beepbeepboopbeep": 0,
     "beer_master": 1,
@@ -18866,6 +18867,7 @@
     "bechplofalltime": "2026-07-11T07:19:18.156089+00:00",
     "bediralpozturk": "2026-07-11T18:07:59.373741+00:00",
     "bedirhan493": "2026-07-11T17:46:01.474066+00:00",
+    "beelinegsm": "2026-07-12T01:07:16.987806+00:00",
     "beelzebubseraph": "2026-07-11T21:33:13.428421+00:00",
     "beepbeepboopbeep": "2026-07-10T03:25:09.165786+00:00",
     "beer_master": "2026-07-11T03:07:56.617373+00:00",
@@ -39781,7 +39783,7 @@
       "games": 30,
       "profile": "https://lichess.org/@/inigz",
       "rank": 1149,
-      "rating": null,
+      "rating": 1690,
       "source": "Lobby-Crawl",
       "username": "inigz"
     },
@@ -160040,7 +160042,15 @@
       "rating": 1774,
       "source": "Lobby-Crawl",
       "username": "lymruk"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/beelinegsm",
+      "rank": 16182,
+      "rating": 1801,
+      "source": "Lobby-Crawl",
+      "username": "beelinegsm"
     }
   ],
-  "updated_at": "2026-07-12T01:02:55.575919+00:00"
+  "updated_at": "2026-07-12T01:07:16.987826+00:00"
 }
