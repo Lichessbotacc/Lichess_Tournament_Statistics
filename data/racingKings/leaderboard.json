@@ -9816,6 +9816,7 @@
     "lorigine": 2,
     "loschinicutti": 0,
     "losinglilly": 0,
+    "lost_aragon": 0,
     "lot0": 0,
     "lotussama": 0,
     "lou20": 0,
@@ -27183,6 +27184,7 @@
     "lorigine": "2026-07-11T07:20:59.704557+00:00",
     "loschinicutti": "2026-07-12T06:03:46.140427+00:00",
     "losinglilly": "2026-07-11T03:10:06.962453+00:00",
+    "lost_aragon": "2026-07-12T11:45:01.730734+00:00",
     "lot0": "2026-07-10T12:53:59.608174+00:00",
     "lotussama": "2026-07-10T23:55:28.263632+00:00",
     "lou20": "2026-07-10T23:20:00.743872+00:00",
@@ -174554,7 +174556,15 @@
       "rating": 1606,
       "source": "Lobby-Crawl",
       "username": "ivan191114"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/lost_aragon",
+      "rank": 17475,
+      "rating": 1262,
+      "source": "Lobby-Crawl",
+      "username": "lost_aragon"
     }
   ],
-  "updated_at": "2026-07-12T11:43:41.742729+00:00"
+  "updated_at": "2026-07-12T11:45:01.730754+00:00"
 }
