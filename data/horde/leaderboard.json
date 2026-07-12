@@ -1401,6 +1401,7 @@
     "alexmix_2014": 0,
     "alexmt14": 0,
     "alexouyard": 0,
+    "alexpostica": 0,
     "alexpz2019": 5,
     "alexr58": 0,
     "alexrait": 0,
@@ -18986,6 +18987,7 @@
     "alexmix_2014": "2026-07-10T18:36:49.570612+00:00",
     "alexmt14": "2026-07-11T16:44:37.547461+00:00",
     "alexouyard": "2026-07-11T02:07:23.333783+00:00",
+    "alexpostica": "2026-07-12T05:35:28.952430+00:00",
     "alexpz2019": "2026-07-10T05:35:49.493756+00:00",
     "alexr58": "2026-07-11T07:09:29.703353+00:00",
     "alexrait": "2026-07-10T15:08:24.605264+00:00",
@@ -44755,7 +44757,7 @@
       "games": 3,
       "profile": "https://lichess.org/@/diegowirshke",
       "rank": 1313,
-      "rating": null,
+      "rating": 1504,
       "source": "Lobby-Crawl",
       "username": "diegowirshke"
     },
@@ -174926,7 +174928,15 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "shakrovna"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/alexpostica",
+      "rank": 17585,
+      "rating": 933,
+      "source": "Lobby-Crawl",
+      "username": "alexpostica"
     }
   ],
-  "updated_at": "2026-07-12T05:30:56.786027+00:00"
+  "updated_at": "2026-07-12T05:35:28.952454+00:00"
 }
