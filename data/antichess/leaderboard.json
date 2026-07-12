@@ -3089,6 +3089,7 @@
     "caballodiagonal": 0,
     "cabassog": 0,
     "cabinetinstaller": 0,
+    "cabrosaltarin": 0,
     "cabybara2016": 0,
     "cacarl": 0,
     "cacoch": 6,
@@ -5193,6 +5194,7 @@
     "george_91": 0,
     "georgettq": 4,
     "georgeyoung": 0,
+    "georggaiser": 0,
     "georgignm": 0,
     "georgij_j": 0,
     "georgina_hanna": 0,
@@ -9967,6 +9969,7 @@
     "ramiro_345p": 0,
     "rampagegoalie13": 43,
     "ramzkie123": 0,
+    "ramzyma": 0,
     "ranatito": 0,
     "rancidrodent84": 0,
     "randimatrix": 73,
@@ -10178,6 +10181,7 @@
     "rob826": 0,
     "robbinzon": 0,
     "robcusher": 0,
+    "robert-musil": 0,
     "robert007007": 42,
     "robert2017rob": 0,
     "robert51": 19,
@@ -15718,6 +15722,7 @@
     "caballodiagonal": "2026-07-11T06:05:59.755646+00:00",
     "cabassog": "2026-07-11T07:16:54.350979+00:00",
     "cabinetinstaller": "2026-07-11T20:40:58.779077+00:00",
+    "cabrosaltarin": "2026-07-12T00:51:12.067217+00:00",
     "cabybara2016": "2026-07-11T10:41:56.969117+00:00",
     "cacarl": "2026-07-11T19:41:27.592293+00:00",
     "cacoch": "2026-07-10T15:26:39.219268+00:00",
@@ -17814,6 +17819,7 @@
     "george_91": "2026-07-11T16:51:27.690842+00:00",
     "georgettq": "2026-07-11T05:11:04.866781+00:00",
     "georgeyoung": "2026-07-10T17:24:19.282200+00:00",
+    "georggaiser": "2026-07-12T00:50:48.057382+00:00",
     "georgignm": "2026-07-10T23:04:43.957152+00:00",
     "georgij_j": "2026-07-10T13:27:24.146602+00:00",
     "georgina_hanna": "2026-07-11T20:11:07.449772+00:00",
@@ -18680,7 +18686,7 @@
     "james0dube": "2026-07-11T04:13:53.915370+00:00",
     "jamesislegend": "2026-07-11T17:07:00.649468+00:00",
     "jamesjb2017": "2026-07-11T23:06:44.189968+00:00",
-    "jami3k": "2026-07-10T08:53:58.027363+00:00",
+    "jami3k": "2026-07-12T00:50:51.127037+00:00",
     "jamie2763": "2026-07-10T22:05:06.710339+00:00",
     "jammed-cheese": "2026-07-11T21:23:20.920266+00:00",
     "jan_halmaghi": "2026-07-11T06:22:06.038042+00:00",
@@ -21871,6 +21877,7 @@
     "ramiro_345p": "2026-07-11T08:30:49.026876+00:00",
     "rampagegoalie13": "2026-07-11T18:27:40.723468+00:00",
     "ramzkie123": "2026-07-10T15:26:24.070662+00:00",
+    "ramzyma": "2026-07-12T00:50:54.079479+00:00",
     "ranatito": "2026-07-10T22:07:20.113782+00:00",
     "rancidrodent84": "2026-07-11T02:39:58.923276+00:00",
     "randimatrix": "2026-07-11T16:00:37.289872+00:00",
@@ -22081,6 +22088,7 @@
     "rob826": "2026-07-10T05:13:22.630981+00:00",
     "robbinzon": "2026-07-12T00:35:25.903619+00:00",
     "robcusher": "2026-07-12T00:07:19.094603+00:00",
+    "robert-musil": "2026-07-12T00:50:39.063194+00:00",
     "robert007007": "2026-07-12T00:15:08.679323+00:00",
     "robert2017rob": "2026-07-10T22:41:44.239205+00:00",
     "robert51": "2026-07-10T14:57:54.284232+00:00",
@@ -46181,7 +46189,7 @@
       "games": 5,
       "profile": "https://lichess.org/@/dhortam",
       "rank": 2708,
-      "rating": null,
+      "rating": 1936,
       "source": "Lobby-Crawl",
       "username": "dhortam"
     },
@@ -91373,7 +91381,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/isaacfv",
       "rank": 8357,
-      "rating": null,
+      "rating": 1423,
       "source": "?",
       "username": "isaacfv"
     },
@@ -92277,7 +92285,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/jami3k",
       "rank": 8470,
-      "rating": null,
+      "rating": 1441,
       "source": "Lobby-Crawl",
       "username": "jami3k"
     },
@@ -114717,7 +114725,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/skelettor",
       "rank": 11275,
-      "rating": null,
+      "rating": 2013,
       "source": "Lobby-Crawl",
       "username": "skelettor"
     },
@@ -125552,7 +125560,39 @@
       "rating": 1319,
       "source": "Lobby-Crawl",
       "username": "man218"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/robert-musil",
+      "rank": 12630,
+      "rating": 1557,
+      "source": "Lobby-Crawl",
+      "username": "robert-musil"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/georggaiser",
+      "rank": 12631,
+      "rating": 2050,
+      "source": "?",
+      "username": "georggaiser"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ramzyma",
+      "rank": 12632,
+      "rating": 1403,
+      "source": "Lobby-Crawl",
+      "username": "ramzyma"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/cabrosaltarin",
+      "rank": 12633,
+      "rating": 1520,
+      "source": "Lobby-Crawl",
+      "username": "cabrosaltarin"
     }
   ],
-  "updated_at": "2026-07-12T00:50:33.342406+00:00"
+  "updated_at": "2026-07-12T00:51:12.067238+00:00"
 }
