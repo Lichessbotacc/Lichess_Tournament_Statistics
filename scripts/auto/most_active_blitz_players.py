@@ -367,7 +367,16 @@ TOP_N_LIVE = 1000
 # LIVE GIT PUSH
 # ---------------------------------------------------------------------------
 LIVE_GIT_PUSH = os.environ.get("GITHUB_ACTIONS", "").lower() == "true"
-GIT_PUSH_MIN_INTERVAL_SECONDS = float(os.environ.get("GIT_PUSH_MIN_INTERVAL_SECONDS", "30"))
+# GEAENDERT: Default von 30s auf 600s (10min). Bei 30s und einer Laufzeit
+# von bis zu MAX_TOTAL_RUNTIME_SECONDS (5h30m) sind pro Job und Lauf
+# potenziell HUNDERTE Commits entstanden - mal 13 parallele Matrix-Jobs
+# (ein Job pro perf_type) mal mehrere Laeufe/Tag waechst die Git-Historie
+# dadurch sehr schnell auf mehrere GB. Das hat den Runner-Datentraeger
+# beim "actions/checkout" mit "No space left on device" gesprengt (siehe
+# fetch-depth im Workflow, das ist der zweite Teil des Fixes). 10min ist
+# immer noch oft genug fuer ein "live" wirkendes Update, aber verhindert
+# den Commit-Sturm.
+GIT_PUSH_MIN_INTERVAL_SECONDS = float(os.environ.get("GIT_PUSH_MIN_INTERVAL_SECONDS", "600"))
 _last_git_push_ts = 0.0
 GIT_PUSH_MAX_RETRIES = 8
 GIT_PUSH_RETRY_BASE_DELAY_SECONDS = 3
