@@ -1662,6 +1662,7 @@
     "alppro": 0,
     "alptraumdrache": 0,
     "alquimistadoxadrez": 0,
+    "already_takent": 0,
     "alrigolo": 0,
     "alsobeterthenjimmy": 0,
     "alt1024": 0,
@@ -3782,6 +3783,7 @@
     "capaterminator": 0,
     "capfa13": 0,
     "capibara100efe": 0,
+    "capitan_tsubasa_10": 0,
     "capitanbuscapinaen": 0,
     "capitandirtbag": 0,
     "capitaotiochico": 0,
@@ -7098,6 +7100,7 @@
     "gevaani": 0,
     "gevor_ik": 0,
     "gevorg20198": 1,
+    "geza_marozzi": 0,
     "gezag": 0,
     "gezginemekli": 0,
     "gggdol": 0,
@@ -11671,6 +11674,7 @@
     "masterbuld": 0,
     "masterbullet2016": 0,
     "masterchess1745": 0,
+    "masterfractus": 0,
     "mastergar": 2,
     "masterja77s": 0,
     "masterjoy": 0,
@@ -13033,6 +13037,7 @@
     "nazuki14": 0,
     "nblatt": 0,
     "ncaltin": 0,
+    "ndhelix": 0,
     "ndonejsj": 0,
     "ndp0613": 0,
     "ndriana56": 0,
@@ -21351,6 +21356,7 @@
     "alppro": "2026-07-10T14:19:13.751016+00:00",
     "alptraumdrache": "2026-07-12T06:32:43.969281+00:00",
     "alquimistadoxadrez": "2026-07-10T14:31:11.537728+00:00",
+    "already_takent": "2026-07-12T19:45:02.685992+00:00",
     "alrigolo": "2026-07-12T11:54:19.824565+00:00",
     "alsobeterthenjimmy": "2026-07-11T12:35:58.275652+00:00",
     "alt1024": "2026-07-10T15:46:27.354543+00:00",
@@ -23467,6 +23473,7 @@
     "capaterminator": "2026-07-12T07:46:29.294903+00:00",
     "capfa13": "2026-07-10T21:24:48.877552+00:00",
     "capibara100efe": "2026-07-10T16:17:30.579215+00:00",
+    "capitan_tsubasa_10": "2026-07-12T19:45:10.903152+00:00",
     "capitanbuscapinaen": "2026-07-12T12:07:59.053756+00:00",
     "capitandirtbag": "2026-07-11T21:17:34.360133+00:00",
     "capitaotiochico": "2026-07-10T17:59:47.421650+00:00",
@@ -23821,7 +23828,7 @@
     "chess_winner123": "2026-07-10T16:55:11.094559+00:00",
     "chess_with_behrang": "2026-07-11T14:38:01.203802+00:00",
     "chessabhirup": "2026-07-10T06:47:43.814016+00:00",
-    "chessaddict999": "2026-07-11T22:04:23.203709+00:00",
+    "chessaddict999": "2026-07-12T19:45:07.900956+00:00",
     "chessaholic2k2": "2026-07-11T10:14:22.535974+00:00",
     "chessan26": "2026-07-11T17:51:00.621682+00:00",
     "chessandcats4ever": "2026-07-10T00:48:18.365997+00:00",
@@ -26732,6 +26739,7 @@
     "gevaani": "2026-07-11T07:08:40.813457+00:00",
     "gevor_ik": "2026-07-12T06:27:05.502188+00:00",
     "gevorg20198": "2026-07-12T04:08:59.166019+00:00",
+    "geza_marozzi": "2026-07-12T19:45:14.344803+00:00",
     "gezag": "2026-07-12T06:08:27.186715+00:00",
     "gezginemekli": "2026-07-12T10:30:52.388409+00:00",
     "gggdol": "2026-07-12T17:32:08.224205+00:00",
@@ -30707,6 +30715,7 @@
     "master_of_world": "2026-07-11T02:05:38.328483+00:00",
     "masterbuld": "2026-07-12T10:03:32.970812+00:00",
     "masterchess1745": "2026-07-11T20:39:36.979446+00:00",
+    "masterfractus": "2026-07-12T19:45:03.295115+00:00",
     "mastergar": "2026-07-11T07:16:44.611541+00:00",
     "masterja77s": "2026-07-12T00:00:49.616141+00:00",
     "masterjoy": "2026-07-11T18:28:53.398331+00:00",
@@ -31891,6 +31900,7 @@
     "nazarov0209": "2026-07-11T16:40:38.837669+00:00",
     "nazgul22": "2026-07-12T17:17:05.106951+00:00",
     "ncaltin": "2026-07-12T03:57:45.946099+00:00",
+    "ndhelix": "2026-07-12T19:45:03.891211+00:00",
     "ndonejsj": "2026-07-10T19:55:06.884792+00:00",
     "ndzy09": "2026-07-11T09:50:24.542203+00:00",
     "neaddfelvanremeny": "2026-07-11T10:09:54.417683+00:00",
@@ -195766,7 +195776,47 @@
       "rating": 1100,
       "source": "Lobby-Crawl",
       "username": "adhyan2210"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/already_takent",
+      "rank": 19690,
+      "rating": 1922,
+      "source": "Lobby-Crawl",
+      "username": "already_takent"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/masterfractus",
+      "rank": 19691,
+      "rating": 1654,
+      "source": "?",
+      "username": "masterfractus"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ndhelix",
+      "rank": 19692,
+      "rating": 1701,
+      "source": "Lobby-Crawl",
+      "username": "ndhelix"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/capitan_tsubasa_10",
+      "rank": 19693,
+      "rating": 2246,
+      "source": "Lobby-Crawl",
+      "username": "capitan_tsubasa_10"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/geza_marozzi",
+      "rank": 19694,
+      "rating": 2288,
+      "source": "Lobby-Crawl",
+      "username": "geza_marozzi"
     }
   ],
-  "updated_at": "2026-07-12T19:44:44.782093+00:00"
+  "updated_at": "2026-07-12T19:45:14.344826+00:00"
 }
