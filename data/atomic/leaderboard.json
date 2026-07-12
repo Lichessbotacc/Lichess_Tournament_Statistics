@@ -3171,7 +3171,7 @@
     "caronte2021": 0,
     "cartomatic": 0,
     "caruana2_0": 0,
-    "casagliana": 525,
+    "casagliana": 477,
     "casey2312": 0,
     "casinomen": 0,
     "caspianarcher": 0,
@@ -16656,7 +16656,7 @@
     "caronte2021": "2026-07-10T01:38:13.845722+00:00",
     "cartomatic": "2026-07-11T07:33:49.764065+00:00",
     "caruana2_0": "2026-07-10T01:38:15.193184+00:00",
-    "casagliana": "2026-07-11T07:03:06.224402+00:00",
+    "casagliana": "2026-07-12T01:05:15.789807+00:00",
     "casey2312": "2026-07-10T07:40:35.976492+00:00",
     "casinomen": "2026-07-11T20:56:38.973165+00:00",
     "caspianarcher": "2026-07-11T03:43:09.601557+00:00",
@@ -27050,17 +27050,9 @@
       "username": "idk1365"
     },
     {
-      "games": 525,
-      "profile": "https://lichess.org/@/casagliana",
-      "rank": 13,
-      "rating": 1382,
-      "source": "Lobby-Crawl",
-      "username": "casagliana"
-    },
-    {
       "games": 517,
       "profile": "https://lichess.org/@/sircachetes",
-      "rank": 14,
+      "rank": 13,
       "rating": 2206,
       "source": "?",
       "username": "sircachetes"
@@ -27068,10 +27060,18 @@
     {
       "games": 508,
       "profile": "https://lichess.org/@/captainaks",
-      "rank": 15,
+      "rank": 14,
       "rating": 2015,
       "source": "Lobby-Crawl",
       "username": "captainaks"
+    },
+    {
+      "games": 477,
+      "profile": "https://lichess.org/@/casagliana",
+      "rank": 15,
+      "rating": 1382,
+      "source": "Lobby-Crawl",
+      "username": "casagliana"
     },
     {
       "games": 463,
@@ -134850,5 +134850,5 @@
       "username": "adityagarg2012"
     }
   ],
-  "updated_at": "2026-07-12T01:03:31.137102+00:00"
+  "updated_at": "2026-07-12T01:05:15.793568+00:00"
 }
