@@ -3524,6 +3524,7 @@
     "blueblackred": 0,
     "bluebluecow": 0,
     "bluecross": 0,
+    "bluefish6": 0,
     "blueista": 0,
     "bluekai-o-ken": 0,
     "blueknight111": 0,
@@ -13295,6 +13296,7 @@
     "mna1396": 12,
     "mna3000": 0,
     "mnabil254": 0,
+    "mnazar2016": 0,
     "mnclaudio": 0,
     "mnf72": 1,
     "mnhn": 0,
@@ -15125,6 +15127,7 @@
     "pavel_khaustovich": 0,
     "pavel_orion": 284,
     "pavel_savinov": 0,
+    "paveldsm": 0,
     "pavelender": 0,
     "pavelfedorovich": 0,
     "pavelkotyolkin123": 0,
@@ -17225,6 +17228,7 @@
     "saurabhjariyal": 0,
     "saurastra1": 0,
     "sauronthemightiest": 0,
+    "sausboss": 0,
     "sav_18": 0,
     "sava-2331": 0,
     "savamilin": 0,
@@ -18399,6 +18403,7 @@
     "stubbyone": 0,
     "stubenfisch": 0,
     "studenta1": 0,
+    "studentbalp": 0,
     "studentchessstudio": 0,
     "studentofthegame2025": 2,
     "stuffnstuffup": 0,
@@ -24961,6 +24966,7 @@
     "blueblackred": "2026-07-12T10:51:32.953443+00:00",
     "bluebluecow": "2026-07-11T07:50:48.269708+00:00",
     "bluecross": "2026-07-11T06:34:35.616888+00:00",
+    "bluefish6": "2026-07-12T19:25:54.867698+00:00",
     "blueista": "2026-07-10T20:30:04.680844+00:00",
     "bluekai-o-ken": "2026-07-11T15:02:13.724078+00:00",
     "blueknight111": "2026-07-12T10:01:30.104525+00:00",
@@ -34354,6 +34360,7 @@
     "mn_bl3k3c3k": "2026-07-12T13:07:51.849109+00:00",
     "mna1396": "2026-07-11T10:10:23.294760+00:00",
     "mnabil254": "2026-07-12T16:49:10.174182+00:00",
+    "mnazar2016": "2026-07-12T19:25:32.555722+00:00",
     "mnclaudio": "2026-07-10T10:54:12.266914+00:00",
     "mnf72": "2026-07-11T18:54:47.677330+00:00",
     "mnhn": "2026-07-10T21:08:26.520187+00:00",
@@ -35989,6 +35996,7 @@
     "pavel_khaustovich": "2026-07-12T04:45:27.329671+00:00",
     "pavel_orion": "2026-07-12T14:37:15.649297+00:00",
     "pavel_savinov": "2026-07-11T19:40:50.708477+00:00",
+    "paveldsm": "2026-07-12T19:25:27.973089+00:00",
     "pavelender": "2026-07-10T07:27:04.249738+00:00",
     "pavelfedorovich": "2026-07-12T13:27:54.243958+00:00",
     "pavelkotyolkin123": "2026-07-11T10:01:09.558745+00:00",
@@ -37797,6 +37805,7 @@
     "saurabhjariyal": "2026-07-12T00:14:02.274665+00:00",
     "saurastra1": "2026-07-12T16:48:26.957161+00:00",
     "sauronthemightiest": "2026-07-11T15:05:10.786277+00:00",
+    "sausboss": "2026-07-12T19:25:28.649971+00:00",
     "sava-2331": "2026-07-12T06:24:57.849638+00:00",
     "savamilin": "2026-07-11T04:48:42.369509+00:00",
     "savavol": "2026-07-11T17:23:37.694429+00:00",
@@ -38928,6 +38937,7 @@
     "stubbyone": "2026-07-12T00:08:28.944241+00:00",
     "stubenfisch": "2026-07-11T20:35:39.361334+00:00",
     "studenta1": "2026-07-12T18:55:13.536974+00:00",
+    "studentbalp": "2026-07-12T19:25:30.494162+00:00",
     "studentchessstudio": "2026-07-11T09:21:48.481072+00:00",
     "studentofthegame2025": "2026-07-12T01:10:16.241800+00:00",
     "stuffnstuffup": "2026-07-11T02:59:47.982403+00:00",
@@ -213454,7 +213464,47 @@
       "rating": 1551,
       "source": "Lobby-Crawl",
       "username": "j2003131335"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/paveldsm",
+      "rank": 21437,
+      "rating": 1431,
+      "source": "?",
+      "username": "paveldsm"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/sausboss",
+      "rank": 21438,
+      "rating": 1961,
+      "source": "Lobby-Crawl",
+      "username": "sausboss"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/studentbalp",
+      "rank": 21439,
+      "rating": 1376,
+      "source": "Lobby-Crawl",
+      "username": "studentbalp"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/mnazar2016",
+      "rank": 21440,
+      "rating": 1427,
+      "source": "Lobby-Crawl",
+      "username": "mnazar2016"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/bluefish6",
+      "rank": 21441,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "bluefish6"
     }
   ],
-  "updated_at": "2026-07-12T19:25:23.925199+00:00"
+  "updated_at": "2026-07-12T19:25:54.867722+00:00"
 }
