@@ -159,11 +159,13 @@ Ausfuehren (einmaliger Durchlauf):
     python3 most_active_blitz_players.py
 """
 
+import concurrent.futures
 import json
 import os
 import random
 import subprocess
 import sys
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -239,7 +241,15 @@ TOP_N = 1000
 # Stellen erhalten (schadet nicht), der eigentliche Schutz ist jetzt aber
 # GLOBAL_MIN_INTERVAL_SECONDS in _request(), siehe Docstring oben.
 REQUEST_DELAY_SECONDS = float(os.environ.get("REQUEST_DELAY_SECONDS", "2.0"))
-GLOBAL_MIN_INTERVAL_SECONDS = float(os.environ.get("GLOBAL_MIN_INTERVAL_SECONDS", "3.0"))
+GLOBAL_MIN_INTERVAL_SECONDS = float(os.environ.get("GLOBAL_MIN_INTERVAL_SECONDS", "0"))
+
+# Anzahl paralleler Worker-Threads fuer den (potenziell 1000 Spieler
+# umfassenden) Partienzahl-Refresh der Top-1000 - macht diesen Schritt um
+# ein Vielfaches schneller, statt jeden Spieler strikt nacheinander
+# abzufragen. _throttle() bleibt weiterhin der globale Mindestabstand
+# zwischen JEDER einzelnen HTTP-Anfrage (thread-sicher genug fuer diesen
+# Zweck), Rate-Limit-Backoff in _request() greift unveraendert.
+REFRESH_WORKERS = int(os.environ.get("REFRESH_WORKERS", "20"))
 
 MAX_TEAM_TOURNAMENTS = int(os.environ.get("MAX_TEAM_TOURNAMENTS", "200"))
 
@@ -491,6 +501,7 @@ RATE_LIMIT_MAX_BACKOFF_SECONDS = 60
 RATE_LIMIT_MAX_TOTAL_WAIT_SECONDS = float(os.environ.get("RATE_LIMIT_MAX_TOTAL_WAIT_SECONDS", "180"))
 
 _last_request_ts = 0.0
+_throttle_lock = threading.Lock()
 
 
 def _throttle() -> None:
@@ -498,13 +509,15 @@ def _throttle() -> None:
     wo im Code sie kommt (Turniere, Teams, Partien-Streams, Crawl). Das ist
     der zentrale Fix gegen 429: frueher gab es nur verstreute time.sleep()
     Aufrufe an einzelnen Stellen, wodurch z.B. NDJSON-Streams komplett ohne
-    Pause liefen."""
+    Pause liefen. Threadsicher (Lock), da der Top-1000-Partienzahl-Refresh
+    parallel in mehreren Worker-Threads laeuft."""
     global _last_request_ts
-    now = time.time()
-    wait = GLOBAL_MIN_INTERVAL_SECONDS - (now - _last_request_ts)
-    if wait > 0:
-        time.sleep(wait)
-    _last_request_ts = time.time()
+    with _throttle_lock:
+        now = time.time()
+        wait = GLOBAL_MIN_INTERVAL_SECONDS - (now - _last_request_ts)
+        if wait > 0:
+            time.sleep(wait)
+        _last_request_ts = time.time()
 
 
 def _request(url: str, headers: dict, timeout: int = 30):
@@ -1458,27 +1471,45 @@ def main() -> None:
     # Cooldown zufaellig abgelaufen ist), wird sie hier - genau wie Rating/
     # Bann oben - bei JEDEM Lauf fuer die gesamte aktuelle Top-1000 neu
     # abgefragt, unabhaengig vom sonstigen CHECK_COOLDOWN_HOURS-Cooldown.
-    if top1000_names:
+    #
+    # Laeuft parallel in REFRESH_WORKERS Threads statt strikt nacheinander -
+    # das macht diesen sonst sehr langsamen Schritt um ein Vielfaches
+    # schneller (Wartezeit wird ueberlappt statt aufsummiert).
+    to_refresh = [name for name in top1000_names if name in pool]
+    if to_refresh:
         print(f"  [PARTIEN-REFRESH] Aktualisiere Partienzahl (letzte "
-              f"{SINCE_DAYS} Tage) fuer {len(top1000_names)} Spieler der "
-              f"aktuellen Top-{TOP_N_LIVE}...")
+              f"{SINCE_DAYS} Tage) fuer {len(to_refresh)} Spieler der "
+              f"aktuellen Top-{TOP_N_LIVE} (parallel, {REFRESH_WORKERS} Worker)...")
         refreshed = 0
         failed = 0
-        for name in top1000_names:
-            if name not in pool:
-                continue  # kann durch purge_banned_players() gerade entfernt worden sein
-            try:
-                counts[name] = count_recent_blitz_games(name, since_ms)
-                last_checked[name] = now_iso()
-                refreshed += 1
-            except RateLimitError:
-                raise
-            except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
-                print(f"    [WARNUNG] '{name}' konnte nicht neu gezaehlt werden: {exc}")
-                failed += 1
+        rate_limited = False
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=REFRESH_WORKERS) as executor:
+            future_to_name = {
+                executor.submit(count_recent_blitz_games, name, since_ms): name
+                for name in to_refresh
+            }
+            for future in concurrent.futures.as_completed(future_to_name):
+                name = future_to_name[future]
+                try:
+                    counts[name] = future.result()
+                    last_checked[name] = now_iso()
+                    refreshed += 1
+                except RateLimitError:
+                    rate_limited = True
+                    for f in future_to_name:
+                        f.cancel()
+                    break
+                except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
+                    print(f"    [WARNUNG] '{name}' konnte nicht neu gezaehlt werden: {exc}")
+                    failed += 1
+
         print(f"    {refreshed} aktualisiert, {failed} fehlgeschlagen.")
-        updated_this_run.update(top1000_names)
+        updated_this_run.update(to_refresh)
         save_leaderboard(leaderboard, source_map, player_info)
+
+        if rate_limited:
+            raise RateLimitError("Rate Limit waehrend Top-1000-Partienzahl-Refresh")
 
     write_top10_snapshot(counts, source_map, player_info)
 
