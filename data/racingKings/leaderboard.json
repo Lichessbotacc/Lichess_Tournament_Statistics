@@ -3280,6 +3280,7 @@
     "chess-lions": 0,
     "chess-monkee": 0,
     "chess-player202": 0,
+    "chess-queeeen": 0,
     "chess-worldbest": 0,
     "chess0315": 0,
     "chess099929393": 0,
@@ -4979,6 +4980,7 @@
     "eq1035": 0,
     "equalgods": 0,
     "er213": 0,
+    "erangonnen": 0,
     "eray_chess7-l": 0,
     "eraykaraman": 0,
     "erciola5": 0,
@@ -17711,6 +17713,7 @@
     "chess-lions": "2026-07-11T15:33:18.270469+00:00",
     "chess-monkee": "2026-07-10T03:23:56.590969+00:00",
     "chess-player202": "2026-07-11T12:48:30.748384+00:00",
+    "chess-queeeen": "2026-07-12T00:43:16.207895+00:00",
     "chess-worldbest": "2026-07-10T14:43:54.736652+00:00",
     "chess0315": "2026-07-11T11:53:14.557003+00:00",
     "chess099929393": "2026-07-10T21:02:24.637894+00:00",
@@ -19387,6 +19390,7 @@
     "eq1035": "2026-07-11T06:44:28.465537+00:00",
     "equalgods": "2026-07-10T12:34:02.837464+00:00",
     "er213": "2026-07-10T07:41:59.788899+00:00",
+    "erangonnen": "2026-07-12T00:43:19.222625+00:00",
     "eray_chess7-l": "2026-07-10T07:30:30.086395+00:00",
     "eraykaraman": "2026-07-10T17:13:14.202787+00:00",
     "erciola5": "2026-07-11T17:29:01.617615+00:00",
@@ -144400,7 +144404,23 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "rusifus6"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess-queeeen",
+      "rank": 14461,
+      "rating": 987,
+      "source": "Lobby-Crawl",
+      "username": "chess-queeeen"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/erangonnen",
+      "rank": 14462,
+      "rating": 1441,
+      "source": "Lobby-Crawl",
+      "username": "erangonnen"
     }
   ],
-  "updated_at": "2026-07-12T00:42:46.793136+00:00"
+  "updated_at": "2026-07-12T00:43:19.222646+00:00"
 }
