@@ -1490,65 +1490,83 @@ def main() -> None:
               f"weniger als {TOP1000_REFRESH_COOLDOWN_HOURS:.0f}h "
               f"(noch ca. {max(remaining_h, 0):.1f}h Cooldown).")
     else:
-        if top1000_names:
-            print(f"  [RATING/BANN-REFRESH] Aktualisiere Rating/Status fuer "
-                  f"{len(top1000_names)} Spieler der aktuellen Top-{TOP_N_LIVE}...")
-            update_player_info_cache(top1000_names, player_info)
+        # WICHTIG (Bugfix): dieser komplette Block wird jetzt in try/except
+        # RateLimitError gekapselt. Vorher flog eine RateLimitError aus dem
+        # Partienzahl-Refresh UNGEFANGEN bis ganz nach main() hoch (der
+        # einzige try/except dort umschliesst nur die Crawl/Turnier-Phase
+        # weiter unten) - das Skript stuerzte dann mit Traceback komplett
+        # ab, BEVOR write_top10_snapshot, der finale Save-Block, der
+        # abschliessende Git-Push UND die komplette Crawl/Turnier-Phase
+        # ueberhaupt drankamen. Ein einzelnes anhaltendes 429 hier hat also
+        # den gesamten Lauf weggeworfen statt sauber zu speichern und mit
+        # dem Rest (Crawl/Turniere) weiterzumachen.
+        try:
+            if top1000_names:
+                print(f"  [RATING/BANN-REFRESH] Aktualisiere Rating/Status fuer "
+                      f"{len(top1000_names)} Spieler der aktuellen Top-{TOP_N_LIVE}...")
+                update_player_info_cache(top1000_names, player_info)
 
-        # --- Gebannte Spieler dauerhaft entfernen --------------------------
-        # Gebannte/geschlossene Accounts sollen weder in der Rangliste stehen
-        # noch weiterhin (erneut) eingefuegt werden.
-        purge_banned_players(pool, counts, last_checked, source_map, player_info)
-        save_json_dict(PLAYER_INFO_FILE, player_info)
+            # --- Gebannte Spieler dauerhaft entfernen ------------------------
+            # Gebannte/geschlossene Accounts sollen weder in der Rangliste
+            # stehen noch weiterhin (erneut) eingefuegt werden.
+            purge_banned_players(pool, counts, last_checked, source_map, player_info)
+            save_json_dict(PLAYER_INFO_FILE, player_info)
 
-        # --- Partienzahl-Refresh fuer die aktuelle Top-1000 -----------------
-        # Laeuft parallel in REFRESH_WORKERS Threads statt strikt
-        # nacheinander - das macht diesen sonst sehr langsamen Schritt
-        # schneller (Wartezeit wird ueberlappt statt aufsummiert), bleibt
-        # aber durch den globalen Throttle in _request() gebremst.
-        to_refresh = [name for name in top1000_names if name in pool]
-        if to_refresh:
-            print(f"  [PARTIEN-REFRESH] Aktualisiere Partienzahl (letzte "
-                  f"{SINCE_DAYS} Tage) fuer {len(to_refresh)} Spieler der "
-                  f"aktuellen Top-{TOP_N_LIVE} (parallel, {REFRESH_WORKERS} Worker)...")
-            refreshed = 0
-            failed = 0
-            rate_limited = False
+            # --- Partienzahl-Refresh fuer die aktuelle Top-1000 --------------
+            # Laeuft parallel in REFRESH_WORKERS Threads statt strikt
+            # nacheinander - das macht diesen sonst sehr langsamen Schritt
+            # schneller (Wartezeit wird ueberlappt statt aufsummiert), bleibt
+            # aber durch den globalen Throttle in _request() gebremst.
+            to_refresh = [name for name in top1000_names if name in pool]
+            if to_refresh:
+                print(f"  [PARTIEN-REFRESH] Aktualisiere Partienzahl (letzte "
+                      f"{SINCE_DAYS} Tage) fuer {len(to_refresh)} Spieler der "
+                      f"aktuellen Top-{TOP_N_LIVE} (parallel, {REFRESH_WORKERS} Worker)...")
+                refreshed = 0
+                failed = 0
+                rate_limited = False
 
-            with concurrent.futures.ThreadPoolExecutor(max_workers=REFRESH_WORKERS) as executor:
-                future_to_name = {
-                    executor.submit(count_recent_blitz_games, name, since_ms): name
-                    for name in to_refresh
-                }
-                for future in concurrent.futures.as_completed(future_to_name):
-                    name = future_to_name[future]
-                    try:
-                        counts[name] = future.result()
-                        last_checked[name] = now_iso()
-                        refreshed += 1
-                    except RateLimitError:
-                        rate_limited = True
-                        for f in future_to_name:
-                            f.cancel()
-                        break
-                    except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
-                        print(f"    [WARNUNG] '{name}' konnte nicht neu gezaehlt werden: {exc}")
-                        failed += 1
+                with concurrent.futures.ThreadPoolExecutor(max_workers=REFRESH_WORKERS) as executor:
+                    future_to_name = {
+                        executor.submit(count_recent_blitz_games, name, since_ms): name
+                        for name in to_refresh
+                    }
+                    for future in concurrent.futures.as_completed(future_to_name):
+                        name = future_to_name[future]
+                        try:
+                            counts[name] = future.result()
+                            last_checked[name] = now_iso()
+                            refreshed += 1
+                        except RateLimitError:
+                            rate_limited = True
+                            for f in future_to_name:
+                                f.cancel()
+                            break
+                        except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
+                            print(f"    [WARNUNG] '{name}' konnte nicht neu gezaehlt werden: {exc}")
+                            failed += 1
 
-            print(f"    {refreshed} aktualisiert, {failed} fehlgeschlagen.")
-            updated_this_run.update(to_refresh)
-            save_leaderboard(leaderboard, source_map, player_info)
+                print(f"    {refreshed} aktualisiert, {failed} fehlgeschlagen.")
+                updated_this_run.update(to_refresh)
+                save_leaderboard(leaderboard, source_map, player_info)
 
-            if rate_limited:
-                # Zeitstempel NICHT aktualisieren, damit der naechste Lauf
-                # es beim (teils) fehlgeschlagenen Refresh erneut versucht,
-                # statt einen ganzen Tag zu warten.
-                raise RateLimitError("Rate Limit waehrend Top-1000-Partienzahl-Refresh")
+                if rate_limited:
+                    # Zeitstempel NICHT aktualisieren, damit der naechste
+                    # Lauf es beim (teils) fehlgeschlagenen Refresh erneut
+                    # versucht, statt einen ganzen Tag zu warten.
+                    raise RateLimitError("Rate Limit waehrend Top-1000-Partienzahl-Refresh")
 
-        # Erfolgreich (oder zumindest ohne Rate-Limit-Abbruch) durchgelaufen
-        # -> Zeitstempel setzen, damit der naechste Lauf innerhalb des
-        # Cooldowns wieder ausgelassen wird.
-        save_json_dict(TOP1000_REFRESH_STATE_FILE, {"last_refresh": now_iso()})
+            # Erfolgreich (oder zumindest ohne Rate-Limit-Abbruch)
+            # durchgelaufen -> Zeitstempel setzen, damit der naechste Lauf
+            # innerhalb des Cooldowns wieder ausgelassen wird.
+            save_json_dict(TOP1000_REFRESH_STATE_FILE, {"last_refresh": now_iso()})
+
+        except RateLimitError as exc:
+            print()
+            print(f"  [RATE LIMIT] {exc}")
+            print("  Top-1000-Refresh fuer diesen Lauf abgebrochen, aber das "
+                  "Skript laeuft normal mit Speichern und der Crawl/Turnier-"
+                  "Phase weiter (kein kompletter Abbruch mehr).")
 
     write_top10_snapshot(counts, source_map, player_info)
 
