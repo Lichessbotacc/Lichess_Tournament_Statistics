@@ -17804,6 +17804,7 @@
     "sinto123": 7,
     "sioc6": 0,
     "sion0805": 3,
+    "sioncoetzee": 0,
     "sipra": 0,
     "sir-echo": 0,
     "sir-luka": 0,
@@ -38258,6 +38259,7 @@
     "sinto123": "2026-07-12T10:07:34.518753+00:00",
     "sioc6": "2026-07-12T17:08:30.953784+00:00",
     "sion0805": "2026-07-10T09:54:55.720085+00:00",
+    "sioncoetzee": "2026-07-12T19:07:55.544872+00:00",
     "sipra": "2026-07-11T18:29:43.930432+00:00",
     "sir-echo": "2026-07-11T20:21:42.429171+00:00",
     "sir-luka": "2026-07-10T08:26:59.012036+00:00",
@@ -188941,7 +188943,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/tekocan",
       "rank": 18391,
-      "rating": null,
+      "rating": 1572,
       "source": "Lobby-Crawl",
       "username": "tekocan"
     },
@@ -212704,7 +212706,15 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "grubschi"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/sioncoetzee",
+      "rank": 21362,
+      "rating": 1379,
+      "source": "Lobby-Crawl",
+      "username": "sioncoetzee"
     }
   ],
-  "updated_at": "2026-07-12T19:07:15.244412+00:00"
+  "updated_at": "2026-07-12T19:07:55.544892+00:00"
 }
