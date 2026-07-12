@@ -1776,6 +1776,7 @@
     "alnat83": 9,
     "alnilam64": 0,
     "alnilamcarlsen": 0,
+    "alnoth": 0,
     "alonedark35": 0,
     "alonshi": 0,
     "alonsocesar089": 0,
@@ -17740,6 +17741,7 @@
     "alnat83": "2026-07-10T21:32:37.935239+00:00",
     "alnilam64": "2026-07-10T01:22:42.757860+00:00",
     "alnilamcarlsen": "2026-07-10T01:22:44.049304+00:00",
+    "alnoth": "2026-07-12T14:00:44.335742+00:00",
     "alonedark35": "2026-07-10T21:57:52.241436+00:00",
     "alonshi": "2026-07-11T11:26:34.682839+00:00",
     "alonsocesar089": "2026-07-11T13:18:30.439597+00:00",
@@ -112399,7 +112401,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/gone_the_swan",
       "rank": 10092,
-      "rating": null,
+      "rating": 1887,
       "source": "?",
       "username": "gone_the_swan"
     },
@@ -159482,7 +159484,15 @@
       "rating": 1700,
       "source": "Lobby-Crawl",
       "username": "mattban"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/alnoth",
+      "rank": 15978,
+      "rating": 1760,
+      "source": "Lobby-Crawl",
+      "username": "alnoth"
     }
   ],
-  "updated_at": "2026-07-12T13:59:58.462052+00:00"
+  "updated_at": "2026-07-12T14:00:44.335764+00:00"
 }
