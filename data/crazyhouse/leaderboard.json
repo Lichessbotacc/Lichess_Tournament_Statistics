@@ -13151,6 +13151,7 @@
     "rdcast": 243,
     "rdgrimes2242": 0,
     "rdgrimes2242alt": 0,
+    "rdhkol": 0,
     "rds-dcb": 8,
     "rdt316": 2,
     "rdt9": 0,
@@ -30134,6 +30135,7 @@
     "rdcast": "2026-07-12T08:39:17.737681+00:00",
     "rdgrimes2242": "2026-07-10T09:08:42.644506+00:00",
     "rdgrimes2242alt": "2026-07-11T09:34:54.950054+00:00",
+    "rdhkol": "2026-07-12T18:46:32.435316+00:00",
     "rds-dcb": "2026-07-11T09:24:47.410072+00:00",
     "rdt316": "2026-07-12T16:32:27.458065+00:00",
     "rdt9": "2026-07-10T06:17:06.841081+00:00",
@@ -44816,7 +44818,7 @@
       "games": 24,
       "profile": "https://lichess.org/@/oguzerdogan",
       "rank": 1343,
-      "rating": null,
+      "rating": 1656,
       "source": "Lobby-Crawl",
       "username": "oguzerdogan"
     },
@@ -171499,7 +171501,15 @@
       "rating": 1591,
       "source": "Lobby-Crawl",
       "username": "m7332"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/rdhkol",
+      "rank": 17179,
+      "rating": 1260,
+      "source": "Lobby-Crawl",
+      "username": "rdhkol"
     }
   ],
-  "updated_at": "2026-07-12T18:42:00.126979+00:00"
+  "updated_at": "2026-07-12T18:46:32.435328+00:00"
 }
