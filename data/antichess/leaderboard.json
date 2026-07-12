@@ -2995,7 +2995,7 @@
     "bread_mannnnnnnnnn": 0,
     "brehyner": 0,
     "breizh-erwan": 7,
-    "brendaks": 61,
+    "brendaks": 62,
     "brendanyip": 11,
     "brennanmcdonald": 0,
     "breznak": 0,
@@ -12138,6 +12138,7 @@
     "vishal1998": 1,
     "vishalssy": 0,
     "vishnoiabhishek12345": 0,
+    "vishnusb": 0,
     "vishu_25": 271,
     "vishu_chessgamer": 4,
     "vishvath20": 427,
@@ -15678,7 +15679,7 @@
     "bread_mannnnnnnnnn": "2026-07-10T15:23:31.716940+00:00",
     "brehyner": "2026-07-11T13:13:31.628860+00:00",
     "breizh-erwan": "2026-07-11T10:19:29.471905+00:00",
-    "brendaks": "2026-07-11T05:13:57.947621+00:00",
+    "brendaks": "2026-07-12T01:11:25.499899+00:00",
     "brendanyip": "2026-07-11T17:09:05.409202+00:00",
     "brennanmcdonald": "2026-07-11T08:51:45.984499+00:00",
     "breznak": "2026-07-11T00:59:12.910004+00:00",
@@ -24083,6 +24084,7 @@
     "vishal1998": "2026-07-10T19:27:13.839804+00:00",
     "vishalssy": "2026-07-11T12:50:47.919093+00:00",
     "vishnoiabhishek12345": "2026-07-11T17:35:17.705908+00:00",
+    "vishnusb": "2026-07-12T01:11:07.286936+00:00",
     "vishu_25": "2026-07-11T02:24:10.425555+00:00",
     "vishu_chessgamer": "2026-07-11T02:22:07.004261+00:00",
     "vishvath20": "2026-07-11T11:52:15.734840+00:00",
@@ -30464,8 +30466,16 @@
     },
     {
       "games": 62,
-      "profile": "https://lichess.org/@/ivan1_00",
+      "profile": "https://lichess.org/@/brendaks",
       "rank": 730,
+      "rating": 1531,
+      "source": "Lobby-Crawl",
+      "username": "brendaks"
+    },
+    {
+      "games": 62,
+      "profile": "https://lichess.org/@/ivan1_00",
+      "rank": 731,
       "rating": 1124,
       "source": "Lobby-Crawl",
       "username": "ivan1_00"
@@ -30473,7 +30483,7 @@
     {
       "games": 62,
       "profile": "https://lichess.org/@/szymonekqaz",
-      "rank": 731,
+      "rank": 732,
       "rating": 1555,
       "source": "Lobby-Crawl",
       "username": "szymonekqaz"
@@ -30481,7 +30491,7 @@
     {
       "games": 62,
       "profile": "https://lichess.org/@/tak1zawasolo",
-      "rank": 732,
+      "rank": 733,
       "rating": 1590,
       "source": "Lobby-Crawl",
       "username": "tak1zawasolo"
@@ -30489,18 +30499,10 @@
     {
       "games": 62,
       "profile": "https://lichess.org/@/volkano",
-      "rank": 733,
+      "rank": 734,
       "rating": 1903,
       "source": "Lobby-Crawl",
       "username": "volkano"
-    },
-    {
-      "games": 61,
-      "profile": "https://lichess.org/@/brendaks",
-      "rank": 734,
-      "rating": 1531,
-      "source": "Lobby-Crawl",
-      "username": "brendaks"
     },
     {
       "games": 61,
@@ -126093,7 +126095,15 @@
       "rating": 1636,
       "source": "Lobby-Crawl",
       "username": "derrobin"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vishnusb",
+      "rank": 12684,
+      "rating": 1352,
+      "source": "Lobby-Crawl",
+      "username": "vishnusb"
     }
   ],
-  "updated_at": "2026-07-12T01:10:46.322521+00:00"
+  "updated_at": "2026-07-12T01:11:25.503113+00:00"
 }
