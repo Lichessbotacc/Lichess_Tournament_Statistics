@@ -5496,6 +5496,7 @@
     "g_m_teatime": 0,
     "g_m_to_be": 0,
     "g_mgst": 0,
+    "g_o_a_t_77": 0,
     "g_o_g_o_n_a": 0,
     "gab6942": 0,
     "gabaduzer": 0,
@@ -8767,7 +8768,7 @@
     "mateusz1737": 0,
     "mateuszcux": 0,
     "mathauscd": 0,
-    "mathealira": 127,
+    "mathealira": 143,
     "mathemaciate": 0,
     "mathias2010mp": 0,
     "mathiaseol12390": 0,
@@ -17016,7 +17017,7 @@
     "bidadari_khayangan": "2026-07-10T16:23:16.353518+00:00",
     "biel_matadracs": "2026-07-11T23:34:19.811335+00:00",
     "biel_tg": "2026-07-10T20:35:52.044630+00:00",
-    "bielgo_603": "2026-07-10T18:02:59.776098+00:00",
+    "bielgo_603": "2026-07-12T00:44:22.877587+00:00",
     "big-monstr": "2026-07-10T16:23:19.384130+00:00",
     "big41": "2026-07-11T02:11:19.759640+00:00",
     "bigabel": "2026-07-10T22:04:58.323295+00:00",
@@ -19905,6 +19906,7 @@
     "g_m_teatime": "2026-07-11T15:32:26.125682+00:00",
     "g_m_to_be": "2026-07-11T07:10:48.914188+00:00",
     "g_mgst": "2026-07-10T17:23:13.413046+00:00",
+    "g_o_a_t_77": "2026-07-12T00:44:25.878490+00:00",
     "g_o_g_o_n_a": "2026-07-10T18:45:56.419916+00:00",
     "gab6942": "2026-07-11T01:24:33.875691+00:00",
     "gabaduzer": "2026-07-11T17:57:08.474512+00:00",
@@ -22987,7 +22989,7 @@
     "mark18022017": "2026-07-10T21:43:07.685516+00:00",
     "mark2012s": "2026-07-11T01:13:53.030546+00:00",
     "mark211214": "2026-07-11T09:47:17.785923+00:00",
-    "mark231988": "2026-07-11T03:04:29.798169+00:00",
+    "mark231988": "2026-07-12T00:44:13.883573+00:00",
     "mark5552008": "2026-07-11T08:35:54.671354+00:00",
     "mark657": "2026-07-11T19:35:30.814939+00:00",
     "mark7albot": "2026-07-11T08:03:59.595821+00:00",
@@ -23119,7 +23121,7 @@
     "mateusz1737": "2026-07-11T15:40:29.774766+00:00",
     "mateuszcux": "2026-07-10T23:12:34.296104+00:00",
     "mathauscd": "2026-07-10T11:56:50.652796+00:00",
-    "mathealira": "2026-07-11T02:26:07.127502+00:00",
+    "mathealira": "2026-07-12T00:44:34.557813+00:00",
     "mathemaciate": "2026-07-11T09:41:28.588905+00:00",
     "mathias2010mp": "2026-07-10T08:47:44.860579+00:00",
     "mathiaseol12390": "2026-07-10T22:47:00.729475+00:00",
@@ -29018,9 +29020,17 @@
       "username": "sherlockholmeswatson"
     },
     {
+      "games": 143,
+      "profile": "https://lichess.org/@/mathealira",
+      "rank": 36,
+      "rating": 2141,
+      "source": "?",
+      "username": "mathealira"
+    },
+    {
       "games": 141,
       "profile": "https://lichess.org/@/nataniel123",
-      "rank": 36,
+      "rank": 37,
       "rating": 2234,
       "source": "?",
       "username": "nataniel123"
@@ -29028,7 +29038,7 @@
     {
       "games": 135,
       "profile": "https://lichess.org/@/kingrm01-cr7",
-      "rank": 37,
+      "rank": 38,
       "rating": 1967,
       "source": "?",
       "username": "kingrm01-cr7"
@@ -29036,7 +29046,7 @@
     {
       "games": 134,
       "profile": "https://lichess.org/@/jayan_2017",
-      "rank": 38,
+      "rank": 39,
       "rating": 1578,
       "source": "?",
       "username": "jayan_2017"
@@ -29044,7 +29054,7 @@
     {
       "games": 129,
       "profile": "https://lichess.org/@/firedragon30",
-      "rank": 39,
+      "rank": 40,
       "rating": 1604,
       "source": "Lobby-Crawl",
       "username": "firedragon30"
@@ -29052,7 +29062,7 @@
     {
       "games": 129,
       "profile": "https://lichess.org/@/monkielikechess",
-      "rank": 40,
+      "rank": 41,
       "rating": 1998,
       "source": "?",
       "username": "monkielikechess"
@@ -29060,18 +29070,10 @@
     {
       "games": 127,
       "profile": "https://lichess.org/@/ksushapodpovitnai",
-      "rank": 41,
+      "rank": 42,
       "rating": 1345,
       "source": "Lobby-Crawl",
       "username": "ksushapodpovitnai"
-    },
-    {
-      "games": 127,
-      "profile": "https://lichess.org/@/mathealira",
-      "rank": 42,
-      "rating": 2141,
-      "source": "?",
-      "username": "mathealira"
     },
     {
       "games": 123,
@@ -60021,7 +60023,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/bielgo_603",
       "rank": 3911,
-      "rating": null,
+      "rating": 1574,
       "source": "Turnier",
       "username": "bielgo_603"
     },
@@ -121733,7 +121735,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/seb_elite",
       "rank": 11625,
-      "rating": null,
+      "rating": 1571,
       "source": "Lobby-Crawl",
       "username": "seb_elite"
     },
@@ -131685,7 +131687,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/umutcan-lb",
       "rank": 12869,
-      "rating": null,
+      "rating": 1120,
       "source": "Lobby-Crawl",
       "username": "umutcan-lb"
     },
@@ -144480,7 +144482,15 @@
       "rating": 1503,
       "source": "Lobby-Crawl",
       "username": "wsteinitz"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/g_o_a_t_77",
+      "rank": 14469,
+      "rating": 1788,
+      "source": "Lobby-Crawl",
+      "username": "g_o_a_t_77"
     }
   ],
-  "updated_at": "2026-07-12T00:43:59.206171+00:00"
+  "updated_at": "2026-07-12T00:44:34.560606+00:00"
 }
