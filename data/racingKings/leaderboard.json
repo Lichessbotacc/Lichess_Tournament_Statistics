@@ -11433,6 +11433,7 @@
     "murad-14": 0,
     "murad-1420": 50,
     "muradchess1": 0,
+    "muradcoach": 0,
     "muradmaster": 0,
     "muradsimsek": 0,
     "muradyan2010": 0,
@@ -28941,6 +28942,7 @@
     "murad-14": "2026-07-11T14:57:38.843889+00:00",
     "murad-1420": "2026-07-11T21:38:22.881133+00:00",
     "muradchess1": "2026-07-10T05:12:41.716293+00:00",
+    "muradcoach": "2026-07-12T12:19:47.099946+00:00",
     "muradmaster": "2026-07-11T11:12:54.418249+00:00",
     "muradsimsek": "2026-07-11T19:50:35.122950+00:00",
     "muradyan2010": "2026-07-11T17:55:27.085293+00:00",
@@ -146027,7 +146029,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/sam11220",
       "rank": 13869,
-      "rating": null,
+      "rating": 1314,
       "source": "Lobby-Crawl",
       "username": "sam11220"
     },
@@ -176134,7 +176136,15 @@
       "rating": 1290,
       "source": "Lobby-Crawl",
       "username": "shroommac10"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/muradcoach",
+      "rank": 17633,
+      "rating": 1138,
+      "source": "Lobby-Crawl",
+      "username": "muradcoach"
     }
   ],
-  "updated_at": "2026-07-12T12:15:19.283871+00:00"
+  "updated_at": "2026-07-12T12:19:47.099967+00:00"
 }
