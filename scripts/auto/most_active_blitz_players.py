@@ -241,15 +241,22 @@ TOP_N = 1000
 # Stellen erhalten (schadet nicht), der eigentliche Schutz ist jetzt aber
 # GLOBAL_MIN_INTERVAL_SECONDS in _request(), siehe Docstring oben.
 REQUEST_DELAY_SECONDS = float(os.environ.get("REQUEST_DELAY_SECONDS", "2.0"))
-GLOBAL_MIN_INTERVAL_SECONDS = float(os.environ.get("GLOBAL_MIN_INTERVAL_SECONDS", "0"))
+# GEAENDERT: Default von "0" auf "1.2" - vorher gab es de facto GAR KEINEN
+# Mindestabstand zwischen Requests, wodurch besonders der parallele
+# Top-1000-Refresh (REFRESH_WORKERS gleichzeitige Threads) Lichess quasi
+# im Sturm angefragt hat -> sofortige 429-Kaskade. _throttle() serialisiert
+# ALLE Requests (auch aus mehreren Threads) global auf diesen Mindestabstand,
+# daher reicht ein einzelner sinnvoller Wert hier, egal wie viele Worker
+# parallel laufen.
+GLOBAL_MIN_INTERVAL_SECONDS = float(os.environ.get("GLOBAL_MIN_INTERVAL_SECONDS", "1.2"))
 
 # Anzahl paralleler Worker-Threads fuer den (potenziell 1000 Spieler
-# umfassenden) Partienzahl-Refresh der Top-1000 - macht diesen Schritt um
-# ein Vielfaches schneller, statt jeden Spieler strikt nacheinander
-# abzufragen. _throttle() bleibt weiterhin der globale Mindestabstand
-# zwischen JEDER einzelnen HTTP-Anfrage (thread-sicher genug fuer diesen
-# Zweck), Rate-Limit-Backoff in _request() greift unveraendert.
-REFRESH_WORKERS = int(os.environ.get("REFRESH_WORKERS", "20"))
+# umfassenden) Partienzahl-Refresh der Top-1000. Da _throttle() ALLE
+# Requests ohnehin global auf GLOBAL_MIN_INTERVAL_SECONDS serialisiert,
+# bringt eine hohe Worker-Zahl kaum echten Speed-Vorteil mehr, erhoeht aber
+# das Risiko, dass Lichess mehrere gleichzeitig offene Connections als
+# Burst wertet. Daher deutlich gesenkt (20 -> 4).
+REFRESH_WORKERS = int(os.environ.get("REFRESH_WORKERS", "4"))
 
 MAX_TEAM_TOURNAMENTS = int(os.environ.get("MAX_TEAM_TOURNAMENTS", "200"))
 
@@ -293,6 +300,15 @@ ALTERNATE_RATING_BATCH_SIZE = int(os.environ.get("ALTERNATE_RATING_BATCH_SIZE", 
 # --- Rating-Refresh fuer die Top-1000-Anzeige ----------------------------
 RATING_REFRESH_COOLDOWN_HOURS = float(os.environ.get("RATING_REFRESH_COOLDOWN_HOURS", "18"))
 RATING_REFRESH_COOLDOWN_SECONDS = RATING_REFRESH_COOLDOWN_HOURS * 3600
+
+# --- Kompletter Top-1000-Refresh (Rating/Bann UND Partienzahl) -----------
+# GEAENDERT: laeuft nicht mehr bei JEDEM Lauf, sondern nur noch hoechstens
+# 1x pro TOP1000_REFRESH_COOLDOWN_HOURS (Standard 24h). Das ist der groesste
+# einzelne Rate-Limit-Treiber, weil er pro Lauf bis zu ~1000 Partienzahl-
+# Abfragen ausloest (parallel mit REFRESH_WORKERS Threads). Bei einem
+# Cron-Takt von 6h wuerde er sonst 4x taeglich komplett durchlaufen.
+TOP1000_REFRESH_COOLDOWN_HOURS = float(os.environ.get("TOP1000_REFRESH_COOLDOWN_HOURS", "24"))
+TOP1000_REFRESH_COOLDOWN_SECONDS = TOP1000_REFRESH_COOLDOWN_HOURS * 3600
 
 # Batch-Groesse fuer den Bulk-User-Endpunkt (POST /api/users), liefert pro
 # Aufruf Bot-Flag, Bann-Status (tosViolation/disabled) UND Rating in einem
@@ -340,6 +356,7 @@ SOURCE_MAP_FILE = DATA_DIR / "player_source.json"          # username -> Quelle 
 BOT_STATUS_FILE = DATA_DIR / "player_info.json"              # veraltet, wird noch fuer Migration gelesen
 PLAYER_INFO_FILE = DATA_DIR / "player_info.json"            # username -> {"bot", "banned", "rating", "checked_at"}
 CRAWL_DIRECTION_FILE = DATA_DIR / "crawl_direction.json"     # Zustand der Rating-Alternierung im Crawl
+TOP1000_REFRESH_STATE_FILE = DATA_DIR / "top1000_refresh_state.json"  # Zeitpunkt des letzten Top-1000-Refreshs
 
 STATUS_DIR = REPO_ROOT / "status" / PERF_TYPE
 TOP10_JSON_FILE = STATUS_DIR / "top1000.json"
@@ -1443,73 +1460,95 @@ def main() -> None:
     pool = set(known_players)
     updated_this_run = set()
 
-    # --- Rating/Bann-Refresh fuer die aktuelle Top-1000 -------------------
-    # Wird JETZT bei JEDEM Lauf unbedingt ausgefuehrt (kein Cooldown mehr) -
-    # kostet bei max. TOP_N_LIVE (1000) Spielern nur eine Handvoll Bulk-
-    # Requests (max. ~4 bei Batch-Groesse 300), stellt aber sicher, dass
-    # Bann-Status UND Rating fuer die Top-1000 garantiert bei jedem
-    # Lauf-Start frisch geprueft werden - auch wenn ein Spieler z.B. durch
-    # eine alte/migrierte checked_at-Angabe faelschlich als "frisch
-    # geprueft" galt.
+    # --- Rating/Bann- UND Partienzahl-Refresh fuer die aktuelle Top-1000 --
+    # GEAENDERT: laeuft nicht mehr bei JEDEM Lauf, sondern nur noch
+    # hoechstens 1x pro TOP1000_REFRESH_COOLDOWN_HOURS (Standard 24h).
+    # Vorher liefen hier bei jedem 6h-Cron-Takt bis zu ~1000 parallele
+    # Partienzahl-Requests (plus Bulk-Rating/Bann-Requests) los - das war
+    # der groesste einzelne Treiber fuer die 429-Kaskaden. Der eigentliche
+    # Spieler-Pool-Aufbau (Crawl/Turniere weiter unten) laeuft davon
+    # unberuehrt bei JEDEM Lauf weiter.
+    top1000_refresh_state = load_json_dict(TOP1000_REFRESH_STATE_FILE)
+    last_top1000_refresh_iso = top1000_refresh_state.get("last_refresh", "")
+    top1000_refresh_due = True
+    if last_top1000_refresh_iso:
+        try:
+            last_dt = datetime.fromisoformat(last_top1000_refresh_iso)
+            age_seconds = (datetime.now(timezone.utc) - last_dt).total_seconds()
+            top1000_refresh_due = age_seconds >= TOP1000_REFRESH_COOLDOWN_SECONDS
+        except ValueError:
+            top1000_refresh_due = True
+
     ranked_now = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:TOP_N_LIVE]
     top1000_names = [name for name, _ in ranked_now]
-    if top1000_names:
-        print(f"  [RATING/BANN-REFRESH] Aktualisiere Rating/Status fuer "
-              f"{len(top1000_names)} Spieler der aktuellen Top-{TOP_N_LIVE}...")
-        update_player_info_cache(top1000_names, player_info)
 
-    # --- Gebannte Spieler dauerhaft entfernen ------------------------------
-    # Gebannte/geschlossene Accounts sollen weder in der Rangliste stehen
-    # noch weiterhin (erneut) eingefuegt werden.
-    purge_banned_players(pool, counts, last_checked, source_map, player_info)
-    save_json_dict(PLAYER_INFO_FILE, player_info)
+    if not top1000_refresh_due:
+        remaining_h = TOP1000_REFRESH_COOLDOWN_HOURS - (
+            (datetime.now(timezone.utc) - datetime.fromisoformat(last_top1000_refresh_iso)).total_seconds() / 3600
+        )
+        print(f"  [TOP-1000-REFRESH] Uebersprungen - letzter Refresh vor "
+              f"weniger als {TOP1000_REFRESH_COOLDOWN_HOURS:.0f}h "
+              f"(noch ca. {max(remaining_h, 0):.1f}h Cooldown).")
+    else:
+        if top1000_names:
+            print(f"  [RATING/BANN-REFRESH] Aktualisiere Rating/Status fuer "
+                  f"{len(top1000_names)} Spieler der aktuellen Top-{TOP_N_LIVE}...")
+            update_player_info_cache(top1000_names, player_info)
 
-    # --- Partienzahl-Refresh fuer die aktuelle Top-1000 --------------------
-    # Das Zeitfenster (letzte SINCE_DAYS Tage) verschiebt sich mit jedem Tag:
-    # ein alter Tag faellt raus, ein neuer kommt rein. Damit die angezeigte
-    # Partienzahl das IMMER korrekt widerspiegelt (und nicht nur, wenn der
-    # Cooldown zufaellig abgelaufen ist), wird sie hier - genau wie Rating/
-    # Bann oben - bei JEDEM Lauf fuer die gesamte aktuelle Top-1000 neu
-    # abgefragt, unabhaengig vom sonstigen CHECK_COOLDOWN_HOURS-Cooldown.
-    #
-    # Laeuft parallel in REFRESH_WORKERS Threads statt strikt nacheinander -
-    # das macht diesen sonst sehr langsamen Schritt um ein Vielfaches
-    # schneller (Wartezeit wird ueberlappt statt aufsummiert).
-    to_refresh = [name for name in top1000_names if name in pool]
-    if to_refresh:
-        print(f"  [PARTIEN-REFRESH] Aktualisiere Partienzahl (letzte "
-              f"{SINCE_DAYS} Tage) fuer {len(to_refresh)} Spieler der "
-              f"aktuellen Top-{TOP_N_LIVE} (parallel, {REFRESH_WORKERS} Worker)...")
-        refreshed = 0
-        failed = 0
-        rate_limited = False
+        # --- Gebannte Spieler dauerhaft entfernen --------------------------
+        # Gebannte/geschlossene Accounts sollen weder in der Rangliste stehen
+        # noch weiterhin (erneut) eingefuegt werden.
+        purge_banned_players(pool, counts, last_checked, source_map, player_info)
+        save_json_dict(PLAYER_INFO_FILE, player_info)
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=REFRESH_WORKERS) as executor:
-            future_to_name = {
-                executor.submit(count_recent_blitz_games, name, since_ms): name
-                for name in to_refresh
-            }
-            for future in concurrent.futures.as_completed(future_to_name):
-                name = future_to_name[future]
-                try:
-                    counts[name] = future.result()
-                    last_checked[name] = now_iso()
-                    refreshed += 1
-                except RateLimitError:
-                    rate_limited = True
-                    for f in future_to_name:
-                        f.cancel()
-                    break
-                except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
-                    print(f"    [WARNUNG] '{name}' konnte nicht neu gezaehlt werden: {exc}")
-                    failed += 1
+        # --- Partienzahl-Refresh fuer die aktuelle Top-1000 -----------------
+        # Laeuft parallel in REFRESH_WORKERS Threads statt strikt
+        # nacheinander - das macht diesen sonst sehr langsamen Schritt
+        # schneller (Wartezeit wird ueberlappt statt aufsummiert), bleibt
+        # aber durch den globalen Throttle in _request() gebremst.
+        to_refresh = [name for name in top1000_names if name in pool]
+        if to_refresh:
+            print(f"  [PARTIEN-REFRESH] Aktualisiere Partienzahl (letzte "
+                  f"{SINCE_DAYS} Tage) fuer {len(to_refresh)} Spieler der "
+                  f"aktuellen Top-{TOP_N_LIVE} (parallel, {REFRESH_WORKERS} Worker)...")
+            refreshed = 0
+            failed = 0
+            rate_limited = False
 
-        print(f"    {refreshed} aktualisiert, {failed} fehlgeschlagen.")
-        updated_this_run.update(to_refresh)
-        save_leaderboard(leaderboard, source_map, player_info)
+            with concurrent.futures.ThreadPoolExecutor(max_workers=REFRESH_WORKERS) as executor:
+                future_to_name = {
+                    executor.submit(count_recent_blitz_games, name, since_ms): name
+                    for name in to_refresh
+                }
+                for future in concurrent.futures.as_completed(future_to_name):
+                    name = future_to_name[future]
+                    try:
+                        counts[name] = future.result()
+                        last_checked[name] = now_iso()
+                        refreshed += 1
+                    except RateLimitError:
+                        rate_limited = True
+                        for f in future_to_name:
+                            f.cancel()
+                        break
+                    except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
+                        print(f"    [WARNUNG] '{name}' konnte nicht neu gezaehlt werden: {exc}")
+                        failed += 1
 
-        if rate_limited:
-            raise RateLimitError("Rate Limit waehrend Top-1000-Partienzahl-Refresh")
+            print(f"    {refreshed} aktualisiert, {failed} fehlgeschlagen.")
+            updated_this_run.update(to_refresh)
+            save_leaderboard(leaderboard, source_map, player_info)
+
+            if rate_limited:
+                # Zeitstempel NICHT aktualisieren, damit der naechste Lauf
+                # es beim (teils) fehlgeschlagenen Refresh erneut versucht,
+                # statt einen ganzen Tag zu warten.
+                raise RateLimitError("Rate Limit waehrend Top-1000-Partienzahl-Refresh")
+
+        # Erfolgreich (oder zumindest ohne Rate-Limit-Abbruch) durchgelaufen
+        # -> Zeitstempel setzen, damit der naechste Lauf innerhalb des
+        # Cooldowns wieder ausgelassen wird.
+        save_json_dict(TOP1000_REFRESH_STATE_FILE, {"last_refresh": now_iso()})
 
     write_top10_snapshot(counts, source_map, player_info)
 
