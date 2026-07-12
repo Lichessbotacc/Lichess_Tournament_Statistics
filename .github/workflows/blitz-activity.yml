@@ -55,7 +55,16 @@ jobs:
       - name: Repo auschecken
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          # GEAENDERT: von 0 (komplette Historie) auf 1 (nur neuester
+          # Stand) - "fetch-depth: 0" hat bei jedem der 13 parallelen
+          # Matrix-Jobs die GESAMTE Git-Historie geklont. Da das Skript
+          # waehrend eines Laufs alle GIT_PUSH_MIN_INTERVAL_SECONDS einen
+          # neuen Commit pusht (potenziell hunderte pro Lauf, mal 13 Modi),
+          # waechst die Historie sehr schnell auf mehrere GB - das hat den
+          # Runner-Datentraeger mit "No space left on device" gesprengt.
+          # "git pull --rebase" im Skript funktioniert mit einem flachen
+          # Checkout weiterhin normal gegen den aktuellen origin/main-Stand.
+          fetch-depth: 1
           ref: main  # WICHTIG: sonst landet der Runner im detached HEAD
                      # (kein echter Branch) und "git pull --rebase" /
                      # "git push" im Skript schlagen mit "You are not
