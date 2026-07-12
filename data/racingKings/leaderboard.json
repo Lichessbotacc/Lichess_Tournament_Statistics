@@ -3421,6 +3421,7 @@
     "ceopablo": 0,
     "cepveslpfl": 0,
     "certificatechess1": 0,
+    "certov": 0,
     "cesar2014mp": 0,
     "cesar9399": 0,
     "cesarpanda4": 0,
@@ -19446,6 +19447,7 @@
     "ceopablo": "2026-07-10T09:17:51.047019+00:00",
     "cepveslpfl": "2026-07-11T13:22:00.575092+00:00",
     "certificatechess1": "2026-07-10T16:37:41.973259+00:00",
+    "certov": "2026-07-12T06:42:33.590750+00:00",
     "cesar2014mp": "2026-07-11T06:30:09.670332+00:00",
     "cesar9399": "2026-07-10T19:01:13.951120+00:00",
     "cesarpanda4": "2026-07-11T07:57:09.173649+00:00",
@@ -160338,7 +160340,15 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "walpandree"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/certov",
+      "rank": 16054,
+      "rating": 1618,
+      "source": "Lobby-Crawl",
+      "username": "certov"
     }
   ],
-  "updated_at": "2026-07-12T06:41:54.269365+00:00"
+  "updated_at": "2026-07-12T06:42:33.590766+00:00"
 }
