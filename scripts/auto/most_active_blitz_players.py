@@ -1428,6 +1428,7 @@ def main() -> None:
     since_ms = int((datetime.now(timezone.utc) - timedelta(days=SINCE_DAYS)).timestamp() * 1000)
 
     pool = set(known_players)
+    updated_this_run = set()
 
     # --- Rating/Bann-Refresh fuer die aktuelle Top-1000 -------------------
     # Wird JETZT bei JEDEM Lauf unbedingt ausgefuehrt (kein Cooldown mehr) -
@@ -1450,9 +1451,36 @@ def main() -> None:
     purge_banned_players(pool, counts, last_checked, source_map, player_info)
     save_json_dict(PLAYER_INFO_FILE, player_info)
 
-    write_top10_snapshot(counts, source_map, player_info)
+    # --- Partienzahl-Refresh fuer die aktuelle Top-1000 --------------------
+    # Das Zeitfenster (letzte SINCE_DAYS Tage) verschiebt sich mit jedem Tag:
+    # ein alter Tag faellt raus, ein neuer kommt rein. Damit die angezeigte
+    # Partienzahl das IMMER korrekt widerspiegelt (und nicht nur, wenn der
+    # Cooldown zufaellig abgelaufen ist), wird sie hier - genau wie Rating/
+    # Bann oben - bei JEDEM Lauf fuer die gesamte aktuelle Top-1000 neu
+    # abgefragt, unabhaengig vom sonstigen CHECK_COOLDOWN_HOURS-Cooldown.
+    if top1000_names:
+        print(f"  [PARTIEN-REFRESH] Aktualisiere Partienzahl (letzte "
+              f"{SINCE_DAYS} Tage) fuer {len(top1000_names)} Spieler der "
+              f"aktuellen Top-{TOP_N_LIVE}...")
+        refreshed = 0
+        failed = 0
+        for name in top1000_names:
+            if name not in pool:
+                continue  # kann durch purge_banned_players() gerade entfernt worden sein
+            try:
+                counts[name] = count_recent_blitz_games(name, since_ms)
+                last_checked[name] = now_iso()
+                refreshed += 1
+            except RateLimitError:
+                raise
+            except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
+                print(f"    [WARNUNG] '{name}' konnte nicht neu gezaehlt werden: {exc}")
+                failed += 1
+        print(f"    {refreshed} aktualisiert, {failed} fehlgeschlagen.")
+        updated_this_run.update(top1000_names)
+        save_leaderboard(leaderboard, source_map, player_info)
 
-    updated_this_run = set()
+    write_top10_snapshot(counts, source_map, player_info)
 
     save_json_set(KNOWN_PLAYERS_FILE, pool)
     save_json_set(KNOWN_TOURNAMENTS_FILE, known_tournaments)
