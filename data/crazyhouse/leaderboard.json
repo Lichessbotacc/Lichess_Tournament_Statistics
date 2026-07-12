@@ -3152,6 +3152,7 @@
     "cangrejoazul_7": 0,
     "canjam1": 0,
     "cankerblossom": 47,
+    "cannotmakeauserlol": 0,
     "canoandy": 0,
     "cansebero": 0,
     "canszr": 0,
@@ -17120,6 +17121,7 @@
     "cangrejoazul_7": "2026-07-11T01:15:58.620858+00:00",
     "canjam1": "2026-07-11T22:25:43.473744+00:00",
     "cankerblossom": "2026-07-11T23:50:39.541933+00:00",
+    "cannotmakeauserlol": "2026-07-12T04:54:48.328041+00:00",
     "canoandy": "2026-07-10T01:34:09.244401+00:00",
     "cansebero": "2026-07-10T01:34:10.530257+00:00",
     "canszr": "2026-07-11T01:09:13.186952+00:00",
@@ -120190,7 +120192,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/nikolenko_2017",
       "rank": 11560,
-      "rating": null,
+      "rating": 1175,
       "source": "Lobby-Crawl",
       "username": "nikolenko_2017"
     },
@@ -139745,7 +139747,15 @@
       "rating": 1104,
       "source": "Lobby-Crawl",
       "username": "lyla_wni"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/cannotmakeauserlol",
+      "rank": 14005,
+      "rating": 1915,
+      "source": "Lobby-Crawl",
+      "username": "cannotmakeauserlol"
     }
   ],
-  "updated_at": "2026-07-12T04:54:02.665080+00:00"
+  "updated_at": "2026-07-12T04:54:48.328060+00:00"
 }
