@@ -1501,6 +1501,7 @@
     "alparslancskn": 0,
     "alpdeniz366": 0,
     "alpdenizd": 0,
+    "alperbatu-17": 0,
     "alperegeakdemir": 0,
     "alperoruclu": 4,
     "alpertk1903": 0,
@@ -14472,6 +14473,7 @@
     "soldado145650": 1,
     "soldi_de_maria": 5,
     "sole_power": 0,
+    "solfanger": 0,
     "solidwoode": 0,
     "solips": 0,
     "solitaire0": 6,
@@ -16042,6 +16044,7 @@
     "ven9550": 0,
     "ven9555": 52,
     "vencikiraly": 0,
+    "vendetttta1605": 0,
     "venera11": 0,
     "venky9948": 0,
     "ventoboy": 313,
@@ -16164,6 +16167,7 @@
     "vinnjeh": 0,
     "vinnyy123": 0,
     "violet59": 0,
+    "viot": 0,
     "vip3r3": 0,
     "vir110": 3,
     "viraaj02016": 0,
@@ -16981,6 +16985,7 @@
     "zolotchenko_sergey": 2,
     "zombi2015": 0,
     "zoom2018": 0,
+    "zooz-zerk": 0,
     "zoro67": 0,
     "zosich": 2,
     "zoyx66": 0,
@@ -18510,6 +18515,7 @@
     "alparslancskn": "2026-07-10T13:42:38.928701+00:00",
     "alpdeniz366": "2026-07-11T04:27:39.394403+00:00",
     "alpdenizd": "2026-07-10T09:41:19.609238+00:00",
+    "alperbatu-17": "2026-07-12T04:04:24.082596+00:00",
     "alperegeakdemir": "2026-07-11T00:01:21.127283+00:00",
     "alperoruclu": "2026-07-11T09:32:50.589886+00:00",
     "alpertk1903": "2026-07-11T20:20:37.194494+00:00",
@@ -30566,6 +30572,7 @@
     "soldado145650": "2026-07-10T15:32:01.307545+00:00",
     "soldi_de_maria": "2026-07-10T06:34:21.290978+00:00",
     "sole_power": "2026-07-11T05:40:39.692097+00:00",
+    "solfanger": "2026-07-12T04:04:17.045274+00:00",
     "solidwoode": "2026-07-11T20:02:32.058009+00:00",
     "solips": "2026-07-11T05:44:55.710585+00:00",
     "solitaire0": "2026-07-10T21:06:37.841018+00:00",
@@ -32136,6 +32143,7 @@
     "ven9550": "2026-07-11T14:12:33.235575+00:00",
     "ven9555": "2026-07-11T18:26:49.483435+00:00",
     "vencikiraly": "2026-07-10T13:10:32.569654+00:00",
+    "vendetttta1605": "2026-07-12T04:04:20.696069+00:00",
     "venera11": "2026-07-10T14:11:21.657905+00:00",
     "venky9948": "2026-07-11T02:59:50.974279+00:00",
     "ventoboy": "2026-07-11T23:28:34.899196+00:00",
@@ -32258,6 +32266,7 @@
     "vinnjeh": "2026-07-11T05:50:21.140466+00:00",
     "vinnyy123": "2026-07-11T04:56:34.844224+00:00",
     "violet59": "2026-07-11T06:47:50.939025+00:00",
+    "viot": "2026-07-12T04:04:17.497922+00:00",
     "vip3r3": "2026-07-11T20:05:01.696406+00:00",
     "vir110": "2026-07-10T10:37:58.863743+00:00",
     "viraaj02016": "2026-07-11T15:42:17.480422+00:00",
@@ -33075,6 +33084,7 @@
     "zolotchenko_sergey": "2026-07-12T03:55:32.902973+00:00",
     "zombi2015": "2026-07-10T22:59:46.301636+00:00",
     "zoom2018": "2026-07-12T00:35:04.386931+00:00",
+    "zooz-zerk": "2026-07-12T04:04:21.167927+00:00",
     "zoro67": "2026-07-10T08:27:51.111204+00:00",
     "zosich": "2026-07-11T17:33:12.077272+00:00",
     "zoyx66": "2026-07-11T22:00:48.815700+00:00",
@@ -169176,7 +169186,47 @@
       "rating": 1463,
       "source": "Lobby-Crawl",
       "username": "rekeips"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/solfanger",
+      "rank": 17010,
+      "rating": 1270,
+      "source": "Lobby-Crawl",
+      "username": "solfanger"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/viot",
+      "rank": 17011,
+      "rating": 2233,
+      "source": "Lobby-Crawl",
+      "username": "viot"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vendetttta1605",
+      "rank": 17012,
+      "rating": 1739,
+      "source": "Lobby-Crawl",
+      "username": "vendetttta1605"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/zooz-zerk",
+      "rank": 17013,
+      "rating": 2268,
+      "source": "?",
+      "username": "zooz-zerk"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/alperbatu-17",
+      "rank": 17014,
+      "rating": 1688,
+      "source": "Lobby-Crawl",
+      "username": "alperbatu-17"
     }
   ],
-  "updated_at": "2026-07-12T04:03:53.435646+00:00"
+  "updated_at": "2026-07-12T04:04:24.082618+00:00"
 }
