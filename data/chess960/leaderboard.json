@@ -4779,6 +4779,7 @@
     "cucdepera": 0,
     "cuchuflyy": 0,
     "cucs": 0,
+    "cuerdo": 0,
     "cuervo22": 0,
     "cuestar": 0,
     "culture_echecs": 0,
@@ -23080,6 +23081,7 @@
     "cucdepera": "2026-07-11T20:34:35.709147+00:00",
     "cuchuflyy": "2026-07-11T18:47:09.429637+00:00",
     "cucs": "2026-07-11T22:52:45.450198+00:00",
+    "cuerdo": "2026-07-12T12:09:57.866689+00:00",
     "cuervo22": "2026-07-10T13:55:35.000377+00:00",
     "cuestar": "2026-07-10T07:48:40.568968+00:00",
     "culture_echecs": "2026-07-10T01:38:45.326108+00:00",
@@ -157393,8 +157395,8 @@
       "games": 0,
       "profile": "https://lichess.org/@/psychomate_27",
       "rank": 15222,
-      "rating": null,
-      "source": "?",
+      "rating": 1899,
+      "source": "Lobby-Crawl",
       "username": "psychomate_27"
     },
     {
@@ -184916,7 +184918,15 @@
       "rating": 2400,
       "source": "Lobby-Crawl",
       "username": "maksym_537"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/cuerdo",
+      "rank": 18663,
+      "rating": 1729,
+      "source": "Lobby-Crawl",
+      "username": "cuerdo"
     }
   ],
-  "updated_at": "2026-07-12T12:05:29.724993+00:00"
+  "updated_at": "2026-07-12T12:09:57.866707+00:00"
 }
