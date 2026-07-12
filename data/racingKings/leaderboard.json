@@ -4225,6 +4225,7 @@
     "chess_girl15": 0,
     "chess_god000": 0,
     "chess_grosmaster27": 0,
+    "chess_hockey": 0,
     "chess_hunter_live_in": 16,
     "chess_hustler96": 1,
     "chess_killer12": 0,
@@ -23727,6 +23728,7 @@
     "chess_girl15": "2026-07-12T09:29:35.254138+00:00",
     "chess_god000": "2026-07-11T23:28:07.425389+00:00",
     "chess_grosmaster27": "2026-07-10T16:39:36.112514+00:00",
+    "chess_hockey": "2026-07-12T19:17:48.208914+00:00",
     "chess_hunter_live_in": "2026-07-10T23:19:32.436142+00:00",
     "chess_hustler96": "2026-07-10T20:35:55.014478+00:00",
     "chess_killer12": "2026-07-12T03:49:28.771197+00:00",
@@ -195113,7 +195115,15 @@
       "rating": 1584,
       "source": "Lobby-Crawl",
       "username": "alexargentina"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess_hockey",
+      "rank": 19530,
+      "rating": 2135,
+      "source": "Lobby-Crawl",
+      "username": "chess_hockey"
     }
   ],
-  "updated_at": "2026-07-12T19:16:34.647570+00:00"
+  "updated_at": "2026-07-12T19:17:48.208942+00:00"
 }
