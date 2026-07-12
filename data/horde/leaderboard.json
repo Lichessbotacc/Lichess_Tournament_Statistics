@@ -3324,6 +3324,7 @@
     "chaosastartes": 0,
     "chaoticmove": 0,
     "chapangi_123": 0,
+    "chapotter": 0,
     "chappa-0": 0,
     "chapter_a": 0,
     "char_dragon": 6,
@@ -4234,6 +4235,7 @@
     "debforit": 0,
     "debil08": 0,
     "debjyoti_malik": 0,
+    "debolos": 0,
     "debu_chess": 0,
     "deca_aleviya_arjul": 0,
     "decentfellow123": 0,
@@ -4538,6 +4540,7 @@
     "dma7": 17,
     "dmac1400": 0,
     "dmaka2-boctahne": 0,
+    "dmb007": 0,
     "dmb76": 0,
     "dmc_nevidu2": 0,
     "dmc_yohan4": 0,
@@ -15884,6 +15887,7 @@
     "vvh1te": 0,
     "vvhegde123_12345677": 1,
     "vvilik": 111,
+    "vvirat": 0,
     "vvl1999": 0,
     "vvv7": 0,
     "vwz": 0,
@@ -19871,6 +19875,7 @@
     "chaosastartes": "2026-07-11T21:02:16.572518+00:00",
     "chaoticmove": "2026-07-11T07:01:16.777688+00:00",
     "chapangi_123": "2026-07-10T16:38:13.792489+00:00",
+    "chapotter": "2026-07-12T00:08:40.850733+00:00",
     "chappa-0": "2026-07-11T07:43:28.267286+00:00",
     "chapter_a": "2026-07-11T13:38:05.867292+00:00",
     "char_dragon": "2026-07-10T16:13:49.373555+00:00",
@@ -20781,6 +20786,7 @@
     "debforit": "2026-07-10T18:08:58.683868+00:00",
     "debil08": "2026-07-10T21:09:02.271674+00:00",
     "debjyoti_malik": "2026-07-10T16:49:38.363967+00:00",
+    "debolos": "2026-07-12T00:08:49.850284+00:00",
     "debu_chess": "2026-07-10T12:31:42.186891+00:00",
     "deca_aleviya_arjul": "2026-07-11T20:44:43.311125+00:00",
     "decentfellow123": "2026-07-11T08:39:56.711877+00:00",
@@ -21085,6 +21091,7 @@
     "dma7": "2026-07-11T01:49:20.692866+00:00",
     "dmac1400": "2026-07-10T13:33:47.459572+00:00",
     "dmaka2-boctahne": "2026-07-10T16:52:17.601848+00:00",
+    "dmb007": "2026-07-12T00:09:01.878658+00:00",
     "dmb76": "2026-07-10T12:49:29.599352+00:00",
     "dmc_nevidu2": "2026-07-10T16:52:20.597838+00:00",
     "dmc_yohan4": "2026-07-10T21:09:26.498639+00:00",
@@ -29939,7 +29946,7 @@
     "striokas": "2026-07-10T08:46:50.998626+00:00",
     "stronghold-x": "2026-07-10T11:11:01.289042+00:00",
     "strushkin": "2026-07-10T02:02:46.902210+00:00",
-    "stubbyone": "2026-07-11T02:35:25.595712+00:00",
+    "stubbyone": "2026-07-12T00:08:28.944241+00:00",
     "stubenfisch": "2026-07-11T20:35:39.361334+00:00",
     "studentchessstudio": "2026-07-11T09:21:48.481072+00:00",
     "studentofthegame2025": "2026-07-10T06:21:17.364845+00:00",
@@ -30013,7 +30020,7 @@
     "superhamster1234": "2026-07-11T08:31:59.925965+00:00",
     "superiluha": "2026-07-11T07:58:06.676697+00:00",
     "superkiten": "2026-07-11T17:17:01.433428+00:00",
-    "supermam": "2026-07-10T02:02:49.888494+00:00",
+    "supermam": "2026-07-12T00:08:52.897256+00:00",
     "superman2456": "2026-07-10T16:13:58.763759+00:00",
     "supermanandcypton": "2026-07-11T06:54:45.121992+00:00",
     "supermario1905": "2026-07-11T06:55:39.092087+00:00",
@@ -31513,6 +31520,7 @@
     "vvh1te": "2026-07-10T14:57:46.383878+00:00",
     "vvhegde123_12345677": "2026-07-10T13:58:32.323078+00:00",
     "vvilik": "2026-07-11T01:43:13.158927+00:00",
+    "vvirat": "2026-07-12T00:08:31.861062+00:00",
     "vvl1999": "2026-07-10T21:35:52.286536+00:00",
     "vvv7": "2026-07-11T08:16:18.515221+00:00",
     "vwz": "2026-07-10T06:13:29.609860+00:00",
@@ -142854,7 +142862,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/shakkishakkishakki",
       "rank": 13835,
-      "rating": null,
+      "rating": 2003,
       "source": "Lobby-Crawl",
       "username": "shakkishakkishakki"
     },
@@ -146846,7 +146854,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/supermam",
       "rank": 14334,
-      "rating": null,
+      "rating": 1428,
       "source": "Lobby-Crawl",
       "username": "supermam"
     },
@@ -164553,7 +164561,39 @@
       "rating": 1743,
       "source": "Lobby-Crawl",
       "username": "amiitm"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vvirat",
+      "rank": 16548,
+      "rating": 1400,
+      "source": "Lobby-Crawl",
+      "username": "vvirat"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chapotter",
+      "rank": 16549,
+      "rating": 848,
+      "source": "Lobby-Crawl",
+      "username": "chapotter"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/debolos",
+      "rank": 16550,
+      "rating": 1155,
+      "source": "Lobby-Crawl",
+      "username": "debolos"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/dmb007",
+      "rank": 16551,
+      "rating": 1620,
+      "source": "Lobby-Crawl",
+      "username": "dmb007"
     }
   ],
-  "updated_at": "2026-07-12T00:08:25.900703+00:00"
+  "updated_at": "2026-07-12T00:09:01.878678+00:00"
 }
