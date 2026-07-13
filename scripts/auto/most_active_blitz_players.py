@@ -79,6 +79,14 @@ bevor es Partien zaehlt. Jede Quelle wird sofort nach dem Einlesen
 verarbeitet, das Leaderboard sofort aktualisiert, und bei einem
 Top-Ranking-Einstieg erscheint sofort ein auffaelliger Banner (inkl. Quelle).
 
+GEAENDERT (Logging): Zusaetzlich zum Banner fuer Top-1000-Eintritte wird
+JETZT fuer JEDEN tatsaechlich geprueften Spieler (nicht nur Top 1000) eine
+eigene Log-Zeile ausgegeben (mit Partienzahl, aktuellem Rang und Quelle) -
+siehe update_players_live(). Per Cooldown uebersprungene Spieler werden
+NICHT einzeln geloggt (sonst waere die Ausgabe bei grossem Pool zu
+unuebersichtlich), tauchen aber weiterhin in der Lauf-Zusammenfassung
+("Uebersprungen wg. Cooldown") als Zahl auf.
+
 -------------------------------------------------------------------
 SNOWBALL-CRAWL (Gegner-basierte Pool-Erweiterung)
 -------------------------------------------------------------------
@@ -1508,6 +1516,15 @@ def update_players_live(usernames: set, already_updated: set, counts: dict, last
       - Komplett neuer Spieler -> immer sofort pruefen.
       - Bereits bekannter Spieler -> nur pruefen, wenn CHECK_COOLDOWN_HOURS
         seit der letzten Pruefung vergangen sind.
+
+    GEAENDERT (Logging): Zusaetzlich zum auffaelligen Banner (nur bei
+    Top-1000-Eintritt) wird JETZT fuer JEDEN tatsaechlich geprueften
+    Spieler eine eigene Log-Zeile ausgegeben - unabhaengig vom Rang. So
+    tauchen auch Spieler ausserhalb der Top 1000 im Log auf, nicht nur
+    in leaderboard.json/known_players.json. Per Cooldown uebersprungene
+    Spieler werden weiterhin NICHT einzeln geloggt (nur als Summe in der
+    Lauf-Zusammenfassung), um die Ausgabe bei grossem Pool nicht komplett
+    zu fluten.
     """
     if stats is None:
         stats = {"checked": 0, "skipped_cooldown": 0, "new": 0, "failed": 0}
@@ -1540,10 +1557,19 @@ def update_players_live(usernames: set, already_updated: set, counts: dict, last
         if is_new_player:
             stats["new"] += 1
 
+        rank = get_current_rank(username, counts)
+        source_label = SOURCE_LABELS.get(source_map.get(username), "?")
+
+        # Immer eine Zeile pro tatsaechlich geprueftem Spieler loggen -
+        # nicht nur bei Top-1000-Eintritt. Der auffaellige Banner bleibt
+        # zusaetzlich fuer echte Top-1000-Eintritte bestehen.
+        tag = "NEU" if is_new_player else "UPDATE"
+        rank_str = str(rank) if rank > 0 else "?"
+        print(f"    [{tag}] {username:<20} {new_count:>5} Partien  "
+              f"(Rang: {rank_str:>5})  [{source_label:<11}]  {profile_url(username)}")
+
         if new_count > 0 and (old_count is None or new_count != old_count):
-            rank = get_current_rank(username, counts)
             if 0 < rank <= TOP_N:
-                source_label = SOURCE_LABELS.get(source_map.get(username), "?")
                 flashy_new_entry_banner(rank, username, new_count, source_label)
 
         leaderboard["counts"] = counts
