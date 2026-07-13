@@ -14435,6 +14435,7 @@
     "nak6491": 0,
     "nakamuralequangliemf": 0,
     "nakar81": 0,
+    "nakkilinnoitus": 0,
     "nakmain": 0,
     "nakshprabhu05": 0,
     "nakulkumar17": 0,
@@ -20704,6 +20705,7 @@
     "vanchak": 0,
     "vandri": 0,
     "vanechka2011": 3,
+    "vanechka32": 0,
     "vanek338": 0,
     "vanjaklim122016": 0,
     "vanpersiethiago": 0,
@@ -20894,6 +20896,7 @@
     "victor132a": 0,
     "victor7783": 0,
     "victor_rodrigo1982": 0,
+    "victorariasl_ia": 0,
     "victorbag": 5,
     "victoria_gorlova": 0,
     "victorleberger": 0,
@@ -20977,6 +20980,7 @@
     "viktor_champion1": 0,
     "viktor_mukkonen": 0,
     "viktor_vlas0608": 0,
+    "viktoriachessway": 0,
     "viktoriyaaa": 0,
     "viktorlik": 0,
     "viktorshkv": 0,
@@ -25170,7 +25174,7 @@
     "ayaxius": "2026-07-13T04:11:58.593071+00:00",
     "ayaz1638": "2026-07-10T21:56:38.732358+00:00",
     "ayazgg110": "2026-07-12T19:55:36.558390+00:00",
-    "aybarovski": "2026-07-11T07:08:37.839917+00:00",
+    "aybarovski": "2026-07-13T08:46:41.339495+00:00",
     "aybi": "2026-07-13T03:29:05.960961+00:00",
     "aydenhorton": "2026-07-13T06:23:59.080070+00:00",
     "aydenicn": "2026-07-10T16:40:51.801913+00:00",
@@ -33796,7 +33800,7 @@
     "loskutov_andrei": "2026-07-10T15:44:09.070629+00:00",
     "loss2win": "2026-07-11T17:51:43.494497+00:00",
     "lost_aragon": "2026-07-10T23:34:08.994827+00:00",
-    "lostinlondon": "2026-07-11T07:01:35.203711+00:00",
+    "lostinlondon": "2026-07-13T08:46:44.348057+00:00",
     "lotos7777": "2026-07-12T10:23:25.070719+00:00",
     "lottanang": "2026-07-13T07:50:20.254484+00:00",
     "lotus121": "2026-07-11T19:01:21.467378+00:00",
@@ -35770,6 +35774,7 @@
     "nak6491": "2026-07-12T17:09:16.140220+00:00",
     "nakamuralequangliemf": "2026-07-11T05:34:57.506376+00:00",
     "nakar81": "2026-07-11T18:20:39.992858+00:00",
+    "nakkilinnoitus": "2026-07-13T08:46:47.359235+00:00",
     "nakmain": "2026-07-12T20:09:49.309006+00:00",
     "nakshprabhu05": "2026-07-13T04:05:02.980848+00:00",
     "nakulkumar17": "2026-07-10T09:22:41.788884+00:00",
@@ -41736,6 +41741,7 @@
     "vanchak": "2026-07-10T13:23:14.356643+00:00",
     "vandri": "2026-07-10T11:05:45.788606+00:00",
     "vanechka2011": "2026-07-13T06:49:43.383239+00:00",
+    "vanechka32": "2026-07-13T08:46:50.339541+00:00",
     "vanek338": "2026-07-12T17:16:51.983238+00:00",
     "vanjaklim122016": "2026-07-13T06:06:48.076496+00:00",
     "vanpersiethiago": "2026-07-10T07:21:37.819548+00:00",
@@ -41926,6 +41932,7 @@
     "victor132a": "2026-07-11T03:39:16.173559+00:00",
     "victor7783": "2026-07-12T04:33:42.631605+00:00",
     "victor_rodrigo1982": "2026-07-11T14:33:16.621366+00:00",
+    "victorariasl_ia": "2026-07-13T08:46:35.494537+00:00",
     "victorbag": "2026-07-12T01:05:58.199333+00:00",
     "victoria_gorlova": "2026-07-13T05:32:06.359987+00:00",
     "victorleberger": "2026-07-12T00:44:38.321745+00:00",
@@ -42009,6 +42016,7 @@
     "viktor_champion1": "2026-07-12T16:28:50.721037+00:00",
     "viktor_mukkonen": "2026-07-12T06:39:54.928106+00:00",
     "viktor_vlas0608": "2026-07-11T19:48:26.260830+00:00",
+    "viktoriachessway": "2026-07-13T08:46:38.343348+00:00",
     "viktoriyaaa": "2026-07-12T11:56:47.598291+00:00",
     "viktorlik": "2026-07-11T17:14:23.735346+00:00",
     "viktorshkv": "2026-07-12T18:07:04.915716+00:00",
@@ -90196,7 +90204,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/aybarovski",
       "rank": 5878,
-      "rating": null,
+      "rating": 1980,
       "source": "Lobby-Crawl",
       "username": "aybarovski"
     },
@@ -152308,7 +152316,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/lostinlondon",
       "rank": 13642,
-      "rating": null,
+      "rating": 1752,
       "source": "Lobby-Crawl",
       "username": "lostinlondon"
     },
@@ -220319,7 +220327,39 @@
       "rating": 1356,
       "source": "Lobby-Crawl",
       "username": "philip1234567"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/victorariasl_ia",
+      "rank": 22144,
+      "rating": 1699,
+      "source": "Lobby-Crawl",
+      "username": "victorariasl_ia"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/viktoriachessway",
+      "rank": 22145,
+      "rating": 1653,
+      "source": "Lobby-Crawl",
+      "username": "viktoriachessway"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/nakkilinnoitus",
+      "rank": 22146,
+      "rating": 1809,
+      "source": "Lobby-Crawl",
+      "username": "nakkilinnoitus"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vanechka32",
+      "rank": 22147,
+      "rating": 1182,
+      "source": "Lobby-Crawl",
+      "username": "vanechka32"
     }
   ],
-  "updated_at": "2026-07-13T08:45:48.956945+00:00"
+  "updated_at": "2026-07-13T08:46:50.344419+00:00"
 }
