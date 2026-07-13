@@ -2047,7 +2047,7 @@
     "anshen": 0,
     "anshgo": 0,
     "anshithballapuram": 0,
-    "anshr_ict": 500,
+    "anshr_ict": 488,
     "anshsharma27": 0,
     "anshsinha07": 1,
     "anshthechamp": 0,
@@ -12015,7 +12015,7 @@
     "powerchess0742": 0,
     "powerforce": 0,
     "powerofspeedd": 107,
-    "powerofthepeople": 379,
+    "powerofthepeople": 374,
     "pozhiloy_228": 0,
     "ppaul1982": 0,
     "ppaular": 37,
@@ -18306,7 +18306,7 @@
     "anshen": "2026-07-12T12:35:30.916330+00:00",
     "anshgo": "2026-07-10T01:27:36.643086+00:00",
     "anshithballapuram": "2026-07-10T01:27:58.552479+00:00",
-    "anshr_ict": "2026-07-10T22:29:38.772423+00:00",
+    "anshr_ict": "2026-07-13T01:19:25.175665+00:00",
     "anshsharma27": "2026-07-12T13:51:49.736014+00:00",
     "anshsinha07": "2026-07-11T16:44:28.889393+00:00",
     "anshthechamp": "2026-07-10T01:31:38.144737+00:00",
@@ -28025,7 +28025,7 @@
     "powerchess0742": "2026-07-12T10:43:39.532162+00:00",
     "powerforce": "2026-07-10T06:53:28.917047+00:00",
     "powerofspeedd": "2026-07-12T00:12:16.629446+00:00",
-    "powerofthepeople": "2026-07-12T02:44:05.668866+00:00",
+    "powerofthepeople": "2026-07-13T01:19:03.890457+00:00",
     "pozhiloy_228": "2026-07-10T06:14:39.194395+00:00",
     "ppaul1982": "2026-07-12T06:43:57.361605+00:00",
     "ppn123parth": "2026-07-11T16:18:57.932893+00:00",
@@ -33051,16 +33051,8 @@
     },
     {
       "games": 500,
-      "profile": "https://lichess.org/@/anshr_ict",
-      "rank": 110,
-      "rating": 1678,
-      "source": "?",
-      "username": "anshr_ict"
-    },
-    {
-      "games": 500,
       "profile": "https://lichess.org/@/toastbread_1",
-      "rank": 111,
+      "rank": 110,
       "rating": 2134,
       "source": "Lobby-Crawl",
       "username": "toastbread_1"
@@ -33068,7 +33060,7 @@
     {
       "games": 491,
       "profile": "https://lichess.org/@/uchijamadara",
-      "rank": 112,
+      "rank": 111,
       "rating": 1868,
       "source": "Lobby-Crawl",
       "username": "uchijamadara"
@@ -33076,10 +33068,18 @@
     {
       "games": 489,
       "profile": "https://lichess.org/@/azlansulaiman09",
-      "rank": 113,
+      "rank": 112,
       "rating": 1440,
       "source": "Lobby-Crawl",
       "username": "azlansulaiman09"
+    },
+    {
+      "games": 488,
+      "profile": "https://lichess.org/@/anshr_ict",
+      "rank": 113,
+      "rating": 1678,
+      "source": "?",
+      "username": "anshr_ict"
     },
     {
       "games": 487,
@@ -33570,17 +33570,9 @@
       "username": "battledax"
     },
     {
-      "games": 379,
-      "profile": "https://lichess.org/@/powerofthepeople",
-      "rank": 175,
-      "rating": 2003,
-      "source": "Lobby-Crawl",
-      "username": "powerofthepeople"
-    },
-    {
       "games": 378,
       "profile": "https://lichess.org/@/anagani2013",
-      "rank": 176,
+      "rank": 175,
       "rating": 1870,
       "source": "?",
       "username": "anagani2013"
@@ -33588,7 +33580,7 @@
     {
       "games": 375,
       "profile": "https://lichess.org/@/evgeniimonge2001",
-      "rank": 177,
+      "rank": 176,
       "rating": 2046,
       "source": "?",
       "username": "evgeniimonge2001"
@@ -33596,10 +33588,18 @@
     {
       "games": 375,
       "profile": "https://lichess.org/@/skysparks",
-      "rank": 178,
+      "rank": 177,
       "rating": 2141,
       "source": "?",
       "username": "skysparks"
+    },
+    {
+      "games": 374,
+      "profile": "https://lichess.org/@/powerofthepeople",
+      "rank": 178,
+      "rating": 2003,
+      "source": "Lobby-Crawl",
+      "username": "powerofthepeople"
     },
     {
       "games": 373,
@@ -35486,7 +35486,7 @@
       "profile": "https://lichess.org/@/esellaran",
       "rank": 414,
       "rating": 2100,
-      "source": "?",
+      "source": "Lobby-Crawl",
       "username": "esellaran"
     },
     {
@@ -48917,7 +48917,7 @@
       "games": 31,
       "profile": "https://lichess.org/@/granddragons-039",
       "rank": 2093,
-      "rating": null,
+      "rating": 1463,
       "source": "Lobby-Crawl",
       "username": "granddragons-039"
     },
@@ -162498,5 +162498,5 @@
       "username": "zzlevinzz"
     }
   ],
-  "updated_at": "2026-07-13T01:18:24.074462+00:00"
+  "updated_at": "2026-07-13T01:19:25.179371+00:00"
 }
