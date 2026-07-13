@@ -5120,7 +5120,7 @@
     "expoten": 168,
     "expressjp5": 0,
     "eybicidiiefyieich": 130,
-    "eye_inthe_sky": 1431,
+    "eye_inthe_sky": 1509,
     "eyepwn": 132,
     "eyesless18": 7,
     "eylhtuyhv": 115,
@@ -18516,7 +18516,7 @@
     "expoten": "2026-07-11T11:40:22.205305+00:00",
     "expressjp5": "2026-07-10T17:04:56.811988+00:00",
     "eybicidiiefyieich": "2026-07-13T05:05:58.558713+00:00",
-    "eye_inthe_sky": "2026-07-11T04:16:23.654539+00:00",
+    "eye_inthe_sky": "2026-07-13T06:18:56.660168+00:00",
     "eyepwn": "2026-07-13T05:30:15.498619+00:00",
     "eyesless18": "2026-07-10T00:49:25.695962+00:00",
     "eylhtuyhv": "2026-07-10T23:11:28.574008+00:00",
@@ -26803,8 +26803,16 @@
     },
     {
       "games": 1509,
-      "profile": "https://lichess.org/@/julianbook",
+      "profile": "https://lichess.org/@/eye_inthe_sky",
       "rank": 10,
+      "rating": 1916,
+      "source": "Turnier",
+      "username": "eye_inthe_sky"
+    },
+    {
+      "games": 1509,
+      "profile": "https://lichess.org/@/julianbook",
+      "rank": 11,
       "rating": 1488,
       "source": "Lobby-Crawl",
       "username": "julianbook"
@@ -26812,7 +26820,7 @@
     {
       "games": 1477,
       "profile": "https://lichess.org/@/snoopysmile",
-      "rank": 11,
+      "rank": 12,
       "rating": 2357,
       "source": "Lobby-Crawl",
       "username": "snoopysmile"
@@ -26820,7 +26828,7 @@
     {
       "games": 1448,
       "profile": "https://lichess.org/@/batoy66",
-      "rank": 12,
+      "rank": 13,
       "rating": 1736,
       "source": "Lobby-Crawl",
       "username": "batoy66"
@@ -26828,18 +26836,10 @@
     {
       "games": 1438,
       "profile": "https://lichess.org/@/balaraman_srinivasan",
-      "rank": 13,
+      "rank": 14,
       "rating": 2219,
       "source": "Lobby-Crawl",
       "username": "balaraman_srinivasan"
-    },
-    {
-      "games": 1431,
-      "profile": "https://lichess.org/@/eye_inthe_sky",
-      "rank": 14,
-      "rating": 1916,
-      "source": "Turnier",
-      "username": "eye_inthe_sky"
     },
     {
       "games": 1406,
@@ -105261,7 +105261,7 @@
       "games": 14,
       "profile": "https://lichess.org/@/haringmaharlika",
       "rank": 9817,
-      "rating": null,
+      "rating": 1958,
       "source": "Turnier",
       "username": "haringmaharlika"
     },
@@ -134322,5 +134322,5 @@
       "username": "accountplf"
     }
   ],
-  "updated_at": "2026-07-13T06:17:41.523131+00:00"
+  "updated_at": "2026-07-13T06:18:56.663985+00:00"
 }
