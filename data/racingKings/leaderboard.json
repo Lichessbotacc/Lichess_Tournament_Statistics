@@ -5630,7 +5630,7 @@
     "chessking_132": 0,
     "chesskingdom098": 0,
     "chesskingoriginal": 0,
-    "chesskingpro2133": 45,
+    "chesskingpro2133": 44,
     "chesskingvivaan": 0,
     "chesskl10": 0,
     "chessknezija": 0,
@@ -31834,7 +31834,7 @@
     "chessking_132": "2026-07-13T12:49:26.179599+00:00",
     "chesskingdom098": "2026-07-13T15:37:55.174529+00:00",
     "chesskingoriginal": "2026-07-10T23:01:48.562790+00:00",
-    "chesskingpro2133": "2026-07-12T23:46:43.132955+00:00",
+    "chesskingpro2133": "2026-07-13T19:37:24.957767+00:00",
     "chesskl10": "2026-07-11T00:29:29.750003+00:00",
     "chessknezija": "2026-07-11T17:25:41.795991+00:00",
     "chessknight_oblong": "2026-07-11T09:44:03.808462+00:00",
@@ -53317,16 +53317,8 @@
     },
     {
       "games": 45,
-      "profile": "https://lichess.org/@/chesskingpro2133",
-      "rank": 125,
-      "rating": 1682,
-      "source": "Lobby-Crawl",
-      "username": "chesskingpro2133"
-    },
-    {
-      "games": 45,
       "profile": "https://lichess.org/@/raminduthikshana",
-      "rank": 126,
+      "rank": 125,
       "rating": 1642,
       "source": "Lobby-Crawl",
       "username": "raminduthikshana"
@@ -53334,7 +53326,7 @@
     {
       "games": 45,
       "profile": "https://lichess.org/@/thekillerreptile",
-      "rank": 127,
+      "rank": 126,
       "rating": 2192,
       "source": "?",
       "username": "thekillerreptile"
@@ -53342,7 +53334,7 @@
     {
       "games": 45,
       "profile": "https://lichess.org/@/trinhkhacan",
-      "rank": 128,
+      "rank": 127,
       "rating": 1706,
       "source": "Lobby-Crawl",
       "username": "trinhkhacan"
@@ -53350,10 +53342,18 @@
     {
       "games": 45,
       "profile": "https://lichess.org/@/yciycyi432",
-      "rank": 129,
+      "rank": 128,
       "rating": 1690,
       "source": "Lobby-Crawl",
       "username": "yciycyi432"
+    },
+    {
+      "games": 44,
+      "profile": "https://lichess.org/@/chesskingpro2133",
+      "rank": 129,
+      "rating": 1682,
+      "source": "Lobby-Crawl",
+      "username": "chesskingpro2133"
     },
     {
       "games": 44,
@@ -262172,5 +262172,5 @@
       "username": "tremil_2"
     }
   ],
-  "updated_at": "2026-07-13T19:32:04.652930+00:00"
+  "updated_at": "2026-07-13T19:37:24.962587+00:00"
 }
