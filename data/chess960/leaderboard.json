@@ -5290,7 +5290,7 @@
     "colonel65": 5,
     "colonelito": 0,
     "columbo7": 0,
-    "comandante117": 67,
+    "comandante117": 68,
     "comandante95": 0,
     "combe_break_tccstar": 0,
     "combinov": 0,
@@ -26896,7 +26896,7 @@
     "colonel65": "2026-07-12T10:11:22.283789+00:00",
     "colonelito": "2026-07-12T19:59:55.193743+00:00",
     "columbo7": "2026-07-12T10:38:12.627090+00:00",
-    "comandante117": "2026-07-11T12:12:01.754006+00:00",
+    "comandante117": "2026-07-13T05:36:39.766785+00:00",
     "comandante95": "2026-07-10T03:27:43.462653+00:00",
     "combe_break_tccstar": "2026-07-10T10:44:42.814920+00:00",
     "combinov": "2026-07-10T01:37:53.235558+00:00",
@@ -46085,8 +46085,16 @@
     },
     {
       "games": 68,
-      "profile": "https://lichess.org/@/dsdapino",
+      "profile": "https://lichess.org/@/comandante117",
       "rank": 476,
+      "rating": 1595,
+      "source": "Lobby-Crawl",
+      "username": "comandante117"
+    },
+    {
+      "games": 68,
+      "profile": "https://lichess.org/@/dsdapino",
+      "rank": 477,
       "rating": 1852,
       "source": "Lobby-Crawl",
       "username": "dsdapino"
@@ -46094,7 +46102,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/h3paj",
-      "rank": 477,
+      "rank": 478,
       "rating": 1754,
       "source": "Lobby-Crawl",
       "username": "h3paj"
@@ -46102,7 +46110,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/jholmstrom",
-      "rank": 478,
+      "rank": 479,
       "rating": 1653,
       "source": "Lobby-Crawl",
       "username": "jholmstrom"
@@ -46110,7 +46118,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/kiwisteve",
-      "rank": 479,
+      "rank": 480,
       "rating": 1645,
       "source": "?",
       "username": "kiwisteve"
@@ -46118,7 +46126,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/nrussell1234",
-      "rank": 480,
+      "rank": 481,
       "rating": 1528,
       "source": "Lobby-Crawl",
       "username": "nrussell1234"
@@ -46126,7 +46134,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/oskar-de-la-kruna",
-      "rank": 481,
+      "rank": 482,
       "rating": 1661,
       "source": "Lobby-Crawl",
       "username": "oskar-de-la-kruna"
@@ -46134,7 +46142,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/philosopher_ad",
-      "rank": 482,
+      "rank": 483,
       "rating": 1999,
       "source": "Lobby-Crawl",
       "username": "philosopher_ad"
@@ -46142,7 +46150,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/pklrewtj",
-      "rank": 483,
+      "rank": 484,
       "rating": 1854,
       "source": "Lobby-Crawl",
       "username": "pklrewtj"
@@ -46150,7 +46158,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/qwaszxcde",
-      "rank": 484,
+      "rank": 485,
       "rating": 1612,
       "source": "Lobby-Crawl",
       "username": "qwaszxcde"
@@ -46158,7 +46166,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/ursrotab",
-      "rank": 485,
+      "rank": 486,
       "rating": 1638,
       "source": "Lobby-Crawl",
       "username": "ursrotab"
@@ -46166,7 +46174,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/angelogro",
-      "rank": 486,
+      "rank": 487,
       "rating": 1861,
       "source": "Lobby-Crawl",
       "username": "angelogro"
@@ -46174,7 +46182,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/benasp",
-      "rank": 487,
+      "rank": 488,
       "rating": 1589,
       "source": "Lobby-Crawl",
       "username": "benasp"
@@ -46182,18 +46190,10 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/blrp",
-      "rank": 488,
+      "rank": 489,
       "rating": 1643,
       "source": "Lobby-Crawl",
       "username": "blrp"
-    },
-    {
-      "games": 67,
-      "profile": "https://lichess.org/@/comandante117",
-      "rank": 489,
-      "rating": 1595,
-      "source": "Lobby-Crawl",
-      "username": "comandante117"
     },
     {
       "games": 67,
@@ -217780,5 +217780,5 @@
       "username": "sap-sa-de"
     }
   ],
-  "updated_at": "2026-07-13T05:31:40.662414+00:00"
+  "updated_at": "2026-07-13T05:36:39.771948+00:00"
 }
