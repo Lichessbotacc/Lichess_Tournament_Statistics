@@ -2381,6 +2381,7 @@
     "annabejoy": 1,
     "annabor2072": 0,
     "annacastaneda_1pro": 0,
+    "annachis": 0,
     "annadochu-2072": 0,
     "annagimi": 0,
     "annakashinskaya": 1,
@@ -10028,6 +10029,7 @@
     "ilja69": 2,
     "ilke1801": 0,
     "ilkin251105": 0,
+    "illa2015p": 0,
     "illhameru": 0,
     "illia_filypovich": 0,
     "illia_shchotka": 0,
@@ -22019,6 +22021,7 @@
     "tima08050": 0,
     "tima_kuliko": 0,
     "tima_perm": 0,
+    "tima_s": 0,
     "timacei": 0,
     "timachess2015": 0,
     "timapolezhaev_2072": 1,
@@ -23290,6 +23293,7 @@
     "vladosovich": 0,
     "vladshabronov": 0,
     "vladuskoval": 0,
+    "vladyslav1254": 0,
     "vladyslav2019": 0,
     "vladyslav_zviazkin": 0,
     "vlashim": 0,
@@ -26818,6 +26822,7 @@
     "annabejoy": "2026-07-12T04:59:44.401352+00:00",
     "annabor2072": "2026-07-11T21:08:22.147131+00:00",
     "annacastaneda_1pro": "2026-07-10T15:12:54.551288+00:00",
+    "annachis": "2026-07-13T10:12:03.684553+00:00",
     "annadochu-2072": "2026-07-11T21:09:19.823234+00:00",
     "annagimi": "2026-07-12T11:57:13.947746+00:00",
     "annakashinskaya": "2026-07-11T14:39:45.447859+00:00",
@@ -27233,7 +27238,7 @@
     "aron_navarro": "2026-07-13T04:03:22.200023+00:00",
     "aronija_63": "2026-07-13T09:29:57.273498+00:00",
     "aronweben": "2026-07-10T18:18:02.255213+00:00",
-    "aroseisarose": "2026-07-12T12:25:55.465752+00:00",
+    "aroseisarose": "2026-07-13T10:13:29.901348+00:00",
     "arouhi12345": "2026-07-13T04:01:16.064346+00:00",
     "arout16": "2026-07-11T07:49:02.271731+00:00",
     "arpan2018": "2026-07-10T01:08:24.935238+00:00",
@@ -34399,6 +34404,7 @@
     "ilja69": "2026-07-12T03:21:03.619801+00:00",
     "ilke1801": "2026-07-11T17:20:28.870429+00:00",
     "ilkin251105": "2026-07-11T13:58:59.402729+00:00",
+    "illa2015p": "2026-07-13T10:12:05.916391+00:00",
     "illhameru": "2026-07-11T07:40:09.768654+00:00",
     "illia_filypovich": "2026-07-11T14:13:09.308949+00:00",
     "illia_shchotka": "2026-07-11T00:58:10.998042+00:00",
@@ -41171,7 +41177,7 @@
     "platon-3112": "2026-07-13T06:08:10.714791+00:00",
     "platon2910": "2026-07-13T09:17:41.641694+00:00",
     "platon6years": "2026-07-13T04:28:39.126434+00:00",
-    "platon_hak": "2026-07-11T12:10:47.283885+00:00",
+    "platon_hak": "2026-07-13T10:12:08.911463+00:00",
     "platonasil": "2026-07-10T18:17:23.297611+00:00",
     "platongold": "2026-07-11T04:36:46.723797+00:00",
     "platonm1": "2026-07-11T19:12:33.606612+00:00",
@@ -45519,6 +45525,7 @@
     "tima08050": "2026-07-12T01:07:53.149990+00:00",
     "tima_kuliko": "2026-07-10T20:28:08.664831+00:00",
     "tima_perm": "2026-07-12T16:39:52.277579+00:00",
+    "tima_s": "2026-07-13T10:12:11.921590+00:00",
     "timacei": "2026-07-10T13:12:25.108084+00:00",
     "timachess2015": "2026-07-11T09:48:47.471447+00:00",
     "timapolezhaev_2072": "2026-07-10T13:49:10.017617+00:00",
@@ -46783,6 +46790,7 @@
     "vladosovich": "2026-07-11T21:46:49.947517+00:00",
     "vladshabronov": "2026-07-10T04:42:03.136054+00:00",
     "vladuskoval": "2026-07-12T17:24:20.989040+00:00",
+    "vladyslav1254": "2026-07-13T10:12:14.879307+00:00",
     "vladyslav2019": "2026-07-13T10:11:34.743211+00:00",
     "vladyslav_zviazkin": "2026-07-12T07:23:49.156271+00:00",
     "vlashim": "2026-07-11T01:48:11.592822+00:00",
@@ -194072,7 +194080,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/platon_hak",
       "rank": 18267,
-      "rating": null,
+      "rating": 1480,
       "source": "Lobby-Crawl",
       "username": "platon_hak"
     },
@@ -243515,7 +243523,39 @@
       "rating": 1653,
       "source": "Lobby-Crawl",
       "username": "yaroslav-bilinchenko"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/annachis",
+      "rank": 24448,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "annachis"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/illa2015p",
+      "rank": 24449,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "illa2015p"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tima_s",
+      "rank": 24450,
+      "rating": 1151,
+      "source": "Lobby-Crawl",
+      "username": "tima_s"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vladyslav1254",
+      "rank": 24451,
+      "rating": 1494,
+      "source": "Lobby-Crawl",
+      "username": "vladyslav1254"
     }
   ],
-  "updated_at": "2026-07-13T10:11:40.743052+00:00"
+  "updated_at": "2026-07-13T10:13:29.906903+00:00"
 }
