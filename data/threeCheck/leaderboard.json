@@ -14572,6 +14572,7 @@
     "maksimkhorlin": 1,
     "maksimon": 0,
     "maksimsem1": 0,
+    "maksimshady": 0,
     "maksimukrainskiy": 0,
     "maksimus72": 0,
     "maksimzolotuhin": 0,
@@ -15197,6 +15198,7 @@
     "matvey305": 0,
     "matvey_koval": 20,
     "matvey_kyrma-1": 0,
+    "matvey_smal": 0,
     "matveylagovskiy": 0,
     "matviibarannikov2016": 0,
     "matvij2016": 0,
@@ -40100,6 +40102,7 @@
     "maksimkhorlin": "2026-07-12T14:09:00.021382+00:00",
     "maksimon": "2026-07-13T10:01:37.968365+00:00",
     "maksimsem1": "2026-07-12T06:52:01.710509+00:00",
+    "maksimshady": "2026-07-13T15:43:06.233873+00:00",
     "maksimukrainskiy": "2026-07-13T02:26:23.788160+00:00",
     "maksimus72": "2026-07-13T09:25:31.979548+00:00",
     "maksimzolotuhin": "2026-07-11T09:40:12.395579+00:00",
@@ -40672,6 +40675,7 @@
     "matvey305": "2026-07-12T13:20:43.161745+00:00",
     "matvey_koval": "2026-07-13T14:55:36.626539+00:00",
     "matvey_kyrma-1": "2026-07-13T09:58:34.709051+00:00",
+    "matvey_smal": "2026-07-13T15:43:09.235907+00:00",
     "matveylagovskiy": "2026-07-11T23:17:27.857163+00:00",
     "matviibarannikov2016": "2026-07-12T19:03:05.228651+00:00",
     "matvij2016": "2026-07-12T00:11:42.454800+00:00",
@@ -259164,7 +259168,23 @@
       "rating": 1235,
       "source": "Lobby-Crawl",
       "username": "conleech"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/maksimshady",
+      "rank": 26012,
+      "rating": 1455,
+      "source": "Lobby-Crawl",
+      "username": "maksimshady"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/matvey_smal",
+      "rank": 26013,
+      "rating": 1363,
+      "source": "Lobby-Crawl",
+      "username": "matvey_smal"
     }
   ],
-  "updated_at": "2026-07-13T15:42:07.724639+00:00"
+  "updated_at": "2026-07-13T15:43:09.241573+00:00"
 }
