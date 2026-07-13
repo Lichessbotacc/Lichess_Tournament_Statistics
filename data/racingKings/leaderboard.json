@@ -5835,6 +5835,7 @@
     "dima_movchan": 0,
     "dima_sindyaev": 24,
     "dima_son": 0,
+    "dimabeggen": 0,
     "dimaeremeenko": 0,
     "dimafda2015": 0,
     "dimagladilovich": 0,
@@ -12390,6 +12391,7 @@
     "mc-saragutvas": 0,
     "mc-thiagoconmo": 0,
     "mc1645": 1,
+    "mc_acip": 0,
     "mc_bkd": 0,
     "mc_thehan": 0,
     "mcabrales": 0,
@@ -26370,6 +26372,7 @@
     "dima_movchan": "2026-07-12T13:35:21.537304+00:00",
     "dima_sindyaev": "2026-07-12T23:49:56.702176+00:00",
     "dima_son": "2026-07-12T13:25:25.500860+00:00",
+    "dimabeggen": "2026-07-13T02:28:00.379893+00:00",
     "dimaeremeenko": "2026-07-10T21:02:03.663359+00:00",
     "dimafda2015": "2026-07-12T07:13:24.246652+00:00",
     "dimagladilovich": "2026-07-13T00:37:20.570769+00:00",
@@ -27339,7 +27342,7 @@
     "ertugrul_erogluu": "2026-07-11T11:31:52.005839+00:00",
     "ertugrulboylu55": "2026-07-11T07:28:56.723343+00:00",
     "ertugrulclk_53": "2026-07-12T05:22:55.884514+00:00",
-    "ertugrulomer45": "2026-07-11T05:21:07.207092+00:00",
+    "ertugrulomer45": "2026-07-13T02:28:06.390679+00:00",
     "ertyur": "2026-07-13T00:15:03.362524+00:00",
     "erva20": "2026-07-10T03:36:34.449457+00:00",
     "ervos1143": "2026-07-12T07:45:52.844930+00:00",
@@ -30081,7 +30084,7 @@
     "jman22712": "2026-07-10T03:46:11.262518+00:00",
     "jman908": "2026-07-12T04:45:51.250462+00:00",
     "jmipb_jayakody": "2026-07-11T08:20:46.788961+00:00",
-    "jmshdzg-04": "2026-07-11T06:07:08.845384+00:00",
+    "jmshdzg-04": "2026-07-13T02:28:09.405011+00:00",
     "jmsrocks7": "2026-07-12T08:06:34.731743+00:00",
     "jmy635": "2026-07-12T03:47:32.648499+00:00",
     "jnikita": "2026-07-12T19:49:15.477286+00:00",
@@ -32865,6 +32868,7 @@
     "mc-saragutvas": "2026-07-12T07:09:44.828508+00:00",
     "mc-thiagoconmo": "2026-07-12T01:46:13.890392+00:00",
     "mc1645": "2026-07-12T10:54:44.618656+00:00",
+    "mc_acip": "2026-07-13T02:27:57.384249+00:00",
     "mc_bkd": "2026-07-13T01:41:27.685739+00:00",
     "mc_thehan": "2026-07-12T03:37:42.785260+00:00",
     "mcabrales": "2026-07-12T18:44:25.613849+00:00",
@@ -35848,7 +35852,7 @@
     "raphael_chicken_cow": "2026-07-11T00:59:58.822176+00:00",
     "raphaeldaehmlow": "2026-07-12T19:50:59.129431+00:00",
     "rapid155": "2026-07-12T09:42:24.252745+00:00",
-    "rapidchessleicester": "2026-07-10T21:43:10.723338+00:00",
+    "rapidchessleicester": "2026-07-13T02:28:03.398729+00:00",
     "raquarez": "2026-07-11T04:47:49.764174+00:00",
     "raquaza2009": "2026-07-12T10:29:47.976015+00:00",
     "raratheking": "2026-07-11T02:05:37.743493+00:00",
@@ -106138,7 +106142,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/ertugrulomer45",
       "rank": 8144,
-      "rating": null,
+      "rating": 1471,
       "source": "Lobby-Crawl",
       "username": "ertugrulomer45"
     },
@@ -126002,7 +126006,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/jmshdzg-04",
       "rank": 10627,
-      "rating": null,
+      "rating": 1654,
       "source": "Lobby-Crawl",
       "username": "jmshdzg-04"
     },
@@ -127586,7 +127590,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/juanviasus",
       "rank": 10825,
-      "rating": null,
+      "rating": 1223,
       "source": "?",
       "username": "juanviasus"
     },
@@ -167162,7 +167166,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/rapidchessleicester",
       "rank": 15772,
-      "rating": null,
+      "rating": 2298,
       "source": "Lobby-Crawl",
       "username": "rapidchessleicester"
     },
@@ -205605,7 +205609,23 @@
       "rating": 1707,
       "source": "Lobby-Crawl",
       "username": "lavina-lckb"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/mc_acip",
+      "rank": 20578,
+      "rating": 974,
+      "source": "Lobby-Crawl",
+      "username": "mc_acip"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/dimabeggen",
+      "rank": 20579,
+      "rating": 1759,
+      "source": "Lobby-Crawl",
+      "username": "dimabeggen"
     }
   ],
-  "updated_at": "2026-07-13T02:27:08.482780+00:00"
+  "updated_at": "2026-07-13T02:28:09.409587+00:00"
 }
