@@ -13358,6 +13358,7 @@
     "lev_barakat": 0,
     "lev_bartosh": 0,
     "lev_bezborodov": 18,
+    "lev_bro": 0,
     "lev_ent": 0,
     "lev_iakovlev": 0,
     "lev_nikolaev-2020": 0,
@@ -37806,6 +37807,7 @@
     "lev_barakat": "2026-07-10T17:18:02.440120+00:00",
     "lev_bartosh": "2026-07-10T17:18:18.807211+00:00",
     "lev_bezborodov": "2026-07-13T13:04:14.370251+00:00",
+    "lev_bro": "2026-07-13T23:27:57.035679+00:00",
     "lev_ent": "2026-07-12T11:15:11.809665+00:00",
     "lev_iakovlev": "2026-07-12T03:52:26.701902+00:00",
     "lev_nikolaev-2020": "2026-07-12T17:52:14.549346+00:00",
@@ -245323,7 +245325,15 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "ivan_rud2103"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/lev_bro",
+      "rank": 24555,
+      "rating": 1625,
+      "source": "Lobby-Crawl",
+      "username": "lev_bro"
     }
   ],
-  "updated_at": "2026-07-13T23:22:54.153827+00:00"
+  "updated_at": "2026-07-13T23:27:57.042450+00:00"
 }
