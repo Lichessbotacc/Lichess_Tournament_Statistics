@@ -7564,6 +7564,7 @@
     "gmjpmcm": 0,
     "gmmichaelmiks": 0,
     "gmmunemo": 0,
+    "gmnaitik": 0,
     "gms_abdul": 0,
     "gmsat2015": 0,
     "gmsathyanadh": 0,
@@ -10131,7 +10132,7 @@
     "kevinpotgieter": 0,
     "kevinzakkam": 3,
     "key_squares_12345": 0,
-    "keyanchesscoach": 102,
+    "keyanchesscoach": 110,
     "keyvan1351": 0,
     "keyvan636363": 0,
     "kfarahi": 8,
@@ -28128,6 +28129,7 @@
     "gmjpmcm": "2026-07-12T11:16:51.248916+00:00",
     "gmmichaelmiks": "2026-07-11T18:01:52.018834+00:00",
     "gmmunemo": "2026-07-11T23:14:54.490094+00:00",
+    "gmnaitik": "2026-07-13T03:14:54.035479+00:00",
     "gms_abdul": "2026-07-11T20:18:16.967623+00:00",
     "gmsathyanadh": "2026-07-10T05:42:16.148212+00:00",
     "gmsl07": "2026-07-10T08:00:37.916524+00:00",
@@ -30361,7 +30363,7 @@
     "kevinpotgieter": "2026-07-11T17:57:29.760429+00:00",
     "kevinzakkam": "2026-07-12T16:22:09.761195+00:00",
     "key_squares_12345": "2026-07-12T23:50:17.205416+00:00",
-    "keyanchesscoach": "2026-07-11T23:17:31.232389+00:00",
+    "keyanchesscoach": "2026-07-13T03:15:18.820411+00:00",
     "keyvan636363": "2026-07-12T18:01:22.260994+00:00",
     "kfarahi": "2026-07-10T10:02:18.714820+00:00",
     "kgadityakarthi": "2026-07-11T10:51:30.247335+00:00",
@@ -40519,9 +40521,17 @@
       "username": "invisible_shadow14"
     },
     {
+      "games": 110,
+      "profile": "https://lichess.org/@/keyanchesscoach",
+      "rank": 47,
+      "rating": 1766,
+      "source": "Lobby-Crawl",
+      "username": "keyanchesscoach"
+    },
+    {
       "games": 108,
       "profile": "https://lichess.org/@/allstars25",
-      "rank": 47,
+      "rank": 48,
       "rating": 1655,
       "source": "Lobby-Crawl",
       "username": "allstars25"
@@ -40529,7 +40539,7 @@
     {
       "games": 107,
       "profile": "https://lichess.org/@/rockyu",
-      "rank": 48,
+      "rank": 49,
       "rating": 2374,
       "source": "?",
       "username": "rockyu"
@@ -40537,7 +40547,7 @@
     {
       "games": 106,
       "profile": "https://lichess.org/@/acrobat_20",
-      "rank": 49,
+      "rank": 50,
       "rating": 1836,
       "source": "Lobby-Crawl",
       "username": "acrobat_20"
@@ -40545,7 +40555,7 @@
     {
       "games": 106,
       "profile": "https://lichess.org/@/ajedrez999",
-      "rank": 50,
+      "rank": 51,
       "rating": 2080,
       "source": "?",
       "username": "ajedrez999"
@@ -40553,7 +40563,7 @@
     {
       "games": 103,
       "profile": "https://lichess.org/@/go_with_ke2",
-      "rank": 51,
+      "rank": 52,
       "rating": 2096,
       "source": "Lobby-Crawl",
       "username": "go_with_ke2"
@@ -40561,7 +40571,7 @@
     {
       "games": 103,
       "profile": "https://lichess.org/@/lr0n-maiden",
-      "rank": 52,
+      "rank": 53,
       "rating": 2045,
       "source": "Lobby-Crawl",
       "username": "lr0n-maiden"
@@ -40569,18 +40579,10 @@
     {
       "games": 103,
       "profile": "https://lichess.org/@/pajaritos",
-      "rank": 53,
+      "rank": 54,
       "rating": 1533,
       "source": "Lobby-Crawl",
       "username": "pajaritos"
-    },
-    {
-      "games": 102,
-      "profile": "https://lichess.org/@/keyanchesscoach",
-      "rank": 54,
-      "rating": 1766,
-      "source": "Lobby-Crawl",
-      "username": "keyanchesscoach"
     },
     {
       "games": 101,
@@ -205221,7 +205223,15 @@
       "rating": 2005,
       "source": "Lobby-Crawl",
       "username": "alishahi2012"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/gmnaitik",
+      "rank": 20635,
+      "rating": 1874,
+      "source": "Lobby-Crawl",
+      "username": "gmnaitik"
     }
   ],
-  "updated_at": "2026-07-13T03:14:12.574647+00:00"
+  "updated_at": "2026-07-13T03:15:18.824352+00:00"
 }
