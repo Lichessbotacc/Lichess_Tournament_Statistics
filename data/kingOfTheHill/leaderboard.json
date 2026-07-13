@@ -16816,7 +16816,7 @@
     "sergey1203": 0,
     "sergey20161908": 0,
     "sergey443": 0,
-    "sergey_1986": 227,
+    "sergey_1986": 209,
     "sergey_2023": 4,
     "sergey_herasimchuk": 0,
     "sergeyalba": 5,
@@ -36170,7 +36170,7 @@
     "sergey1203": "2026-07-12T13:12:52.258480+00:00",
     "sergey20161908": "2026-07-12T06:39:15.304251+00:00",
     "sergey443": "2026-07-12T13:48:38.504820+00:00",
-    "sergey_1986": "2026-07-11T22:47:57.690919+00:00",
+    "sergey_1986": "2026-07-13T02:09:14.511462+00:00",
     "sergey_2023": "2026-07-12T11:30:27.644008+00:00",
     "sergey_herasimchuk": "2026-07-12T16:51:15.600873+00:00",
     "sergeyalba": "2026-07-12T09:53:21.828739+00:00",
@@ -39894,17 +39894,9 @@
       "username": "thorod"
     },
     {
-      "games": 227,
-      "profile": "https://lichess.org/@/sergey_1986",
-      "rank": 12,
-      "rating": 2010,
-      "source": "Lobby-Crawl",
-      "username": "sergey_1986"
-    },
-    {
       "games": 221,
       "profile": "https://lichess.org/@/katimal",
-      "rank": 13,
+      "rank": 12,
       "rating": 2163,
       "source": "Lobby-Crawl",
       "username": "katimal"
@@ -39912,7 +39904,7 @@
     {
       "games": 221,
       "profile": "https://lichess.org/@/mr_nmr",
-      "rank": 14,
+      "rank": 13,
       "rating": 1955,
       "source": "Lobby-Crawl",
       "username": "mr_nmr"
@@ -39920,7 +39912,7 @@
     {
       "games": 220,
       "profile": "https://lichess.org/@/superpower2011",
-      "rank": 15,
+      "rank": 14,
       "rating": 2613,
       "source": "?",
       "username": "superpower2011"
@@ -39928,7 +39920,7 @@
     {
       "games": 215,
       "profile": "https://lichess.org/@/polymer13",
-      "rank": 16,
+      "rank": 15,
       "rating": 2104,
       "source": "Lobby-Crawl",
       "username": "polymer13"
@@ -39936,7 +39928,7 @@
     {
       "games": 214,
       "profile": "https://lichess.org/@/ottowolf",
-      "rank": 17,
+      "rank": 16,
       "rating": 1953,
       "source": "Lobby-Crawl",
       "username": "ottowolf"
@@ -39944,10 +39936,18 @@
     {
       "games": 210,
       "profile": "https://lichess.org/@/gamen",
-      "rank": 18,
+      "rank": 17,
       "rating": 1932,
       "source": "Lobby-Crawl",
       "username": "gamen"
+    },
+    {
+      "games": 209,
+      "profile": "https://lichess.org/@/sergey_1986",
+      "rank": 18,
+      "rating": 2010,
+      "source": "Lobby-Crawl",
+      "username": "sergey_1986"
     },
     {
       "games": 198,
@@ -203502,5 +203502,5 @@
       "username": "xanatos2001"
     }
   ],
-  "updated_at": "2026-07-13T02:08:11.174993+00:00"
+  "updated_at": "2026-07-13T02:09:14.515633+00:00"
 }
