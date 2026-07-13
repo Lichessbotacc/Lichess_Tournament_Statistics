@@ -7638,7 +7638,7 @@
     "grand_dummy": 0,
     "grandaddyviolet": 71,
     "grandchickenking": 9,
-    "granddirk": 228,
+    "granddirk": 254,
     "granddragons-035": 0,
     "grandemax007": 0,
     "grandjaguar": 0,
@@ -27952,7 +27952,7 @@
     "grand_4594": "2026-07-12T21:28:22.684403+00:00",
     "grandaddyviolet": "2026-07-11T14:32:46.873576+00:00",
     "grandchickenking": "2026-07-11T16:55:10.316042+00:00",
-    "granddirk": "2026-07-11T21:53:17.462929+00:00",
+    "granddirk": "2026-07-13T01:47:57.870418+00:00",
     "granddragons-035": "2026-07-10T09:44:57.571473+00:00",
     "grandemax007": "2026-07-11T18:38:39.916732+00:00",
     "grandjaguar": "2026-07-11T19:43:42.702596+00:00",
@@ -39748,9 +39748,17 @@
       "username": "dusimusi"
     },
     {
+      "games": 254,
+      "profile": "https://lichess.org/@/granddirk",
+      "rank": 8,
+      "rating": 1775,
+      "source": "Lobby-Crawl",
+      "username": "granddirk"
+    },
+    {
       "games": 249,
       "profile": "https://lichess.org/@/lipetsk-kanst_54",
-      "rank": 8,
+      "rank": 9,
       "rating": 2019,
       "source": "Lobby-Crawl",
       "username": "lipetsk-kanst_54"
@@ -39758,7 +39766,7 @@
     {
       "games": 247,
       "profile": "https://lichess.org/@/uro100",
-      "rank": 9,
+      "rank": 10,
       "rating": 1770,
       "source": "Lobby-Crawl",
       "username": "uro100"
@@ -39766,18 +39774,10 @@
     {
       "games": 240,
       "profile": "https://lichess.org/@/thorod",
-      "rank": 10,
+      "rank": 11,
       "rating": 2337,
       "source": "?",
       "username": "thorod"
-    },
-    {
-      "games": 228,
-      "profile": "https://lichess.org/@/granddirk",
-      "rank": 11,
-      "rating": 1775,
-      "source": "Lobby-Crawl",
-      "username": "granddirk"
     },
     {
       "games": 227,
@@ -202932,5 +202932,5 @@
       "username": "advaitagarkar"
     }
   ],
-  "updated_at": "2026-07-13T01:46:45.805612+00:00"
+  "updated_at": "2026-07-13T01:47:57.874205+00:00"
 }
