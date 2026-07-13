@@ -9831,7 +9831,7 @@
     "kryevgenij": 0,
     "krylovkirill": 0,
     "krymovklim": 0,
-    "krypchuka": 506,
+    "krypchuka": 670,
     "kryptonit3": 0,
     "krysty_133": 0,
     "kryv1": 0,
@@ -27583,7 +27583,7 @@
     "kryevgenij": "2026-07-11T07:43:37.673504+00:00",
     "krylovkirill": "2026-07-12T12:10:10.805278+00:00",
     "krymovklim": "2026-07-12T06:32:37.923749+00:00",
-    "krypchuka": "2026-07-11T03:50:06.348411+00:00",
+    "krypchuka": "2026-07-13T11:24:14.814058+00:00",
     "kryptonit3": "2026-07-11T19:34:04.093374+00:00",
     "krysty_133": "2026-07-12T23:50:59.861569+00:00",
     "kryv1": "2026-07-12T11:54:22.664716+00:00",
@@ -35678,9 +35678,17 @@
       "username": "msirod"
     },
     {
+      "games": 670,
+      "profile": "https://lichess.org/@/krypchuka",
+      "rank": 8,
+      "rating": 1718,
+      "source": "Lobby-Crawl",
+      "username": "krypchuka"
+    },
+    {
       "games": 653,
       "profile": "https://lichess.org/@/barsik1004",
-      "rank": 8,
+      "rank": 9,
       "rating": 2235,
       "source": "?",
       "username": "barsik1004"
@@ -35688,7 +35696,7 @@
     {
       "games": 607,
       "profile": "https://lichess.org/@/meowwolf",
-      "rank": 9,
+      "rank": 10,
       "rating": 1984,
       "source": "Lobby-Crawl",
       "username": "meowwolf"
@@ -35696,7 +35704,7 @@
     {
       "games": 604,
       "profile": "https://lichess.org/@/rnbqkrva",
-      "rank": 10,
+      "rank": 11,
       "rating": 2127,
       "source": "Lobby-Crawl",
       "username": "rnbqkrva"
@@ -35704,7 +35712,7 @@
     {
       "games": 602,
       "profile": "https://lichess.org/@/silversteel46",
-      "rank": 11,
+      "rank": 12,
       "rating": 2076,
       "source": "Lobby-Crawl",
       "username": "silversteel46"
@@ -35712,7 +35720,7 @@
     {
       "games": 564,
       "profile": "https://lichess.org/@/alijankos",
-      "rank": 12,
+      "rank": 13,
       "rating": 2001,
       "source": "Lobby-Crawl",
       "username": "alijankos"
@@ -35720,7 +35728,7 @@
     {
       "games": 558,
       "profile": "https://lichess.org/@/nopebblesleft",
-      "rank": 13,
+      "rank": 14,
       "rating": 2178,
       "source": "?",
       "username": "nopebblesleft"
@@ -35728,7 +35736,7 @@
     {
       "games": 557,
       "profile": "https://lichess.org/@/an_ordinary_player_2",
-      "rank": 14,
+      "rank": 15,
       "rating": 1781,
       "source": "Lobby-Crawl",
       "username": "an_ordinary_player_2"
@@ -35736,7 +35744,7 @@
     {
       "games": 521,
       "profile": "https://lichess.org/@/pautovanastasia",
-      "rank": 15,
+      "rank": 16,
       "rating": 1486,
       "source": "Lobby-Crawl",
       "username": "pautovanastasia"
@@ -35744,18 +35752,10 @@
     {
       "games": 514,
       "profile": "https://lichess.org/@/mmsbr",
-      "rank": 16,
+      "rank": 17,
       "rating": 1986,
       "source": "Lobby-Crawl",
       "username": "mmsbr"
-    },
-    {
-      "games": 506,
-      "profile": "https://lichess.org/@/krypchuka",
-      "rank": 17,
-      "rating": 1718,
-      "source": "Lobby-Crawl",
-      "username": "krypchuka"
     },
     {
       "games": 497,
@@ -180982,5 +180982,5 @@
       "username": "loveerica717"
     }
   ],
-  "updated_at": "2026-07-13T11:23:07.627530+00:00"
+  "updated_at": "2026-07-13T11:24:14.818212+00:00"
 }
