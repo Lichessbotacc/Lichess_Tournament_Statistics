@@ -1533,7 +1533,7 @@
     "alexey_porshakov": 0,
     "alexeyismirnov": 0,
     "alexeypersh": 0,
-    "alexeypushkarev1963": 127,
+    "alexeypushkarev1963": 135,
     "alexgan1972": 0,
     "alexgrosss": 0,
     "alexh2435": 11,
@@ -21938,7 +21938,7 @@
     "alexey_porshakov": "2026-07-13T00:09:59.187365+00:00",
     "alexeyismirnov": "2026-07-13T00:56:02.484500+00:00",
     "alexeypersh": "2026-07-13T01:21:53.141488+00:00",
-    "alexeypushkarev1963": "2026-07-11T23:24:24.443415+00:00",
+    "alexeypushkarev1963": "2026-07-13T01:46:45.801837+00:00",
     "alexgan1972": "2026-07-11T21:08:55.402176+00:00",
     "alexgrosss": "2026-07-10T22:17:54.433628+00:00",
     "alexh2435": "2026-07-12T13:38:17.787930+00:00",
@@ -39933,8 +39933,16 @@
     },
     {
       "games": 135,
-      "profile": "https://lichess.org/@/thaiseagull",
+      "profile": "https://lichess.org/@/alexeypushkarev1963",
       "rank": 31,
+      "rating": 2032,
+      "source": "Lobby-Crawl",
+      "username": "alexeypushkarev1963"
+    },
+    {
+      "games": 135,
+      "profile": "https://lichess.org/@/thaiseagull",
+      "rank": 32,
       "rating": 1989,
       "source": "Lobby-Crawl",
       "username": "thaiseagull"
@@ -39942,7 +39950,7 @@
     {
       "games": 130,
       "profile": "https://lichess.org/@/simplechess1337",
-      "rank": 32,
+      "rank": 33,
       "rating": 1964,
       "source": "Lobby-Crawl",
       "username": "simplechess1337"
@@ -39950,7 +39958,7 @@
     {
       "games": 130,
       "profile": "https://lichess.org/@/six_foot_tall_bunny",
-      "rank": 33,
+      "rank": 34,
       "rating": 1826,
       "source": "Lobby-Crawl",
       "username": "six_foot_tall_bunny"
@@ -39958,7 +39966,7 @@
     {
       "games": 128,
       "profile": "https://lichess.org/@/alex5282",
-      "rank": 34,
+      "rank": 35,
       "rating": 1885,
       "source": "Lobby-Crawl",
       "username": "alex5282"
@@ -39966,18 +39974,10 @@
     {
       "games": 128,
       "profile": "https://lichess.org/@/pitagoraschile",
-      "rank": 35,
+      "rank": 36,
       "rating": 2088,
       "source": "Lobby-Crawl",
       "username": "pitagoraschile"
-    },
-    {
-      "games": 127,
-      "profile": "https://lichess.org/@/alexeypushkarev1963",
-      "rank": 36,
-      "rating": 2032,
-      "source": "Lobby-Crawl",
-      "username": "alexeypushkarev1963"
     },
     {
       "games": 125,
@@ -202932,5 +202932,5 @@
       "username": "advaitagarkar"
     }
   ],
-  "updated_at": "2026-07-13T01:45:07.716315+00:00"
+  "updated_at": "2026-07-13T01:46:45.805612+00:00"
 }
