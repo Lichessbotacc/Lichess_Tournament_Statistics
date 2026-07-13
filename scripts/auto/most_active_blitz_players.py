@@ -268,22 +268,50 @@ CHECK_COOLDOWN_SECONDS = CHECK_COOLDOWN_HOURS * 3600
 RECRAWL_COOLDOWN_SECONDS = RECRAWL_COOLDOWN_HOURS * 3600
 
 # --- Snowball-Crawl -------------------------------------------------------
-CRAWL_SEED_COUNT = int(os.environ.get("CRAWL_SEED_COUNT", "8"))
+# GEAENDERT: von 8 auf 24 - mehr Kettenglieder pro Runde bedeutet mehr neue
+# Spieler pro Zeiteinheit. Macht durch die Parallelisierung (CRAWL_WORKERS,
+# siehe unten) auch keine zusaetzlichen Rate-Limit-Probleme, da _throttle()
+# weiterhin JEDEN einzelnen Request global auf GLOBAL_MIN_INTERVAL_SECONDS
+# taktet - nur das eigentliche Warten auf die (teils langsame) NDJSON-
+# Antwort ueberlappt jetzt zwischen mehreren Seeds.
+CRAWL_SEED_COUNT = int(os.environ.get("CRAWL_SEED_COUNT", "24"))
 CRAWL_GAMES_PER_SEED = int(os.environ.get("CRAWL_GAMES_PER_SEED", "10"))
+
+# Anzahl paralleler Worker-Threads, die pro Crawl-Runde die Kettenglieder
+# gleichzeitig abarbeiten (Gegner-Extraktion je Seed). _throttle() serialisiert
+# weiterhin den ZEITPUNKT jeder einzelnen Anfrage global (kein Burst!), aber
+# die eigentliche Wartezeit auf die Antwort (Netzwerk-Latenz, NDJSON-Stream
+# lesen) ueberlappt zwischen den Threads - das macht den Crawl spuerbar
+# schneller, ohne Lichess mit gleichzeitig gestarteten Requests zu bombardieren.
+CRAWL_WORKERS = int(os.environ.get("CRAWL_WORKERS", "6"))
+
 # Wenn beim Start eines Laufs weder Crawl-Queue noch je gecrawlte Spieler
 # vorhanden sind, wird die Queue mit einer Zufallsstichprobe aus dem Pool
 # "angeimpft", damit der Crawl garantiert sofort Seeds hat.
 CRAWL_BOOTSTRAP_SAMPLE_SIZE = int(os.environ.get("CRAWL_BOOTSTRAP_SAMPLE_SIZE", "30"))
 
-# Bei jedem (Wieder-)Einstieg in die Lobby-Crawl-Phase (v.a. nach einem
-# Turnier-Block) werden DIVERSE_SEED_COUNT zufaellige Spieler aus den
-# Turnier-Teilnehmern vorne an die Crawl-Kette gehaengt.
-# Grund: reines Gegner-Ketten-Verzweigen bleibt fast immer im gleichen
-# Rating-Band haengen (Lichess matcht aehnliche Ratings gegeneinander) -
-# ein 1600er fuehrt so praktisch nie zu einem 2300er. Turniere decken
-# dagegen ein breites Rating-Spektrum ab, wodurch der Crawl bei jedem
-# Wechsel quasi zufaellig auf einem neuen Rating-Niveau neu ansetzt.
-DIVERSE_SEED_COUNT = int(os.environ.get("DIVERSE_SEED_COUNT", "4"))
+# Bei JEDER Crawl-Runde (nicht mehr nur beim Wieder-Einstieg in die Phase)
+# werden DIVERSE_SEED_COUNT zufaellige Spieler aus bewusst unterschiedlichen
+# Rating-Baendern (siehe DIVERSE_RATING_BANDS) vorne an die Crawl-Kette
+# gehaengt. Grund: reines Gegner-Ketten-Verzweigen bleibt fast immer im
+# gleichen Rating-Band haengen (Lichess matcht aehnliche Ratings gegeneinander)
+# - ein 1200er fuehrt so praktisch nie zu einem 2600er. Die Injektion sorgt
+# dafuer, dass der Crawl staendig zwischen ganz unterschiedlichen Rating-
+# Niveaus hin- und herspringt (z.B. mal 1200er, dann 2000er, dann 2600er),
+# statt sich in einem einzigen Band festzufahren.
+DIVERSE_SEED_COUNT = int(os.environ.get("DIVERSE_SEED_COUNT", "6"))
+
+# Rating-Baender, aus denen inject_diverse_crawl_seeds() zufaellig zieht
+# (untere Grenze inklusive, obere Grenze exklusiv - None = kein Limit).
+# Bewusst breit gestreut ueber das ganze Spektrum, damit wirklich sehr
+# unterschiedliche Rating-Niveaus gemischt werden statt nur Nachbarbaender.
+DIVERSE_RATING_BANDS = [
+    (0, 1400),      # Klub-/Gelegenheitsspieler
+    (1400, 1800),   # solide Vereinsstaerke
+    (1800, 2200),   # starke Amateure
+    (2200, 2600),   # Experten/Meister
+    (2600, None),   # Titeltraeger/sehr stark
+]
 
 # --- Rating-Alternierung fuer den Crawl (gegen "haengt in einem Rating-Band
 # fest") ---------------------------------------------------------------
@@ -295,7 +323,11 @@ DIVERSE_SEED_COUNT = int(os.environ.get("DIVERSE_SEED_COUNT", "4"))
 # falls die Queue das nicht hergibt) werden aus der Queue NUR Kandidaten
 # mit HOEHEREM Rating als der Referenzwert bevorzugt, danach fuer die
 # naechste Charge nur welche mit NIEDRIGEREM Rating usw.
-ALTERNATE_RATING_BATCH_SIZE = int(os.environ.get("ALTERNATE_RATING_BATCH_SIZE", "50"))
+# GEAENDERT: von 50 auf 15 - die Richtung wechselt jetzt gut 3x so oft,
+# zusammen mit der jetzt jede-Runde-laufenden Diversitaets-Injektion oben
+# ergibt das ein viel unruhigeres, breiter gestreutes Rating-Huepfen statt
+# langer Straehnen im selben Band.
+ALTERNATE_RATING_BATCH_SIZE = int(os.environ.get("ALTERNATE_RATING_BATCH_SIZE", "15"))
 
 # --- Rating-Refresh fuer die Top-1000-Anzeige ----------------------------
 RATING_REFRESH_COOLDOWN_HOURS = float(os.environ.get("RATING_REFRESH_COOLDOWN_HOURS", "18"))
@@ -367,16 +399,19 @@ TOP_N_LIVE = 1000
 # LIVE GIT PUSH
 # ---------------------------------------------------------------------------
 LIVE_GIT_PUSH = os.environ.get("GITHUB_ACTIONS", "").lower() == "true"
-# GEAENDERT: Default von 30s auf 600s (10min). Bei 30s und einer Laufzeit
-# von bis zu MAX_TOTAL_RUNTIME_SECONDS (5h30m) sind pro Job und Lauf
-# potenziell HUNDERTE Commits entstanden - mal 13 parallele Matrix-Jobs
-# (ein Job pro perf_type) mal mehrere Laeufe/Tag waechst die Git-Historie
-# dadurch sehr schnell auf mehrere GB. Das hat den Runner-Datentraeger
-# beim "actions/checkout" mit "No space left on device" gesprengt (siehe
-# fetch-depth im Workflow, das ist der zweite Teil des Fixes). 10min ist
-# immer noch oft genug fuer ein "live" wirkendes Update, aber verhindert
-# den Commit-Sturm.
-GIT_PUSH_MIN_INTERVAL_SECONDS = float(os.environ.get("GIT_PUSH_MIN_INTERVAL_SECONDS", "600"))
+# GEAENDERT: Default jetzt 60s (jede Minute) auf Wunsch, damit das Ranking
+# im Repo haeufiger aktualisiert wird. WICHTIG - Trade-off: das bedeutet
+# ueber eine Laufzeit von bis zu MAX_TOTAL_RUNTIME_SECONDS (5h30m) potenziell
+# ~300 Commits PRO Job und Lauf, mal 13 parallele Matrix-Jobs (perf_type)
+# mal mehreren Laeufen/Tag - die Git-Historie waechst dadurch weiterhin
+# spuerbar, nur langsamer als beim vorherigen 30s-Takt. Der fetch-depth: 1
+# im Workflow verhindert zwar, dass DAS beim Checkout ein Problem wird
+# (es wird nur der neueste Stand geholt, nicht die ganze Historie), aber
+# die serverseitige Repo-Groesse auf GitHub waechst trotzdem konstant.
+# Falls die Repo-Groesse zum Problem wird: periodisch (z.B. woechentlich)
+# die Historie squashen/bereinigen (git filter-repo o.ae.) oder dieses
+# Intervall wieder erhoehen.
+GIT_PUSH_MIN_INTERVAL_SECONDS = float(os.environ.get("GIT_PUSH_MIN_INTERVAL_SECONDS", "60"))
 _last_git_push_ts = 0.0
 GIT_PUSH_MAX_RETRIES = 8
 GIT_PUSH_RETRY_BASE_DELAY_SECONDS = 3
@@ -1094,33 +1129,75 @@ def bootstrap_crawl_queue_if_empty(pool: set) -> None:
     save_json_list(CRAWL_QUEUE_FILE, sample)
 
 
-def inject_diverse_crawl_seeds(source_map: dict, count: int = DIVERSE_SEED_COUNT) -> None:
+def inject_diverse_crawl_seeds(source_map: dict, player_info: dict, pool: set,
+                                count: int = DIVERSE_SEED_COUNT) -> None:
     """
     Haengt bis zu `count` zufaellige Spieler VORNE (nicht hinten!) an die
-    Crawl-Queue, damit sie als naechstes dran sind. Die Kandidaten kommen
-    bewusst aus der Turnier-Quelle statt aus dem Lobby-Pool selbst, weil
-    Turnier-Teilnehmer ein viel breiteres Rating-Spektrum abdecken als
-    Partien-Gegner-Ketten (die durch Lichess' Matchmaking fast immer im
-    gleichen Rating-Band bleiben).
+    Crawl-Queue, damit sie als naechstes dran sind - jeweils EINER pro
+    Rating-Band aus DIVERSE_RATING_BANDS (soweit vorhanden), damit
+    tatsaechlich weit auseinanderliegende Rating-Niveaus gemischt werden
+    (z.B. mal 1200er, dann 2000er, dann 2600er) statt Nachbarbaender.
+
+    GEAENDERT: zieht jetzt aus dem GESAMTEN bekannten Pool (turnier UND
+    lobby), nicht mehr nur aus Turnier-Teilnehmern - vorher gab es bei
+    reinen Lobby-Poolstaenden (z.B. nachdem alle Turniere abgearbeitet
+    sind) irgendwann keine frischen Turnier-Kandidaten mehr, wodurch die
+    Diversitaets-Injektion leerlief. Rating kommt aus player_info (wird
+    beim Bot/Bann-Filter ohnehin mitbefuellt); Spieler ganz ohne bekanntes
+    Rating werden als "Rest-Topf" benutzt, falls ein Band leer ist.
     """
     known_crawled = load_json_dict(KNOWN_CRAWLED_FILE)
     queue = load_json_list(CRAWL_QUEUE_FILE)
     queue_set = set(queue)
 
-    def candidates(label: str) -> list:
-        return [u for u, src in source_map.items()
-                if src == label and u not in known_crawled and u not in queue_set]
+    def eligible(name: str) -> bool:
+        return name not in known_crawled and name not in queue_set
 
-    turnier_candidates = candidates("turnier")
-    random.shuffle(turnier_candidates)
+    candidates = [u for u in pool if eligible(u)]
+    if not candidates:
+        return
 
-    picks = turnier_candidates[:count]
+    by_band = {i: [] for i in range(len(DIVERSE_RATING_BANDS))}
+    unrated = []
+    for u in candidates:
+        rating = player_info.get(u, {}).get("rating")
+        if rating is None:
+            unrated.append(u)
+            continue
+        for i, (lo, hi) in enumerate(DIVERSE_RATING_BANDS):
+            if rating >= lo and (hi is None or rating < hi):
+                by_band[i].append(u)
+                break
+
+    for bucket in by_band.values():
+        random.shuffle(bucket)
+    random.shuffle(unrated)
+
+    # Ein Kandidat pro Band im Rundlauf, damit die Injektion tatsaechlich
+    # ueber verschiedene Rating-Niveaus streut statt zufaellig mehrfach
+    # aus demselben (ggf. groessten) Band zu ziehen.
+    picks = []
+    band_order = list(range(len(DIVERSE_RATING_BANDS)))
+    random.shuffle(band_order)
+    while len(picks) < count and (any(by_band[i] for i in band_order) or unrated):
+        progressed = False
+        for i in band_order:
+            if len(picks) >= count:
+                break
+            if by_band[i]:
+                picks.append(by_band[i].pop())
+                progressed = True
+        if len(picks) < count and unrated:
+            picks.append(unrated.pop())
+            progressed = True
+        if not progressed:
+            break
 
     if not picks:
         return
 
-    print(f"  [DIVERSITAET] {len(picks)} zufaellige Spieler aus Turnieren "
-          f"werden vorne an die Kette gehaengt: {picks}")
+    print(f"  [DIVERSITAET] {len(picks)} Spieler aus unterschiedlichen "
+          f"Rating-Baendern werden vorne an die Kette gehaengt: {picks}")
     new_queue = picks + [q for q in queue if q not in picks]
     save_json_list(CRAWL_QUEUE_FILE, new_queue)
 
@@ -1135,10 +1212,21 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
     JEDEN neuen, noch nie gesehenen Gegner sofort hinten an die Queue an -
     das ist der eigentliche Verzweigungsschritt der endlosen Kette.
 
+    GEAENDERT (Speed + Rating-Streuung):
+      - inject_diverse_crawl_seeds() laeuft jetzt JEDE Runde (nicht mehr
+        nur beim Wieder-Einstieg in die Phase), damit staendig Spieler aus
+        weit auseinanderliegenden Rating-Baendern eingemischt werden.
+      - Die Gegner-Extraktion der Seeds laeuft parallel in CRAWL_WORKERS
+        Threads statt strikt nacheinander - _throttle() verhindert weiterhin
+        gleichzeitig GESTARTETE Requests, aber die (oft langsame) Wartezeit
+        auf NDJSON-Antworten ueberlappt jetzt zwischen den Seeds.
+
     Gibt (neue_spieler, anzahl_seeds_verarbeitet) zurueck -
     seeds_processed==0 bedeutet "keine Seeds mehr verfuegbar", das Signal
     fuer den Aufrufer, die Crawl-Phase als abgeschlossen zu markieren.
     """
+    inject_diverse_crawl_seeds(source_map, player_info, pool)
+
     queue = load_json_list(CRAWL_QUEUE_FILE)
     known_crawled = load_json_dict(KNOWN_CRAWLED_FILE)
     direction_state = load_crawl_direction_state()
@@ -1150,12 +1238,34 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
     never_crawled_seeds = sum(1 for s in seeds if s not in known_crawled)
     recrawl_seeds = len(seeds) - never_crawled_seeds
     print(f"  {len(seeds)} Kettenglied(er) ({never_crawled_seeds} neu, {recrawl_seeds} Recrawl), "
-          f"je die letzten {CRAWL_GAMES_PER_SEED} Partien -> Gegner extrahieren...")
+          f"je die letzten {CRAWL_GAMES_PER_SEED} Partien -> Gegner extrahieren "
+          f"(parallel, {CRAWL_WORKERS} Worker)...")
+
+    # Netzwerk-Teil (get_recent_opponents) parallelisiert - liefert nur die
+    # rohen Gegner-Namen je Seed zurueck. Alles, was gemeinsamen Zustand
+    # (pool/queue/known_crawled/source_map) veraendert, passiert danach
+    # bewusst sequenziell in fester Seed-Reihenfolge, damit es threadsicher
+    # bleibt und die Ausgabe/Bookkeeping deterministisch ist.
+    raw_opponents_by_seed = {}
+    with concurrent.futures.ThreadPoolExecutor(max_workers=CRAWL_WORKERS) as executor:
+        future_to_seed = {
+            executor.submit(get_recent_opponents, seed, CRAWL_GAMES_PER_SEED): seed
+            for seed in seeds
+        }
+        for future in concurrent.futures.as_completed(future_to_seed):
+            seed = future_to_seed[future]
+            try:
+                raw_opponents_by_seed[seed] = future.result()
+            except RateLimitError:
+                raise
+            except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
+                print(f"     [WARNUNG] Partien-Gegner von '{seed}' nicht ladbar: {exc}")
+                raw_opponents_by_seed[seed] = set()
 
     all_new_opponents = set()
     for seed in seeds:
-        opponents = get_recent_opponents(seed, CRAWL_GAMES_PER_SEED)
-        opponents = check_and_filter_players(opponents, player_info)
+        raw_opponents = raw_opponents_by_seed.get(seed, set())
+        opponents = check_and_filter_players(raw_opponents, player_info)
         new_opponents = opponents - pool
 
         if new_opponents:
@@ -1627,7 +1737,6 @@ def main() -> None:
             # rate-limited) das restliche Budget aufbrauchen koennten.
             if not crawl_done:
                 print(f"  -- Runde {round_num}: Lobby-Crawl --")
-                inject_diverse_crawl_seeds(source_map)
                 deadline = time.time() + PHASE_SLICE_SECONDS
                 new_from_crawl, seeds_processed = process_crawl_slice(
                     pool, updated_this_run, counts, last_checked, source_map,
