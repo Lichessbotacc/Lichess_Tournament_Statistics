@@ -13648,7 +13648,7 @@
     "newjersey7": 84,
     "newonenjugua": 4,
     "newphase_26": 3,
-    "newspapor": 264,
+    "newspapor": 265,
     "newtuciclo": 79,
     "nexta90": 188,
     "neytanr": 38,
@@ -33035,7 +33035,7 @@
     "newjersey7": "2026-07-12T06:26:44.275770+00:00",
     "newonenjugua": "2026-07-11T12:34:16.527196+00:00",
     "newphase_26": "2026-07-10T13:07:04.145168+00:00",
-    "newspapor": "2026-07-11T15:32:18.111599+00:00",
+    "newspapor": "2026-07-13T18:53:48.972305+00:00",
     "newtuciclo": "2026-07-13T15:54:44.350657+00:00",
     "nexta90": "2026-07-12T16:05:15.933721+00:00",
     "neytanr": "2026-07-10T07:55:10.778186+00:00",
@@ -44134,8 +44134,16 @@
     },
     {
       "games": 265,
-      "profile": "https://lichess.org/@/ogipek",
+      "profile": "https://lichess.org/@/newspapor",
       "rank": 655,
+      "rating": 1536,
+      "source": "Lobby-Crawl",
+      "username": "newspapor"
+    },
+    {
+      "games": 265,
+      "profile": "https://lichess.org/@/ogipek",
+      "rank": 656,
       "rating": 1458,
       "source": "Lobby-Crawl",
       "username": "ogipek"
@@ -44143,7 +44151,7 @@
     {
       "games": 264,
       "profile": "https://lichess.org/@/focusedceer",
-      "rank": 656,
+      "rank": 657,
       "rating": 2211,
       "source": "Turnier",
       "username": "focusedceer"
@@ -44151,7 +44159,7 @@
     {
       "games": 264,
       "profile": "https://lichess.org/@/khaled1961",
-      "rank": 657,
+      "rank": 658,
       "rating": 1578,
       "source": "Turnier",
       "username": "khaled1961"
@@ -44159,18 +44167,10 @@
     {
       "games": 264,
       "profile": "https://lichess.org/@/lj55000",
-      "rank": 658,
+      "rank": 659,
       "rating": 1252,
       "source": "Lobby-Crawl",
       "username": "lj55000"
-    },
-    {
-      "games": 264,
-      "profile": "https://lichess.org/@/newspapor",
-      "rank": 659,
-      "rating": 1536,
-      "source": "Lobby-Crawl",
-      "username": "newspapor"
     },
     {
       "games": 264,
@@ -195189,5 +195189,5 @@
       "username": "saifeldeen_mohammed"
     }
   ],
-  "updated_at": "2026-07-13T18:52:39.758065+00:00"
+  "updated_at": "2026-07-13T18:53:48.978224+00:00"
 }
