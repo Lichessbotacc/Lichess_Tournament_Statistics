@@ -3589,6 +3589,7 @@
     "backprop7": 0,
     "bacon28": 0,
     "bacon424": 0,
+    "bacon_is_buss": 0,
     "baconchess123": 0,
     "baconmax10": 0,
     "bad_challenger": 0,
@@ -6966,6 +6967,7 @@
     "drakes0096": 3,
     "drakescassien": 0,
     "drakon5617": 0,
+    "dralx": 0,
     "dratomar": 0,
     "dratuite": 0,
     "draunz3r": 1,
@@ -14944,6 +14946,7 @@
     "mohammed_alu": 0,
     "mohammedobad": 0,
     "mohanraj2005": 0,
+    "mohasafrak": 0,
     "mohaun": 0,
     "mohduddin75": 0,
     "mohitgupta242": 3,
@@ -15625,6 +15628,7 @@
     "nguyencongthang": 9,
     "nguyenducanh2018": 0,
     "nguyengiahung2015": 0,
+    "nguyenhoangquan257": 0,
     "nguyenhuuminh2015ns": 0,
     "nguyenkimngan2k15": 0,
     "nguyenmanhdang": 0,
@@ -22221,6 +22225,7 @@
     "vstp33": 94,
     "vsubbuchess": 0,
     "vsubhangstar": 0,
+    "vtksb": 0,
     "vtt3613": 0,
     "vuachithanh_1": 0,
     "vueosvete": 0,
@@ -26831,6 +26836,7 @@
     "backprop7": "2026-07-10T19:04:23.717040+00:00",
     "bacon28": "2026-07-13T06:50:51.930628+00:00",
     "bacon424": "2026-07-12T16:10:14.212890+00:00",
+    "bacon_is_buss": "2026-07-13T17:24:16.102663+00:00",
     "baconchess123": "2026-07-13T13:11:59.360722+00:00",
     "baconmax10": "2026-07-13T12:44:20.904418+00:00",
     "bad_challenger": "2026-07-13T14:31:56.900239+00:00",
@@ -30205,6 +30211,7 @@
     "drakes0096": "2026-07-10T11:32:57.400887+00:00",
     "drakescassien": "2026-07-10T18:41:41.495355+00:00",
     "drakon5617": "2026-07-13T07:04:51.945229+00:00",
+    "dralx": "2026-07-13T17:22:52.123794+00:00",
     "dratomar": "2026-07-12T10:27:20.710363+00:00",
     "dratuite": "2026-07-10T14:52:39.760709+00:00",
     "draunz3r": "2026-07-13T15:38:06.774831+00:00",
@@ -38178,6 +38185,7 @@
     "mohammed_alu": "2026-07-12T13:09:53.711900+00:00",
     "mohammedobad": "2026-07-10T20:49:13.864263+00:00",
     "mohanraj2005": "2026-07-13T04:00:11.505955+00:00",
+    "mohasafrak": "2026-07-13T17:22:55.114274+00:00",
     "mohaun": "2026-07-10T05:39:49.325105+00:00",
     "mohduddin75": "2026-07-13T00:22:33.366646+00:00",
     "mohitgupta242": "2026-07-12T18:40:44.682171+00:00",
@@ -38858,6 +38866,7 @@
     "nguyencongthang": "2026-07-11T06:21:43.612644+00:00",
     "nguyenducanh2018": "2026-07-11T16:02:50.595572+00:00",
     "nguyengiahung2015": "2026-07-13T12:01:05.741502+00:00",
+    "nguyenhoangquan257": "2026-07-13T17:22:58.087631+00:00",
     "nguyenhuuminh2015ns": "2026-07-11T03:08:05.564525+00:00",
     "nguyenkimngan2k15": "2026-07-11T19:40:57.339609+00:00",
     "nguyenmanhdang": "2026-07-10T04:00:26.008996+00:00",
@@ -45450,6 +45459,7 @@
     "vstp33": "2026-07-13T07:12:06.604320+00:00",
     "vsubbuchess": "2026-07-13T13:33:27.944647+00:00",
     "vsubhangstar": "2026-07-13T00:51:40.482213+00:00",
+    "vtksb": "2026-07-13T17:23:01.081942+00:00",
     "vtt3613": "2026-07-12T14:12:04.089213+00:00",
     "vuachithanh_1": "2026-07-12T11:55:14.832368+00:00",
     "vueosvete": "2026-07-12T11:35:21.298277+00:00",
@@ -91124,7 +91134,7 @@
       "games": 1,
       "profile": "https://lichess.org/@/intensivensive",
       "rank": 5582,
-      "rating": null,
+      "rating": 1524,
       "source": "Lobby-Crawl",
       "username": "intensivensive"
     },
@@ -142932,7 +142942,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/fedor228chess",
       "rank": 12058,
-      "rating": null,
+      "rating": 1017,
       "source": "Lobby-Crawl",
       "username": "fedor228chess"
     },
@@ -232399,7 +232409,47 @@
       "rating": 1143,
       "source": "Lobby-Crawl",
       "username": "aadriti2019"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/dralx",
+      "rank": 23242,
+      "rating": 1629,
+      "source": "Lobby-Crawl",
+      "username": "dralx"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/mohasafrak",
+      "rank": 23243,
+      "rating": 1454,
+      "source": "Lobby-Crawl",
+      "username": "mohasafrak"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/nguyenhoangquan257",
+      "rank": 23244,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "nguyenhoangquan257"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vtksb",
+      "rank": 23245,
+      "rating": 1106,
+      "source": "Lobby-Crawl",
+      "username": "vtksb"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/bacon_is_buss",
+      "rank": 23246,
+      "rating": 1093,
+      "source": "Lobby-Crawl",
+      "username": "bacon_is_buss"
     }
   ],
-  "updated_at": "2026-07-13T17:22:39.918746+00:00"
+  "updated_at": "2026-07-13T17:24:16.108815+00:00"
 }
