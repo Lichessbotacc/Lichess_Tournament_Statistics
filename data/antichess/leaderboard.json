@@ -1095,7 +1095,7 @@
     "adi04085": 2,
     "adi2016": 0,
     "adi615": 5,
-    "adi687012": 208,
+    "adi687012": 203,
     "adi_2013": 0,
     "adi_2024": 0,
     "adi_chess2012": 2,
@@ -18203,7 +18203,7 @@
     "adi04085": "2026-07-11T12:04:40.490419+00:00",
     "adi2016": "2026-07-10T03:20:51.029025+00:00",
     "adi615": "2026-07-11T19:17:51.148749+00:00",
-    "adi687012": "2026-07-11T15:03:30.101945+00:00",
+    "adi687012": "2026-07-13T02:26:01.541950+00:00",
     "adi_2013": "2026-07-10T02:29:59.569036+00:00",
     "adi_2024": "2026-07-10T03:20:54.013488+00:00",
     "adi_chess2012": "2026-07-10T01:47:13.462125+00:00",
@@ -29902,7 +29902,7 @@
     "rjk12": "2026-07-13T01:27:55.976579+00:00",
     "rkan123": "2026-07-12T20:25:01.645035+00:00",
     "rlatngud0120": "2026-07-12T06:31:07.534102+00:00",
-    "rlp61": "2026-07-11T15:04:20.841986+00:00",
+    "rlp61": "2026-07-13T02:25:20.511642+00:00",
     "rlylhyrret": "2026-07-12T13:49:31.275671+00:00",
     "rmdfc": "2026-07-12T05:40:08.820539+00:00",
     "rmedina": "2026-07-12T00:27:24.612485+00:00",
@@ -34620,16 +34620,8 @@
     },
     {
       "games": 208,
-      "profile": "https://lichess.org/@/adi687012",
-      "rank": 142,
-      "rating": 2039,
-      "source": "Lobby-Crawl",
-      "username": "adi687012"
-    },
-    {
-      "games": 208,
       "profile": "https://lichess.org/@/queen-spiracy",
-      "rank": 143,
+      "rank": 142,
       "rating": 1695,
       "source": "Lobby-Crawl",
       "username": "queen-spiracy"
@@ -34637,7 +34629,7 @@
     {
       "games": 208,
       "profile": "https://lichess.org/@/somoon1",
-      "rank": 144,
+      "rank": 143,
       "rating": 1456,
       "source": "Lobby-Crawl",
       "username": "somoon1"
@@ -34645,7 +34637,7 @@
     {
       "games": 206,
       "profile": "https://lichess.org/@/chessplayer1567",
-      "rank": 145,
+      "rank": 144,
       "rating": 1857,
       "source": "Lobby-Crawl",
       "username": "chessplayer1567"
@@ -34653,7 +34645,7 @@
     {
       "games": 205,
       "profile": "https://lichess.org/@/rasmor",
-      "rank": 146,
+      "rank": 145,
       "rating": 1556,
       "source": "Lobby-Crawl",
       "username": "rasmor"
@@ -34661,7 +34653,7 @@
     {
       "games": 205,
       "profile": "https://lichess.org/@/realmadrid_campeon",
-      "rank": 147,
+      "rank": 146,
       "rating": 1962,
       "source": "Lobby-Crawl",
       "username": "realmadrid_campeon"
@@ -34669,7 +34661,7 @@
     {
       "games": 205,
       "profile": "https://lichess.org/@/thelegend_killer",
-      "rank": 148,
+      "rank": 147,
       "rating": 1818,
       "source": "Lobby-Crawl",
       "username": "thelegend_killer"
@@ -34677,7 +34669,7 @@
     {
       "games": 204,
       "profile": "https://lichess.org/@/aarohi310",
-      "rank": 149,
+      "rank": 148,
       "rating": 1770,
       "source": "Lobby-Crawl",
       "username": "aarohi310"
@@ -34685,10 +34677,18 @@
     {
       "games": 204,
       "profile": "https://lichess.org/@/wowbaggertip",
-      "rank": 150,
+      "rank": 149,
       "rating": 2130,
       "source": "Lobby-Crawl",
       "username": "wowbaggertip"
+    },
+    {
+      "games": 203,
+      "profile": "https://lichess.org/@/adi687012",
+      "rank": 150,
+      "rating": 2039,
+      "source": "Lobby-Crawl",
+      "username": "adi687012"
     },
     {
       "games": 203,
@@ -170339,5 +170339,5 @@
       "username": "son_play_chess_vn_25"
     }
   ],
-  "updated_at": "2026-07-13T02:24:54.244150+00:00"
+  "updated_at": "2026-07-13T02:26:01.545635+00:00"
 }
