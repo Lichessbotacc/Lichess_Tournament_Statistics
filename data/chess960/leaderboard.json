@@ -13804,6 +13804,7 @@
     "libr123": 8,
     "lichtdesdunkeln": 0,
     "lichter": 0,
+    "lichtwandler": 0,
     "lictin": 0,
     "liddari": 27,
     "lider34": 0,
@@ -37862,6 +37863,7 @@
     "libr123": "2026-07-10T07:38:37.050908+00:00",
     "lichtdesdunkeln": "2026-07-13T10:41:30.226315+00:00",
     "lichter": "2026-07-10T21:55:44.896315+00:00",
+    "lichtwandler": "2026-07-13T17:06:22.493894+00:00",
     "lictin": "2026-07-12T09:35:18.744996+00:00",
     "liddari": "2026-07-12T12:12:20.642827+00:00",
     "lider34": "2026-07-12T07:09:48.676089+00:00",
@@ -246253,7 +246255,15 @@
       "rating": 1666,
       "source": "Lobby-Crawl",
       "username": "ifionlyhadabrain"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/lichtwandler",
+      "rank": 24769,
+      "rating": 1728,
+      "source": "Lobby-Crawl",
+      "username": "lichtwandler"
     }
   ],
-  "updated_at": "2026-07-13T17:04:27.893476+00:00"
+  "updated_at": "2026-07-13T17:06:22.500329+00:00"
 }
