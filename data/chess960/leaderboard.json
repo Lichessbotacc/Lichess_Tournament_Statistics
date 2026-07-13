@@ -19434,6 +19434,7 @@
     "remchess1700000": 0,
     "remis218": 0,
     "remit_01": 0,
+    "remknight": 0,
     "remo02": 0,
     "remont1": 0,
     "renatamae": 0,
@@ -26826,6 +26827,7 @@
     "ajisetiaji": "2026-07-10T02:43:41.319643+00:00",
     "ajishan2018": "2026-07-10T19:29:40.991086+00:00",
     "ajjainator": "2026-07-10T02:43:44.300458+00:00",
+    "ajkr831": "2026-07-13T19:58:38.323644+00:00",
     "ajm_malau": "2026-07-10T02:43:47.328983+00:00",
     "ajmagicpower": "2026-07-11T03:15:56.588049+00:00",
     "ajmc2106": "2026-07-12T06:54:23.898029+00:00",
@@ -42670,7 +42672,7 @@
     "peter_klein": "2026-07-13T09:08:10.110193+00:00",
     "peter_majidi": "2026-07-12T07:00:30.391940+00:00",
     "peter_ready": "2026-07-12T17:26:58.968163+00:00",
-    "peter_tosh": "2026-07-10T08:59:25.258487+00:00",
+    "peter_tosh": "2026-07-13T19:57:20.020370+00:00",
     "peterchess2024": "2026-07-10T11:35:47.989324+00:00",
     "peterdegroote": "2026-07-13T11:34:55.623013+00:00",
     "petermillimeter": "2026-07-13T16:19:57.699781+00:00",
@@ -43767,6 +43769,7 @@
     "remchess1700000": "2026-07-13T16:01:50.188477+00:00",
     "remis218": "2026-07-13T01:47:24.769573+00:00",
     "remit_01": "2026-07-13T15:36:28.620904+00:00",
+    "remknight": "2026-07-13T19:57:23.007480+00:00",
     "remo02": "2026-07-12T19:00:31.963445+00:00",
     "remont1": "2026-07-12T04:49:34.962668+00:00",
     "renatamae": "2026-07-10T19:31:59.755939+00:00",
@@ -118580,8 +118583,8 @@
       "games": 0,
       "profile": "https://lichess.org/@/ajkr831",
       "rank": 8662,
-      "rating": null,
-      "source": "?",
+      "rating": 1246,
+      "source": "Lobby-Crawl",
       "username": "ajkr831"
     },
     {
@@ -166068,7 +166071,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/gursaakhikaur",
       "rank": 14598,
-      "rating": null,
+      "rating": 1253,
       "source": "?",
       "username": "gursaakhikaur"
     },
@@ -187292,8 +187295,8 @@
       "games": 0,
       "profile": "https://lichess.org/@/lantanaior",
       "rank": 17251,
-      "rating": null,
-      "source": "?",
+      "rating": 1701,
+      "source": "Lobby-Crawl",
       "username": "lantanaior"
     },
     {
@@ -189172,8 +189175,8 @@
       "games": 0,
       "profile": "https://lichess.org/@/levi_blythe",
       "rank": 17486,
-      "rating": null,
-      "source": "?",
+      "rating": 1699,
+      "source": "Lobby-Crawl",
       "username": "levi_blythe"
     },
     {
@@ -238868,8 +238871,8 @@
       "games": 0,
       "profile": "https://lichess.org/@/toussaint76",
       "rank": 23698,
-      "rating": null,
-      "source": "?",
+      "rating": 1256,
+      "source": "Lobby-Crawl",
       "username": "toussaint76"
     },
     {
@@ -251959,7 +251962,15 @@
       "rating": 1471,
       "source": "Lobby-Crawl",
       "username": "christoph091"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/remknight",
+      "rank": 25335,
+      "rating": 1639,
+      "source": "Lobby-Crawl",
+      "username": "remknight"
     }
   ],
-  "updated_at": "2026-07-13T19:56:57.423235+00:00"
+  "updated_at": "2026-07-13T19:58:38.329314+00:00"
 }
