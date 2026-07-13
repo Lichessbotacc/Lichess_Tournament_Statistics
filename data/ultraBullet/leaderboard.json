@@ -7873,7 +7873,7 @@
     "gmtairom41": 2,
     "gmtairon41": 22,
     "gmtzcastilleja": 0,
-    "gmud": 1240,
+    "gmud": 1119,
     "gmutyala": 0,
     "gn-knight": 0,
     "gnarlus-maksen": 197,
@@ -27685,7 +27685,7 @@
     "gmtairom41": "2026-07-13T16:29:19.048989+00:00",
     "gmtairon41": "2026-07-13T08:51:44.393053+00:00",
     "gmtzcastilleja": "2026-07-10T17:05:45.083500+00:00",
-    "gmud": "2026-07-13T01:26:41.555344+00:00",
+    "gmud": "2026-07-13T19:44:29.494693+00:00",
     "gmutyala": "2026-07-12T18:20:18.792807+00:00",
     "gn-knight": "2026-07-10T17:05:48.080983+00:00",
     "gnarlus-maksen": "2026-07-13T03:20:01.187780+00:00",
@@ -39586,17 +39586,9 @@
       "username": "maxentius9"
     },
     {
-      "games": 1240,
-      "profile": "https://lichess.org/@/gmud",
-      "rank": 8,
-      "rating": 1534,
-      "source": "Lobby-Crawl",
-      "username": "gmud"
-    },
-    {
       "games": 1203,
       "profile": "https://lichess.org/@/fantom2234",
-      "rank": 9,
+      "rank": 8,
       "rating": 2154,
       "source": "Lobby-Crawl",
       "username": "fantom2234"
@@ -39604,7 +39596,7 @@
     {
       "games": 1158,
       "profile": "https://lichess.org/@/fallen53",
-      "rank": 10,
+      "rank": 9,
       "rating": 1850,
       "source": "Lobby-Crawl",
       "username": "fallen53"
@@ -39612,7 +39604,7 @@
     {
       "games": 1157,
       "profile": "https://lichess.org/@/giuliog",
-      "rank": 11,
+      "rank": 10,
       "rating": 2102,
       "source": "Lobby-Crawl",
       "username": "giuliog"
@@ -39620,10 +39612,18 @@
     {
       "games": 1142,
       "profile": "https://lichess.org/@/krokodylski",
-      "rank": 12,
+      "rank": 11,
       "rating": 2110,
       "source": "Lobby-Crawl",
       "username": "krokodylski"
+    },
+    {
+      "games": 1119,
+      "profile": "https://lichess.org/@/gmud",
+      "rank": 12,
+      "rating": 1534,
+      "source": "Lobby-Crawl",
+      "username": "gmud"
     },
     {
       "games": 1090,
@@ -198962,5 +198962,5 @@
       "username": "zzzzz222"
     }
   ],
-  "updated_at": "2026-07-13T19:43:12.674251+00:00"
+  "updated_at": "2026-07-13T19:44:29.499072+00:00"
 }
