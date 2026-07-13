@@ -2822,6 +2822,7 @@
     "barobaba": 3,
     "baronbruh191": 0,
     "barricado": 0,
+    "barrlir": 0,
     "bars11": 0,
     "barsa1984": 37,
     "barsic2468": 1,
@@ -13640,6 +13641,7 @@
     "sid-menon": 0,
     "sid1_chess": 0,
     "sid9884": 21,
+    "sid_wom": 0,
     "siddha0615": 0,
     "siddharthsuper": 3,
     "siddharthupadhyay": 11,
@@ -13959,7 +13961,7 @@
     "spiderboy_16": 5,
     "spiderfisch2": 26,
     "spidergoat_518": 27,
-    "spiderlosser3": 707,
+    "spiderlosser3": 772,
     "spiderman789056": 0,
     "spideyinthegame": 0,
     "spidzula": 0,
@@ -15890,7 +15892,7 @@
     "xanderl-lhs": 38,
     "xantares0618": 0,
     "xavchess078": 0,
-    "xaver34": 526,
+    "xaver34": 576,
     "xavier98778": 0,
     "xavierlau": 0,
     "xblaze_32": 0,
@@ -19146,6 +19148,7 @@
     "barobaba": "2026-07-12T03:38:57.990805+00:00",
     "baronbruh191": "2026-07-12T05:28:43.207749+00:00",
     "barricado": "2026-07-11T09:09:20.941357+00:00",
+    "barrlir": "2026-07-13T02:04:21.917518+00:00",
     "bars11": "2026-07-11T07:25:48.947549+00:00",
     "barsa1984": "2026-07-12T17:56:07.990547+00:00",
     "barsic2468": "2026-07-12T03:38:37.217675+00:00",
@@ -28411,7 +28414,7 @@
     "rachu_21466": "2026-07-12T06:06:34.400871+00:00",
     "racichess": "2026-07-12T01:05:33.919353+00:00",
     "racingmen": "2026-07-12T03:51:30.862795+00:00",
-    "racllette007": "2026-07-11T22:04:27.986633+00:00",
+    "racllette007": "2026-07-13T02:04:24.919896+00:00",
     "rad_6769123": "2026-07-11T09:58:56.607466+00:00",
     "radek25497": "2026-07-11T20:51:38.358872+00:00",
     "radhakrish8204": "2026-07-10T06:33:06.776923+00:00",
@@ -29690,6 +29693,7 @@
     "sid-menon": "2026-07-12T13:15:27.907934+00:00",
     "sid1_chess": "2026-07-12T13:33:57.487440+00:00",
     "sid9884": "2026-07-12T06:38:13.321137+00:00",
+    "sid_wom": "2026-07-13T02:04:27.932442+00:00",
     "siddha0615": "2026-07-12T05:49:52.045500+00:00",
     "siddharthsuper": "2026-07-11T13:53:24.730755+00:00",
     "siddharthupadhyay": "2026-07-12T08:15:12.399853+00:00",
@@ -29998,7 +30002,7 @@
     "spiderboy_16": "2026-07-11T10:23:01.586809+00:00",
     "spiderfisch2": "2026-07-11T14:58:36.039734+00:00",
     "spidergoat_518": "2026-07-12T11:56:17.038219+00:00",
-    "spiderlosser3": "2026-07-11T22:07:02.701602+00:00",
+    "spiderlosser3": "2026-07-13T02:05:01.777097+00:00",
     "spiderman789056": "2026-07-12T18:31:29.495508+00:00",
     "spideyinthegame": "2026-07-12T23:52:38.664063+00:00",
     "spidzula": "2026-07-10T13:15:15.795972+00:00",
@@ -31872,7 +31876,7 @@
     "xanderl-lhs": "2026-07-12T12:48:59.518258+00:00",
     "xantares0618": "2026-07-11T21:21:55.156864+00:00",
     "xavchess078": "2026-07-12T17:49:16.822456+00:00",
-    "xaver34": "2026-07-11T21:44:49.450523+00:00",
+    "xaver34": "2026-07-13T02:04:18.316730+00:00",
     "xavier98778": "2026-07-10T07:12:57.848874+00:00",
     "xavierlau": "2026-07-12T05:24:12.336811+00:00",
     "xblaze_32": "2026-07-12T10:47:44.707089+00:00",
@@ -32123,7 +32127,7 @@
     "yugipohegb": "2026-07-11T03:47:32.019485+00:00",
     "yugjivrajanigmailc": "2026-07-13T00:01:52.706032+00:00",
     "yuliaqueen": "2026-07-12T06:20:24.169175+00:00",
-    "yumlentilsoup": "2026-07-12T04:11:15.966186+00:00",
+    "yumlentilsoup": "2026-07-13T02:04:18.921550+00:00",
     "yummingo": "2026-07-12T03:47:58.836635+00:00",
     "yuno-o": "2026-07-11T02:21:48.946044+00:00",
     "yunusemre107138": "2026-07-12T17:41:33.618622+00:00",
@@ -32657,9 +32661,17 @@
       "username": "nathanael01"
     },
     {
+      "games": 772,
+      "profile": "https://lichess.org/@/spiderlosser3",
+      "rank": 40,
+      "rating": 1432,
+      "source": "?",
+      "username": "spiderlosser3"
+    },
+    {
       "games": 768,
       "profile": "https://lichess.org/@/c8c7c8c7c8c7c8c7c8c7",
-      "rank": 40,
+      "rank": 41,
       "rating": 2005,
       "source": "?",
       "username": "c8c7c8c7c8c7c8c7c8c7"
@@ -32667,7 +32679,7 @@
     {
       "games": 765,
       "profile": "https://lichess.org/@/luca496",
-      "rank": 41,
+      "rank": 42,
       "rating": 1952,
       "source": "Lobby-Crawl",
       "username": "luca496"
@@ -32675,7 +32687,7 @@
     {
       "games": 763,
       "profile": "https://lichess.org/@/gt2rsweissach",
-      "rank": 42,
+      "rank": 43,
       "rating": 2472,
       "source": "?",
       "username": "gt2rsweissach"
@@ -32683,7 +32695,7 @@
     {
       "games": 754,
       "profile": "https://lichess.org/@/timobjornson",
-      "rank": 43,
+      "rank": 44,
       "rating": 1807,
       "source": "?",
       "username": "timobjornson"
@@ -32691,7 +32703,7 @@
     {
       "games": 754,
       "profile": "https://lichess.org/@/vertel",
-      "rank": 44,
+      "rank": 45,
       "rating": 2016,
       "source": "Lobby-Crawl",
       "username": "vertel"
@@ -32699,7 +32711,7 @@
     {
       "games": 750,
       "profile": "https://lichess.org/@/casualchess420",
-      "rank": 45,
+      "rank": 46,
       "rating": 2030,
       "source": "Lobby-Crawl",
       "username": "casualchess420"
@@ -32707,7 +32719,7 @@
     {
       "games": 732,
       "profile": "https://lichess.org/@/red_dragon65",
-      "rank": 46,
+      "rank": 47,
       "rating": 1927,
       "source": "Lobby-Crawl",
       "username": "red_dragon65"
@@ -32715,7 +32727,7 @@
     {
       "games": 728,
       "profile": "https://lichess.org/@/mrsst",
-      "rank": 47,
+      "rank": 48,
       "rating": 2065,
       "source": "?",
       "username": "mrsst"
@@ -32723,7 +32735,7 @@
     {
       "games": 721,
       "profile": "https://lichess.org/@/checknight1",
-      "rank": 48,
+      "rank": 49,
       "rating": 2012,
       "source": "?",
       "username": "checknight1"
@@ -32731,7 +32743,7 @@
     {
       "games": 718,
       "profile": "https://lichess.org/@/warlock_777",
-      "rank": 49,
+      "rank": 50,
       "rating": 1447,
       "source": "Lobby-Crawl",
       "username": "warlock_777"
@@ -32739,7 +32751,7 @@
     {
       "games": 712,
       "profile": "https://lichess.org/@/sickonsunday",
-      "rank": 50,
+      "rank": 51,
       "rating": 1209,
       "source": "Lobby-Crawl",
       "username": "sickonsunday"
@@ -32747,18 +32759,10 @@
     {
       "games": 709,
       "profile": "https://lichess.org/@/mrezai",
-      "rank": 51,
+      "rank": 52,
       "rating": 1414,
       "source": "Lobby-Crawl",
       "username": "mrezai"
-    },
-    {
-      "games": 707,
-      "profile": "https://lichess.org/@/spiderlosser3",
-      "rank": 52,
-      "rating": 1432,
-      "source": "?",
-      "username": "spiderlosser3"
     },
     {
       "games": 706,
@@ -33065,9 +33069,17 @@
       "username": "philippe640719"
     },
     {
+      "games": 576,
+      "profile": "https://lichess.org/@/xaver34",
+      "rank": 91,
+      "rating": 1397,
+      "source": "Lobby-Crawl",
+      "username": "xaver34"
+    },
+    {
       "games": 573,
       "profile": "https://lichess.org/@/cooky14",
-      "rank": 91,
+      "rank": 92,
       "rating": 1677,
       "source": "Lobby-Crawl",
       "username": "cooky14"
@@ -33075,7 +33087,7 @@
     {
       "games": 565,
       "profile": "https://lichess.org/@/udhusiu",
-      "rank": 92,
+      "rank": 93,
       "rating": 2079,
       "source": "Lobby-Crawl",
       "username": "udhusiu"
@@ -33083,7 +33095,7 @@
     {
       "games": 562,
       "profile": "https://lichess.org/@/at68",
-      "rank": 93,
+      "rank": 94,
       "rating": 2320,
       "source": "?",
       "username": "at68"
@@ -33091,7 +33103,7 @@
     {
       "games": 556,
       "profile": "https://lichess.org/@/alphajet26",
-      "rank": 94,
+      "rank": 95,
       "rating": 1902,
       "source": "?",
       "username": "alphajet26"
@@ -33099,7 +33111,7 @@
     {
       "games": 555,
       "profile": "https://lichess.org/@/ajaymb_18",
-      "rank": 95,
+      "rank": 96,
       "rating": 1689,
       "source": "?",
       "username": "ajaymb_18"
@@ -33107,7 +33119,7 @@
     {
       "games": 554,
       "profile": "https://lichess.org/@/mourninstar",
-      "rank": 96,
+      "rank": 97,
       "rating": 915,
       "source": "Lobby-Crawl",
       "username": "mourninstar"
@@ -33115,7 +33127,7 @@
     {
       "games": 545,
       "profile": "https://lichess.org/@/cesarjun30",
-      "rank": 97,
+      "rank": 98,
       "rating": 1836,
       "source": "Lobby-Crawl",
       "username": "cesarjun30"
@@ -33123,7 +33135,7 @@
     {
       "games": 542,
       "profile": "https://lichess.org/@/orangeking2504",
-      "rank": 98,
+      "rank": 99,
       "rating": 2174,
       "source": "?",
       "username": "orangeking2504"
@@ -33131,7 +33143,7 @@
     {
       "games": 539,
       "profile": "https://lichess.org/@/john10001",
-      "rank": 99,
+      "rank": 100,
       "rating": 1691,
       "source": "Lobby-Crawl",
       "username": "john10001"
@@ -33139,7 +33151,7 @@
     {
       "games": 532,
       "profile": "https://lichess.org/@/nikitosik1708",
-      "rank": 100,
+      "rank": 101,
       "rating": 2137,
       "source": "?",
       "username": "nikitosik1708"
@@ -33147,18 +33159,10 @@
     {
       "games": 527,
       "profile": "https://lichess.org/@/kaan140611",
-      "rank": 101,
+      "rank": 102,
       "rating": 1875,
       "source": "Lobby-Crawl",
       "username": "kaan140611"
-    },
-    {
-      "games": 526,
-      "profile": "https://lichess.org/@/xaver34",
-      "rank": 102,
-      "rating": 1397,
-      "source": "Lobby-Crawl",
-      "username": "xaver34"
     },
     {
       "games": 522,
@@ -163319,7 +163323,23 @@
       "rating": 1538,
       "source": "Lobby-Crawl",
       "username": "platon_ivanitsky"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/barrlir",
+      "rank": 16373,
+      "rating": 1393,
+      "source": "Lobby-Crawl",
+      "username": "barrlir"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/sid_wom",
+      "rank": 16374,
+      "rating": 1366,
+      "source": "Lobby-Crawl",
+      "username": "sid_wom"
     }
   ],
-  "updated_at": "2026-07-13T02:03:40.710489+00:00"
+  "updated_at": "2026-07-13T02:05:01.780932+00:00"
 }
