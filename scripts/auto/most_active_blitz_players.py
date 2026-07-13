@@ -241,15 +241,22 @@ TOP_N = 1000
 # Stellen erhalten (schadet nicht), der eigentliche Schutz ist jetzt aber
 # GLOBAL_MIN_INTERVAL_SECONDS in _request(), siehe Docstring oben.
 REQUEST_DELAY_SECONDS = float(os.environ.get("REQUEST_DELAY_SECONDS", "2.0"))
-GLOBAL_MIN_INTERVAL_SECONDS = float(os.environ.get("GLOBAL_MIN_INTERVAL_SECONDS", "0"))
+# GEAENDERT: Default von "0" auf "1.2" - vorher gab es de facto GAR KEINEN
+# Mindestabstand zwischen Requests, wodurch besonders der parallele
+# Top-1000-Refresh (REFRESH_WORKERS gleichzeitige Threads) Lichess quasi
+# im Sturm angefragt hat -> sofortige 429-Kaskade. _throttle() serialisiert
+# ALLE Requests (auch aus mehreren Threads) global auf diesen Mindestabstand,
+# daher reicht ein einzelner sinnvoller Wert hier, egal wie viele Worker
+# parallel laufen.
+GLOBAL_MIN_INTERVAL_SECONDS = float(os.environ.get("GLOBAL_MIN_INTERVAL_SECONDS", "1.2"))
 
 # Anzahl paralleler Worker-Threads fuer den (potenziell 1000 Spieler
-# umfassenden) Partienzahl-Refresh der Top-1000 - macht diesen Schritt um
-# ein Vielfaches schneller, statt jeden Spieler strikt nacheinander
-# abzufragen. _throttle() bleibt weiterhin der globale Mindestabstand
-# zwischen JEDER einzelnen HTTP-Anfrage (thread-sicher genug fuer diesen
-# Zweck), Rate-Limit-Backoff in _request() greift unveraendert.
-REFRESH_WORKERS = int(os.environ.get("REFRESH_WORKERS", "20"))
+# umfassenden) Partienzahl-Refresh der Top-1000. Da _throttle() ALLE
+# Requests ohnehin global auf GLOBAL_MIN_INTERVAL_SECONDS serialisiert,
+# bringt eine hohe Worker-Zahl kaum echten Speed-Vorteil mehr, erhoeht aber
+# das Risiko, dass Lichess mehrere gleichzeitig offene Connections als
+# Burst wertet. Daher deutlich gesenkt (20 -> 4).
+REFRESH_WORKERS = int(os.environ.get("REFRESH_WORKERS", "4"))
 
 MAX_TEAM_TOURNAMENTS = int(os.environ.get("MAX_TEAM_TOURNAMENTS", "200"))
 
@@ -261,22 +268,50 @@ CHECK_COOLDOWN_SECONDS = CHECK_COOLDOWN_HOURS * 3600
 RECRAWL_COOLDOWN_SECONDS = RECRAWL_COOLDOWN_HOURS * 3600
 
 # --- Snowball-Crawl -------------------------------------------------------
-CRAWL_SEED_COUNT = int(os.environ.get("CRAWL_SEED_COUNT", "8"))
+# GEAENDERT: von 8 auf 24 - mehr Kettenglieder pro Runde bedeutet mehr neue
+# Spieler pro Zeiteinheit. Macht durch die Parallelisierung (CRAWL_WORKERS,
+# siehe unten) auch keine zusaetzlichen Rate-Limit-Probleme, da _throttle()
+# weiterhin JEDEN einzelnen Request global auf GLOBAL_MIN_INTERVAL_SECONDS
+# taktet - nur das eigentliche Warten auf die (teils langsame) NDJSON-
+# Antwort ueberlappt jetzt zwischen mehreren Seeds.
+CRAWL_SEED_COUNT = int(os.environ.get("CRAWL_SEED_COUNT", "24"))
 CRAWL_GAMES_PER_SEED = int(os.environ.get("CRAWL_GAMES_PER_SEED", "10"))
+
+# Anzahl paralleler Worker-Threads, die pro Crawl-Runde die Kettenglieder
+# gleichzeitig abarbeiten (Gegner-Extraktion je Seed). _throttle() serialisiert
+# weiterhin den ZEITPUNKT jeder einzelnen Anfrage global (kein Burst!), aber
+# die eigentliche Wartezeit auf die Antwort (Netzwerk-Latenz, NDJSON-Stream
+# lesen) ueberlappt zwischen den Threads - das macht den Crawl spuerbar
+# schneller, ohne Lichess mit gleichzeitig gestarteten Requests zu bombardieren.
+CRAWL_WORKERS = int(os.environ.get("CRAWL_WORKERS", "4"))
+
 # Wenn beim Start eines Laufs weder Crawl-Queue noch je gecrawlte Spieler
 # vorhanden sind, wird die Queue mit einer Zufallsstichprobe aus dem Pool
 # "angeimpft", damit der Crawl garantiert sofort Seeds hat.
 CRAWL_BOOTSTRAP_SAMPLE_SIZE = int(os.environ.get("CRAWL_BOOTSTRAP_SAMPLE_SIZE", "30"))
 
-# Bei jedem (Wieder-)Einstieg in die Lobby-Crawl-Phase (v.a. nach einem
-# Turnier-Block) werden DIVERSE_SEED_COUNT zufaellige Spieler aus den
-# Turnier-Teilnehmern vorne an die Crawl-Kette gehaengt.
-# Grund: reines Gegner-Ketten-Verzweigen bleibt fast immer im gleichen
-# Rating-Band haengen (Lichess matcht aehnliche Ratings gegeneinander) -
-# ein 1600er fuehrt so praktisch nie zu einem 2300er. Turniere decken
-# dagegen ein breites Rating-Spektrum ab, wodurch der Crawl bei jedem
-# Wechsel quasi zufaellig auf einem neuen Rating-Niveau neu ansetzt.
-DIVERSE_SEED_COUNT = int(os.environ.get("DIVERSE_SEED_COUNT", "4"))
+# Bei JEDER Crawl-Runde (nicht mehr nur beim Wieder-Einstieg in die Phase)
+# werden DIVERSE_SEED_COUNT zufaellige Spieler aus bewusst unterschiedlichen
+# Rating-Baendern (siehe DIVERSE_RATING_BANDS) vorne an die Crawl-Kette
+# gehaengt. Grund: reines Gegner-Ketten-Verzweigen bleibt fast immer im
+# gleichen Rating-Band haengen (Lichess matcht aehnliche Ratings gegeneinander)
+# - ein 1200er fuehrt so praktisch nie zu einem 2600er. Die Injektion sorgt
+# dafuer, dass der Crawl staendig zwischen ganz unterschiedlichen Rating-
+# Niveaus hin- und herspringt (z.B. mal 1200er, dann 2000er, dann 2600er),
+# statt sich in einem einzigen Band festzufahren.
+DIVERSE_SEED_COUNT = int(os.environ.get("DIVERSE_SEED_COUNT", "6"))
+
+# Rating-Baender, aus denen inject_diverse_crawl_seeds() zufaellig zieht
+# (untere Grenze inklusive, obere Grenze exklusiv - None = kein Limit).
+# Bewusst breit gestreut ueber das ganze Spektrum, damit wirklich sehr
+# unterschiedliche Rating-Niveaus gemischt werden statt nur Nachbarbaender.
+DIVERSE_RATING_BANDS = [
+    (0, 1400),      # Klub-/Gelegenheitsspieler
+    (1400, 1800),   # solide Vereinsstaerke
+    (1800, 2200),   # starke Amateure
+    (2200, 2600),   # Experten/Meister
+    (2600, None),   # Titeltraeger/sehr stark
+]
 
 # --- Rating-Alternierung fuer den Crawl (gegen "haengt in einem Rating-Band
 # fest") ---------------------------------------------------------------
@@ -288,11 +323,24 @@ DIVERSE_SEED_COUNT = int(os.environ.get("DIVERSE_SEED_COUNT", "4"))
 # falls die Queue das nicht hergibt) werden aus der Queue NUR Kandidaten
 # mit HOEHEREM Rating als der Referenzwert bevorzugt, danach fuer die
 # naechste Charge nur welche mit NIEDRIGEREM Rating usw.
-ALTERNATE_RATING_BATCH_SIZE = int(os.environ.get("ALTERNATE_RATING_BATCH_SIZE", "50"))
+# GEAENDERT: von 50 auf 15 - die Richtung wechselt jetzt gut 3x so oft,
+# zusammen mit der jetzt jede-Runde-laufenden Diversitaets-Injektion oben
+# ergibt das ein viel unruhigeres, breiter gestreutes Rating-Huepfen statt
+# langer Straehnen im selben Band.
+ALTERNATE_RATING_BATCH_SIZE = int(os.environ.get("ALTERNATE_RATING_BATCH_SIZE", "15"))
 
 # --- Rating-Refresh fuer die Top-1000-Anzeige ----------------------------
 RATING_REFRESH_COOLDOWN_HOURS = float(os.environ.get("RATING_REFRESH_COOLDOWN_HOURS", "18"))
 RATING_REFRESH_COOLDOWN_SECONDS = RATING_REFRESH_COOLDOWN_HOURS * 3600
+
+# --- Kompletter Top-1000-Refresh (Rating/Bann UND Partienzahl) -----------
+# GEAENDERT: laeuft nicht mehr bei JEDEM Lauf, sondern nur noch hoechstens
+# 1x pro TOP1000_REFRESH_COOLDOWN_HOURS (Standard 24h). Das ist der groesste
+# einzelne Rate-Limit-Treiber, weil er pro Lauf bis zu ~1000 Partienzahl-
+# Abfragen ausloest (parallel mit REFRESH_WORKERS Threads). Bei einem
+# Cron-Takt von 6h wuerde er sonst 4x taeglich komplett durchlaufen.
+TOP1000_REFRESH_COOLDOWN_HOURS = float(os.environ.get("TOP1000_REFRESH_COOLDOWN_HOURS", "24"))
+TOP1000_REFRESH_COOLDOWN_SECONDS = TOP1000_REFRESH_COOLDOWN_HOURS * 3600
 
 # Batch-Groesse fuer den Bulk-User-Endpunkt (POST /api/users), liefert pro
 # Aufruf Bot-Flag, Bann-Status (tosViolation/disabled) UND Rating in einem
@@ -340,6 +388,7 @@ SOURCE_MAP_FILE = DATA_DIR / "player_source.json"          # username -> Quelle 
 BOT_STATUS_FILE = DATA_DIR / "player_info.json"              # veraltet, wird noch fuer Migration gelesen
 PLAYER_INFO_FILE = DATA_DIR / "player_info.json"            # username -> {"bot", "banned", "rating", "checked_at"}
 CRAWL_DIRECTION_FILE = DATA_DIR / "crawl_direction.json"     # Zustand der Rating-Alternierung im Crawl
+TOP1000_REFRESH_STATE_FILE = DATA_DIR / "top1000_refresh_state.json"  # Zeitpunkt des letzten Top-1000-Refreshs
 
 STATUS_DIR = REPO_ROOT / "status" / PERF_TYPE
 TOP10_JSON_FILE = STATUS_DIR / "top1000.json"
@@ -350,7 +399,19 @@ TOP_N_LIVE = 1000
 # LIVE GIT PUSH
 # ---------------------------------------------------------------------------
 LIVE_GIT_PUSH = os.environ.get("GITHUB_ACTIONS", "").lower() == "true"
-GIT_PUSH_MIN_INTERVAL_SECONDS = float(os.environ.get("GIT_PUSH_MIN_INTERVAL_SECONDS", "30"))
+# GEAENDERT: Default jetzt 60s (jede Minute) auf Wunsch, damit das Ranking
+# im Repo haeufiger aktualisiert wird. WICHTIG - Trade-off: das bedeutet
+# ueber eine Laufzeit von bis zu MAX_TOTAL_RUNTIME_SECONDS (5h30m) potenziell
+# ~300 Commits PRO Job und Lauf, mal 13 parallele Matrix-Jobs (perf_type)
+# mal mehreren Laeufen/Tag - die Git-Historie waechst dadurch weiterhin
+# spuerbar, nur langsamer als beim vorherigen 30s-Takt. Der fetch-depth: 1
+# im Workflow verhindert zwar, dass DAS beim Checkout ein Problem wird
+# (es wird nur der neueste Stand geholt, nicht die ganze Historie), aber
+# die serverseitige Repo-Groesse auf GitHub waechst trotzdem konstant.
+# Falls die Repo-Groesse zum Problem wird: periodisch (z.B. woechentlich)
+# die Historie squashen/bereinigen (git filter-repo o.ae.) oder dieses
+# Intervall wieder erhoehen.
+GIT_PUSH_MIN_INTERVAL_SECONDS = float(os.environ.get("GIT_PUSH_MIN_INTERVAL_SECONDS", "60"))
 _last_git_push_ts = 0.0
 GIT_PUSH_MAX_RETRIES = 8
 GIT_PUSH_RETRY_BASE_DELAY_SECONDS = 3
@@ -503,6 +564,21 @@ RATE_LIMIT_MAX_TOTAL_WAIT_SECONDS = float(os.environ.get("RATE_LIMIT_MAX_TOTAL_W
 _last_request_ts = 0.0
 _throttle_lock = threading.Lock()
 
+# --- Zusaetzlicher, STRENGERER Throttle nur fuer den Games-Export-Endpunkt
+# (/api/games/user/...) ------------------------------------------------
+# Dieser Endpunkt wird von Lichess deutlich strenger limitiert als leichte
+# Endpunkte (Turnierlisten, Team-Roster etc.), weil er serverseitig ganze
+# Partienverlaeufe streamt. Sowohl der Snowball-Crawl (get_recent_opponents)
+# als auch der Partienzahl-Refresh (count_recent_blitz_games) nutzen GENAU
+# diesen Endpunkt - und beide laufen inzwischen parallel in mehreren
+# Worker-Threads (CRAWL_WORKERS/REFRESH_WORKERS). Der allgemeine
+# GLOBAL_MIN_INTERVAL_SECONDS-Throttle allein reicht dafuer nicht mehr aus.
+# Dieser zweite Throttle wirkt ZUSAETZLICH zum globalen (nicht statt ihm)
+# und betrifft NUR Requests an diesen einen Endpunkt.
+GAMES_EXPORT_MIN_INTERVAL_SECONDS = float(os.environ.get("GAMES_EXPORT_MIN_INTERVAL_SECONDS", "3.0"))
+_last_games_export_ts = 0.0
+_games_export_throttle_lock = threading.Lock()
+
 
 def _throttle() -> None:
     """Globaler Mindestabstand zwischen JEDER Anfrage an Lichess - egal von
@@ -518,6 +594,19 @@ def _throttle() -> None:
         if wait > 0:
             time.sleep(wait)
         _last_request_ts = time.time()
+
+
+def _throttle_games_export() -> None:
+    """Zusaetzlicher, strengerer Mindestabstand NUR fuer den schweren
+    Games-Export-Endpunkt (siehe Kommentar oben). Wird VOR _throttle()
+    aufgerufen, wirkt also on top des allgemeinen Mindestabstands."""
+    global _last_games_export_ts
+    with _games_export_throttle_lock:
+        now = time.time()
+        wait = GAMES_EXPORT_MIN_INTERVAL_SECONDS - (now - _last_games_export_ts)
+        if wait > 0:
+            time.sleep(wait)
+        _last_games_export_ts = time.time()
 
 
 def _request(url: str, headers: dict, timeout: int = 30):
@@ -905,6 +994,7 @@ def get_recent_opponents(username: str, limit: int) -> set:
 
     opponents = set()
     try:
+        _throttle_games_export()
         for game in fetch_ndjson(url):
             players = game.get("players", {})
             for color in ("white", "black"):
@@ -1068,33 +1158,75 @@ def bootstrap_crawl_queue_if_empty(pool: set) -> None:
     save_json_list(CRAWL_QUEUE_FILE, sample)
 
 
-def inject_diverse_crawl_seeds(source_map: dict, count: int = DIVERSE_SEED_COUNT) -> None:
+def inject_diverse_crawl_seeds(source_map: dict, player_info: dict, pool: set,
+                                count: int = DIVERSE_SEED_COUNT) -> None:
     """
     Haengt bis zu `count` zufaellige Spieler VORNE (nicht hinten!) an die
-    Crawl-Queue, damit sie als naechstes dran sind. Die Kandidaten kommen
-    bewusst aus der Turnier-Quelle statt aus dem Lobby-Pool selbst, weil
-    Turnier-Teilnehmer ein viel breiteres Rating-Spektrum abdecken als
-    Partien-Gegner-Ketten (die durch Lichess' Matchmaking fast immer im
-    gleichen Rating-Band bleiben).
+    Crawl-Queue, damit sie als naechstes dran sind - jeweils EINER pro
+    Rating-Band aus DIVERSE_RATING_BANDS (soweit vorhanden), damit
+    tatsaechlich weit auseinanderliegende Rating-Niveaus gemischt werden
+    (z.B. mal 1200er, dann 2000er, dann 2600er) statt Nachbarbaender.
+
+    GEAENDERT: zieht jetzt aus dem GESAMTEN bekannten Pool (turnier UND
+    lobby), nicht mehr nur aus Turnier-Teilnehmern - vorher gab es bei
+    reinen Lobby-Poolstaenden (z.B. nachdem alle Turniere abgearbeitet
+    sind) irgendwann keine frischen Turnier-Kandidaten mehr, wodurch die
+    Diversitaets-Injektion leerlief. Rating kommt aus player_info (wird
+    beim Bot/Bann-Filter ohnehin mitbefuellt); Spieler ganz ohne bekanntes
+    Rating werden als "Rest-Topf" benutzt, falls ein Band leer ist.
     """
     known_crawled = load_json_dict(KNOWN_CRAWLED_FILE)
     queue = load_json_list(CRAWL_QUEUE_FILE)
     queue_set = set(queue)
 
-    def candidates(label: str) -> list:
-        return [u for u, src in source_map.items()
-                if src == label and u not in known_crawled and u not in queue_set]
+    def eligible(name: str) -> bool:
+        return name not in known_crawled and name not in queue_set
 
-    turnier_candidates = candidates("turnier")
-    random.shuffle(turnier_candidates)
+    candidates = [u for u in pool if eligible(u)]
+    if not candidates:
+        return
 
-    picks = turnier_candidates[:count]
+    by_band = {i: [] for i in range(len(DIVERSE_RATING_BANDS))}
+    unrated = []
+    for u in candidates:
+        rating = player_info.get(u, {}).get("rating")
+        if rating is None:
+            unrated.append(u)
+            continue
+        for i, (lo, hi) in enumerate(DIVERSE_RATING_BANDS):
+            if rating >= lo and (hi is None or rating < hi):
+                by_band[i].append(u)
+                break
+
+    for bucket in by_band.values():
+        random.shuffle(bucket)
+    random.shuffle(unrated)
+
+    # Ein Kandidat pro Band im Rundlauf, damit die Injektion tatsaechlich
+    # ueber verschiedene Rating-Niveaus streut statt zufaellig mehrfach
+    # aus demselben (ggf. groessten) Band zu ziehen.
+    picks = []
+    band_order = list(range(len(DIVERSE_RATING_BANDS)))
+    random.shuffle(band_order)
+    while len(picks) < count and (any(by_band[i] for i in band_order) or unrated):
+        progressed = False
+        for i in band_order:
+            if len(picks) >= count:
+                break
+            if by_band[i]:
+                picks.append(by_band[i].pop())
+                progressed = True
+        if len(picks) < count and unrated:
+            picks.append(unrated.pop())
+            progressed = True
+        if not progressed:
+            break
 
     if not picks:
         return
 
-    print(f"  [DIVERSITAET] {len(picks)} zufaellige Spieler aus Turnieren "
-          f"werden vorne an die Kette gehaengt: {picks}")
+    print(f"  [DIVERSITAET] {len(picks)} Spieler aus unterschiedlichen "
+          f"Rating-Baendern werden vorne an die Kette gehaengt: {picks}")
     new_queue = picks + [q for q in queue if q not in picks]
     save_json_list(CRAWL_QUEUE_FILE, new_queue)
 
@@ -1109,10 +1241,21 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
     JEDEN neuen, noch nie gesehenen Gegner sofort hinten an die Queue an -
     das ist der eigentliche Verzweigungsschritt der endlosen Kette.
 
+    GEAENDERT (Speed + Rating-Streuung):
+      - inject_diverse_crawl_seeds() laeuft jetzt JEDE Runde (nicht mehr
+        nur beim Wieder-Einstieg in die Phase), damit staendig Spieler aus
+        weit auseinanderliegenden Rating-Baendern eingemischt werden.
+      - Die Gegner-Extraktion der Seeds laeuft parallel in CRAWL_WORKERS
+        Threads statt strikt nacheinander - _throttle() verhindert weiterhin
+        gleichzeitig GESTARTETE Requests, aber die (oft langsame) Wartezeit
+        auf NDJSON-Antworten ueberlappt jetzt zwischen den Seeds.
+
     Gibt (neue_spieler, anzahl_seeds_verarbeitet) zurueck -
     seeds_processed==0 bedeutet "keine Seeds mehr verfuegbar", das Signal
     fuer den Aufrufer, die Crawl-Phase als abgeschlossen zu markieren.
     """
+    inject_diverse_crawl_seeds(source_map, player_info, pool)
+
     queue = load_json_list(CRAWL_QUEUE_FILE)
     known_crawled = load_json_dict(KNOWN_CRAWLED_FILE)
     direction_state = load_crawl_direction_state()
@@ -1124,12 +1267,34 @@ def run_snowball_crawl_round(pool: set, updated_this_run: set, counts: dict, las
     never_crawled_seeds = sum(1 for s in seeds if s not in known_crawled)
     recrawl_seeds = len(seeds) - never_crawled_seeds
     print(f"  {len(seeds)} Kettenglied(er) ({never_crawled_seeds} neu, {recrawl_seeds} Recrawl), "
-          f"je die letzten {CRAWL_GAMES_PER_SEED} Partien -> Gegner extrahieren...")
+          f"je die letzten {CRAWL_GAMES_PER_SEED} Partien -> Gegner extrahieren "
+          f"(parallel, {CRAWL_WORKERS} Worker)...")
+
+    # Netzwerk-Teil (get_recent_opponents) parallelisiert - liefert nur die
+    # rohen Gegner-Namen je Seed zurueck. Alles, was gemeinsamen Zustand
+    # (pool/queue/known_crawled/source_map) veraendert, passiert danach
+    # bewusst sequenziell in fester Seed-Reihenfolge, damit es threadsicher
+    # bleibt und die Ausgabe/Bookkeeping deterministisch ist.
+    raw_opponents_by_seed = {}
+    with concurrent.futures.ThreadPoolExecutor(max_workers=CRAWL_WORKERS) as executor:
+        future_to_seed = {
+            executor.submit(get_recent_opponents, seed, CRAWL_GAMES_PER_SEED): seed
+            for seed in seeds
+        }
+        for future in concurrent.futures.as_completed(future_to_seed):
+            seed = future_to_seed[future]
+            try:
+                raw_opponents_by_seed[seed] = future.result()
+            except RateLimitError:
+                raise
+            except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
+                print(f"     [WARNUNG] Partien-Gegner von '{seed}' nicht ladbar: {exc}")
+                raw_opponents_by_seed[seed] = set()
 
     all_new_opponents = set()
     for seed in seeds:
-        opponents = get_recent_opponents(seed, CRAWL_GAMES_PER_SEED)
-        opponents = check_and_filter_players(opponents, player_info)
+        raw_opponents = raw_opponents_by_seed.get(seed, set())
+        opponents = check_and_filter_players(raw_opponents, player_info)
         new_opponents = opponents - pool
 
         if new_opponents:
@@ -1228,6 +1393,7 @@ def count_recent_blitz_games(username: str, since_ms: int) -> int:
     })
     url = f"{BASE_URL}/api/games/user/{username}?{params}"
     count = 0
+    _throttle_games_export()
     for _ in fetch_ndjson(url):
         count += 1
     return count
@@ -1443,75 +1609,15 @@ def main() -> None:
     pool = set(known_players)
     updated_this_run = set()
 
-    # --- Rating/Bann-Refresh fuer die aktuelle Top-1000 -------------------
-    # Wird JETZT bei JEDEM Lauf unbedingt ausgefuehrt (kein Cooldown mehr) -
-    # kostet bei max. TOP_N_LIVE (1000) Spielern nur eine Handvoll Bulk-
-    # Requests (max. ~4 bei Batch-Groesse 300), stellt aber sicher, dass
-    # Bann-Status UND Rating fuer die Top-1000 garantiert bei jedem
-    # Lauf-Start frisch geprueft werden - auch wenn ein Spieler z.B. durch
-    # eine alte/migrierte checked_at-Angabe faelschlich als "frisch
-    # geprueft" galt.
-    ranked_now = sorted(counts.items(), key=lambda kv: kv[1], reverse=True)[:TOP_N_LIVE]
-    top1000_names = [name for name, _ in ranked_now]
-    if top1000_names:
-        print(f"  [RATING/BANN-REFRESH] Aktualisiere Rating/Status fuer "
-              f"{len(top1000_names)} Spieler der aktuellen Top-{TOP_N_LIVE}...")
-        update_player_info_cache(top1000_names, player_info)
-
-    # --- Gebannte Spieler dauerhaft entfernen ------------------------------
-    # Gebannte/geschlossene Accounts sollen weder in der Rangliste stehen
-    # noch weiterhin (erneut) eingefuegt werden.
-    purge_banned_players(pool, counts, last_checked, source_map, player_info)
-    save_json_dict(PLAYER_INFO_FILE, player_info)
-
-    # --- Partienzahl-Refresh fuer die aktuelle Top-1000 --------------------
-    # Das Zeitfenster (letzte SINCE_DAYS Tage) verschiebt sich mit jedem Tag:
-    # ein alter Tag faellt raus, ein neuer kommt rein. Damit die angezeigte
-    # Partienzahl das IMMER korrekt widerspiegelt (und nicht nur, wenn der
-    # Cooldown zufaellig abgelaufen ist), wird sie hier - genau wie Rating/
-    # Bann oben - bei JEDEM Lauf fuer die gesamte aktuelle Top-1000 neu
-    # abgefragt, unabhaengig vom sonstigen CHECK_COOLDOWN_HOURS-Cooldown.
-    #
-    # Laeuft parallel in REFRESH_WORKERS Threads statt strikt nacheinander -
-    # das macht diesen sonst sehr langsamen Schritt um ein Vielfaches
-    # schneller (Wartezeit wird ueberlappt statt aufsummiert).
-    to_refresh = [name for name in top1000_names if name in pool]
-    if to_refresh:
-        print(f"  [PARTIEN-REFRESH] Aktualisiere Partienzahl (letzte "
-              f"{SINCE_DAYS} Tage) fuer {len(to_refresh)} Spieler der "
-              f"aktuellen Top-{TOP_N_LIVE} (parallel, {REFRESH_WORKERS} Worker)...")
-        refreshed = 0
-        failed = 0
-        rate_limited = False
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=REFRESH_WORKERS) as executor:
-            future_to_name = {
-                executor.submit(count_recent_blitz_games, name, since_ms): name
-                for name in to_refresh
-            }
-            for future in concurrent.futures.as_completed(future_to_name):
-                name = future_to_name[future]
-                try:
-                    counts[name] = future.result()
-                    last_checked[name] = now_iso()
-                    refreshed += 1
-                except RateLimitError:
-                    rate_limited = True
-                    for f in future_to_name:
-                        f.cancel()
-                    break
-                except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
-                    print(f"    [WARNUNG] '{name}' konnte nicht neu gezaehlt werden: {exc}")
-                    failed += 1
-
-        print(f"    {refreshed} aktualisiert, {failed} fehlgeschlagen.")
-        updated_this_run.update(to_refresh)
-        save_leaderboard(leaderboard, source_map, player_info)
-
-        if rate_limited:
-            raise RateLimitError("Rate Limit waehrend Top-1000-Partienzahl-Refresh")
-
-    write_top10_snapshot(counts, source_map, player_info)
+    # HINWEIS: Der frueher hier laufende separate Top-1000-Rating/Bann- und
+    # Partienzahl-Massen-Refresh wurde komplett ENTFERNT, da er trotz
+    # Cooldown/Throttling regelmaessig Rate-Limits ausgeloest hat (bis zu
+    # 1000 zusaetzliche Requests an den ohnehin strikt limitierten Games-
+    # Export-Endpunkt, obendrauf auf Crawl und Turniere). Das Ranking selbst
+    # ist davon nicht betroffen: Rating/Bann-Status und Partienzahl werden
+    # fuer jeden Spieler ohnehin schon laufend beim erstmaligen Fund (Crawl/
+    # Turnier) sowie ueber den normalen CHECK_COOLDOWN_HOURS-Cooldown in
+    # update_players_live() aktuell gehalten.
 
     save_json_set(KNOWN_PLAYERS_FILE, pool)
     save_json_set(KNOWN_TOURNAMENTS_FILE, known_tournaments)
@@ -1561,7 +1667,6 @@ def main() -> None:
             # rate-limited) das restliche Budget aufbrauchen koennten.
             if not crawl_done:
                 print(f"  -- Runde {round_num}: Lobby-Crawl --")
-                inject_diverse_crawl_seeds(source_map)
                 deadline = time.time() + PHASE_SLICE_SECONDS
                 new_from_crawl, seeds_processed = process_crawl_slice(
                     pool, updated_this_run, counts, last_checked, source_map,
