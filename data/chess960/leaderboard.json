@@ -1779,7 +1779,7 @@
     "akiyoshi": 0,
     "akizy18": 0,
     "akjaj": 0,
-    "akkartik": 52,
+    "akkartik": 53,
     "akkas_aakash": 0,
     "akkayasuleyman": 0,
     "akkudu": 13,
@@ -32079,7 +32079,7 @@
     "akiyoshi": "2026-07-13T03:58:54.297205+00:00",
     "akizy18": "2026-07-13T20:02:01.494523+00:00",
     "akjaj": "2026-07-12T13:47:33.117898+00:00",
-    "akkartik": "2026-07-14T02:34:57.508102+00:00",
+    "akkartik": "2026-07-14T23:46:11.938390+00:00",
     "akkas_aakash": "2026-07-10T02:45:44.334815+00:00",
     "akkayasuleyman": "2026-07-13T12:23:12.800546+00:00",
     "akkudu": "2026-07-11T00:43:56.381687+00:00",
@@ -64986,8 +64986,16 @@
     },
     {
       "games": 53,
-      "profile": "https://lichess.org/@/arcadenoe_369",
+      "profile": "https://lichess.org/@/akkartik",
       "rank": 683,
+      "rating": 1746,
+      "source": "Lobby-Crawl",
+      "username": "akkartik"
+    },
+    {
+      "games": 53,
+      "profile": "https://lichess.org/@/arcadenoe_369",
+      "rank": 684,
       "rating": 1527,
       "source": "Lobby-Crawl",
       "username": "arcadenoe_369"
@@ -64995,7 +65003,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/cjkywt",
-      "rank": 684,
+      "rank": 685,
       "rating": 1864,
       "source": "Lobby-Crawl",
       "username": "cjkywt"
@@ -65003,7 +65011,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/ckm367",
-      "rank": 685,
+      "rank": 686,
       "rating": 1582,
       "source": "Lobby-Crawl",
       "username": "ckm367"
@@ -65011,7 +65019,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/colatrinker729",
-      "rank": 686,
+      "rank": 687,
       "rating": 1527,
       "source": "Lobby-Crawl",
       "username": "colatrinker729"
@@ -65019,7 +65027,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/elror",
-      "rank": 687,
+      "rank": 688,
       "rating": 1846,
       "source": "Lobby-Crawl",
       "username": "elror"
@@ -65027,7 +65035,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/ezengwori",
-      "rank": 688,
+      "rank": 689,
       "rating": 1731,
       "source": "?",
       "username": "ezengwori"
@@ -65035,7 +65043,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/fyz1ks",
-      "rank": 689,
+      "rank": 690,
       "rating": 1549,
       "source": "Lobby-Crawl",
       "username": "fyz1ks"
@@ -65043,7 +65051,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/kovalenko_sergey",
-      "rank": 690,
+      "rank": 691,
       "rating": 2110,
       "source": "Lobby-Crawl",
       "username": "kovalenko_sergey"
@@ -65051,7 +65059,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/kruche",
-      "rank": 691,
+      "rank": 692,
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "kruche"
@@ -65059,7 +65067,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/moblak",
-      "rank": 692,
+      "rank": 693,
       "rating": 1541,
       "source": "Lobby-Crawl",
       "username": "moblak"
@@ -65067,7 +65075,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/mtcellar",
-      "rank": 693,
+      "rank": 694,
       "rating": 1715,
       "source": "Lobby-Crawl",
       "username": "mtcellar"
@@ -65075,7 +65083,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/vs-nico",
-      "rank": 694,
+      "rank": 695,
       "rating": 1600,
       "source": "Lobby-Crawl",
       "username": "vs-nico"
@@ -65083,7 +65091,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/xealgar",
-      "rank": 695,
+      "rank": 696,
       "rating": 1525,
       "source": "Lobby-Crawl",
       "username": "xealgar"
@@ -65091,7 +65099,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/zino86",
-      "rank": 696,
+      "rank": 697,
       "rating": 1615,
       "source": "Lobby-Crawl",
       "username": "zino86"
@@ -65099,18 +65107,10 @@
     {
       "games": 52,
       "profile": "https://lichess.org/@/abakanez",
-      "rank": 697,
+      "rank": 698,
       "rating": 1828,
       "source": "Lobby-Crawl",
       "username": "abakanez"
-    },
-    {
-      "games": 52,
-      "profile": "https://lichess.org/@/akkartik",
-      "rank": 698,
-      "rating": 1746,
-      "source": "Lobby-Crawl",
-      "username": "akkartik"
     },
     {
       "games": 52,
@@ -302153,5 +302153,5 @@
       "username": "thato2006"
     }
   ],
-  "updated_at": "2026-07-14T23:44:45.974315+00:00"
+  "updated_at": "2026-07-14T23:46:11.944106+00:00"
 }
