@@ -5403,6 +5403,7 @@
     "blitzking_8787": 0,
     "blitzkrieg005": 0,
     "blitzou44": 0,
+    "blitzspectral": 0,
     "blo0od": 0,
     "bloby_le_blobien": 0,
     "blockhenrychess": 0,
@@ -17248,7 +17249,7 @@
     "kranskaguru": 0,
     "krapov70": 0,
     "krasberry": 21,
-    "krashnah": 203,
+    "krashnah": 213,
     "krasi4": 0,
     "krasi40": 0,
     "krasinsky": 0,
@@ -32858,6 +32859,7 @@
     "vladimir_2018_g": 0,
     "vladimir_soln": 0,
     "vladimir_surnin": 0,
+    "vladimir_totoev": 0,
     "vladimirbel1": 0,
     "vladimirboroshnev4": 0,
     "vladimirbox": 0,
@@ -38787,7 +38789,7 @@
     "atomicrazvan": "2026-07-12T18:35:00.206521+00:00",
     "atomicwarcrimes": "2026-07-11T16:28:06.687389+00:00",
     "atomiumjae": "2026-07-14T19:01:59.243136+00:00",
-    "atomschachmeister": "2026-07-13T15:36:59.971738+00:00",
+    "atomschachmeister": "2026-07-14T22:14:57.055674+00:00",
     "atoz123": "2026-07-14T16:00:34.123089+00:00",
     "atp01": "2026-07-13T07:12:50.342543+00:00",
     "atrashpanda": "2026-07-11T00:21:43.391523+00:00",
@@ -40035,6 +40037,7 @@
     "blitzking_8787": "2026-07-10T12:00:32.925294+00:00",
     "blitzkrieg005": "2026-07-11T04:38:30.244926+00:00",
     "blitzou44": "2026-07-14T03:52:59.229602+00:00",
+    "blitzspectral": "2026-07-14T22:15:00.049844+00:00",
     "blo0od": "2026-07-13T07:21:56.083841+00:00",
     "bloby_le_blobien": "2026-07-14T09:52:42.921864+00:00",
     "blockhenrychess": "2026-07-12T20:20:53.530953+00:00",
@@ -51793,7 +51796,7 @@
     "krandhawa": "2026-07-14T13:01:05.265461+00:00",
     "krapov70": "2026-07-14T15:30:51.112416+00:00",
     "krasberry": "2026-07-13T23:00:00.887622+00:00",
-    "krashnah": "2026-07-13T21:23:59.563758+00:00",
+    "krashnah": "2026-07-14T22:15:45.484433+00:00",
     "krasi4": "2026-07-12T09:57:51.117901+00:00",
     "krasi40": "2026-07-13T18:18:28.983221+00:00",
     "krasinsky": "2026-07-14T04:14:08.587807+00:00",
@@ -66617,6 +66620,7 @@
     "vladimir_2018_g": "2026-07-11T16:34:11.278174+00:00",
     "vladimir_soln": "2026-07-11T14:53:57.755621+00:00",
     "vladimir_surnin": "2026-07-13T10:55:44.553522+00:00",
+    "vladimir_totoev": "2026-07-14T22:14:51.067209+00:00",
     "vladimirbel1": "2026-07-12T17:06:08.065874+00:00",
     "vladimirboroshnev4": "2026-07-13T21:14:34.124001+00:00",
     "vladimirbox": "2026-07-13T01:59:05.243541+00:00",
@@ -67714,7 +67718,7 @@
     "yeoldeth0t": "2026-07-14T15:32:37.525538+00:00",
     "yerkin81": "2026-07-14T10:58:31.025532+00:00",
     "yerkins": "2026-07-13T11:19:20.222554+00:00",
-    "yermantadeo": "2026-07-13T21:14:59.367227+00:00",
+    "yermantadeo": "2026-07-14T22:14:54.484671+00:00",
     "yermek_tentek": "2026-07-13T03:08:46.529500+00:00",
     "yermolovich2012": "2026-07-13T06:40:24.759486+00:00",
     "yerrbol": "2026-07-12T05:47:04.315903+00:00",
@@ -68536,9 +68540,17 @@
       "username": "chesswithphonk011"
     },
     {
+      "games": 213,
+      "profile": "https://lichess.org/@/krashnah",
+      "rank": 19,
+      "rating": 2056,
+      "source": "Lobby-Crawl",
+      "username": "krashnah"
+    },
+    {
       "games": 212,
       "profile": "https://lichess.org/@/bagera9",
-      "rank": 19,
+      "rank": 20,
       "rating": 2586,
       "source": "?",
       "username": "bagera9"
@@ -68546,18 +68558,10 @@
     {
       "games": 211,
       "profile": "https://lichess.org/@/diablo4747",
-      "rank": 20,
+      "rank": 21,
       "rating": 2508,
       "source": "?",
       "username": "diablo4747"
-    },
-    {
-      "games": 203,
-      "profile": "https://lichess.org/@/krashnah",
-      "rank": 21,
-      "rating": 2056,
-      "source": "Lobby-Crawl",
-      "username": "krashnah"
     },
     {
       "games": 193,
@@ -345430,7 +345434,23 @@
       "rating": 1799,
       "source": "Lobby-Crawl",
       "username": "mysterious_past"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vladimir_totoev",
+      "rank": 34631,
+      "rating": 1506,
+      "source": "Lobby-Crawl",
+      "username": "vladimir_totoev"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/blitzspectral",
+      "rank": 34632,
+      "rating": 1612,
+      "source": "?",
+      "username": "blitzspectral"
     }
   ],
-  "updated_at": "2026-07-14T22:14:21.140458+00:00"
+  "updated_at": "2026-07-14T22:15:45.490133+00:00"
 }
