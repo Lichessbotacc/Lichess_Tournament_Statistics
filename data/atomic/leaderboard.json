@@ -5577,7 +5577,7 @@
     "captain2012": 0,
     "captain_sajal": 0,
     "captain_scotland": 0,
-    "captainaks": 683,
+    "captainaks": 595,
     "captainbucko": 0,
     "captaincooldavy": 0,
     "captaincore": 0,
@@ -33993,7 +33993,7 @@
     "captain2012": "2026-07-14T06:11:17.034597+00:00",
     "captain_sajal": "2026-07-10T01:37:39.692269+00:00",
     "captain_scotland": "2026-07-11T16:10:41.694781+00:00",
-    "captainaks": "2026-07-14T02:02:56.188251+00:00",
+    "captainaks": "2026-07-14T23:58:50.196959+00:00",
     "captainbucko": "2026-07-14T17:13:20.488657+00:00",
     "captaincooldavy": "2026-07-13T16:32:07.075943+00:00",
     "captaincore": "2026-07-13T03:03:57.118645+00:00",
@@ -56862,17 +56862,9 @@
       "username": "mss365"
     },
     {
-      "games": 683,
-      "profile": "https://lichess.org/@/captainaks",
-      "rank": 6,
-      "rating": 1999,
-      "source": "Lobby-Crawl",
-      "username": "captainaks"
-    },
-    {
       "games": 669,
       "profile": "https://lichess.org/@/nulla_totale",
-      "rank": 7,
+      "rank": 6,
       "rating": 1733,
       "source": "Lobby-Crawl",
       "username": "nulla_totale"
@@ -56880,7 +56872,7 @@
     {
       "games": 653,
       "profile": "https://lichess.org/@/idk1365",
-      "rank": 8,
+      "rank": 7,
       "rating": 2185,
       "source": "?",
       "username": "idk1365"
@@ -56888,7 +56880,7 @@
     {
       "games": 631,
       "profile": "https://lichess.org/@/cyberpunks",
-      "rank": 9,
+      "rank": 8,
       "rating": 1988,
       "source": "Lobby-Crawl",
       "username": "cyberpunks"
@@ -56896,7 +56888,7 @@
     {
       "games": 627,
       "profile": "https://lichess.org/@/renaudmerle",
-      "rank": 10,
+      "rank": 9,
       "rating": 2090,
       "source": "?",
       "username": "renaudmerle"
@@ -56904,7 +56896,7 @@
     {
       "games": 626,
       "profile": "https://lichess.org/@/unique_openings",
-      "rank": 11,
+      "rank": 10,
       "rating": 2188,
       "source": "?",
       "username": "unique_openings"
@@ -56912,7 +56904,7 @@
     {
       "games": 621,
       "profile": "https://lichess.org/@/saucecooker7598",
-      "rank": 12,
+      "rank": 11,
       "rating": 2121,
       "source": "?",
       "username": "saucecooker7598"
@@ -56920,7 +56912,7 @@
     {
       "games": 608,
       "profile": "https://lichess.org/@/neoarcturus",
-      "rank": 13,
+      "rank": 12,
       "rating": 2442,
       "source": "Lobby-Crawl",
       "username": "neoarcturus"
@@ -56928,7 +56920,7 @@
     {
       "games": 603,
       "profile": "https://lichess.org/@/henk_dekleerkast",
-      "rank": 14,
+      "rank": 13,
       "rating": 2316,
       "source": "?",
       "username": "henk_dekleerkast"
@@ -56936,10 +56928,18 @@
     {
       "games": 599,
       "profile": "https://lichess.org/@/themostunanonymous",
-      "rank": 15,
+      "rank": 14,
       "rating": 1497,
       "source": "Lobby-Crawl",
       "username": "themostunanonymous"
+    },
+    {
+      "games": 595,
+      "profile": "https://lichess.org/@/captainaks",
+      "rank": 15,
+      "rating": 1999,
+      "source": "Lobby-Crawl",
+      "username": "captainaks"
     },
     {
       "games": 594,
@@ -284142,5 +284142,5 @@
       "username": "shriya_raj"
     }
   ],
-  "updated_at": "2026-07-14T23:50:58.024068+00:00"
+  "updated_at": "2026-07-14T23:58:50.202989+00:00"
 }
