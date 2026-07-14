@@ -7435,6 +7435,7 @@
     "danielfarid1": 2,
     "danielgarciag": 0,
     "danielgaripov": 0,
+    "danielico": 0,
     "danieljosevalca": 0,
     "danielkingofchess": 0,
     "danielkplayschess": 2,
@@ -9047,6 +9048,7 @@
     "eddie-8992": 0,
     "eddie-d-jones": 0,
     "eddieblunt": 1,
+    "eddieregnbue": 0,
     "eddii": 0,
     "eddyjos25": 0,
     "edege77": 0,
@@ -10930,6 +10932,7 @@
     "geiller64": 0,
     "geistesdurst": 0,
     "gelbalzam": 7,
+    "gelbertiger": 0,
     "geliy": 1,
     "gelo58": 0,
     "gelyatosno": 0,
@@ -13716,6 +13719,7 @@
     "jarda345": 0,
     "jardsonfb": 1,
     "jaredgabriel24": 0,
+    "jaredrez": 0,
     "jaredsantamaria": 0,
     "jaredspongecola": 0,
     "jarik2015": 0,
@@ -22129,6 +22133,7 @@
     "panth_titans": 0,
     "panthecowboy": 0,
     "pantheon17": 0,
+    "pantheraonca9": 0,
     "paoloffo": 0,
     "paoloputrino": 0,
     "paolucky": 0,
@@ -39393,6 +39398,7 @@
     "danielfarid1": "2026-07-13T14:05:28.348276+00:00",
     "danielgarciag": "2026-07-10T16:34:14.089195+00:00",
     "danielgaripov": "2026-07-11T23:48:50.361162+00:00",
+    "danielico": "2026-07-14T16:02:10.349367+00:00",
     "danieljosevalca": "2026-07-13T08:39:36.592879+00:00",
     "danielkingofchess": "2026-07-13T06:41:25.034284+00:00",
     "danielkplayschess": "2026-07-13T01:37:33.581702+00:00",
@@ -40999,6 +41005,7 @@
     "eddie-8992": "2026-07-12T17:29:14.933494+00:00",
     "eddie-d-jones": "2026-07-14T13:33:49.890666+00:00",
     "eddieblunt": "2026-07-10T23:41:24.190985+00:00",
+    "eddieregnbue": "2026-07-14T16:03:37.828634+00:00",
     "eddii": "2026-07-14T05:23:59.871367+00:00",
     "eddyjos25": "2026-07-11T12:57:07.250674+00:00",
     "edege77": "2026-07-11T22:33:21.053394+00:00",
@@ -42875,6 +42882,7 @@
     "geiller64": "2026-07-12T16:39:30.102523+00:00",
     "geistesdurst": "2026-07-14T11:33:57.941956+00:00",
     "gelbalzam": "2026-07-13T23:43:18.569210+00:00",
+    "gelbertiger": "2026-07-14T16:02:13.367448+00:00",
     "geliy": "2026-07-13T09:31:14.336025+00:00",
     "gelo58": "2026-07-12T07:06:19.690665+00:00",
     "gelyatosno": "2026-07-12T13:39:40.358473+00:00",
@@ -44601,7 +44609,7 @@
     "i-ball": "2026-07-13T05:37:09.370610+00:00",
     "i-checkers-i": "2026-07-13T23:08:02.063700+00:00",
     "i-love-antichess": "2026-07-12T18:13:19.663569+00:00",
-    "i-s-a-2010": "2026-07-10T12:00:42.642966+00:00",
+    "i-s-a-2010": "2026-07-14T16:02:16.446258+00:00",
     "i0615029944": "2026-07-11T12:11:37.819684+00:00",
     "i09091999": "2026-07-13T08:00:08.422806+00:00",
     "i20shadowknight26": "2026-07-13T04:44:24.081554+00:00",
@@ -45559,6 +45567,7 @@
     "jarda345": "2026-07-14T07:30:31.281889+00:00",
     "jardsonfb": "2026-07-14T03:12:19.892319+00:00",
     "jaredgabriel24": "2026-07-12T07:43:42.655824+00:00",
+    "jaredrez": "2026-07-14T16:02:19.345903+00:00",
     "jaredsantamaria": "2026-07-14T08:16:42.094520+00:00",
     "jaredspongecola": "2026-07-11T02:42:49.965288+00:00",
     "jarik2015": "2026-07-11T10:14:46.311062+00:00",
@@ -53311,6 +53320,7 @@
     "panth_titans": "2026-07-13T03:03:53.070725+00:00",
     "panthecowboy": "2026-07-10T11:07:16.510984+00:00",
     "pantheon17": "2026-07-12T13:26:15.000895+00:00",
+    "pantheraonca9": "2026-07-14T16:02:22.363271+00:00",
     "paoloffo": "2026-07-13T14:05:37.316769+00:00",
     "paoloputrino": "2026-07-13T12:01:17.456378+00:00",
     "paolucky": "2026-07-10T21:30:17.026888+00:00",
@@ -284791,7 +284801,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/subtlejobe",
       "rank": 27721,
-      "rating": null,
+      "rating": 1360,
       "source": "Lobby-Crawl",
       "username": "subtlejobe"
     },
@@ -318818,7 +318828,47 @@
       "rating": 1008,
       "source": "Lobby-Crawl",
       "username": "aapari"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/danielico",
+      "rank": 31975,
+      "rating": 1253,
+      "source": "Lobby-Crawl",
+      "username": "danielico"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/gelbertiger",
+      "rank": 31976,
+      "rating": 1557,
+      "source": "Lobby-Crawl",
+      "username": "gelbertiger"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/jaredrez",
+      "rank": 31977,
+      "rating": 1615,
+      "source": "Lobby-Crawl",
+      "username": "jaredrez"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/pantheraonca9",
+      "rank": 31978,
+      "rating": 1667,
+      "source": "Lobby-Crawl",
+      "username": "pantheraonca9"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/eddieregnbue",
+      "rank": 31979,
+      "rating": 1285,
+      "source": "Lobby-Crawl",
+      "username": "eddieregnbue"
     }
   ],
-  "updated_at": "2026-07-14T16:02:05.714002+00:00"
+  "updated_at": "2026-07-14T16:03:37.834909+00:00"
 }
