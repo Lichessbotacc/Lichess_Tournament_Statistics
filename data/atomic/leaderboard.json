@@ -5390,6 +5390,7 @@
     "chessbrainlow": 0,
     "chessbullet123": 0,
     "chessbunnybot": 0,
+    "chessbyadhiraaj": 0,
     "chesscakekg": 0,
     "chesscellospv15": 0,
     "chesschamp417": 0,
@@ -13890,7 +13891,7 @@
     "lose2evryone": 0,
     "loseratheart": 62,
     "loserfncs": 0,
-    "losergl": 434,
+    "losergl": 441,
     "loshivan": 2,
     "lost-reality": 0,
     "lost_aragon": 0,
@@ -29896,6 +29897,7 @@
     "chessbrainlow": "2026-07-12T04:27:57.833397+00:00",
     "chessbullet123": "2026-07-10T01:40:00.932545+00:00",
     "chessbunnybot": "2026-07-10T01:40:02.256431+00:00",
+    "chessbyadhiraaj": "2026-07-14T00:04:06.143600+00:00",
     "chesscakekg": "2026-07-11T23:11:07.685895+00:00",
     "chesscellospv15": "2026-07-13T15:41:13.136284+00:00",
     "chesschamp417": "2026-07-10T21:05:55.848100+00:00",
@@ -38390,7 +38392,7 @@
     "lose2evryone": "2026-07-13T22:37:37.462210+00:00",
     "loseratheart": "2026-07-13T01:52:07.688206+00:00",
     "loserfncs": "2026-07-12T17:03:24.109392+00:00",
-    "losergl": "2026-07-13T04:52:47.618677+00:00",
+    "losergl": "2026-07-14T00:05:36.312336+00:00",
     "loshivan": "2026-07-13T05:21:03.579274+00:00",
     "lost-reality": "2026-07-11T16:04:01.661351+00:00",
     "lost_aragon": "2026-07-12T13:23:37.024298+00:00",
@@ -49147,9 +49149,17 @@
       "username": "matthevg"
     },
     {
+      "games": 441,
+      "profile": "https://lichess.org/@/losergl",
+      "rank": 19,
+      "rating": 1716,
+      "source": "Lobby-Crawl",
+      "username": "losergl"
+    },
+    {
       "games": 440,
       "profile": "https://lichess.org/@/casagliana",
-      "rank": 19,
+      "rank": 20,
       "rating": 1393,
       "source": "Lobby-Crawl",
       "username": "casagliana"
@@ -49157,7 +49167,7 @@
     {
       "games": 438,
       "profile": "https://lichess.org/@/paul8900",
-      "rank": 20,
+      "rank": 21,
       "rating": 2028,
       "source": "Lobby-Crawl",
       "username": "paul8900"
@@ -49165,18 +49175,10 @@
     {
       "games": 438,
       "profile": "https://lichess.org/@/unique_openings",
-      "rank": 21,
+      "rank": 22,
       "rating": 2188,
       "source": "?",
       "username": "unique_openings"
-    },
-    {
-      "games": 434,
-      "profile": "https://lichess.org/@/losergl",
-      "rank": 22,
-      "rating": 1716,
-      "source": "Lobby-Crawl",
-      "username": "losergl"
     },
     {
       "games": 427,
@@ -70358,7 +70360,7 @@
       "games": 10,
       "profile": "https://lichess.org/@/timurspb",
       "rank": 2670,
-      "rating": null,
+      "rating": 1025,
       "source": "Lobby-Crawl",
       "username": "timurspb"
     },
@@ -245049,7 +245051,15 @@
       "rating": 1213,
       "source": "Lobby-Crawl",
       "username": "impertinent"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chessbyadhiraaj",
+      "rank": 24507,
+      "rating": 1135,
+      "source": "Lobby-Crawl",
+      "username": "chessbyadhiraaj"
     }
   ],
-  "updated_at": "2026-07-14T00:03:43.126191+00:00"
+  "updated_at": "2026-07-14T00:05:36.318001+00:00"
 }
