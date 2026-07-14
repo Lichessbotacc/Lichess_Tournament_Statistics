@@ -1874,7 +1874,7 @@
     "alienmech": 6,
     "alienvsbob1": 8,
     "alierdemozkol": 3,
-    "aliester_perdurabo": 92,
+    "aliester_perdurabo": 65,
     "alifj": 0,
     "alighasemi1393": 6,
     "aligre": 0,
@@ -26491,6 +26491,7 @@
     "turm00": 7,
     "turmbaumann": 2,
     "turmhuhn": 0,
+    "turmmatt": 0,
     "turning_machine": 0,
     "turning_out": 2,
     "turpal11": 41,
@@ -30683,7 +30684,7 @@
     "alienmech": "2026-07-13T19:46:00.379875+00:00",
     "alienvsbob1": "2026-07-13T08:42:32.544229+00:00",
     "alierdemozkol": "2026-07-13T06:14:56.703768+00:00",
-    "aliester_perdurabo": "2026-07-13T00:27:45.525991+00:00",
+    "aliester_perdurabo": "2026-07-14T00:17:21.381350+00:00",
     "alifj": "2026-07-13T23:42:10.942594+00:00",
     "alighasemi1393": "2026-07-11T02:24:26.172069+00:00",
     "aligre": "2026-07-12T14:07:55.466186+00:00",
@@ -54806,6 +54807,7 @@
     "turm00": "2026-07-11T16:47:18.701743+00:00",
     "turmbaumann": "2026-07-12T06:24:38.515010+00:00",
     "turmhuhn": "2026-07-11T22:39:14.738111+00:00",
+    "turmmatt": "2026-07-14T00:16:03.835041+00:00",
     "turning_machine": "2026-07-10T07:00:06.552697+00:00",
     "turning_out": "2026-07-12T15:42:11.098714+00:00",
     "turpal11": "2026-07-12T21:19:34.265779+00:00",
@@ -57684,16 +57686,8 @@
     },
     {
       "games": 92,
-      "profile": "https://lichess.org/@/aliester_perdurabo",
-      "rank": 72,
-      "rating": 1106,
-      "source": "Lobby-Crawl",
-      "username": "aliester_perdurabo"
-    },
-    {
-      "games": 92,
       "profile": "https://lichess.org/@/goodfriend69",
-      "rank": 73,
+      "rank": 72,
       "rating": 1569,
       "source": "Lobby-Crawl",
       "username": "goodfriend69"
@@ -57701,7 +57695,7 @@
     {
       "games": 92,
       "profile": "https://lichess.org/@/scarsoelo",
-      "rank": 74,
+      "rank": 73,
       "rating": 1145,
       "source": "Lobby-Crawl",
       "username": "scarsoelo"
@@ -57709,7 +57703,7 @@
     {
       "games": 92,
       "profile": "https://lichess.org/@/steelydon",
-      "rank": 75,
+      "rank": 74,
       "rating": 1786,
       "source": "Lobby-Crawl",
       "username": "steelydon"
@@ -57717,7 +57711,7 @@
     {
       "games": 92,
       "profile": "https://lichess.org/@/yashhoo7",
-      "rank": 76,
+      "rank": 75,
       "rating": 1561,
       "source": "Lobby-Crawl",
       "username": "yashhoo7"
@@ -57725,7 +57719,7 @@
     {
       "games": 91,
       "profile": "https://lichess.org/@/danielmanzur",
-      "rank": 77,
+      "rank": 76,
       "rating": 1437,
       "source": "Lobby-Crawl",
       "username": "danielmanzur"
@@ -57733,7 +57727,7 @@
     {
       "games": 91,
       "profile": "https://lichess.org/@/zimi1957",
-      "rank": 78,
+      "rank": 77,
       "rating": 1590,
       "source": "Lobby-Crawl",
       "username": "zimi1957"
@@ -57741,7 +57735,7 @@
     {
       "games": 90,
       "profile": "https://lichess.org/@/ananthkasi",
-      "rank": 79,
+      "rank": 78,
       "rating": 1204,
       "source": "Lobby-Crawl",
       "username": "ananthkasi"
@@ -57749,7 +57743,7 @@
     {
       "games": 90,
       "profile": "https://lichess.org/@/gaseg",
-      "rank": 80,
+      "rank": 79,
       "rating": 1803,
       "source": "Lobby-Crawl",
       "username": "gaseg"
@@ -57757,7 +57751,7 @@
     {
       "games": 89,
       "profile": "https://lichess.org/@/anatoltchirikov1951",
-      "rank": 81,
+      "rank": 80,
       "rating": 1482,
       "source": "Lobby-Crawl",
       "username": "anatoltchirikov1951"
@@ -57765,7 +57759,7 @@
     {
       "games": 89,
       "profile": "https://lichess.org/@/charlesking50",
-      "rank": 82,
+      "rank": 81,
       "rating": 1616,
       "source": "Lobby-Crawl",
       "username": "charlesking50"
@@ -57773,7 +57767,7 @@
     {
       "games": 89,
       "profile": "https://lichess.org/@/ericm119",
-      "rank": 83,
+      "rank": 82,
       "rating": 1690,
       "source": "Lobby-Crawl",
       "username": "ericm119"
@@ -57781,7 +57775,7 @@
     {
       "games": 89,
       "profile": "https://lichess.org/@/staufenberger",
-      "rank": 84,
+      "rank": 83,
       "rating": 1485,
       "source": "Lobby-Crawl",
       "username": "staufenberger"
@@ -57789,7 +57783,7 @@
     {
       "games": 89,
       "profile": "https://lichess.org/@/vigvam",
-      "rank": 85,
+      "rank": 84,
       "rating": 1784,
       "source": "Lobby-Crawl",
       "username": "vigvam"
@@ -57797,7 +57791,7 @@
     {
       "games": 88,
       "profile": "https://lichess.org/@/darthgumby",
-      "rank": 86,
+      "rank": 85,
       "rating": 1804,
       "source": "Lobby-Crawl",
       "username": "darthgumby"
@@ -57805,7 +57799,7 @@
     {
       "games": 88,
       "profile": "https://lichess.org/@/jhonydeus",
-      "rank": 87,
+      "rank": 86,
       "rating": 1500,
       "source": "Lobby-Crawl",
       "username": "jhonydeus"
@@ -57813,7 +57807,7 @@
     {
       "games": 87,
       "profile": "https://lichess.org/@/abdurasul_m",
-      "rank": 88,
+      "rank": 87,
       "rating": 1612,
       "source": "Lobby-Crawl",
       "username": "abdurasul_m"
@@ -57821,7 +57815,7 @@
     {
       "games": 87,
       "profile": "https://lichess.org/@/kursat_40",
-      "rank": 89,
+      "rank": 88,
       "rating": 1017,
       "source": "Lobby-Crawl",
       "username": "kursat_40"
@@ -57829,7 +57823,7 @@
     {
       "games": 87,
       "profile": "https://lichess.org/@/marcusgovers",
-      "rank": 90,
+      "rank": 89,
       "rating": 1988,
       "source": "Lobby-Crawl",
       "username": "marcusgovers"
@@ -57837,7 +57831,7 @@
     {
       "games": 87,
       "profile": "https://lichess.org/@/tenniszsavant777",
-      "rank": 91,
+      "rank": 90,
       "rating": 1712,
       "source": "Lobby-Crawl",
       "username": "tenniszsavant777"
@@ -57845,7 +57839,7 @@
     {
       "games": 86,
       "profile": "https://lichess.org/@/alexsuvorov89",
-      "rank": 92,
+      "rank": 91,
       "rating": 1370,
       "source": "Lobby-Crawl",
       "username": "alexsuvorov89"
@@ -57853,7 +57847,7 @@
     {
       "games": 86,
       "profile": "https://lichess.org/@/finkbottle",
-      "rank": 93,
+      "rank": 92,
       "rating": 1701,
       "source": "Lobby-Crawl",
       "username": "finkbottle"
@@ -57861,7 +57855,7 @@
     {
       "games": 86,
       "profile": "https://lichess.org/@/gunslinger208",
-      "rank": 94,
+      "rank": 93,
       "rating": 1565,
       "source": "Lobby-Crawl",
       "username": "gunslinger208"
@@ -57869,7 +57863,7 @@
     {
       "games": 86,
       "profile": "https://lichess.org/@/zhuge_liang932",
-      "rank": 95,
+      "rank": 94,
       "rating": 1097,
       "source": "Lobby-Crawl",
       "username": "zhuge_liang932"
@@ -57877,7 +57871,7 @@
     {
       "games": 85,
       "profile": "https://lichess.org/@/angarbuz",
-      "rank": 96,
+      "rank": 95,
       "rating": 1655,
       "source": "Lobby-Crawl",
       "username": "angarbuz"
@@ -57885,7 +57879,7 @@
     {
       "games": 85,
       "profile": "https://lichess.org/@/lastcreator96",
-      "rank": 97,
+      "rank": 96,
       "rating": 1418,
       "source": "Lobby-Crawl",
       "username": "lastcreator96"
@@ -57893,7 +57887,7 @@
     {
       "games": 85,
       "profile": "https://lichess.org/@/patilswarnam",
-      "rank": 98,
+      "rank": 97,
       "rating": 1344,
       "source": "Lobby-Crawl",
       "username": "patilswarnam"
@@ -57901,7 +57895,7 @@
     {
       "games": 84,
       "profile": "https://lichess.org/@/dsk2391",
-      "rank": 99,
+      "rank": 98,
       "rating": 1500,
       "source": "Lobby-Crawl",
       "username": "dsk2391"
@@ -57909,7 +57903,7 @@
     {
       "games": 84,
       "profile": "https://lichess.org/@/hiteshsom",
-      "rank": 100,
+      "rank": 99,
       "rating": 1322,
       "source": "Lobby-Crawl",
       "username": "hiteshsom"
@@ -57917,7 +57911,7 @@
     {
       "games": 84,
       "profile": "https://lichess.org/@/jin_neil",
-      "rank": 101,
+      "rank": 100,
       "rating": 1446,
       "source": "Lobby-Crawl",
       "username": "jin_neil"
@@ -57925,7 +57919,7 @@
     {
       "games": 84,
       "profile": "https://lichess.org/@/navinbose",
-      "rank": 102,
+      "rank": 101,
       "rating": 1106,
       "source": "Lobby-Crawl",
       "username": "navinbose"
@@ -57933,7 +57927,7 @@
     {
       "games": 84,
       "profile": "https://lichess.org/@/passtime731",
-      "rank": 103,
+      "rank": 102,
       "rating": 1610,
       "source": "Lobby-Crawl",
       "username": "passtime731"
@@ -57941,7 +57935,7 @@
     {
       "games": 84,
       "profile": "https://lichess.org/@/rafabellver",
-      "rank": 104,
+      "rank": 103,
       "rating": 1911,
       "source": "Lobby-Crawl",
       "username": "rafabellver"
@@ -57949,7 +57943,7 @@
     {
       "games": 84,
       "profile": "https://lichess.org/@/volna_259",
-      "rank": 105,
+      "rank": 104,
       "rating": 1936,
       "source": "Lobby-Crawl",
       "username": "volna_259"
@@ -57957,7 +57951,7 @@
     {
       "games": 83,
       "profile": "https://lichess.org/@/arsenalkiller",
-      "rank": 106,
+      "rank": 105,
       "rating": 1344,
       "source": "Lobby-Crawl",
       "username": "arsenalkiller"
@@ -57965,7 +57959,7 @@
     {
       "games": 83,
       "profile": "https://lichess.org/@/shon_maik79",
-      "rank": 107,
+      "rank": 106,
       "rating": 1626,
       "source": "Lobby-Crawl",
       "username": "shon_maik79"
@@ -57973,7 +57967,7 @@
     {
       "games": 83,
       "profile": "https://lichess.org/@/siamnddawod",
-      "rank": 108,
+      "rank": 107,
       "rating": 1933,
       "source": "Lobby-Crawl",
       "username": "siamnddawod"
@@ -57981,7 +57975,7 @@
     {
       "games": 82,
       "profile": "https://lichess.org/@/betins",
-      "rank": 109,
+      "rank": 108,
       "rating": 2121,
       "source": "Lobby-Crawl",
       "username": "betins"
@@ -57989,7 +57983,7 @@
     {
       "games": 82,
       "profile": "https://lichess.org/@/einargonzalez",
-      "rank": 110,
+      "rank": 109,
       "rating": 1931,
       "source": "Lobby-Crawl",
       "username": "einargonzalez"
@@ -57997,7 +57991,7 @@
     {
       "games": 82,
       "profile": "https://lichess.org/@/fearless_86",
-      "rank": 111,
+      "rank": 110,
       "rating": 2018,
       "source": "Lobby-Crawl",
       "username": "fearless_86"
@@ -58005,7 +57999,7 @@
     {
       "games": 82,
       "profile": "https://lichess.org/@/mohamednofal147",
-      "rank": 112,
+      "rank": 111,
       "rating": 1333,
       "source": "Lobby-Crawl",
       "username": "mohamednofal147"
@@ -58013,7 +58007,7 @@
     {
       "games": 82,
       "profile": "https://lichess.org/@/newarian",
-      "rank": 113,
+      "rank": 112,
       "rating": 1751,
       "source": "Lobby-Crawl",
       "username": "newarian"
@@ -58021,7 +58015,7 @@
     {
       "games": 82,
       "profile": "https://lichess.org/@/ridgebound",
-      "rank": 114,
+      "rank": 113,
       "rating": 1111,
       "source": "Lobby-Crawl",
       "username": "ridgebound"
@@ -58029,7 +58023,7 @@
     {
       "games": 81,
       "profile": "https://lichess.org/@/debruxellesbob",
-      "rank": 115,
+      "rank": 114,
       "rating": 952,
       "source": "Lobby-Crawl",
       "username": "debruxellesbob"
@@ -58037,7 +58031,7 @@
     {
       "games": 81,
       "profile": "https://lichess.org/@/lsakumar",
-      "rank": 116,
+      "rank": 115,
       "rating": 1723,
       "source": "Lobby-Crawl",
       "username": "lsakumar"
@@ -58045,7 +58039,7 @@
     {
       "games": 81,
       "profile": "https://lichess.org/@/manusnair",
-      "rank": 117,
+      "rank": 116,
       "rating": 1332,
       "source": "Lobby-Crawl",
       "username": "manusnair"
@@ -58053,7 +58047,7 @@
     {
       "games": 81,
       "profile": "https://lichess.org/@/shelface",
-      "rank": 118,
+      "rank": 117,
       "rating": 1313,
       "source": "Lobby-Crawl",
       "username": "shelface"
@@ -58061,7 +58055,7 @@
     {
       "games": 81,
       "profile": "https://lichess.org/@/ulbebr",
-      "rank": 119,
+      "rank": 118,
       "rating": 1624,
       "source": "Lobby-Crawl",
       "username": "ulbebr"
@@ -58069,7 +58063,7 @@
     {
       "games": 80,
       "profile": "https://lichess.org/@/andarina",
-      "rank": 120,
+      "rank": 119,
       "rating": 1371,
       "source": "Lobby-Crawl",
       "username": "andarina"
@@ -58077,7 +58071,7 @@
     {
       "games": 80,
       "profile": "https://lichess.org/@/bhuvanakks",
-      "rank": 121,
+      "rank": 120,
       "rating": 1644,
       "source": "Lobby-Crawl",
       "username": "bhuvanakks"
@@ -58085,7 +58079,7 @@
     {
       "games": 80,
       "profile": "https://lichess.org/@/bordskael",
-      "rank": 122,
+      "rank": 121,
       "rating": 1741,
       "source": "Lobby-Crawl",
       "username": "bordskael"
@@ -58093,7 +58087,7 @@
     {
       "games": 80,
       "profile": "https://lichess.org/@/vicevoids",
-      "rank": 123,
+      "rank": 122,
       "rating": 1663,
       "source": "Lobby-Crawl",
       "username": "vicevoids"
@@ -58101,7 +58095,7 @@
     {
       "games": 79,
       "profile": "https://lichess.org/@/abalos_domingo",
-      "rank": 124,
+      "rank": 123,
       "rating": 1808,
       "source": "Lobby-Crawl",
       "username": "abalos_domingo"
@@ -58109,7 +58103,7 @@
     {
       "games": 79,
       "profile": "https://lichess.org/@/ahjani",
-      "rank": 125,
+      "rank": 124,
       "rating": 1113,
       "source": "Lobby-Crawl",
       "username": "ahjani"
@@ -58117,7 +58111,7 @@
     {
       "games": 79,
       "profile": "https://lichess.org/@/clubbag",
-      "rank": 126,
+      "rank": 125,
       "rating": 1560,
       "source": "Lobby-Crawl",
       "username": "clubbag"
@@ -58125,7 +58119,7 @@
     {
       "games": 79,
       "profile": "https://lichess.org/@/daaof-daazkin",
-      "rank": 127,
+      "rank": 126,
       "rating": 1721,
       "source": "Lobby-Crawl",
       "username": "daaof-daazkin"
@@ -58133,7 +58127,7 @@
     {
       "games": 79,
       "profile": "https://lichess.org/@/iamskibidiohiorizzf",
-      "rank": 128,
+      "rank": 127,
       "rating": 1337,
       "source": "Lobby-Crawl",
       "username": "iamskibidiohiorizzf"
@@ -58141,7 +58135,7 @@
     {
       "games": 79,
       "profile": "https://lichess.org/@/jispers",
-      "rank": 129,
+      "rank": 128,
       "rating": 1055,
       "source": "Lobby-Crawl",
       "username": "jispers"
@@ -58149,7 +58143,7 @@
     {
       "games": 79,
       "profile": "https://lichess.org/@/lifeischess1213",
-      "rank": 130,
+      "rank": 129,
       "rating": 1564,
       "source": "Lobby-Crawl",
       "username": "lifeischess1213"
@@ -58157,7 +58151,7 @@
     {
       "games": 78,
       "profile": "https://lichess.org/@/anton-1959_5",
-      "rank": 131,
+      "rank": 130,
       "rating": 1820,
       "source": "Lobby-Crawl",
       "username": "anton-1959_5"
@@ -58165,7 +58159,7 @@
     {
       "games": 78,
       "profile": "https://lichess.org/@/blackabou",
-      "rank": 132,
+      "rank": 131,
       "rating": 1801,
       "source": "Lobby-Crawl",
       "username": "blackabou"
@@ -58173,7 +58167,7 @@
     {
       "games": 78,
       "profile": "https://lichess.org/@/bwca77hegman",
-      "rank": 133,
+      "rank": 132,
       "rating": 1436,
       "source": "Lobby-Crawl",
       "username": "bwca77hegman"
@@ -58181,7 +58175,7 @@
     {
       "games": 78,
       "profile": "https://lichess.org/@/delcastillo58",
-      "rank": 134,
+      "rank": 133,
       "rating": 1704,
       "source": "Lobby-Crawl",
       "username": "delcastillo58"
@@ -58189,7 +58183,7 @@
     {
       "games": 78,
       "profile": "https://lichess.org/@/grischa42",
-      "rank": 135,
+      "rank": 134,
       "rating": 1823,
       "source": "Lobby-Crawl",
       "username": "grischa42"
@@ -58197,7 +58191,7 @@
     {
       "games": 78,
       "profile": "https://lichess.org/@/playalfrank",
-      "rank": 136,
+      "rank": 135,
       "rating": 1290,
       "source": "Lobby-Crawl",
       "username": "playalfrank"
@@ -58205,7 +58199,7 @@
     {
       "games": 77,
       "profile": "https://lichess.org/@/dianeden",
-      "rank": 137,
+      "rank": 136,
       "rating": 1719,
       "source": "Lobby-Crawl",
       "username": "dianeden"
@@ -58213,7 +58207,7 @@
     {
       "games": 77,
       "profile": "https://lichess.org/@/gourisetti3966",
-      "rank": 138,
+      "rank": 137,
       "rating": 1280,
       "source": "Lobby-Crawl",
       "username": "gourisetti3966"
@@ -58221,7 +58215,7 @@
     {
       "games": 77,
       "profile": "https://lichess.org/@/oldgent",
-      "rank": 139,
+      "rank": 138,
       "rating": 1495,
       "source": "Lobby-Crawl",
       "username": "oldgent"
@@ -58229,7 +58223,7 @@
     {
       "games": 77,
       "profile": "https://lichess.org/@/pandu_a",
-      "rank": 140,
+      "rank": 139,
       "rating": 1760,
       "source": "Lobby-Crawl",
       "username": "pandu_a"
@@ -58237,7 +58231,7 @@
     {
       "games": 77,
       "profile": "https://lichess.org/@/pibian",
-      "rank": 141,
+      "rank": 140,
       "rating": 1539,
       "source": "Lobby-Crawl",
       "username": "pibian"
@@ -58245,7 +58239,7 @@
     {
       "games": 77,
       "profile": "https://lichess.org/@/sirenamerklin",
-      "rank": 142,
+      "rank": 141,
       "rating": 1640,
       "source": "Lobby-Crawl",
       "username": "sirenamerklin"
@@ -58253,7 +58247,7 @@
     {
       "games": 77,
       "profile": "https://lichess.org/@/viktorr1951",
-      "rank": 143,
+      "rank": 142,
       "rating": 1631,
       "source": "Lobby-Crawl",
       "username": "viktorr1951"
@@ -58261,7 +58255,7 @@
     {
       "games": 77,
       "profile": "https://lichess.org/@/yanv_4",
-      "rank": 144,
+      "rank": 143,
       "rating": 1809,
       "source": "Lobby-Crawl",
       "username": "yanv_4"
@@ -58269,7 +58263,7 @@
     {
       "games": 76,
       "profile": "https://lichess.org/@/apersian",
-      "rank": 145,
+      "rank": 144,
       "rating": 1890,
       "source": "Lobby-Crawl",
       "username": "apersian"
@@ -58277,7 +58271,7 @@
     {
       "games": 76,
       "profile": "https://lichess.org/@/dsemo0805",
-      "rank": 146,
+      "rank": 145,
       "rating": 1164,
       "source": "Lobby-Crawl",
       "username": "dsemo0805"
@@ -58285,7 +58279,7 @@
     {
       "games": 76,
       "profile": "https://lichess.org/@/dzoda94",
-      "rank": 147,
+      "rank": 146,
       "rating": 1493,
       "source": "Lobby-Crawl",
       "username": "dzoda94"
@@ -58293,7 +58287,7 @@
     {
       "games": 76,
       "profile": "https://lichess.org/@/jakups",
-      "rank": 148,
+      "rank": 147,
       "rating": 1885,
       "source": "Lobby-Crawl",
       "username": "jakups"
@@ -58301,7 +58295,7 @@
     {
       "games": 76,
       "profile": "https://lichess.org/@/jovem36",
-      "rank": 149,
+      "rank": 148,
       "rating": 1703,
       "source": "Lobby-Crawl",
       "username": "jovem36"
@@ -58309,7 +58303,7 @@
     {
       "games": 76,
       "profile": "https://lichess.org/@/maxim3814",
-      "rank": 150,
+      "rank": 149,
       "rating": 1610,
       "source": "Lobby-Crawl",
       "username": "maxim3814"
@@ -58317,7 +58311,7 @@
     {
       "games": 76,
       "profile": "https://lichess.org/@/naguali",
-      "rank": 151,
+      "rank": 150,
       "rating": 1806,
       "source": "Lobby-Crawl",
       "username": "naguali"
@@ -58325,7 +58319,7 @@
     {
       "games": 76,
       "profile": "https://lichess.org/@/resignation",
-      "rank": 152,
+      "rank": 151,
       "rating": 1308,
       "source": "Lobby-Crawl",
       "username": "resignation"
@@ -58333,7 +58327,7 @@
     {
       "games": 76,
       "profile": "https://lichess.org/@/ulunchita",
-      "rank": 153,
+      "rank": 152,
       "rating": 1668,
       "source": "Lobby-Crawl",
       "username": "ulunchita"
@@ -58341,7 +58335,7 @@
     {
       "games": 75,
       "profile": "https://lichess.org/@/batrn",
-      "rank": 154,
+      "rank": 153,
       "rating": 1937,
       "source": "Lobby-Crawl",
       "username": "batrn"
@@ -58349,7 +58343,7 @@
     {
       "games": 75,
       "profile": "https://lichess.org/@/davisvj",
-      "rank": 155,
+      "rank": 154,
       "rating": 1469,
       "source": "Lobby-Crawl",
       "username": "davisvj"
@@ -58357,7 +58351,7 @@
     {
       "games": 75,
       "profile": "https://lichess.org/@/e8shah",
-      "rank": 156,
+      "rank": 155,
       "rating": 1867,
       "source": "Lobby-Crawl",
       "username": "e8shah"
@@ -58365,7 +58359,7 @@
     {
       "games": 75,
       "profile": "https://lichess.org/@/gomerpile271",
-      "rank": 157,
+      "rank": 156,
       "rating": 1281,
       "source": "Lobby-Crawl",
       "username": "gomerpile271"
@@ -58373,7 +58367,7 @@
     {
       "games": 75,
       "profile": "https://lichess.org/@/msmartr",
-      "rank": 158,
+      "rank": 157,
       "rating": 1330,
       "source": "Lobby-Crawl",
       "username": "msmartr"
@@ -58381,7 +58375,7 @@
     {
       "games": 75,
       "profile": "https://lichess.org/@/yugendhiran",
-      "rank": 159,
+      "rank": 158,
       "rating": 1595,
       "source": "Lobby-Crawl",
       "username": "yugendhiran"
@@ -58389,7 +58383,7 @@
     {
       "games": 74,
       "profile": "https://lichess.org/@/kim_345",
-      "rank": 160,
+      "rank": 159,
       "rating": 1424,
       "source": "Lobby-Crawl",
       "username": "kim_345"
@@ -58397,7 +58391,7 @@
     {
       "games": 74,
       "profile": "https://lichess.org/@/lazarhadonov",
-      "rank": 161,
+      "rank": 160,
       "rating": 1754,
       "source": "Lobby-Crawl",
       "username": "lazarhadonov"
@@ -58405,7 +58399,7 @@
     {
       "games": 74,
       "profile": "https://lichess.org/@/maged1975",
-      "rank": 162,
+      "rank": 161,
       "rating": 1602,
       "source": "Lobby-Crawl",
       "username": "maged1975"
@@ -58413,7 +58407,7 @@
     {
       "games": 74,
       "profile": "https://lichess.org/@/mykolafedorovych",
-      "rank": 163,
+      "rank": 162,
       "rating": 1522,
       "source": "Lobby-Crawl",
       "username": "mykolafedorovych"
@@ -58421,7 +58415,7 @@
     {
       "games": 74,
       "profile": "https://lichess.org/@/nikolay_lubchenko",
-      "rank": 164,
+      "rank": 163,
       "rating": 1633,
       "source": "Lobby-Crawl",
       "username": "nikolay_lubchenko"
@@ -58429,7 +58423,7 @@
     {
       "games": 74,
       "profile": "https://lichess.org/@/prabhat_9380",
-      "rank": 165,
+      "rank": 164,
       "rating": 1251,
       "source": "Lobby-Crawl",
       "username": "prabhat_9380"
@@ -58437,7 +58431,7 @@
     {
       "games": 73,
       "profile": "https://lichess.org/@/danielsagala87",
-      "rank": 166,
+      "rank": 165,
       "rating": 2119,
       "source": "Lobby-Crawl",
       "username": "danielsagala87"
@@ -58445,7 +58439,7 @@
     {
       "games": 73,
       "profile": "https://lichess.org/@/doctorsaman",
-      "rank": 167,
+      "rank": 166,
       "rating": 1807,
       "source": "Lobby-Crawl",
       "username": "doctorsaman"
@@ -58453,7 +58447,7 @@
     {
       "games": 73,
       "profile": "https://lichess.org/@/geokon",
-      "rank": 168,
+      "rank": 167,
       "rating": 1907,
       "source": "Lobby-Crawl",
       "username": "geokon"
@@ -58461,7 +58455,7 @@
     {
       "games": 73,
       "profile": "https://lichess.org/@/mirrddin",
-      "rank": 169,
+      "rank": 168,
       "rating": 1913,
       "source": "Lobby-Crawl",
       "username": "mirrddin"
@@ -58469,7 +58463,7 @@
     {
       "games": 73,
       "profile": "https://lichess.org/@/prf8544",
-      "rank": 170,
+      "rank": 169,
       "rating": 1592,
       "source": "Lobby-Crawl",
       "username": "prf8544"
@@ -58477,7 +58471,7 @@
     {
       "games": 73,
       "profile": "https://lichess.org/@/successful_companion",
-      "rank": 171,
+      "rank": 170,
       "rating": 1576,
       "source": "Lobby-Crawl",
       "username": "successful_companion"
@@ -58485,7 +58479,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/ali_1986de",
-      "rank": 172,
+      "rank": 171,
       "rating": 1577,
       "source": "Lobby-Crawl",
       "username": "ali_1986de"
@@ -58493,7 +58487,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/bgaylor",
-      "rank": 173,
+      "rank": 172,
       "rating": 1168,
       "source": "Lobby-Crawl",
       "username": "bgaylor"
@@ -58501,7 +58495,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/efrainsalvador",
-      "rank": 174,
+      "rank": 173,
       "rating": 1802,
       "source": "Lobby-Crawl",
       "username": "efrainsalvador"
@@ -58509,7 +58503,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/emin_abdullaev",
-      "rank": 175,
+      "rank": 174,
       "rating": 1258,
       "source": "Lobby-Crawl",
       "username": "emin_abdullaev"
@@ -58517,7 +58511,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/iron2016",
-      "rank": 176,
+      "rank": 175,
       "rating": 1410,
       "source": "Lobby-Crawl",
       "username": "iron2016"
@@ -58525,7 +58519,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/kolok2001",
-      "rank": 177,
+      "rank": 176,
       "rating": 1447,
       "source": "Lobby-Crawl",
       "username": "kolok2001"
@@ -58533,7 +58527,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/koorushfakharzadeh",
-      "rank": 178,
+      "rank": 177,
       "rating": 1649,
       "source": "Lobby-Crawl",
       "username": "koorushfakharzadeh"
@@ -58541,7 +58535,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/major134",
-      "rank": 179,
+      "rank": 178,
       "rating": 1403,
       "source": "Lobby-Crawl",
       "username": "major134"
@@ -58549,7 +58543,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/tatyanavladi",
-      "rank": 180,
+      "rank": 179,
       "rating": 954,
       "source": "Lobby-Crawl",
       "username": "tatyanavladi"
@@ -58557,7 +58551,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/terahm",
-      "rank": 181,
+      "rank": 180,
       "rating": 1390,
       "source": "Lobby-Crawl",
       "username": "terahm"
@@ -58565,7 +58559,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/viejoalgarrobo",
-      "rank": 182,
+      "rank": 181,
       "rating": 1464,
       "source": "Lobby-Crawl",
       "username": "viejoalgarrobo"
@@ -58573,7 +58567,7 @@
     {
       "games": 72,
       "profile": "https://lichess.org/@/voronoi46",
-      "rank": 183,
+      "rank": 182,
       "rating": 1884,
       "source": "Lobby-Crawl",
       "username": "voronoi46"
@@ -58581,7 +58575,7 @@
     {
       "games": 71,
       "profile": "https://lichess.org/@/jugumoleson",
-      "rank": 184,
+      "rank": 183,
       "rating": 1438,
       "source": "Lobby-Crawl",
       "username": "jugumoleson"
@@ -58589,7 +58583,7 @@
     {
       "games": 71,
       "profile": "https://lichess.org/@/oscar0314",
-      "rank": 185,
+      "rank": 184,
       "rating": 1470,
       "source": "Lobby-Crawl",
       "username": "oscar0314"
@@ -58597,7 +58591,7 @@
     {
       "games": 71,
       "profile": "https://lichess.org/@/play2080",
-      "rank": 186,
+      "rank": 185,
       "rating": 1458,
       "source": "Lobby-Crawl",
       "username": "play2080"
@@ -58605,7 +58599,7 @@
     {
       "games": 71,
       "profile": "https://lichess.org/@/romanermakovrus",
-      "rank": 187,
+      "rank": 186,
       "rating": 1619,
       "source": "Lobby-Crawl",
       "username": "romanermakovrus"
@@ -58613,7 +58607,7 @@
     {
       "games": 71,
       "profile": "https://lichess.org/@/wiktorpie",
-      "rank": 188,
+      "rank": 187,
       "rating": 1275,
       "source": "Lobby-Crawl",
       "username": "wiktorpie"
@@ -58621,7 +58615,7 @@
     {
       "games": 70,
       "profile": "https://lichess.org/@/blackster84",
-      "rank": 189,
+      "rank": 188,
       "rating": 1584,
       "source": "Lobby-Crawl",
       "username": "blackster84"
@@ -58629,7 +58623,7 @@
     {
       "games": 70,
       "profile": "https://lichess.org/@/fb1966",
-      "rank": 190,
+      "rank": 189,
       "rating": 1601,
       "source": "Lobby-Crawl",
       "username": "fb1966"
@@ -58637,7 +58631,7 @@
     {
       "games": 70,
       "profile": "https://lichess.org/@/gurka5",
-      "rank": 191,
+      "rank": 190,
       "rating": 1480,
       "source": "Lobby-Crawl",
       "username": "gurka5"
@@ -58645,7 +58639,7 @@
     {
       "games": 70,
       "profile": "https://lichess.org/@/gva2145",
-      "rank": 192,
+      "rank": 191,
       "rating": 1472,
       "source": "Lobby-Crawl",
       "username": "gva2145"
@@ -58653,7 +58647,7 @@
     {
       "games": 70,
       "profile": "https://lichess.org/@/halehandros",
-      "rank": 193,
+      "rank": 192,
       "rating": 1753,
       "source": "Lobby-Crawl",
       "username": "halehandros"
@@ -58661,7 +58655,7 @@
     {
       "games": 70,
       "profile": "https://lichess.org/@/maxchessis",
-      "rank": 194,
+      "rank": 193,
       "rating": 1452,
       "source": "Lobby-Crawl",
       "username": "maxchessis"
@@ -58669,7 +58663,7 @@
     {
       "games": 69,
       "profile": "https://lichess.org/@/abd_el_wahab",
-      "rank": 195,
+      "rank": 194,
       "rating": 1911,
       "source": "?",
       "username": "abd_el_wahab"
@@ -58677,7 +58671,7 @@
     {
       "games": 69,
       "profile": "https://lichess.org/@/chraib",
-      "rank": 196,
+      "rank": 195,
       "rating": 1663,
       "source": "Lobby-Crawl",
       "username": "chraib"
@@ -58685,7 +58679,7 @@
     {
       "games": 69,
       "profile": "https://lichess.org/@/dr_hippokrat",
-      "rank": 197,
+      "rank": 196,
       "rating": 1074,
       "source": "Lobby-Crawl",
       "username": "dr_hippokrat"
@@ -58693,7 +58687,7 @@
     {
       "games": 69,
       "profile": "https://lichess.org/@/fisherbobbyta",
-      "rank": 198,
+      "rank": 197,
       "rating": 1664,
       "source": "Lobby-Crawl",
       "username": "fisherbobbyta"
@@ -58701,7 +58695,7 @@
     {
       "games": 69,
       "profile": "https://lichess.org/@/l21chess",
-      "rank": 199,
+      "rank": 198,
       "rating": 2252,
       "source": "Lobby-Crawl",
       "username": "l21chess"
@@ -58709,7 +58703,7 @@
     {
       "games": 69,
       "profile": "https://lichess.org/@/ma_ri_na_ma",
-      "rank": 200,
+      "rank": 199,
       "rating": 1286,
       "source": "Lobby-Crawl",
       "username": "ma_ri_na_ma"
@@ -58717,7 +58711,7 @@
     {
       "games": 69,
       "profile": "https://lichess.org/@/oriarnyx",
-      "rank": 201,
+      "rank": 200,
       "rating": 1751,
       "source": "Lobby-Crawl",
       "username": "oriarnyx"
@@ -58725,7 +58719,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/city21",
-      "rank": 202,
+      "rank": 201,
       "rating": 1685,
       "source": "?",
       "username": "city21"
@@ -58733,7 +58727,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/cot1613",
-      "rank": 203,
+      "rank": 202,
       "rating": 973,
       "source": "Lobby-Crawl",
       "username": "cot1613"
@@ -58741,7 +58735,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/damanillus",
-      "rank": 204,
+      "rank": 203,
       "rating": 1235,
       "source": "Lobby-Crawl",
       "username": "damanillus"
@@ -58749,7 +58743,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/hatambro",
-      "rank": 205,
+      "rank": 204,
       "rating": 1471,
       "source": "Lobby-Crawl",
       "username": "hatambro"
@@ -58757,7 +58751,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/newlazerwin",
-      "rank": 206,
+      "rank": 205,
       "rating": 2154,
       "source": "Lobby-Crawl",
       "username": "newlazerwin"
@@ -58765,7 +58759,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/preetam104",
-      "rank": 207,
+      "rank": 206,
       "rating": 1845,
       "source": "Lobby-Crawl",
       "username": "preetam104"
@@ -58773,7 +58767,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/priya2908",
-      "rank": 208,
+      "rank": 207,
       "rating": 1455,
       "source": "Lobby-Crawl",
       "username": "priya2908"
@@ -58781,7 +58775,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/royproulx",
-      "rank": 209,
+      "rank": 208,
       "rating": 1798,
       "source": "Lobby-Crawl",
       "username": "royproulx"
@@ -58789,7 +58783,7 @@
     {
       "games": 68,
       "profile": "https://lichess.org/@/theindianqueen",
-      "rank": 210,
+      "rank": 209,
       "rating": 1884,
       "source": "?",
       "username": "theindianqueen"
@@ -58797,7 +58791,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/ahmady87",
-      "rank": 211,
+      "rank": 210,
       "rating": 1654,
       "source": "Lobby-Crawl",
       "username": "ahmady87"
@@ -58805,7 +58799,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/ilovecalculus101",
-      "rank": 212,
+      "rank": 211,
       "rating": 1531,
       "source": "Lobby-Crawl",
       "username": "ilovecalculus101"
@@ -58813,7 +58807,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/island333",
-      "rank": 213,
+      "rank": 212,
       "rating": 1600,
       "source": "Lobby-Crawl",
       "username": "island333"
@@ -58821,7 +58815,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/keesie666",
-      "rank": 214,
+      "rank": 213,
       "rating": 1562,
       "source": "Lobby-Crawl",
       "username": "keesie666"
@@ -58829,7 +58823,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/masel13",
-      "rank": 215,
+      "rank": 214,
       "rating": 1456,
       "source": "Lobby-Crawl",
       "username": "masel13"
@@ -58837,7 +58831,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/mohsetoodeh701",
-      "rank": 216,
+      "rank": 215,
       "rating": 1309,
       "source": "Lobby-Crawl",
       "username": "mohsetoodeh701"
@@ -58845,7 +58839,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/persej911",
-      "rank": 217,
+      "rank": 216,
       "rating": 1835,
       "source": "Lobby-Crawl",
       "username": "persej911"
@@ -58853,7 +58847,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/saadtop",
-      "rank": 218,
+      "rank": 217,
       "rating": 1707,
       "source": "Lobby-Crawl",
       "username": "saadtop"
@@ -58861,7 +58855,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/tharan4677",
-      "rank": 219,
+      "rank": 218,
       "rating": 1649,
       "source": "?",
       "username": "tharan4677"
@@ -58869,7 +58863,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/tiger1952",
-      "rank": 220,
+      "rank": 219,
       "rating": 1487,
       "source": "Lobby-Crawl",
       "username": "tiger1952"
@@ -58877,7 +58871,7 @@
     {
       "games": 67,
       "profile": "https://lichess.org/@/werberk",
-      "rank": 221,
+      "rank": 220,
       "rating": 1801,
       "source": "Lobby-Crawl",
       "username": "werberk"
@@ -58885,7 +58879,7 @@
     {
       "games": 66,
       "profile": "https://lichess.org/@/freedom999",
-      "rank": 222,
+      "rank": 221,
       "rating": 1818,
       "source": "Lobby-Crawl",
       "username": "freedom999"
@@ -58893,7 +58887,7 @@
     {
       "games": 66,
       "profile": "https://lichess.org/@/halloweengambit-only",
-      "rank": 223,
+      "rank": 222,
       "rating": 1498,
       "source": "Lobby-Crawl",
       "username": "halloweengambit-only"
@@ -58901,7 +58895,7 @@
     {
       "games": 66,
       "profile": "https://lichess.org/@/horatio1",
-      "rank": 224,
+      "rank": 223,
       "rating": 1537,
       "source": "Lobby-Crawl",
       "username": "horatio1"
@@ -58909,7 +58903,7 @@
     {
       "games": 66,
       "profile": "https://lichess.org/@/norm18",
-      "rank": 225,
+      "rank": 224,
       "rating": 1230,
       "source": "Lobby-Crawl",
       "username": "norm18"
@@ -58917,7 +58911,7 @@
     {
       "games": 66,
       "profile": "https://lichess.org/@/pasteris56",
-      "rank": 226,
+      "rank": 225,
       "rating": 1462,
       "source": "Lobby-Crawl",
       "username": "pasteris56"
@@ -58925,7 +58919,7 @@
     {
       "games": 66,
       "profile": "https://lichess.org/@/shadalbe",
-      "rank": 227,
+      "rank": 226,
       "rating": 1867,
       "source": "Lobby-Crawl",
       "username": "shadalbe"
@@ -58933,7 +58927,7 @@
     {
       "games": 66,
       "profile": "https://lichess.org/@/sts555tkksu1",
-      "rank": 228,
+      "rank": 227,
       "rating": 1621,
       "source": "Lobby-Crawl",
       "username": "sts555tkksu1"
@@ -58941,7 +58935,7 @@
     {
       "games": 66,
       "profile": "https://lichess.org/@/sword25176",
-      "rank": 229,
+      "rank": 228,
       "rating": 1413,
       "source": "Lobby-Crawl",
       "username": "sword25176"
@@ -58949,10 +58943,18 @@
     {
       "games": 66,
       "profile": "https://lichess.org/@/wolfgang777",
-      "rank": 230,
+      "rank": 229,
       "rating": 1657,
       "source": "Lobby-Crawl",
       "username": "wolfgang777"
+    },
+    {
+      "games": 65,
+      "profile": "https://lichess.org/@/aliester_perdurabo",
+      "rank": 230,
+      "rating": 1106,
+      "source": "Lobby-Crawl",
+      "username": "aliester_perdurabo"
     },
     {
       "games": 65,
@@ -140494,7 +140496,7 @@
       "games": 4,
       "profile": "https://lichess.org/@/u90rg",
       "rank": 10423,
-      "rating": null,
+      "rating": 1193,
       "source": "Lobby-Crawl",
       "username": "u90rg"
     },
@@ -170166,7 +170168,7 @@
       "games": 1,
       "profile": "https://lichess.org/@/carpistadimare",
       "rank": 14132,
-      "rating": null,
+      "rating": 2042,
       "source": "Lobby-Crawl",
       "username": "carpistadimare"
     },
@@ -287793,7 +287795,15 @@
       "rating": 1898,
       "source": "Lobby-Crawl",
       "username": "shudashov"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/turmmatt",
+      "rank": 28836,
+      "rating": 1935,
+      "source": "Lobby-Crawl",
+      "username": "turmmatt"
     }
   ],
-  "updated_at": "2026-07-14T00:15:54.343015+00:00"
+  "updated_at": "2026-07-14T00:17:21.389775+00:00"
 }
