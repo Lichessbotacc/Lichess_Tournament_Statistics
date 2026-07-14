@@ -12907,7 +12907,7 @@
     "malkopolo": 0,
     "malleado": 366,
     "mallimape": 0,
-    "mallo_c": 401,
+    "mallo_c": 410,
     "malpalsam": 0,
     "maltenotsn": 0,
     "malum_movet": 0,
@@ -17852,6 +17852,7 @@
     "schmusanne": 0,
     "schoerli": 0,
     "schwasd": 0,
+    "sciencebug": 0,
     "sciencebug02": 0,
     "scienthousiaste": 0,
     "scif": 0,
@@ -34177,7 +34178,7 @@
     "malkopolo": "2026-07-13T23:07:19.958798+00:00",
     "malleado": "2026-07-13T10:18:52.712870+00:00",
     "mallimape": "2026-07-12T09:55:45.959103+00:00",
-    "mallo_c": "2026-07-13T07:03:34.172498+00:00",
+    "mallo_c": "2026-07-14T01:46:13.561865+00:00",
     "maltenotsn": "2026-07-12T13:11:19.047569+00:00",
     "malum_movet": "2026-07-12T21:22:09.448966+00:00",
     "malvich": "2026-07-12T06:23:01.102411+00:00",
@@ -38976,6 +38977,7 @@
     "schmusanne": "2026-07-10T19:41:22.611343+00:00",
     "schoerli": "2026-07-12T05:41:45.596217+00:00",
     "schwasd": "2026-07-12T12:13:34.112671+00:00",
+    "sciencebug": "2026-07-14T01:44:48.766885+00:00",
     "sciencebug02": "2026-07-12T04:56:18.253444+00:00",
     "scienthousiaste": "2026-07-11T22:21:26.199215+00:00",
     "scif": "2026-07-12T03:56:41.855006+00:00",
@@ -43242,9 +43244,17 @@
       "username": "vishvath20"
     },
     {
+      "games": 410,
+      "profile": "https://lichess.org/@/mallo_c",
+      "rank": 37,
+      "rating": 1832,
+      "source": "Lobby-Crawl",
+      "username": "mallo_c"
+    },
+    {
       "games": 408,
       "profile": "https://lichess.org/@/morisqu3",
-      "rank": 37,
+      "rank": 38,
       "rating": 2036,
       "source": "Lobby-Crawl",
       "username": "morisqu3"
@@ -43252,18 +43262,10 @@
     {
       "games": 402,
       "profile": "https://lichess.org/@/oxxooxxo",
-      "rank": 38,
+      "rank": 39,
       "rating": 2121,
       "source": "Lobby-Crawl",
       "username": "oxxooxxo"
-    },
-    {
-      "games": 401,
-      "profile": "https://lichess.org/@/mallo_c",
-      "rank": 39,
-      "rating": 1832,
-      "source": "Lobby-Crawl",
-      "username": "mallo_c"
     },
     {
       "games": 398,
@@ -217616,7 +217618,15 @@
       "rating": 1352,
       "source": "?",
       "username": "purav2023"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/sciencebug",
+      "rank": 21834,
+      "rating": 1311,
+      "source": "Lobby-Crawl",
+      "username": "sciencebug"
     }
   ],
-  "updated_at": "2026-07-14T01:44:31.321516+00:00"
+  "updated_at": "2026-07-14T01:46:13.566286+00:00"
 }
