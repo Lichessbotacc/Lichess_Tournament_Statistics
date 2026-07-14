@@ -6681,6 +6681,7 @@
     "domedadude": 3,
     "domeous": 0,
     "domi2103": 0,
+    "domingo_jr": 0,
     "dominicgabrielmonkie": 10,
     "dominikdecoco": 0,
     "dominiks2013": 0,
@@ -11649,7 +11650,7 @@
     "kla101": 0,
     "klaasmp": 0,
     "klapay": 0,
-    "klapounio": 282,
+    "klapounio": 270,
     "klapperzahn": 0,
     "klara2012": 0,
     "klasselasse": 0,
@@ -29097,6 +29098,7 @@
     "domedadude": "2026-07-10T22:45:26.401751+00:00",
     "domeous": "2026-07-13T16:41:19.496814+00:00",
     "domi2103": "2026-07-11T00:23:36.022528+00:00",
+    "domingo_jr": "2026-07-14T06:21:15.986983+00:00",
     "dominicgabrielmonkie": "2026-07-12T05:20:55.041633+00:00",
     "dominikdecoco": "2026-07-13T23:12:34.447973+00:00",
     "dominiks2013": "2026-07-12T20:48:44.131268+00:00",
@@ -33675,7 +33677,7 @@
     "kkoc35": "2026-07-10T14:43:54.942913+00:00",
     "kla101": "2026-07-12T20:26:25.949756+00:00",
     "klapay": "2026-07-12T20:37:54.781750+00:00",
-    "klapounio": "2026-07-13T02:29:49.870803+00:00",
+    "klapounio": "2026-07-14T06:22:12.796877+00:00",
     "klara2012": "2026-07-13T11:48:20.177349+00:00",
     "klasselasse": "2026-07-13T08:11:05.059999+00:00",
     "klausschmadel": "2026-07-13T10:23:00.152831+00:00",
@@ -44779,17 +44781,9 @@
       "username": "ekinect"
     },
     {
-      "games": 282,
-      "profile": "https://lichess.org/@/klapounio",
-      "rank": 83,
-      "rating": 2188,
-      "source": "Lobby-Crawl",
-      "username": "klapounio"
-    },
-    {
       "games": 281,
       "profile": "https://lichess.org/@/artemijsz",
-      "rank": 84,
+      "rank": 83,
       "rating": 1498,
       "source": "Lobby-Crawl",
       "username": "artemijsz"
@@ -44797,7 +44791,7 @@
     {
       "games": 280,
       "profile": "https://lichess.org/@/trou_m",
-      "rank": 85,
+      "rank": 84,
       "rating": 1349,
       "source": "Lobby-Crawl",
       "username": "trou_m"
@@ -44805,7 +44799,7 @@
     {
       "games": 277,
       "profile": "https://lichess.org/@/benjisuperchess",
-      "rank": 86,
+      "rank": 85,
       "rating": 1806,
       "source": "Lobby-Crawl",
       "username": "benjisuperchess"
@@ -44813,7 +44807,7 @@
     {
       "games": 277,
       "profile": "https://lichess.org/@/skilet_driver",
-      "rank": 87,
+      "rank": 86,
       "rating": 1552,
       "source": "Lobby-Crawl",
       "username": "skilet_driver"
@@ -44821,7 +44815,7 @@
     {
       "games": 274,
       "profile": "https://lichess.org/@/rags-to-riches",
-      "rank": 88,
+      "rank": 87,
       "rating": 2169,
       "source": "Lobby-Crawl",
       "username": "rags-to-riches"
@@ -44829,10 +44823,18 @@
     {
       "games": 273,
       "profile": "https://lichess.org/@/circussands",
-      "rank": 89,
+      "rank": 88,
       "rating": 2402,
       "source": "?",
       "username": "circussands"
+    },
+    {
+      "games": 270,
+      "profile": "https://lichess.org/@/klapounio",
+      "rank": 89,
+      "rating": 2188,
+      "source": "Lobby-Crawl",
+      "username": "klapounio"
     },
     {
       "games": 270,
@@ -223449,7 +223451,15 @@
       "rating": 1838,
       "source": "Lobby-Crawl",
       "username": "walter7"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/domingo_jr",
+      "rank": 22417,
+      "rating": 1298,
+      "source": "Lobby-Crawl",
+      "username": "domingo_jr"
     }
   ],
-  "updated_at": "2026-07-14T06:21:01.608844+00:00"
+  "updated_at": "2026-07-14T06:22:12.801501+00:00"
 }
