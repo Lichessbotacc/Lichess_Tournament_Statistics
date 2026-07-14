@@ -6524,6 +6524,7 @@
     "chessmaster_stereoo": 0,
     "chessmasteradvit64": 0,
     "chessmasteravyaan": 4,
+    "chessmasterking_aze": 0,
     "chessmasternumber10": 0,
     "chessmat26": 0,
     "chessmate2k26": 1,
@@ -15069,6 +15070,7 @@
     "katia_b": 1,
     "katia_balikhina": 0,
     "katia_kalamara_2015": 8,
+    "katita25": 0,
     "katrisha2713": 0,
     "kats20": 0,
     "katusha_les": 0,
@@ -22846,6 +22848,7 @@
     "piyush_07pandey": 0,
     "piyush_papola": 0,
     "piyushmane16": 0,
+    "piyushshlok": 0,
     "pizza1234567": 0,
     "pizza38160": 0,
     "pizzachu897": 0,
@@ -26535,6 +26538,7 @@
     "shyam9": 0,
     "shyam_2355": 47,
     "shyam_mohanta": 0,
+    "shyshka_nikita": 0,
     "shz11": 0,
     "sianooooorr": 0,
     "siapay": 0,
@@ -30550,6 +30554,7 @@
     "vladimir_surnin": 1,
     "vladimirfedorov": 0,
     "vladimirkrylov0111": 0,
+    "vladimirlosev": 0,
     "vladimirpirogov": 0,
     "vladimirpotapov": 0,
     "vladimirrevin": 0,
@@ -38631,6 +38636,7 @@
     "chessmaster_stereoo": "2026-07-12T01:32:07.923770+00:00",
     "chessmasteradvit64": "2026-07-10T16:29:17.961778+00:00",
     "chessmasteravyaan": "2026-07-10T03:28:56.856976+00:00",
+    "chessmasterking_aze": "2026-07-14T16:34:45.578716+00:00",
     "chessmasternumber10": "2026-07-14T04:12:52.886214+00:00",
     "chessmat26": "2026-07-11T19:42:09.821791+00:00",
     "chessmate2k26": "2026-07-13T16:34:39.223419+00:00",
@@ -46940,6 +46946,7 @@
     "katia_b": "2026-07-11T20:27:22.886661+00:00",
     "katia_balikhina": "2026-07-14T08:26:49.632205+00:00",
     "katia_kalamara_2015": "2026-07-11T14:40:04.020512+00:00",
+    "katita25": "2026-07-14T16:34:54.563711+00:00",
     "katrisha2713": "2026-07-13T12:36:52.053909+00:00",
     "kats20": "2026-07-12T19:20:24.374368+00:00",
     "katusha_les": "2026-07-14T06:10:55.809405+00:00",
@@ -54126,6 +54133,7 @@
     "piyush_07pandey": "2026-07-13T21:11:32.235813+00:00",
     "piyush_papola": "2026-07-11T00:58:20.004585+00:00",
     "piyushmane16": "2026-07-12T05:15:33.395049+00:00",
+    "piyushshlok": "2026-07-14T16:34:48.570705+00:00",
     "pizza1234567": "2026-07-12T07:13:59.996607+00:00",
     "pizza38160": "2026-07-11T03:21:19.655073+00:00",
     "pizzachu897": "2026-07-13T12:31:52.827839+00:00",
@@ -57750,6 +57758,7 @@
     "shyam9": "2026-07-13T22:16:07.042718+00:00",
     "shyam_2355": "2026-07-13T19:33:29.040665+00:00",
     "shyam_mohanta": "2026-07-11T12:39:52.809141+00:00",
+    "shyshka_nikita": "2026-07-14T16:34:51.590878+00:00",
     "shz11": "2026-07-12T17:23:33.297768+00:00",
     "sianooooorr": "2026-07-14T11:18:30.513269+00:00",
     "siapay": "2026-07-13T17:16:33.067881+00:00",
@@ -61751,6 +61760,7 @@
     "vladimir_surnin": "2026-07-11T05:22:48.511848+00:00",
     "vladimirfedorov": "2026-07-10T18:14:49.846521+00:00",
     "vladimirkrylov0111": "2026-07-13T19:11:15.777345+00:00",
+    "vladimirlosev": "2026-07-14T16:34:42.557463+00:00",
     "vladimirpirogov": "2026-07-13T22:31:04.771187+00:00",
     "vladimirpotapov": "2026-07-14T13:47:30.098815+00:00",
     "vladimirrevin": "2026-07-12T01:35:08.155863+00:00",
@@ -320298,7 +320308,47 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "madoka_chan"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vladimirlosev",
+      "rank": 32123,
+      "rating": 1151,
+      "source": "Lobby-Crawl",
+      "username": "vladimirlosev"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chessmasterking_aze",
+      "rank": 32124,
+      "rating": 1347,
+      "source": "Lobby-Crawl",
+      "username": "chessmasterking_aze"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/piyushshlok",
+      "rank": 32125,
+      "rating": 1340,
+      "source": "?",
+      "username": "piyushshlok"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/shyshka_nikita",
+      "rank": 32126,
+      "rating": 950,
+      "source": "Lobby-Crawl",
+      "username": "shyshka_nikita"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/katita25",
+      "rank": 32127,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "katita25"
     }
   ],
-  "updated_at": "2026-07-14T16:33:53.481870+00:00"
+  "updated_at": "2026-07-14T16:34:54.570445+00:00"
 }
