@@ -8728,7 +8728,7 @@
     "grom113": 0,
     "gronkk": 0,
     "groovechesster": 4,
-    "grosg77": 219,
+    "grosg77": 235,
     "groshan": 0,
     "grossasha": 17,
     "grossmastersem": 12,
@@ -30792,7 +30792,7 @@
     "grom113": "2026-07-14T01:16:51.051500+00:00",
     "gronkk": "2026-07-12T08:03:44.990021+00:00",
     "groovechesster": "2026-07-13T08:52:46.782906+00:00",
-    "grosg77": "2026-07-13T03:50:06.921709+00:00",
+    "grosg77": "2026-07-14T04:40:13.941852+00:00",
     "groshan": "2026-07-12T23:56:14.191263+00:00",
     "grossasha": "2026-07-11T17:40:22.875701+00:00",
     "grossmastersem": "2026-07-13T18:20:04.293550+00:00",
@@ -44393,9 +44393,17 @@
       "username": "polina00"
     },
     {
+      "games": 235,
+      "profile": "https://lichess.org/@/grosg77",
+      "rank": 116,
+      "rating": 1816,
+      "source": "Lobby-Crawl",
+      "username": "grosg77"
+    },
+    {
       "games": 233,
       "profile": "https://lichess.org/@/gpdkr212",
-      "rank": 116,
+      "rank": 117,
       "rating": 2057,
       "source": "Lobby-Crawl",
       "username": "gpdkr212"
@@ -44403,7 +44411,7 @@
     {
       "games": 232,
       "profile": "https://lichess.org/@/cr0c0d1l3",
-      "rank": 117,
+      "rank": 118,
       "rating": 2129,
       "source": "?",
       "username": "cr0c0d1l3"
@@ -44411,7 +44419,7 @@
     {
       "games": 230,
       "profile": "https://lichess.org/@/antonio687",
-      "rank": 118,
+      "rank": 119,
       "rating": 1727,
       "source": "Lobby-Crawl",
       "username": "antonio687"
@@ -44419,7 +44427,7 @@
     {
       "games": 229,
       "profile": "https://lichess.org/@/vishu_25",
-      "rank": 119,
+      "rank": 120,
       "rating": 2051,
       "source": "Lobby-Crawl",
       "username": "vishu_25"
@@ -44427,7 +44435,7 @@
     {
       "games": 227,
       "profile": "https://lichess.org/@/hanselvegrahambell",
-      "rank": 120,
+      "rank": 121,
       "rating": 2194,
       "source": "Lobby-Crawl",
       "username": "hanselvegrahambell"
@@ -44435,7 +44443,7 @@
     {
       "games": 226,
       "profile": "https://lichess.org/@/dilmurod05",
-      "rank": 121,
+      "rank": 122,
       "rating": 2221,
       "source": "?",
       "username": "dilmurod05"
@@ -44443,7 +44451,7 @@
     {
       "games": 226,
       "profile": "https://lichess.org/@/mij83",
-      "rank": 122,
+      "rank": 123,
       "rating": 2028,
       "source": "Lobby-Crawl",
       "username": "mij83"
@@ -44451,7 +44459,7 @@
     {
       "games": 225,
       "profile": "https://lichess.org/@/fistmybump",
-      "rank": 123,
+      "rank": 124,
       "rating": 1685,
       "source": "Lobby-Crawl",
       "username": "fistmybump"
@@ -44459,7 +44467,7 @@
     {
       "games": 225,
       "profile": "https://lichess.org/@/kotov_syndrome",
-      "rank": 124,
+      "rank": 125,
       "rating": 2274,
       "source": "?",
       "username": "kotov_syndrome"
@@ -44467,7 +44475,7 @@
     {
       "games": 221,
       "profile": "https://lichess.org/@/aghasoheil",
-      "rank": 125,
+      "rank": 126,
       "rating": 1877,
       "source": "Lobby-Crawl",
       "username": "aghasoheil"
@@ -44475,7 +44483,7 @@
     {
       "games": 221,
       "profile": "https://lichess.org/@/fufdarr",
-      "rank": 126,
+      "rank": 127,
       "rating": 2205,
       "source": "Lobby-Crawl",
       "username": "fufdarr"
@@ -44483,7 +44491,7 @@
     {
       "games": 221,
       "profile": "https://lichess.org/@/vikram_aditya26",
-      "rank": 127,
+      "rank": 128,
       "rating": 1314,
       "source": "Lobby-Crawl",
       "username": "vikram_aditya26"
@@ -44491,7 +44499,7 @@
     {
       "games": 221,
       "profile": "https://lichess.org/@/yenuowu",
-      "rank": 128,
+      "rank": 129,
       "rating": 1769,
       "source": "Lobby-Crawl",
       "username": "yenuowu"
@@ -44499,7 +44507,7 @@
     {
       "games": 220,
       "profile": "https://lichess.org/@/kingkethv2",
-      "rank": 129,
+      "rank": 130,
       "rating": 1960,
       "source": "Lobby-Crawl",
       "username": "kingkethv2"
@@ -44507,18 +44515,10 @@
     {
       "games": 220,
       "profile": "https://lichess.org/@/raicosta",
-      "rank": 130,
+      "rank": 131,
       "rating": 2220,
       "source": "Lobby-Crawl",
       "username": "raicosta"
-    },
-    {
-      "games": 219,
-      "profile": "https://lichess.org/@/grosg77",
-      "rank": 131,
-      "rating": 1816,
-      "source": "Lobby-Crawl",
-      "username": "grosg77"
     },
     {
       "games": 219,
@@ -220209,5 +220209,5 @@
       "username": "yen1283"
     }
   ],
-  "updated_at": "2026-07-14T04:38:59.416734+00:00"
+  "updated_at": "2026-07-14T04:40:13.946471+00:00"
 }
