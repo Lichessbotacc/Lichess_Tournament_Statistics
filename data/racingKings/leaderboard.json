@@ -11624,6 +11624,7 @@
     "hardikmishra2011": 0,
     "harditthacker": 0,
     "hardpassword": 0,
+    "hardworkneeded": 0,
     "hareaum": 0,
     "harenko1106": 0,
     "hareziqwan": 0,
@@ -41462,6 +41463,7 @@
     "hardikmishra2011": "2026-07-14T08:12:52.048035+00:00",
     "harditthacker": "2026-07-14T01:25:19.783016+00:00",
     "hardpassword": "2026-07-14T09:19:59.740412+00:00",
+    "hardworkneeded": "2026-07-14T10:13:45.903281+00:00",
     "hareaum": "2026-07-13T03:14:05.068868+00:00",
     "harenko1106": "2026-07-11T15:06:10.713307+00:00",
     "hareziqwan": "2026-07-14T03:29:56.414759+00:00",
@@ -252826,7 +252828,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/senatros",
       "rank": 24146,
-      "rating": null,
+      "rating": 1476,
       "source": "Lobby-Crawl",
       "username": "senatros"
     },
@@ -298821,7 +298823,15 @@
       "rating": 1696,
       "source": "Lobby-Crawl",
       "username": "medusa_bocas"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/hardworkneeded",
+      "rank": 29896,
+      "rating": 1341,
+      "source": "?",
+      "username": "hardworkneeded"
     }
   ],
-  "updated_at": "2026-07-14T10:12:43.417651+00:00"
+  "updated_at": "2026-07-14T10:13:45.910702+00:00"
 }
