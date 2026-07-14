@@ -1292,6 +1292,7 @@
     "ads68": 0,
     "adump": 1,
     "aduot": 0,
+    "adurdas": 0,
     "adutchess": 0,
     "adv-223": 0,
     "adv72": 0,
@@ -21191,6 +21192,7 @@
     "pirmint": 0,
     "pisipanis": 0,
     "piskarevrodya17": 0,
+    "piskovaoksana": 0,
     "pist5che": 1,
     "pistrook": 0,
     "pit-brett": 33,
@@ -24362,6 +24364,7 @@
     "shukla_dei": 1,
     "shukruthveerganti": 0,
     "shuldih": 0,
+    "shulimovtimur": 0,
     "shumelchyk_ivan": 0,
     "shumilte": 0,
     "shumko87": 132,
@@ -27655,6 +27658,7 @@
     "vi20000": 3,
     "viaankarkalanintendo": 0,
     "viaankintali": 0,
+    "viacheslav_2015": 0,
     "viancg": 0,
     "vianeymedinah": 0,
     "viar576": 1,
@@ -28038,6 +28042,7 @@
     "vladtodd25": 0,
     "vladuhen-2017": 0,
     "vladymiredison2022": 0,
+    "vladyshep": 0,
     "vladyslav2019": 0,
     "vlasek": 0,
     "vlasov_constantin": 0,
@@ -30799,6 +30804,7 @@
     "ads68": "2026-07-10T02:36:00.255997+00:00",
     "adump": "2026-07-11T04:06:07.670080+00:00",
     "aduot": "2026-07-10T02:36:03.239058+00:00",
+    "adurdas": "2026-07-14T19:00:36.549218+00:00",
     "adutchess": "2026-07-10T13:18:03.365846+00:00",
     "adv-223": "2026-07-10T02:36:06.236150+00:00",
     "adv72": "2026-07-14T05:59:10.751403+00:00",
@@ -50571,6 +50577,7 @@
     "pirmint": "2026-07-11T17:44:30.703985+00:00",
     "pisipanis": "2026-07-14T05:46:19.152343+00:00",
     "piskarevrodya17": "2026-07-11T14:05:58.214877+00:00",
+    "piskovaoksana": "2026-07-14T19:00:24.668427+00:00",
     "pist5che": "2026-07-12T14:17:18.057623+00:00",
     "pistrook": "2026-07-14T16:03:09.112372+00:00",
     "pit-brett": "2026-07-14T05:04:41.428394+00:00",
@@ -53721,6 +53728,7 @@
     "shukla_dei": "2026-07-14T10:40:25.638436+00:00",
     "shukruthveerganti": "2026-07-12T16:38:32.572402+00:00",
     "shuldih": "2026-07-14T01:02:29.355539+00:00",
+    "shulimovtimur": "2026-07-14T19:00:27.585921+00:00",
     "shumelchyk_ivan": "2026-07-12T04:45:13.141603+00:00",
     "shumilte": "2026-07-11T01:16:13.650415+00:00",
     "shumko87": "2026-07-14T00:59:49.475933+00:00",
@@ -56988,6 +56996,7 @@
     "vi20000": "2026-07-11T21:08:40.328532+00:00",
     "viaankarkalanintendo": "2026-07-13T17:55:25.802551+00:00",
     "viaankintali": "2026-07-14T03:53:03.751505+00:00",
+    "viacheslav_2015": "2026-07-14T19:00:30.545842+00:00",
     "viancg": "2026-07-14T05:13:26.622439+00:00",
     "vianeymedinah": "2026-07-13T15:02:34.674016+00:00",
     "viar576": "2026-07-14T10:40:13.645763+00:00",
@@ -57364,6 +57373,7 @@
     "vladtodd25": "2026-07-12T05:46:42.325795+00:00",
     "vladuhen-2017": "2026-07-14T15:07:37.955407+00:00",
     "vladymiredison2022": "2026-07-11T02:28:57.445569+00:00",
+    "vladyshep": "2026-07-14T19:00:33.559897+00:00",
     "vladyslav2019": "2026-07-13T23:29:29.055296+00:00",
     "vlasek": "2026-07-13T20:42:41.245837+00:00",
     "vlasov_constantin": "2026-07-13T22:18:10.000090+00:00",
@@ -294880,7 +294890,47 @@
       "rating": 1414,
       "source": "Lobby-Crawl",
       "username": "nazarii18"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/piskovaoksana",
+      "rank": 29508,
+      "rating": 1177,
+      "source": "Lobby-Crawl",
+      "username": "piskovaoksana"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/shulimovtimur",
+      "rank": 29509,
+      "rating": 1714,
+      "source": "Lobby-Crawl",
+      "username": "shulimovtimur"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/viacheslav_2015",
+      "rank": 29510,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "viacheslav_2015"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/vladyshep",
+      "rank": 29511,
+      "rating": 1372,
+      "source": "Lobby-Crawl",
+      "username": "vladyshep"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/adurdas",
+      "rank": 29512,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "adurdas"
     }
   ],
-  "updated_at": "2026-07-14T18:59:36.172990+00:00"
+  "updated_at": "2026-07-14T19:00:36.559322+00:00"
 }
