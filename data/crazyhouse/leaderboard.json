@@ -360,6 +360,7 @@
     "aaravchess1234": 1,
     "aaravchessplay": 0,
     "aaravcr": 0,
+    "aaravcst": 0,
     "aaravdashh": 0,
     "aaravdeshpande1": 0,
     "aaravdhayagudevcl": 0,
@@ -27013,6 +27014,7 @@
     "aaravchess1234": "2026-07-13T18:30:26.492233+00:00",
     "aaravchessplay": "2026-07-10T01:54:36.197443+00:00",
     "aaravcr": "2026-07-14T04:09:52.966857+00:00",
+    "aaravcst": "2026-07-14T06:54:00.595724+00:00",
     "aaravdashh": "2026-07-10T01:17:21.112498+00:00",
     "aaravdeshpande1": "2026-07-11T00:46:57.709273+00:00",
     "aaravdhayagudevcl": "2026-07-10T02:12:00.179011+00:00",
@@ -52602,7 +52604,7 @@
     "yoki16": "2026-07-12T14:19:07.962956+00:00",
     "yolothan": "2026-07-11T23:45:44.153814+00:00",
     "yoman417": "2026-07-13T02:20:26.144618+00:00",
-    "yonas1g": "2026-07-11T17:17:18.082902+00:00",
+    "yonas1g": "2026-07-14T06:52:45.599727+00:00",
     "yonastj": "2026-07-13T20:40:58.132911+00:00",
     "yongzhengwang": "2026-07-12T05:11:11.203075+00:00",
     "yonjvp": "2026-07-13T12:50:31.328902+00:00",
@@ -129673,7 +129675,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/amsterdam200",
       "rank": 9572,
-      "rating": null,
+      "rating": 1646,
       "source": "?",
       "username": "amsterdam200"
     },
@@ -266316,7 +266318,15 @@
       "rating": 1340,
       "source": "Lobby-Crawl",
       "username": "ispanak61"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/aaravcst",
+      "rank": 26653,
+      "rating": 698,
+      "source": "Lobby-Crawl",
+      "username": "aaravcst"
     }
   ],
-  "updated_at": "2026-07-14T06:52:28.411639+00:00"
+  "updated_at": "2026-07-14T06:54:00.602676+00:00"
 }
