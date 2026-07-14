@@ -17613,6 +17613,7 @@
     "nelly_2014": 0,
     "nelomah": 1,
     "nelsonrakson": 0,
+    "nelsonxia": 0,
     "nelsonzhang": 0,
     "nelys": 0,
     "nelyushka": 0,
@@ -24374,9 +24375,12 @@
     "tks-auss-jacobt": 0,
     "tks-bhm-alexandert": 0,
     "tks-bhm-ryani": 0,
+    "tks-hou-salamander": 0,
+    "tks-houn-federicog": 0,
     "tks-houn-juanpablos": 0,
     "tks-houn-krishh": 0,
     "tks-jack-carsonp": 13,
+    "tks-jack-josephr": 0,
     "tks-jack-kylep": 19,
     "tks-jack-meghashyac": 0,
     "tks-jack-thomast": 7,
@@ -24390,6 +24394,7 @@
     "tks-nash-lucasp": 7,
     "tks-tri-everettm": 0,
     "tksatxncoachtara": 0,
+    "tkshoucoachkafi": 0,
     "tlacopanecan": 0,
     "tlam1903": 1,
     "tltltltltltltltltit": 0,
@@ -32274,7 +32279,7 @@
     "chess8330": "2026-07-12T06:27:01.641026+00:00",
     "chess960atharv12": "2026-07-10T16:54:32.115001+00:00",
     "chess_12259": "2026-07-10T16:54:35.131693+00:00",
-    "chess_and_dnd_nerd": "2026-07-13T00:54:22.558842+00:00",
+    "chess_and_dnd_nerd": "2026-07-14T00:53:23.448816+00:00",
     "chess_art31": "2026-07-13T00:47:07.496542+00:00",
     "chess_avyakththekid": "2026-07-13T22:23:51.881573+00:00",
     "chess_blossom_4": "2026-07-12T06:05:57.787736+00:00",
@@ -43693,6 +43698,7 @@
     "nelly_2014": "2026-07-13T16:57:44.909395+00:00",
     "nelomah": "2026-07-12T20:06:57.492072+00:00",
     "nelsonrakson": "2026-07-13T12:32:56.771800+00:00",
+    "nelsonxia": "2026-07-14T00:53:20.487368+00:00",
     "nelsonzhang": "2026-07-13T03:55:59.068329+00:00",
     "nelys": "2026-07-14T00:37:54.468072+00:00",
     "nelyushka": "2026-07-11T07:09:46.347250+00:00",
@@ -48466,7 +48472,7 @@
     "smolievgenka2011": "2026-07-13T17:11:05.936772+00:00",
     "smolkinoleg2019": "2026-07-11T14:15:33.079571+00:00",
     "smotrys": "2026-07-13T20:32:42.776741+00:00",
-    "smp_moasheri": "2026-07-11T14:06:02.596346+00:00",
+    "smp_moasheri": "2026-07-14T00:54:50.491592+00:00",
     "smqai": "2026-07-13T08:10:54.098498+00:00",
     "smurf11111": "2026-07-13T21:51:30.303725+00:00",
     "smurfy": "2026-07-11T03:00:34.780163+00:00",
@@ -50180,9 +50186,12 @@
     "tks-auss-jacobt": "2026-07-10T18:42:31.900011+00:00",
     "tks-bhm-alexandert": "2026-07-13T13:44:09.683116+00:00",
     "tks-bhm-ryani": "2026-07-11T20:10:11.572267+00:00",
+    "tks-hou-salamander": "2026-07-14T00:53:26.456176+00:00",
+    "tks-houn-federicog": "2026-07-14T00:53:29.440078+00:00",
     "tks-houn-juanpablos": "2026-07-11T19:25:59.612138+00:00",
     "tks-houn-krishh": "2026-07-11T16:18:40.039590+00:00",
     "tks-jack-carsonp": "2026-07-13T17:02:41.793874+00:00",
+    "tks-jack-josephr": "2026-07-14T00:53:32.446304+00:00",
     "tks-jack-kylep": "2026-07-13T11:58:34.406469+00:00",
     "tks-jack-meghashyac": "2026-07-10T14:30:59.526369+00:00",
     "tks-jack-thomast": "2026-07-12T23:46:10.963079+00:00",
@@ -50196,6 +50205,7 @@
     "tks-nash-lucasp": "2026-07-13T21:26:30.801185+00:00",
     "tks-tri-everettm": "2026-07-12T09:39:38.584514+00:00",
     "tksatxncoachtara": "2026-07-10T13:38:26.021279+00:00",
+    "tkshoucoachkafi": "2026-07-14T00:53:35.494866+00:00",
     "tlacopanecan": "2026-07-12T13:46:53.867653+00:00",
     "tlam1903": "2026-07-12T04:07:23.640004+00:00",
     "tltltltltltltltltit": "2026-07-12T05:03:13.380215+00:00",
@@ -227187,7 +227197,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/smp_moasheri",
       "rank": 21811,
-      "rating": null,
+      "rating": 1401,
       "source": "Lobby-Crawl",
       "username": "smp_moasheri"
     },
@@ -267886,7 +267896,47 @@
       "rating": 1606,
       "source": "Lobby-Crawl",
       "username": "guglielmotell"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/nelsonxia",
+      "rank": 26899,
+      "rating": 1541,
+      "source": "Lobby-Crawl",
+      "username": "nelsonxia"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tks-hou-salamander",
+      "rank": 26900,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "tks-hou-salamander"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tks-houn-federicog",
+      "rank": 26901,
+      "rating": 1579,
+      "source": "Lobby-Crawl",
+      "username": "tks-houn-federicog"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tks-jack-josephr",
+      "rank": 26902,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "tks-jack-josephr"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tkshoucoachkafi",
+      "rank": 26903,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "tkshoucoachkafi"
     }
   ],
-  "updated_at": "2026-07-14T00:52:51.801512+00:00"
+  "updated_at": "2026-07-14T00:54:50.497945+00:00"
 }
