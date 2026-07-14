@@ -3879,6 +3879,7 @@
     "balle_asesina": 40,
     "ballicali": 0,
     "ballkub": 0,
+    "ballu18": 0,
     "ballyhooligan": 22,
     "balnur2018": 0,
     "balognimi": 0,
@@ -13516,7 +13517,7 @@
     "kyrilananda": 8,
     "kyryl2017": 0,
     "kz2bvn": 0,
-    "kzaas": 92,
+    "kzaas": 100,
     "kzarnur7": 5,
     "kzg8484839290202": 0,
     "kznous": 1,
@@ -29534,6 +29535,7 @@
     "balle_asesina": "2026-07-12T10:27:41.427823+00:00",
     "ballicali": "2026-07-12T05:46:09.072184+00:00",
     "ballkub": "2026-07-13T14:34:24.115525+00:00",
+    "ballu18": "2026-07-14T03:05:33.721797+00:00",
     "ballyhooligan": "2026-07-13T14:11:33.520291+00:00",
     "balnur2018": "2026-07-10T01:29:30.177876+00:00",
     "balognimi": "2026-07-13T08:26:40.327290+00:00",
@@ -39094,7 +39096,7 @@
     "kyrilananda": "2026-07-10T21:19:49.335737+00:00",
     "kyryl2017": "2026-07-13T02:47:13.711560+00:00",
     "kz2bvn": "2026-07-11T14:39:08.046544+00:00",
-    "kzaas": "2026-07-13T05:25:31.208800+00:00",
+    "kzaas": "2026-07-14T03:05:31.937745+00:00",
     "kzarnur7": "2026-07-12T06:22:29.637182+00:00",
     "kzg8484839290202": "2026-07-10T17:14:31.901077+00:00",
     "kznous": "2026-07-10T04:47:42.250769+00:00",
@@ -53421,9 +53423,17 @@
       "username": "kemeticchessplayer33"
     },
     {
+      "games": 100,
+      "profile": "https://lichess.org/@/kzaas",
+      "rank": 285,
+      "rating": 1940,
+      "source": "Lobby-Crawl",
+      "username": "kzaas"
+    },
+    {
       "games": 99,
       "profile": "https://lichess.org/@/dma7",
-      "rank": 285,
+      "rank": 286,
       "rating": 2306,
       "source": "Lobby-Crawl",
       "username": "dma7"
@@ -53431,7 +53441,7 @@
     {
       "games": 99,
       "profile": "https://lichess.org/@/knightparade",
-      "rank": 286,
+      "rank": 287,
       "rating": 1900,
       "source": "Lobby-Crawl",
       "username": "knightparade"
@@ -53439,7 +53449,7 @@
     {
       "games": 99,
       "profile": "https://lichess.org/@/lab101",
-      "rank": 287,
+      "rank": 288,
       "rating": 1951,
       "source": "Lobby-Crawl",
       "username": "lab101"
@@ -53447,7 +53457,7 @@
     {
       "games": 99,
       "profile": "https://lichess.org/@/nasssimdz",
-      "rank": 288,
+      "rank": 289,
       "rating": 1594,
       "source": "Lobby-Crawl",
       "username": "nasssimdz"
@@ -53455,7 +53465,7 @@
     {
       "games": 99,
       "profile": "https://lichess.org/@/rubicon_ranger",
-      "rank": 289,
+      "rank": 290,
       "rating": 1685,
       "source": "Lobby-Crawl",
       "username": "rubicon_ranger"
@@ -53463,7 +53473,7 @@
     {
       "games": 99,
       "profile": "https://lichess.org/@/trataredeganart",
-      "rank": 290,
+      "rank": 291,
       "rating": 2418,
       "source": "?",
       "username": "trataredeganart"
@@ -53471,7 +53481,7 @@
     {
       "games": 98,
       "profile": "https://lichess.org/@/dusiao1",
-      "rank": 291,
+      "rank": 292,
       "rating": 1886,
       "source": "Lobby-Crawl",
       "username": "dusiao1"
@@ -53479,7 +53489,7 @@
     {
       "games": 98,
       "profile": "https://lichess.org/@/nathan826",
-      "rank": 292,
+      "rank": 293,
       "rating": 2063,
       "source": "Lobby-Crawl",
       "username": "nathan826"
@@ -53487,7 +53497,7 @@
     {
       "games": 98,
       "profile": "https://lichess.org/@/reinerczaya",
-      "rank": 293,
+      "rank": 294,
       "rating": 1724,
       "source": "Lobby-Crawl",
       "username": "reinerczaya"
@@ -53495,7 +53505,7 @@
     {
       "games": 98,
       "profile": "https://lichess.org/@/walker03",
-      "rank": 294,
+      "rank": 295,
       "rating": 1322,
       "source": "Lobby-Crawl",
       "username": "walker03"
@@ -53503,7 +53513,7 @@
     {
       "games": 97,
       "profile": "https://lichess.org/@/gegetrois",
-      "rank": 295,
+      "rank": 296,
       "rating": 1500,
       "source": "Lobby-Crawl",
       "username": "gegetrois"
@@ -53511,7 +53521,7 @@
     {
       "games": 97,
       "profile": "https://lichess.org/@/heydari2020",
-      "rank": 296,
+      "rank": 297,
       "rating": 1834,
       "source": "Lobby-Crawl",
       "username": "heydari2020"
@@ -53519,7 +53529,7 @@
     {
       "games": 97,
       "profile": "https://lichess.org/@/smokingcastle",
-      "rank": 297,
+      "rank": 298,
       "rating": 1799,
       "source": "?",
       "username": "smokingcastle"
@@ -53527,7 +53537,7 @@
     {
       "games": 96,
       "profile": "https://lichess.org/@/fattahyoussef",
-      "rank": 298,
+      "rank": 299,
       "rating": 1545,
       "source": "Lobby-Crawl",
       "username": "fattahyoussef"
@@ -53535,7 +53545,7 @@
     {
       "games": 96,
       "profile": "https://lichess.org/@/liubov70",
-      "rank": 299,
+      "rank": 300,
       "rating": 2021,
       "source": "Lobby-Crawl",
       "username": "liubov70"
@@ -53543,7 +53553,7 @@
     {
       "games": 96,
       "profile": "https://lichess.org/@/slava201311",
-      "rank": 300,
+      "rank": 301,
       "rating": 1958,
       "source": "?",
       "username": "slava201311"
@@ -53551,7 +53561,7 @@
     {
       "games": 95,
       "profile": "https://lichess.org/@/josuejoker2026",
-      "rank": 301,
+      "rank": 302,
       "rating": 1299,
       "source": "?",
       "username": "josuejoker2026"
@@ -53559,7 +53569,7 @@
     {
       "games": 95,
       "profile": "https://lichess.org/@/toddmarkington",
-      "rank": 302,
+      "rank": 303,
       "rating": 2291,
       "source": "?",
       "username": "toddmarkington"
@@ -53567,7 +53577,7 @@
     {
       "games": 94,
       "profile": "https://lichess.org/@/aleks_shevchenko",
-      "rank": 303,
+      "rank": 304,
       "rating": 1977,
       "source": "Lobby-Crawl",
       "username": "aleks_shevchenko"
@@ -53575,7 +53585,7 @@
     {
       "games": 94,
       "profile": "https://lichess.org/@/italothe",
-      "rank": 304,
+      "rank": 305,
       "rating": 1881,
       "source": "Lobby-Crawl",
       "username": "italothe"
@@ -53583,7 +53593,7 @@
     {
       "games": 94,
       "profile": "https://lichess.org/@/pedro1964",
-      "rank": 305,
+      "rank": 306,
       "rating": 1832,
       "source": "Lobby-Crawl",
       "username": "pedro1964"
@@ -53591,7 +53601,7 @@
     {
       "games": 93,
       "profile": "https://lichess.org/@/altars7",
-      "rank": 306,
+      "rank": 307,
       "rating": 1615,
       "source": "Lobby-Crawl",
       "username": "altars7"
@@ -53599,7 +53609,7 @@
     {
       "games": 93,
       "profile": "https://lichess.org/@/jsdev24",
-      "rank": 307,
+      "rank": 308,
       "rating": 1726,
       "source": "Lobby-Crawl",
       "username": "jsdev24"
@@ -53607,7 +53617,7 @@
     {
       "games": 93,
       "profile": "https://lichess.org/@/kaede01",
-      "rank": 308,
+      "rank": 309,
       "rating": 2018,
       "source": "Lobby-Crawl",
       "username": "kaede01"
@@ -53615,7 +53625,7 @@
     {
       "games": 93,
       "profile": "https://lichess.org/@/losabogados",
-      "rank": 309,
+      "rank": 310,
       "rating": 1712,
       "source": "Lobby-Crawl",
       "username": "losabogados"
@@ -53623,18 +53633,10 @@
     {
       "games": 93,
       "profile": "https://lichess.org/@/trapmasters",
-      "rank": 310,
+      "rank": 311,
       "rating": 1933,
       "source": "Lobby-Crawl",
       "username": "trapmasters"
-    },
-    {
-      "games": 92,
-      "profile": "https://lichess.org/@/kzaas",
-      "rank": 311,
-      "rating": 1940,
-      "source": "Lobby-Crawl",
-      "username": "kzaas"
     },
     {
       "games": 92,
@@ -207936,7 +207938,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/niebol",
       "rank": 19599,
-      "rating": null,
+      "rating": 1555,
       "source": "Lobby-Crawl",
       "username": "niebol"
     },
@@ -256579,7 +256581,15 @@
       "rating": 996,
       "source": "Lobby-Crawl",
       "username": "grishasixseven"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ballu18",
+      "rank": 25680,
+      "rating": 1522,
+      "source": "Lobby-Crawl",
+      "username": "ballu18"
     }
   ],
-  "updated_at": "2026-07-14T03:04:32.435131+00:00"
+  "updated_at": "2026-07-14T03:05:33.728484+00:00"
 }
