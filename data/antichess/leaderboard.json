@@ -4210,7 +4210,7 @@
     "blitzed-monk": 0,
     "blitzkrieg005": 0,
     "blitzofthewild": 0,
-    "blitzshark1": 198,
+    "blitzshark1": 203,
     "blitzspectral": 0,
     "blo0od": 91,
     "blok_play": 0,
@@ -26237,7 +26237,7 @@
     "blitzed-monk": "2026-07-11T23:01:09.394933+00:00",
     "blitzkrieg005": "2026-07-12T06:04:56.563188+00:00",
     "blitzofthewild": "2026-07-12T07:47:07.145994+00:00",
-    "blitzshark1": "2026-07-13T05:25:04.211529+00:00",
+    "blitzshark1": "2026-07-14T04:14:04.662399+00:00",
     "blitzspectral": "2026-07-11T02:27:17.984378+00:00",
     "blo0od": "2026-07-13T12:02:18.043135+00:00",
     "blok_play": "2026-07-10T17:37:11.656405+00:00",
@@ -44512,8 +44512,16 @@
     },
     {
       "games": 203,
-      "profile": "https://lichess.org/@/leo_solo",
+      "profile": "https://lichess.org/@/blitzshark1",
       "rank": 147,
+      "rating": 1544,
+      "source": "Lobby-Crawl",
+      "username": "blitzshark1"
+    },
+    {
+      "games": 203,
+      "profile": "https://lichess.org/@/leo_solo",
+      "rank": 148,
       "rating": 1808,
       "source": "Lobby-Crawl",
       "username": "leo_solo"
@@ -44521,7 +44529,7 @@
     {
       "games": 203,
       "profile": "https://lichess.org/@/niujin",
-      "rank": 148,
+      "rank": 149,
       "rating": 1921,
       "source": "Lobby-Crawl",
       "username": "niujin"
@@ -44529,7 +44537,7 @@
     {
       "games": 202,
       "profile": "https://lichess.org/@/theriza",
-      "rank": 149,
+      "rank": 150,
       "rating": 1968,
       "source": "Lobby-Crawl",
       "username": "theriza"
@@ -44537,7 +44545,7 @@
     {
       "games": 201,
       "profile": "https://lichess.org/@/am1962",
-      "rank": 150,
+      "rank": 151,
       "rating": 1781,
       "source": "Lobby-Crawl",
       "username": "am1962"
@@ -44545,7 +44553,7 @@
     {
       "games": 199,
       "profile": "https://lichess.org/@/enriqued",
-      "rank": 151,
+      "rank": 152,
       "rating": 1689,
       "source": "Lobby-Crawl",
       "username": "enriqued"
@@ -44553,7 +44561,7 @@
     {
       "games": 199,
       "profile": "https://lichess.org/@/hanumesa",
-      "rank": 152,
+      "rank": 153,
       "rating": 1958,
       "source": "Lobby-Crawl",
       "username": "hanumesa"
@@ -44561,7 +44569,7 @@
     {
       "games": 199,
       "profile": "https://lichess.org/@/realmadrid_campeon",
-      "rank": 153,
+      "rank": 154,
       "rating": 1962,
       "source": "Lobby-Crawl",
       "username": "realmadrid_campeon"
@@ -44569,7 +44577,7 @@
     {
       "games": 198,
       "profile": "https://lichess.org/@/afrika2",
-      "rank": 154,
+      "rank": 155,
       "rating": 1656,
       "source": "Lobby-Crawl",
       "username": "afrika2"
@@ -44577,18 +44585,10 @@
     {
       "games": 198,
       "profile": "https://lichess.org/@/beethoven2",
-      "rank": 155,
+      "rank": 156,
       "rating": 2119,
       "source": "Lobby-Crawl",
       "username": "beethoven2"
-    },
-    {
-      "games": 198,
-      "profile": "https://lichess.org/@/blitzshark1",
-      "rank": 156,
-      "rating": 1544,
-      "source": "Lobby-Crawl",
-      "username": "blitzshark1"
     },
     {
       "games": 198,
@@ -219559,5 +219559,5 @@
       "username": "akkileshkumard31"
     }
   ],
-  "updated_at": "2026-07-14T04:08:03.357679+00:00"
+  "updated_at": "2026-07-14T04:14:04.667030+00:00"
 }
