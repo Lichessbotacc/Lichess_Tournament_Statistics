@@ -9440,7 +9440,7 @@
     "fhipi": 11,
     "fhunth": 0,
     "fianchetto_hole": 0,
-    "fiatrex0808": 60,
+    "fiatrex0808": 61,
     "fibri": 0,
     "fibunk0": 2,
     "ficav": 40,
@@ -36957,7 +36957,7 @@
     "fhipi": "2026-07-14T07:11:45.652920+00:00",
     "fhunth": "2026-07-13T06:02:25.553722+00:00",
     "fianchetto_hole": "2026-07-12T09:38:02.700382+00:00",
-    "fiatrex0808": "2026-07-13T18:14:59.918427+00:00",
+    "fiatrex0808": "2026-07-14T12:59:06.959304+00:00",
     "fibri": "2026-07-10T22:44:26.582894+00:00",
     "fibunk0": "2026-07-10T00:48:29.246163+00:00",
     "ficav": "2026-07-13T01:25:05.254655+00:00",
@@ -59227,8 +59227,16 @@
     },
     {
       "games": 61,
-      "profile": "https://lichess.org/@/jazzyf",
+      "profile": "https://lichess.org/@/fiatrex0808",
       "rank": 584,
+      "rating": 2032,
+      "source": "Lobby-Crawl",
+      "username": "fiatrex0808"
+    },
+    {
+      "games": 61,
+      "profile": "https://lichess.org/@/jazzyf",
+      "rank": 585,
       "rating": 1754,
       "source": "Lobby-Crawl",
       "username": "jazzyf"
@@ -59236,7 +59244,7 @@
     {
       "games": 61,
       "profile": "https://lichess.org/@/lbest",
-      "rank": 585,
+      "rank": 586,
       "rating": 1534,
       "source": "Lobby-Crawl",
       "username": "lbest"
@@ -59244,7 +59252,7 @@
     {
       "games": 61,
       "profile": "https://lichess.org/@/lord_ege",
-      "rank": 586,
+      "rank": 587,
       "rating": 1668,
       "source": "Lobby-Crawl",
       "username": "lord_ege"
@@ -59252,7 +59260,7 @@
     {
       "games": 61,
       "profile": "https://lichess.org/@/momo1404",
-      "rank": 587,
+      "rank": 588,
       "rating": 2128,
       "source": "Lobby-Crawl",
       "username": "momo1404"
@@ -59260,7 +59268,7 @@
     {
       "games": 61,
       "profile": "https://lichess.org/@/muttererde",
-      "rank": 588,
+      "rank": 589,
       "rating": 1656,
       "source": "Lobby-Crawl",
       "username": "muttererde"
@@ -59268,7 +59276,7 @@
     {
       "games": 61,
       "profile": "https://lichess.org/@/rosham",
-      "rank": 589,
+      "rank": 590,
       "rating": 1771,
       "source": "Lobby-Crawl",
       "username": "rosham"
@@ -59276,7 +59284,7 @@
     {
       "games": 61,
       "profile": "https://lichess.org/@/ryskal",
-      "rank": 590,
+      "rank": 591,
       "rating": 2107,
       "source": "Lobby-Crawl",
       "username": "ryskal"
@@ -59284,7 +59292,7 @@
     {
       "games": 61,
       "profile": "https://lichess.org/@/sanwalla13",
-      "rank": 591,
+      "rank": 592,
       "rating": 1731,
       "source": "Lobby-Crawl",
       "username": "sanwalla13"
@@ -59292,7 +59300,7 @@
     {
       "games": 61,
       "profile": "https://lichess.org/@/sirconflexe",
-      "rank": 592,
+      "rank": 593,
       "rating": 1732,
       "source": "Lobby-Crawl",
       "username": "sirconflexe"
@@ -59300,18 +59308,10 @@
     {
       "games": 60,
       "profile": "https://lichess.org/@/dovia",
-      "rank": 593,
+      "rank": 594,
       "rating": 1490,
       "source": "Lobby-Crawl",
       "username": "dovia"
-    },
-    {
-      "games": 60,
-      "profile": "https://lichess.org/@/fiatrex0808",
-      "rank": 594,
-      "rating": 2032,
-      "source": "Lobby-Crawl",
-      "username": "fiatrex0808"
     },
     {
       "games": 60,
@@ -277674,5 +277674,5 @@
       "username": "paul_ka92"
     }
   ],
-  "updated_at": "2026-07-14T12:53:36.317900+00:00"
+  "updated_at": "2026-07-14T12:59:06.965802+00:00"
 }
