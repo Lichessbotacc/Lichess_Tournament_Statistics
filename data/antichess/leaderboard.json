@@ -7264,7 +7264,7 @@
     "enok_smd": 0,
     "enpassantisforced69": 0,
     "enricem": 22,
-    "enriqued": 200,
+    "enriqued": 199,
     "enryquez": 2,
     "ensar1212": 0,
     "entermyname": 0,
@@ -29143,7 +29143,7 @@
     "enok_smd": "2026-07-13T20:50:20.795165+00:00",
     "enpassantisforced69": "2026-07-13T17:04:41.922391+00:00",
     "enricem": "2026-07-14T01:25:10.137893+00:00",
-    "enriqued": "2026-07-13T03:46:47.460225+00:00",
+    "enriqued": "2026-07-14T02:37:58.561153+00:00",
     "enryquez": "2026-07-13T17:00:16.062090+00:00",
     "ensar1212": "2026-07-12T05:50:25.577775+00:00",
     "entermyname": "2026-07-10T21:31:29.433199+00:00",
@@ -44244,16 +44244,8 @@
     },
     {
       "games": 200,
-      "profile": "https://lichess.org/@/enriqued",
-      "rank": 150,
-      "rating": 1689,
-      "source": "Lobby-Crawl",
-      "username": "enriqued"
-    },
-    {
-      "games": 200,
       "profile": "https://lichess.org/@/fufdarr",
-      "rank": 151,
+      "rank": 150,
       "rating": 2205,
       "source": "Lobby-Crawl",
       "username": "fufdarr"
@@ -44261,10 +44253,18 @@
     {
       "games": 200,
       "profile": "https://lichess.org/@/ivanmonkov",
-      "rank": 152,
+      "rank": 151,
       "rating": 1880,
       "source": "Lobby-Crawl",
       "username": "ivanmonkov"
+    },
+    {
+      "games": 199,
+      "profile": "https://lichess.org/@/enriqued",
+      "rank": 152,
+      "rating": 1689,
+      "source": "Lobby-Crawl",
+      "username": "enriqued"
     },
     {
       "games": 199,
@@ -218099,5 +218099,5 @@
       "username": "arenhovsepyan"
     }
   ],
-  "updated_at": "2026-07-14T02:36:24.861817+00:00"
+  "updated_at": "2026-07-14T02:37:58.565622+00:00"
 }
