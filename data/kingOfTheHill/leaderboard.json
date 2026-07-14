@@ -5138,6 +5138,7 @@
     "calculateurx-tn": 0,
     "calculator1026": 0,
     "calculatorbomb": 0,
+    "calculatorpretzel": 0,
     "calculus37": 0,
     "caldos13": 0,
     "caleb0911": 1,
@@ -20378,7 +20379,7 @@
     "piratetking": 0,
     "pirca19": 0,
     "piriethiegaa": 0,
-    "piscishz": 93,
+    "piscishz": 87,
     "piska1231": 0,
     "pist5che": 2,
     "pistis1234": 0,
@@ -33606,6 +33607,7 @@
     "calculateurx-tn": "2026-07-10T16:51:53.257681+00:00",
     "calculator1026": "2026-07-11T17:09:56.049063+00:00",
     "calculatorbomb": "2026-07-14T05:51:11.175044+00:00",
+    "calculatorpretzel": "2026-07-14T07:30:38.905940+00:00",
     "calculus37": "2026-07-11T03:56:49.583778+00:00",
     "caldos13": "2026-07-13T11:34:36.726730+00:00",
     "caleb0911": "2026-07-11T09:26:20.823713+00:00",
@@ -47161,7 +47163,7 @@
     "onkar_c21": "2026-07-13T05:32:14.540033+00:00",
     "onkel_alex": "2026-07-12T19:21:50.761560+00:00",
     "onlinechess37": "2026-07-14T04:11:05.547430+00:00",
-    "only_blitz-chess": "2026-07-12T07:24:30.646011+00:00",
+    "only_blitz-chess": "2026-07-14T07:30:47.292645+00:00",
     "onlyageniuscanwin": "2026-07-12T13:11:22.141044+00:00",
     "onlypractice67": "2026-07-13T20:17:27.938168+00:00",
     "onnerus": "2026-07-11T09:13:40.534605+00:00",
@@ -47885,7 +47887,7 @@
     "piratetking": "2026-07-13T08:47:17.520593+00:00",
     "pirca19": "2026-07-13T18:03:02.111717+00:00",
     "piriethiegaa": "2026-07-13T18:10:12.164261+00:00",
-    "piscishz": "2026-07-13T04:21:14.659805+00:00",
+    "piscishz": "2026-07-14T07:30:45.331797+00:00",
     "piska1231": "2026-07-12T14:16:36.524091+00:00",
     "pist5che": "2026-07-11T15:02:41.051174+00:00",
     "pistis1234": "2026-07-10T14:50:23.966364+00:00",
@@ -54406,7 +54408,7 @@
     "vitaliy1950": "2026-07-13T16:18:32.668583+00:00",
     "vitaliy1980": "2026-07-14T02:13:58.910262+00:00",
     "vitaliy_87": "2026-07-13T15:25:37.210140+00:00",
-    "vitaliyvorozhtsov": "2026-07-10T06:34:20.695626+00:00",
+    "vitaliyvorozhtsov": "2026-07-14T07:30:49.698018+00:00",
     "vitam1": "2026-07-13T18:56:31.635042+00:00",
     "vitarokera": "2026-07-12T16:24:29.529976+00:00",
     "vithun111": "2026-07-13T00:13:28.691213+00:00",
@@ -56401,17 +56403,9 @@
       "username": "megracia"
     },
     {
-      "games": 93,
-      "profile": "https://lichess.org/@/piscishz",
-      "rank": 69,
-      "rating": 1872,
-      "source": "Lobby-Crawl",
-      "username": "piscishz"
-    },
-    {
       "games": 92,
       "profile": "https://lichess.org/@/vampire_lord",
-      "rank": 70,
+      "rank": 69,
       "rating": 2068,
       "source": "Lobby-Crawl",
       "username": "vampire_lord"
@@ -56419,7 +56413,7 @@
     {
       "games": 90,
       "profile": "https://lichess.org/@/h_rex",
-      "rank": 71,
+      "rank": 70,
       "rating": 1911,
       "source": "Lobby-Crawl",
       "username": "h_rex"
@@ -56427,7 +56421,7 @@
     {
       "games": 89,
       "profile": "https://lichess.org/@/yaroslavles",
-      "rank": 72,
+      "rank": 71,
       "rating": 1904,
       "source": "Lobby-Crawl",
       "username": "yaroslavles"
@@ -56435,10 +56429,18 @@
     {
       "games": 88,
       "profile": "https://lichess.org/@/strelec99",
-      "rank": 73,
+      "rank": 72,
       "rating": 2090,
       "source": "Lobby-Crawl",
       "username": "strelec99"
+    },
+    {
+      "games": 87,
+      "profile": "https://lichess.org/@/piscishz",
+      "rank": 73,
+      "rating": 1872,
+      "source": "Lobby-Crawl",
+      "username": "piscishz"
     },
     {
       "games": 86,
@@ -131716,7 +131718,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/debmagarsigma1d",
       "rank": 9483,
-      "rating": null,
+      "rating": 1387,
       "source": "Lobby-Crawl",
       "username": "debmagarsigma1d"
     },
@@ -263356,7 +263358,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/vitaliyvorozhtsov",
       "rank": 25938,
-      "rating": null,
+      "rating": 1852,
       "source": "Lobby-Crawl",
       "username": "vitaliyvorozhtsov"
     },
@@ -283615,7 +283617,15 @@
       "rating": 1922,
       "source": "Lobby-Crawl",
       "username": "naren2218"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/calculatorpretzel",
+      "rank": 28471,
+      "rating": 1564,
+      "source": "Lobby-Crawl",
+      "username": "calculatorpretzel"
     }
   ],
-  "updated_at": "2026-07-14T07:29:49.219561+00:00"
+  "updated_at": "2026-07-14T07:30:49.703516+00:00"
 }
