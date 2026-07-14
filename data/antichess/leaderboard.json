@@ -8618,6 +8618,7 @@
     "fictivelogic": 0,
     "fidbal": 1,
     "fide77": 0,
+    "fideratedmaestro": 0,
     "fieldsofbashan": 42,
     "fiendfyrefrenzy": 15,
     "fiersfeld_67aura": 0,
@@ -17790,6 +17791,7 @@
     "pawn-007": 0,
     "pawn-reighn": 0,
     "pawn009": 0,
+    "pawn_shcooby": 0,
     "pawndestroyer9000": 0,
     "pawngoblin6": 6,
     "pawnhoppah": 0,
@@ -33346,6 +33348,7 @@
     "fictivelogic": "2026-07-14T07:00:15.543906+00:00",
     "fidbal": "2026-07-13T21:10:56.186132+00:00",
     "fide77": "2026-07-11T08:39:19.166819+00:00",
+    "fideratedmaestro": "2026-07-14T17:07:05.732668+00:00",
     "fieldsofbashan": "2026-07-13T14:44:22.488613+00:00",
     "fiendfyrefrenzy": "2026-07-13T07:52:29.123720+00:00",
     "fiersfeld_67aura": "2026-07-10T17:20:44.160551+00:00",
@@ -35206,7 +35209,7 @@
     "ignaciodeorue2015": "2026-07-14T07:32:37.210750+00:00",
     "ignaciomt": "2026-07-14T12:38:37.945113+00:00",
     "ignacy64": "2026-07-12T23:51:19.614741+00:00",
-    "ignacykowalski": "2026-07-13T17:04:57.281041+00:00",
+    "ignacykowalski": "2026-07-14T17:05:47.760995+00:00",
     "ignat_smirnov": "2026-07-12T11:00:13.178400+00:00",
     "ignatievfedor": "2026-07-14T17:02:05.432794+00:00",
     "ignotooo": "2026-07-10T20:44:14.258913+00:00",
@@ -41823,6 +41826,7 @@
     "pawn-007": "2026-07-13T03:23:57.338394+00:00",
     "pawn-reighn": "2026-07-11T00:20:17.110907+00:00",
     "pawn009": "2026-07-11T03:55:00.135818+00:00",
+    "pawn_shcooby": "2026-07-14T17:05:50.744349+00:00",
     "pawndestroyer9000": "2026-07-13T23:24:30.708166+00:00",
     "pawngoblin6": "2026-07-13T15:51:15.327430+00:00",
     "pawnhoppah": "2026-07-10T23:19:32.145581+00:00",
@@ -246613,7 +246617,23 @@
       "rating": 1097,
       "source": "Lobby-Crawl",
       "username": "a23032009"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/pawn_shcooby",
+      "rank": 24733,
+      "rating": 1298,
+      "source": "Lobby-Crawl",
+      "username": "pawn_shcooby"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/fideratedmaestro",
+      "rank": 24734,
+      "rating": 1438,
+      "source": "?",
+      "username": "fideratedmaestro"
     }
   ],
-  "updated_at": "2026-07-14T17:05:34.170473+00:00"
+  "updated_at": "2026-07-14T17:07:05.746720+00:00"
 }
