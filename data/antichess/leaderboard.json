@@ -17161,7 +17161,7 @@
     "rmysterio619": 0,
     "rnabc": 0,
     "rnbastos": 0,
-    "rnbqkrva": 604,
+    "rnbqkrva": 623,
     "rniranjan25": 0,
     "roa_6734": 9,
     "road2agm": 3,
@@ -38408,7 +38408,7 @@
     "rmysterio619": "2026-07-13T19:13:50.590047+00:00",
     "rnabc": "2026-07-12T12:39:48.808487+00:00",
     "rnbastos": "2026-07-13T17:26:39.960078+00:00",
-    "rnbqkrva": "2026-07-13T07:48:54.779000+00:00",
+    "rnbqkrva": "2026-07-14T03:17:40.541513+00:00",
     "rniranjan25": "2026-07-12T21:19:39.297560+00:00",
     "roa_6734": "2026-07-12T06:59:04.468735+00:00",
     "road2agm": "2026-07-12T06:28:04.011230+00:00",
@@ -43267,9 +43267,17 @@
       "username": "barsik1004"
     },
     {
+      "games": 623,
+      "profile": "https://lichess.org/@/rnbqkrva",
+      "rank": 10,
+      "rating": 2127,
+      "source": "Lobby-Crawl",
+      "username": "rnbqkrva"
+    },
+    {
       "games": 621,
       "profile": "https://lichess.org/@/an_ordinary_player_2",
-      "rank": 10,
+      "rank": 11,
       "rating": 1781,
       "source": "Lobby-Crawl",
       "username": "an_ordinary_player_2"
@@ -43277,18 +43285,10 @@
     {
       "games": 604,
       "profile": "https://lichess.org/@/meowwolf",
-      "rank": 11,
+      "rank": 12,
       "rating": 1984,
       "source": "Lobby-Crawl",
       "username": "meowwolf"
-    },
-    {
-      "games": 604,
-      "profile": "https://lichess.org/@/rnbqkrva",
-      "rank": 12,
-      "rating": 2127,
-      "source": "Lobby-Crawl",
-      "username": "rnbqkrva"
     },
     {
       "games": 602,
@@ -218819,5 +218819,5 @@
       "username": "zynp-arabaci"
     }
   ],
-  "updated_at": "2026-07-14T03:15:15.375872+00:00"
+  "updated_at": "2026-07-14T03:17:40.546047+00:00"
 }
