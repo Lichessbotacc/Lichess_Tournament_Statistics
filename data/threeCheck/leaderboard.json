@@ -3373,6 +3373,7 @@
     "ar15052015": 0,
     "ar7core": 0,
     "ar_rohan": 0,
+    "arad_gh_13": 0,
     "arad_mirzaei_gg": 0,
     "aradhsn12": 0,
     "aragundiemma": 0,
@@ -36777,6 +36778,7 @@
     "ar15052015": "2026-07-14T13:11:25.573033+00:00",
     "ar7core": "2026-07-14T03:48:02.972987+00:00",
     "ar_rohan": "2026-07-10T03:59:04.924204+00:00",
+    "arad_gh_13": "2026-07-14T22:39:51.913070+00:00",
     "arad_mirzaei_gg": "2026-07-11T12:36:13.258847+00:00",
     "aradhsn12": "2026-07-12T13:17:38.880155+00:00",
     "aragundiemma": "2026-07-13T09:06:11.187838+00:00",
@@ -316793,7 +316795,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/vkoval",
       "rank": 31361,
-      "rating": null,
+      "rating": 1700,
       "source": "Lobby-Crawl",
       "username": "vkoval"
     },
@@ -333204,7 +333206,15 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "keremc"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/arad_gh_13",
+      "rank": 33413,
+      "rating": 1401,
+      "source": "Lobby-Crawl",
+      "username": "arad_gh_13"
     }
   ],
-  "updated_at": "2026-07-14T22:38:33.037177+00:00"
+  "updated_at": "2026-07-14T22:39:51.929756+00:00"
 }
