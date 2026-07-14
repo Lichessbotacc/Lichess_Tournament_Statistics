@@ -12713,7 +12713,7 @@
     "krmsimsek": 5,
     "kroko-dill": 6,
     "krokodil_genadiy": 54,
-    "krokodylski": 1142,
+    "krokodylski": 996,
     "kronketekron": 0,
     "kroo7": 0,
     "krsai": 0,
@@ -17756,6 +17756,7 @@
     "radkanoniskform": 0,
     "radman12345": 0,
     "radman1390": 0,
+    "radoczy": 0,
     "radomir606": 0,
     "radomirzz": 23,
     "radop": 0,
@@ -36506,7 +36507,7 @@
     "krmsimsek": "2026-07-14T12:06:25.517872+00:00",
     "kroko-dill": "2026-07-13T22:11:36.219735+00:00",
     "krokodil_genadiy": "2026-07-13T17:36:37.841542+00:00",
-    "krokodylski": "2026-07-13T15:49:15.741240+00:00",
+    "krokodylski": "2026-07-14T16:47:21.858029+00:00",
     "kronketekron": "2026-07-13T20:04:50.939562+00:00",
     "kroo7": "2026-07-13T23:04:51.895098+00:00",
     "krsai": "2026-07-12T03:38:38.530332+00:00",
@@ -41480,6 +41481,7 @@
     "radkanoniskform": "2026-07-11T20:43:54.136842+00:00",
     "radman12345": "2026-07-12T16:00:26.500130+00:00",
     "radman1390": "2026-07-12T06:01:43.613361+00:00",
+    "radoczy": "2026-07-14T16:45:24.111281+00:00",
     "radomir606": "2026-07-13T06:13:35.002175+00:00",
     "radomirzz": "2026-07-11T06:21:23.368479+00:00",
     "radop": "2026-07-13T22:04:26.224061+00:00",
@@ -44387,7 +44389,7 @@
     "suslik03": "2026-07-12T06:31:47.280480+00:00",
     "suspicious_rock": "2026-07-13T20:55:08.098482+00:00",
     "sususoyaa": "2026-07-13T21:53:32.110492+00:00",
-    "suthey2": "2026-07-12T05:53:11.780261+00:00",
+    "suthey2": "2026-07-14T16:45:27.126184+00:00",
     "suujugi123": "2026-07-14T14:53:21.138266+00:00",
     "suwjbdjsnw": "2026-07-13T23:15:38.207310+00:00",
     "suyamprakash2019": "2026-07-13T13:05:19.412309+00:00",
@@ -47655,17 +47657,9 @@
       "username": "giuliog"
     },
     {
-      "games": 1142,
-      "profile": "https://lichess.org/@/krokodylski",
-      "rank": 11,
-      "rating": 2110,
-      "source": "Lobby-Crawl",
-      "username": "krokodylski"
-    },
-    {
       "games": 1119,
       "profile": "https://lichess.org/@/gmud",
-      "rank": 12,
+      "rank": 11,
       "rating": 1534,
       "source": "Lobby-Crawl",
       "username": "gmud"
@@ -47673,7 +47667,7 @@
     {
       "games": 1071,
       "profile": "https://lichess.org/@/fallen53",
-      "rank": 13,
+      "rank": 12,
       "rating": 1850,
       "source": "Lobby-Crawl",
       "username": "fallen53"
@@ -47681,7 +47675,7 @@
     {
       "games": 1046,
       "profile": "https://lichess.org/@/maybe_xd",
-      "rank": 14,
+      "rank": 13,
       "rating": 2619,
       "source": "?",
       "username": "maybe_xd"
@@ -47689,7 +47683,7 @@
     {
       "games": 1029,
       "profile": "https://lichess.org/@/conqueror_ryan",
-      "rank": 15,
+      "rank": 14,
       "rating": 1944,
       "source": "?",
       "username": "conqueror_ryan"
@@ -47697,7 +47691,7 @@
     {
       "games": 1027,
       "profile": "https://lichess.org/@/hihellohey",
-      "rank": 16,
+      "rank": 15,
       "rating": 1802,
       "source": "?",
       "username": "hihellohey"
@@ -47705,7 +47699,7 @@
     {
       "games": 1022,
       "profile": "https://lichess.org/@/nilsewon",
-      "rank": 17,
+      "rank": 16,
       "rating": 1951,
       "source": "Lobby-Crawl",
       "username": "nilsewon"
@@ -47713,7 +47707,7 @@
     {
       "games": 1016,
       "profile": "https://lichess.org/@/ahhh6e35e44e73e62nd5",
-      "rank": 18,
+      "rank": 17,
       "rating": 2319,
       "source": "?",
       "username": "ahhh6e35e44e73e62nd5"
@@ -47721,7 +47715,7 @@
     {
       "games": 1013,
       "profile": "https://lichess.org/@/uchijamadara",
-      "rank": 19,
+      "rank": 18,
       "rating": 1868,
       "source": "Lobby-Crawl",
       "username": "uchijamadara"
@@ -47729,7 +47723,7 @@
     {
       "games": 1008,
       "profile": "https://lichess.org/@/thickless",
-      "rank": 20,
+      "rank": 19,
       "rating": 1901,
       "source": "Lobby-Crawl",
       "username": "thickless"
@@ -47737,10 +47731,18 @@
     {
       "games": 1004,
       "profile": "https://lichess.org/@/a4sadeceataf4",
-      "rank": 21,
+      "rank": 20,
       "rating": 1542,
       "source": "Lobby-Crawl",
       "username": "a4sadeceataf4"
+    },
+    {
+      "games": 996,
+      "profile": "https://lichess.org/@/krokodylski",
+      "rank": 21,
+      "rating": 2110,
+      "source": "Lobby-Crawl",
+      "username": "krokodylski"
     },
     {
       "games": 988,
@@ -238989,7 +238991,15 @@
       "rating": 1319,
       "source": "Lobby-Crawl",
       "username": "ghettoblaster23"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/radoczy",
+      "rank": 23928,
+      "rating": 1389,
+      "source": "Lobby-Crawl",
+      "username": "radoczy"
     }
   ],
-  "updated_at": "2026-07-14T16:44:58.393306+00:00"
+  "updated_at": "2026-07-14T16:47:21.863234+00:00"
 }
