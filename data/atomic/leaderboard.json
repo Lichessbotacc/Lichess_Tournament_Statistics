@@ -9048,6 +9048,7 @@
     "enzoeyqr5i25kwyykwky": 0,
     "enzoproobra": 0,
     "eokuznetsov": 26,
+    "eoleg": 0,
     "eolin": 0,
     "eon_2017": 0,
     "epeen": 0,
@@ -10898,7 +10899,7 @@
     "grindinggm123": 0,
     "grisha_bogd": 0,
     "grisha_kar": 6,
-    "grisha_pauli": 562,
+    "grisha_pauli": 517,
     "grishanel": 0,
     "grishasixseven": 0,
     "grishass203s": 0,
@@ -34275,7 +34276,7 @@
     "chess_dudu": "2026-07-14T10:46:39.734427+00:00",
     "chess_elite_1": "2026-07-14T09:02:52.421846+00:00",
     "chess_fed": "2026-07-14T09:39:45.683368+00:00",
-    "chess_frikg4": "2026-07-14T01:15:52.335542+00:00",
+    "chess_frikg4": "2026-07-14T21:41:28.791311+00:00",
     "chess_grosmaster27": "2026-07-10T01:39:23.949769+00:00",
     "chess_hunter_live_in": "2026-07-13T21:36:08.718939+00:00",
     "chess_is_life_208": "2026-07-14T10:37:07.126163+00:00",
@@ -37295,6 +37296,7 @@
     "enzoeyqr5i25kwyykwky": "2026-07-10T16:57:35.847565+00:00",
     "enzoproobra": "2026-07-12T05:50:49.044583+00:00",
     "eokuznetsov": "2026-07-14T00:06:21.101628+00:00",
+    "eoleg": "2026-07-14T21:41:31.164001+00:00",
     "eolin": "2026-07-13T11:10:00.929529+00:00",
     "eon_2017": "2026-07-14T09:38:25.997644+00:00",
     "epeen": "2026-07-13T05:15:32.408434+00:00",
@@ -39144,7 +39146,7 @@
     "grindinggm123": "2026-07-12T13:00:55.651606+00:00",
     "grisha_bogd": "2026-07-13T05:23:01.448088+00:00",
     "grisha_kar": "2026-07-10T18:22:37.733093+00:00",
-    "grisha_pauli": "2026-07-13T21:09:48.492062+00:00",
+    "grisha_pauli": "2026-07-14T21:43:17.316657+00:00",
     "grishanel": "2026-07-14T13:32:16.690415+00:00",
     "grishasixseven": "2026-07-14T05:47:02.382700+00:00",
     "grishass203s": "2026-07-13T04:56:25.331356+00:00",
@@ -56612,17 +56614,9 @@
       "username": "iamplayingchesshere"
     },
     {
-      "games": 562,
-      "profile": "https://lichess.org/@/grisha_pauli",
-      "rank": 16,
-      "rating": 1821,
-      "source": "?",
-      "username": "grisha_pauli"
-    },
-    {
       "games": 557,
       "profile": "https://lichess.org/@/themostunanonymous",
-      "rank": 17,
+      "rank": 16,
       "rating": 1497,
       "source": "Lobby-Crawl",
       "username": "themostunanonymous"
@@ -56630,10 +56624,18 @@
     {
       "games": 547,
       "profile": "https://lichess.org/@/burak-t",
-      "rank": 18,
+      "rank": 17,
       "rating": 1965,
       "source": "Lobby-Crawl",
       "username": "burak-t"
+    },
+    {
+      "games": 517,
+      "profile": "https://lichess.org/@/grisha_pauli",
+      "rank": 18,
+      "rating": 1821,
+      "source": "?",
+      "username": "grisha_pauli"
     },
     {
       "games": 513,
@@ -202927,7 +202929,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/korolka_2011",
       "rank": 18305,
-      "rating": null,
+      "rating": 1373,
       "source": "Lobby-Crawl",
       "username": "korolka_2011"
     },
@@ -282490,7 +282492,15 @@
       "rating": 1237,
       "source": "Lobby-Crawl",
       "username": "maksio108"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/eoleg",
+      "rank": 28251,
+      "rating": 1152,
+      "source": "Lobby-Crawl",
+      "username": "eoleg"
     }
   ],
-  "updated_at": "2026-07-14T21:41:13.283431+00:00"
+  "updated_at": "2026-07-14T21:43:17.323013+00:00"
 }
