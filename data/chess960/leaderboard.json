@@ -21684,6 +21684,7 @@
     "nerceiram": 0,
     "nerdattack": 0,
     "nerdee": 0,
+    "nerdpof": 0,
     "nerevar83": 25,
     "neri_luiz": 0,
     "nermino": 1,
@@ -28340,6 +28341,7 @@
     "stichess2015": 0,
     "stickupper": 0,
     "stickyjoedragon": 0,
+    "stifmeister": 0,
     "stilbruch": 0,
     "still_learning_mdv": 1,
     "stillchino": 0,
@@ -29684,6 +29686,7 @@
     "tiras128": 3,
     "tiredgarbage": 0,
     "tirenwardd": 0,
+    "tirion166": 0,
     "tirohdkin": 0,
     "tiron_stafan": 1,
     "tirtha-kumar-0001": 1,
@@ -34503,7 +34506,7 @@
     "ahmedovshaxriyor": "2026-07-10T15:53:35.399753+00:00",
     "ahmedozdogan": "2026-07-13T17:50:46.484217+00:00",
     "ahmedpsicholog": "2026-07-10T01:20:04.752205+00:00",
-    "ahmedsalahnajmal": "2026-07-10T01:07:33.149728+00:00",
+    "ahmedsalahnajmal": "2026-07-15T12:32:40.956238+00:00",
     "ahmedwafy": "2026-07-15T00:30:06.067124+00:00",
     "ahmedxelgamal": "2026-07-14T10:49:29.851778+00:00",
     "ahmedzade_huseyn": "2026-07-10T02:41:44.316966+00:00",
@@ -53968,6 +53971,7 @@
     "neptune21": "2026-07-12T17:53:08.266825+00:00",
     "nerceiram": "2026-07-14T08:16:38.827564+00:00",
     "nerdattack": "2026-07-14T13:30:12.134122+00:00",
+    "nerdpof": "2026-07-15T12:31:19.949518+00:00",
     "nerevar83": "2026-07-14T17:35:38.376994+00:00",
     "neri_luiz": "2026-07-15T04:32:34.718659+00:00",
     "nermino": "2026-07-12T19:09:03.327203+00:00",
@@ -60382,6 +60386,7 @@
     "stichess2015": "2026-07-14T07:15:21.262016+00:00",
     "stickupper": "2026-07-11T18:07:50.342148+00:00",
     "stickyjoedragon": "2026-07-13T06:49:12.607808+00:00",
+    "stifmeister": "2026-07-15T12:31:22.968531+00:00",
     "stilbruch": "2026-07-11T01:50:54.484282+00:00",
     "still_learning_mdv": "2026-07-11T03:23:36.076301+00:00",
     "stillchino": "2026-07-14T22:47:13.642401+00:00",
@@ -61688,6 +61693,7 @@
     "tiras128": "2026-07-11T18:31:44.261364+00:00",
     "tiredgarbage": "2026-07-15T00:16:20.251940+00:00",
     "tirenwardd": "2026-07-13T17:02:52.410223+00:00",
+    "tirion166": "2026-07-15T12:31:25.949061+00:00",
     "tirohdkin": "2026-07-14T15:56:29.741191+00:00",
     "tiron_stafan": "2026-07-13T19:56:51.420808+00:00",
     "tirtha-kumar-0001": "2026-07-13T19:19:26.906163+00:00",
@@ -141765,8 +141771,8 @@
       "games": 0,
       "profile": "https://lichess.org/@/ahmedsalahnajmal",
       "rank": 9622,
-      "rating": null,
-      "source": "?",
+      "rating": 1562,
+      "source": "Lobby-Crawl",
       "username": "ahmedsalahnajmal"
     },
     {
@@ -328032,7 +328038,31 @@
       "rating": 2000,
       "source": "?",
       "username": "dcs_424"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/nerdpof",
+      "rank": 32906,
+      "rating": 1971,
+      "source": "Lobby-Crawl",
+      "username": "nerdpof"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/stifmeister",
+      "rank": 32907,
+      "rating": 1986,
+      "source": "Lobby-Crawl",
+      "username": "stifmeister"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/tirion166",
+      "rank": 32908,
+      "rating": 2043,
+      "source": "Lobby-Crawl",
+      "username": "tirion166"
     }
   ],
-  "updated_at": "2026-07-15T12:30:55.434803+00:00"
+  "updated_at": "2026-07-15T12:32:40.963530+00:00"
 }
