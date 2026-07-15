@@ -12842,7 +12842,7 @@
     "i_wont_lose": 0,
     "i_yaroslav": 0,
     "iaespinoza": 0,
-    "iagoluedersvega": 286,
+    "iagoluedersvega": 270,
     "iagorook": 0,
     "iaguetelerete": 0,
     "iakov_67": 1,
@@ -43510,7 +43510,7 @@
     "i_wont_lose": "2026-07-10T17:11:27.692083+00:00",
     "i_yaroslav": "2026-07-14T17:54:24.354355+00:00",
     "iaespinoza": "2026-07-13T09:33:25.070210+00:00",
-    "iagoluedersvega": "2026-07-14T11:42:58.837115+00:00",
+    "iagoluedersvega": "2026-07-15T14:41:11.147554+00:00",
     "iagorook": "2026-07-12T10:13:59.570798+00:00",
     "iaguetelerete": "2026-07-10T18:34:13.637520+00:00",
     "iakov_67": "2026-07-14T02:50:22.325403+00:00",
@@ -61808,17 +61808,9 @@
       "username": "blo0od"
     },
     {
-      "games": 286,
-      "profile": "https://lichess.org/@/iagoluedersvega",
-      "rank": 60,
-      "rating": 1901,
-      "source": "Lobby-Crawl",
-      "username": "iagoluedersvega"
-    },
-    {
       "games": 284,
       "profile": "https://lichess.org/@/loam2011",
-      "rank": 61,
+      "rank": 60,
       "rating": 1936,
       "source": "Lobby-Crawl",
       "username": "loam2011"
@@ -61826,7 +61818,7 @@
     {
       "games": 283,
       "profile": "https://lichess.org/@/finkm",
-      "rank": 62,
+      "rank": 61,
       "rating": 1952,
       "source": "Lobby-Crawl",
       "username": "finkm"
@@ -61834,7 +61826,7 @@
     {
       "games": 281,
       "profile": "https://lichess.org/@/stron1237",
-      "rank": 63,
+      "rank": 62,
       "rating": 1525,
       "source": "Lobby-Crawl",
       "username": "stron1237"
@@ -61842,7 +61834,7 @@
     {
       "games": 280,
       "profile": "https://lichess.org/@/burakemin29",
-      "rank": 64,
+      "rank": 63,
       "rating": 1707,
       "source": "?",
       "username": "burakemin29"
@@ -61850,7 +61842,7 @@
     {
       "games": 280,
       "profile": "https://lichess.org/@/levsakharov",
-      "rank": 65,
+      "rank": 64,
       "rating": 2165,
       "source": "?",
       "username": "levsakharov"
@@ -61858,7 +61850,7 @@
     {
       "games": 278,
       "profile": "https://lichess.org/@/rampagegoalie13",
-      "rank": 66,
+      "rank": 65,
       "rating": 1471,
       "source": "Lobby-Crawl",
       "username": "rampagegoalie13"
@@ -61866,7 +61858,7 @@
     {
       "games": 273,
       "profile": "https://lichess.org/@/kmut",
-      "rank": 67,
+      "rank": 66,
       "rating": 1794,
       "source": "Lobby-Crawl",
       "username": "kmut"
@@ -61874,7 +61866,7 @@
     {
       "games": 273,
       "profile": "https://lichess.org/@/lorigine",
-      "rank": 68,
+      "rank": 67,
       "rating": 1522,
       "source": "Lobby-Crawl",
       "username": "lorigine"
@@ -61882,10 +61874,18 @@
     {
       "games": 272,
       "profile": "https://lichess.org/@/gpluis",
-      "rank": 69,
+      "rank": 68,
       "rating": 1879,
       "source": "Lobby-Crawl",
       "username": "gpluis"
+    },
+    {
+      "games": 270,
+      "profile": "https://lichess.org/@/iagoluedersvega",
+      "rank": 69,
+      "rating": 1901,
+      "source": "Lobby-Crawl",
+      "username": "iagoluedersvega"
     },
     {
       "games": 268,
@@ -306712,5 +306712,5 @@
       "username": "ethan1108"
     }
   ],
-  "updated_at": "2026-07-15T14:35:39.100895+00:00"
+  "updated_at": "2026-07-15T14:41:11.153666+00:00"
 }
