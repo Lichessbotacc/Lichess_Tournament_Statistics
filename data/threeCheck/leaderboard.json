@@ -6748,6 +6748,7 @@
     "chess_planet21": 0,
     "chess_player9865": 1,
     "chess_player_017": 0,
+    "chess_players_3": 0,
     "chess_poems": 21,
     "chess_pro001": 0,
     "chess_professional12": 0,
@@ -30443,6 +30444,7 @@
     "thekingchess77": 0,
     "theknightstour": 3,
     "thekrash": 2,
+    "thelich123": 0,
     "thelincolnlog": 0,
     "thelionkingpariszxc": 0,
     "thelogwood": 0,
@@ -40926,6 +40928,7 @@
     "chess_planet21": "2026-07-11T09:02:24.031603+00:00",
     "chess_player9865": "2026-07-10T12:56:03.968252+00:00",
     "chess_player_017": "2026-07-14T11:21:49.881449+00:00",
+    "chess_players_3": "2026-07-15T05:13:29.452437+00:00",
     "chess_poems": "2026-07-14T15:22:58.107971+00:00",
     "chess_pro001": "2026-07-10T16:27:41.449978+00:00",
     "chess_professional12": "2026-07-12T11:33:06.854436+00:00",
@@ -56304,7 +56307,7 @@
     "nour011446": "2026-07-12T05:17:52.124590+00:00",
     "nova1234567": "2026-07-13T18:11:47.662316+00:00",
     "nova2005": "2026-07-15T05:12:53.116023+00:00",
-    "nova_gambit2605": "2026-07-14T06:53:38.958481+00:00",
+    "nova_gambit2605": "2026-07-15T05:13:33.457399+00:00",
     "nova_never_dies": "2026-07-12T16:24:07.172771+00:00",
     "novakolino": "2026-07-13T02:13:56.139755+00:00",
     "noval12345": "2026-07-13T06:06:32.064788+00:00",
@@ -63733,6 +63736,7 @@
     "thekingchess77": "2026-07-13T17:58:54.464952+00:00",
     "theknightstour": "2026-07-11T11:22:46.201540+00:00",
     "thekrash": "2026-07-14T10:01:41.905023+00:00",
+    "thelich123": "2026-07-15T05:14:47.811833+00:00",
     "thelincolnlog": "2026-07-14T20:36:52.808887+00:00",
     "thelionkingpariszxc": "2026-07-12T04:19:38.426883+00:00",
     "thelogwood": "2026-07-12T06:01:38.067430+00:00",
@@ -341010,7 +341014,23 @@
       "rating": 1368,
       "source": "Lobby-Crawl",
       "username": "nova2005"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess_players_3",
+      "rank": 34193,
+      "rating": 1636,
+      "source": "Lobby-Crawl",
+      "username": "chess_players_3"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/thelich123",
+      "rank": 34194,
+      "rating": 2131,
+      "source": "Lobby-Crawl",
+      "username": "thelich123"
     }
   ],
-  "updated_at": "2026-07-15T05:13:05.764185+00:00"
+  "updated_at": "2026-07-15T05:14:47.820101+00:00"
 }
