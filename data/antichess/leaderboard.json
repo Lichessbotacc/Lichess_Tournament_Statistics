@@ -7968,7 +7968,7 @@
     "dr_ilin": 0,
     "dr_ivan": 0,
     "dr_nrusimhan": 6,
-    "dr_t2003": 142,
+    "dr_t2003": 145,
     "dr_thomas_tal": 12,
     "dr_yn": 0,
     "dra44boy": 0,
@@ -15776,6 +15776,7 @@
     "manhhung82013": 0,
     "mani2011noobkosh": 0,
     "mania3": 0,
+    "maniacflare": 0,
     "manigr": 0,
     "manikasinghh": 0,
     "manikbolla": 4,
@@ -30802,7 +30803,7 @@
     "ash_up": "2026-07-12T07:13:00.404505+00:00",
     "asherchces": "2026-07-10T01:55:53.450163+00:00",
     "asherjetpack": "2026-07-14T22:41:42.241652+00:00",
-    "asherliu17": "2026-07-14T09:44:06.617092+00:00",
+    "asherliu17": "2026-07-15T06:25:38.587275+00:00",
     "asherpro": "2026-07-14T08:03:24.016098+00:00",
     "asherzoe": "2026-07-10T01:55:56.448054+00:00",
     "asheslayer": "2026-07-11T06:04:56.709429+00:00",
@@ -34972,7 +34973,7 @@
     "dr_ilin": "2026-07-12T21:00:19.785143+00:00",
     "dr_ivan": "2026-07-14T21:44:16.396988+00:00",
     "dr_nrusimhan": "2026-07-14T21:56:05.606402+00:00",
-    "dr_t2003": "2026-07-14T11:36:30.938078+00:00",
+    "dr_t2003": "2026-07-15T06:26:09.209539+00:00",
     "dr_thomas_tal": "2026-07-12T04:20:31.881336+00:00",
     "dr_yn": "2026-07-12T20:24:31.001841+00:00",
     "dra44boy": "2026-07-10T17:08:10.607175+00:00",
@@ -42217,6 +42218,7 @@
     "manhhung82013": "2026-07-14T20:26:13.896867+00:00",
     "mani2011noobkosh": "2026-07-10T13:02:55.087990+00:00",
     "mania3": "2026-07-11T08:18:07.433471+00:00",
+    "maniacflare": "2026-07-15T06:25:31.430956+00:00",
     "manigr": "2026-07-12T21:12:11.273833+00:00",
     "manikasinghh": "2026-07-14T08:52:13.104291+00:00",
     "manikbolla": "2026-07-14T02:48:47.840744+00:00",
@@ -48144,7 +48146,7 @@
     "sasha_ch107": "2026-07-12T13:38:14.116239+00:00",
     "sasha_misha": "2026-07-12T07:01:45.221160+00:00",
     "sasha_sasha_12": "2026-07-14T23:04:53.632601+00:00",
-    "sasha_usov": "2026-07-10T18:26:44.872597+00:00",
+    "sasha_usov": "2026-07-15T06:25:34.392387+00:00",
     "sasha_veber": "2026-07-14T05:39:07.246110+00:00",
     "sashadenisova": "2026-07-14T09:50:34.457319+00:00",
     "sashakh94": "2026-07-14T10:45:02.347999+00:00",
@@ -55469,8 +55471,16 @@
     },
     {
       "games": 145,
-      "profile": "https://lichess.org/@/hastinsson",
+      "profile": "https://lichess.org/@/dr_t2003",
       "rank": 271,
+      "rating": 1071,
+      "source": "Lobby-Crawl",
+      "username": "dr_t2003"
+    },
+    {
+      "games": 145,
+      "profile": "https://lichess.org/@/hastinsson",
+      "rank": 272,
       "rating": 2166,
       "source": "Lobby-Crawl",
       "username": "hastinsson"
@@ -55478,7 +55488,7 @@
     {
       "games": 145,
       "profile": "https://lichess.org/@/king-of-2-seconds",
-      "rank": 272,
+      "rank": 273,
       "rating": 1869,
       "source": "Lobby-Crawl",
       "username": "king-of-2-seconds"
@@ -55486,7 +55496,7 @@
     {
       "games": 145,
       "profile": "https://lichess.org/@/mentepepe",
-      "rank": 273,
+      "rank": 274,
       "rating": 1903,
       "source": "Lobby-Crawl",
       "username": "mentepepe"
@@ -55494,7 +55504,7 @@
     {
       "games": 144,
       "profile": "https://lichess.org/@/oksfor",
-      "rank": 274,
+      "rank": 275,
       "rating": 1042,
       "source": "Lobby-Crawl",
       "username": "oksfor"
@@ -55502,7 +55512,7 @@
     {
       "games": 143,
       "profile": "https://lichess.org/@/leka-bebeka",
-      "rank": 275,
+      "rank": 276,
       "rating": 1914,
       "source": "Lobby-Crawl",
       "username": "leka-bebeka"
@@ -55510,18 +55520,10 @@
     {
       "games": 143,
       "profile": "https://lichess.org/@/v3vojta",
-      "rank": 276,
+      "rank": 277,
       "rating": 2122,
       "source": "Lobby-Crawl",
       "username": "v3vojta"
-    },
-    {
-      "games": 142,
-      "profile": "https://lichess.org/@/dr_t2003",
-      "rank": 277,
-      "rating": 1071,
-      "source": "Lobby-Crawl",
-      "username": "dr_t2003"
     },
     {
       "games": 142,
@@ -92111,7 +92113,7 @@
       "games": 3,
       "profile": "https://lichess.org/@/vasesma",
       "rank": 4851,
-      "rating": null,
+      "rating": 1198,
       "source": "Lobby-Crawl",
       "username": "vasesma"
     },
@@ -269338,7 +269340,15 @@
       "rating": 1431,
       "source": "Lobby-Crawl",
       "username": "vidhatrivd"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/maniacflare",
+      "rank": 27005,
+      "rating": 1331,
+      "source": "Lobby-Crawl",
+      "username": "maniacflare"
     }
   ],
-  "updated_at": "2026-07-15T06:25:05.813319+00:00"
+  "updated_at": "2026-07-15T06:26:09.215351+00:00"
 }
