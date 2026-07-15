@@ -5367,6 +5367,7 @@
     "bocah_nanas": 0,
     "bocanatacople": 0,
     "bochegor": 0,
+    "bocman_stiv12": 0,
     "bodang_randy": 0,
     "bodarabia": 0,
     "bodeline": 0,
@@ -9479,6 +9480,7 @@
     "einstein1310": 0,
     "einstein14344": 0,
     "einundzwanziger": 0,
+    "eirfel": 0,
     "eis-eis-berg": 0,
     "eitamam": 0,
     "eitanchess": 0,
@@ -12277,6 +12279,7 @@
     "hanshithdlca": 0,
     "hanskoelz": 0,
     "hansotov": 0,
+    "hanssenaem": 0,
     "hanter_2011": 0,
     "hanu2012": 0,
     "hanumanru": 0,
@@ -23016,6 +23019,7 @@
     "petr120219": 1,
     "petr923": 2,
     "petr_sylamicovik": 0,
+    "petralexandr1": 0,
     "petrbaryshnikov": 0,
     "petrgerasimov": 2,
     "petrkuzin": 0,
@@ -26104,6 +26108,7 @@
     "satrancpro3": 0,
     "satrancsevercocuk": 0,
     "satrancustasi33": 0,
+    "satsan090": 0,
     "sattaraustria": 0,
     "saturn2623": 0,
     "saturn__2020": 0,
@@ -37900,6 +37905,7 @@
     "bocah_nanas": "2026-07-14T06:38:35.459449+00:00",
     "bocanatacople": "2026-07-13T16:33:40.289295+00:00",
     "bochegor": "2026-07-13T14:17:07.876897+00:00",
+    "bocman_stiv12": "2026-07-15T00:50:36.656493+00:00",
     "bodang_randy": "2026-07-14T20:16:06.723848+00:00",
     "bodarabia": "2026-07-13T17:10:30.841746+00:00",
     "bodeline": "2026-07-13T04:22:48.037355+00:00",
@@ -42010,6 +42016,7 @@
     "einstein1310": "2026-07-11T08:26:47.369663+00:00",
     "einstein14344": "2026-07-10T17:23:06.313964+00:00",
     "einundzwanziger": "2026-07-14T20:34:50.668609+00:00",
+    "eirfel": "2026-07-15T00:50:38.863340+00:00",
     "eis-eis-berg": "2026-07-13T00:12:27.156292+00:00",
     "eitamam": "2026-07-13T19:00:55.969718+00:00",
     "eitanchess": "2026-07-10T09:28:24.962298+00:00",
@@ -44708,6 +44715,7 @@
     "hanseltee": "2026-07-11T18:15:48.547383+00:00",
     "hanskoelz": "2026-07-14T23:29:26.799622+00:00",
     "hansotov": "2026-07-14T20:09:30.275959+00:00",
+    "hanssenaem": "2026-07-15T00:50:41.877208+00:00",
     "hanter_2011": "2026-07-14T09:17:24.962207+00:00",
     "hanu2012": "2026-07-13T23:20:35.875011+00:00",
     "hanumanru": "2026-07-13T19:30:38.327758+00:00",
@@ -48128,7 +48136,7 @@
     "kitotch": "2026-07-13T22:30:58.029869+00:00",
     "kitsune15": "2026-07-14T19:03:24.671016+00:00",
     "kitta2302": "2026-07-14T15:47:23.373227+00:00",
-    "kitten_2016": "2026-07-13T14:35:43.974941+00:00",
+    "kitten_2016": "2026-07-15T00:50:44.880922+00:00",
     "kittinoir": "2026-07-11T23:57:36.007633+00:00",
     "kitty2018": "2026-07-13T21:50:32.812003+00:00",
     "kittyhatsunemiku": "2026-07-13T17:56:34.562570+00:00",
@@ -54620,6 +54628,7 @@
     "petr120219": "2026-07-11T21:56:02.279172+00:00",
     "petr923": "2026-07-12T08:12:15.440446+00:00",
     "petr_sylamicovik": "2026-07-14T23:40:47.711684+00:00",
+    "petralexandr1": "2026-07-15T00:50:47.864387+00:00",
     "petrbaryshnikov": "2026-07-14T02:36:14.989439+00:00",
     "petrgerasimov": "2026-07-14T08:31:09.427030+00:00",
     "petrkuzin": "2026-07-13T10:50:57.807574+00:00",
@@ -57577,6 +57586,7 @@
     "satrancpro3": "2026-07-13T00:10:02.822764+00:00",
     "satrancsevercocuk": "2026-07-10T20:36:19.131187+00:00",
     "satrancustasi33": "2026-07-11T11:27:10.277386+00:00",
+    "satsan090": "2026-07-15T00:50:50.872734+00:00",
     "sattaraustria": "2026-07-13T06:56:30.143686+00:00",
     "saturn2623": "2026-07-12T07:24:56.617340+00:00",
     "saturn__2020": "2026-07-13T06:16:31.987619+00:00",
@@ -324283,7 +324293,47 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "stivenproajedrez"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/bocman_stiv12",
+      "rank": 32536,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "bocman_stiv12"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/eirfel",
+      "rank": 32537,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "eirfel"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/hanssenaem",
+      "rank": 32538,
+      "rating": 1613,
+      "source": "Lobby-Crawl",
+      "username": "hanssenaem"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/petralexandr1",
+      "rank": 32539,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "petralexandr1"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/satsan090",
+      "rank": 32540,
+      "rating": 1382,
+      "source": "Lobby-Crawl",
+      "username": "satsan090"
     }
   ],
-  "updated_at": "2026-07-15T00:49:48.926040+00:00"
+  "updated_at": "2026-07-15T00:50:50.881000+00:00"
 }
