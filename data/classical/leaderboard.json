@@ -7131,6 +7131,7 @@
     "chess_performance": 0,
     "chess_phenix": 0,
     "chess_planet21": 0,
+    "chess_player_pishva1": 0,
     "chess_prerit": 11,
     "chess_pro001": 0,
     "chess_pro_shreyasb15": 0,
@@ -13011,6 +13012,7 @@
     "gilles1955": 24,
     "gilouleboa": 25,
     "gilro": 0,
+    "gilson84": 0,
     "gimang": 2,
     "gimi1911": 0,
     "gimligloinsson": 33,
@@ -13275,6 +13277,7 @@
     "goldenlion303": 17,
     "goldenrat22": 16,
     "goldenretrieverchess": 1,
+    "goldenzmith": 0,
     "goldgame": 0,
     "goldhaas": 1,
     "goldi200": 0,
@@ -43701,6 +43704,7 @@
     "chess_performance": "2026-07-14T19:29:21.121367+00:00",
     "chess_phenix": "2026-07-13T23:29:36.349874+00:00",
     "chess_planet21": "2026-07-14T00:27:01.091666+00:00",
+    "chess_player_pishva1": "2026-07-15T09:45:37.698014+00:00",
     "chess_prerit": "2026-07-13T19:46:16.180396+00:00",
     "chess_pro001": "2026-07-10T16:29:01.833638+00:00",
     "chess_pro_shreyasb15": "2026-07-10T02:04:34.856127+00:00",
@@ -49516,6 +49520,7 @@
     "gilles1955": "2026-07-13T03:37:59.784503+00:00",
     "gilouleboa": "2026-07-13T07:30:51.554690+00:00",
     "gilro": "2026-07-13T04:53:13.024776+00:00",
+    "gilson84": "2026-07-15T09:45:40.709172+00:00",
     "gimang": "2026-07-14T22:11:09.552737+00:00",
     "gimi1911": "2026-07-12T12:00:30.596133+00:00",
     "gimligloinsson": "2026-07-14T09:36:38.947753+00:00",
@@ -49776,6 +49781,7 @@
     "goldenlion303": "2026-07-14T20:15:42.917368+00:00",
     "goldenrat22": "2026-07-13T15:35:53.614505+00:00",
     "goldenretrieverchess": "2026-07-14T07:18:35.129242+00:00",
+    "goldenzmith": "2026-07-15T09:45:43.693782+00:00",
     "goldgame": "2026-07-14T01:29:28.280233+00:00",
     "goldhaas": "2026-07-13T06:16:47.934578+00:00",
     "goldi200": "2026-07-13T02:09:53.100248+00:00",
@@ -365858,7 +365864,31 @@
       "rating": 1254,
       "source": "Lobby-Crawl",
       "username": "bhavspspk143"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess_player_pishva1",
+      "rank": 36629,
+      "rating": 1523,
+      "source": "Lobby-Crawl",
+      "username": "chess_player_pishva1"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/gilson84",
+      "rank": 36630,
+      "rating": 1321,
+      "source": "Lobby-Crawl",
+      "username": "gilson84"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/goldenzmith",
+      "rank": 36631,
+      "rating": 1649,
+      "source": "Lobby-Crawl",
+      "username": "goldenzmith"
     }
   ],
-  "updated_at": "2026-07-15T09:44:44.363832+00:00"
+  "updated_at": "2026-07-15T09:45:43.770622+00:00"
 }
