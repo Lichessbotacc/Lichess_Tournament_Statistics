@@ -14441,6 +14441,7 @@
     "jasonping": 5,
     "jasper-q": 0,
     "jasper0709": 36,
+    "jasper2015": 0,
     "jasper2018": 3,
     "jasper3anto": 1,
     "jasper_271017": 5,
@@ -46805,6 +46806,7 @@
     "jasonping": "2026-07-14T10:15:30.864245+00:00",
     "jasper-q": "2026-07-13T16:33:12.573263+00:00",
     "jasper0709": "2026-07-13T03:20:19.939881+00:00",
+    "jasper2015": "2026-07-15T14:14:21.472581+00:00",
     "jasper2018": "2026-07-12T04:05:35.618058+00:00",
     "jasper3anto": "2026-07-14T12:32:12.295105+00:00",
     "jasper_271017": "2026-07-13T20:18:24.208988+00:00",
@@ -92119,7 +92121,7 @@
       "games": 6,
       "profile": "https://lichess.org/@/littleplotkin",
       "rank": 3429,
-      "rating": null,
+      "rating": 2852,
       "source": "?",
       "username": "littleplotkin"
     },
@@ -324146,7 +324148,15 @@
       "rating": 1550,
       "source": "Lobby-Crawl",
       "username": "low_elo_loser"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/jasper2015",
+      "rank": 32433,
+      "rating": 1203,
+      "source": "?",
+      "username": "jasper2015"
     }
   ],
-  "updated_at": "2026-07-15T14:09:25.065102+00:00"
+  "updated_at": "2026-07-15T14:14:21.486756+00:00"
 }
