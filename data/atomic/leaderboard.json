@@ -15884,6 +15884,7 @@
     "king_boss": 3,
     "king_burger": 0,
     "king_checkmate012": 1,
+    "king_chess_05": 0,
     "king_chesssd": 0,
     "king_crusher_2014": 0,
     "king_darwish2": 4,
@@ -47233,6 +47234,7 @@
     "king_boss": "2026-07-13T21:38:29.532924+00:00",
     "king_burger": "2026-07-15T12:33:08.132209+00:00",
     "king_checkmate012": "2026-07-13T11:09:39.990279+00:00",
+    "king_chess_05": "2026-07-15T18:12:28.778063+00:00",
     "king_chesssd": "2026-07-11T02:24:19.207916+00:00",
     "king_crusher_2014": "2026-07-15T08:14:06.416355+00:00",
     "king_darwish2": "2026-07-10T22:09:50.818839+00:00",
@@ -313540,7 +313542,15 @@
       "rating": 1736,
       "source": "Lobby-Crawl",
       "username": "holgermoritz"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/king_chess_05",
+      "rank": 31356,
+      "rating": 1663,
+      "source": "?",
+      "username": "king_chess_05"
     }
   ],
-  "updated_at": "2026-07-15T18:06:42.169682+00:00"
+  "updated_at": "2026-07-15T18:12:28.786996+00:00"
 }
