@@ -13169,6 +13169,7 @@
     "kk2217": 1,
     "kk_ian-16": 0,
     "kkarimi": 3,
+    "kkbiter": 0,
     "kkgk1234": 0,
     "kkisland": 0,
     "kkkkartikey": 0,
@@ -19511,6 +19512,7 @@
     "rodion09b": 98,
     "rodion2115": 0,
     "rodion_guziy": 0,
+    "rodion_kudrin2015": 0,
     "rodion_top31": 0,
     "rodionkel": 26,
     "rodrielpro123456": 8,
@@ -23812,7 +23814,7 @@
     "vermilion-pt2": 0,
     "veroni4ka2011": 0,
     "veronikad2016": 4,
-    "vertel": 689,
+    "vertel": 724,
     "vertical_knight": 15,
     "veryamateurplayer": 11,
     "veryberry3": 0,
@@ -38447,6 +38449,7 @@
     "kk2217": "2026-07-12T05:07:11.622921+00:00",
     "kk_ian-16": "2026-07-13T22:47:21.628396+00:00",
     "kkarimi": "2026-07-14T08:24:49.016313+00:00",
+    "kkbiter": "2026-07-15T00:27:15.563190+00:00",
     "kkgk1234": "2026-07-12T23:46:52.289009+00:00",
     "kkisland": "2026-07-14T14:08:51.499620+00:00",
     "kkkkartikey": "2026-07-11T06:12:42.020184+00:00",
@@ -44718,6 +44721,7 @@
     "rodion09b": "2026-07-14T14:29:31.938657+00:00",
     "rodion2115": "2026-07-11T16:49:00.444278+00:00",
     "rodion_guziy": "2026-07-10T13:26:54.155818+00:00",
+    "rodion_kudrin2015": "2026-07-15T00:27:18.569484+00:00",
     "rodion_top31": "2026-07-13T16:24:30.938984+00:00",
     "rodionkel": "2026-07-14T21:16:01.196197+00:00",
     "rodrielpro123456": "2026-07-13T20:52:01.561541+00:00",
@@ -48964,7 +48968,7 @@
     "vermilion-pt2": "2026-07-11T21:42:18.547051+00:00",
     "veroni4ka2011": "2026-07-12T17:55:09.485806+00:00",
     "veronikad2016": "2026-07-13T19:45:54.740435+00:00",
-    "vertel": "2026-07-14T01:47:57.797111+00:00",
+    "vertel": "2026-07-15T00:27:50.507317+00:00",
     "vertical_knight": "2026-07-14T12:53:49.997966+00:00",
     "veryamateurplayer": "2026-07-12T15:56:29.821188+00:00",
     "veryberry3": "2026-07-11T22:44:04.844983+00:00",
@@ -51005,9 +51009,17 @@
       "username": "a-m-b-a-s-s-a-d-o-r"
     },
     {
+      "games": 724,
+      "profile": "https://lichess.org/@/vertel",
+      "rank": 59,
+      "rating": 2016,
+      "source": "Lobby-Crawl",
+      "username": "vertel"
+    },
+    {
       "games": 706,
       "profile": "https://lichess.org/@/srcapivara",
-      "rank": 59,
+      "rank": 60,
       "rating": 1754,
       "source": "Lobby-Crawl",
       "username": "srcapivara"
@@ -51015,7 +51027,7 @@
     {
       "games": 703,
       "profile": "https://lichess.org/@/alphajet26",
-      "rank": 60,
+      "rank": 61,
       "rating": 1902,
       "source": "?",
       "username": "alphajet26"
@@ -51023,7 +51035,7 @@
     {
       "games": 701,
       "profile": "https://lichess.org/@/stouras",
-      "rank": 61,
+      "rank": 62,
       "rating": 2034,
       "source": "Lobby-Crawl",
       "username": "stouras"
@@ -51031,7 +51043,7 @@
     {
       "games": 699,
       "profile": "https://lichess.org/@/chessmotogp",
-      "rank": 62,
+      "rank": 63,
       "rating": 1769,
       "source": "Lobby-Crawl",
       "username": "chessmotogp"
@@ -51039,7 +51051,7 @@
     {
       "games": 699,
       "profile": "https://lichess.org/@/xxxmegatronxxx",
-      "rank": 63,
+      "rank": 64,
       "rating": 2001,
       "source": "Lobby-Crawl",
       "username": "xxxmegatronxxx"
@@ -51047,18 +51059,10 @@
     {
       "games": 693,
       "profile": "https://lichess.org/@/knepachi",
-      "rank": 64,
+      "rank": 65,
       "rating": 1938,
       "source": "Lobby-Crawl",
       "username": "knepachi"
-    },
-    {
-      "games": 689,
-      "profile": "https://lichess.org/@/vertel",
-      "rank": 65,
-      "rating": 2016,
-      "source": "Lobby-Crawl",
-      "username": "vertel"
     },
     {
       "games": 687,
@@ -253771,7 +253775,23 @@
       "rating": 1133,
       "source": "Lobby-Crawl",
       "username": "andyetta"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/kkbiter",
+      "rank": 25405,
+      "rating": 1449,
+      "source": "Lobby-Crawl",
+      "username": "kkbiter"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/rodion_kudrin2015",
+      "rank": 25406,
+      "rating": 800,
+      "source": "Lobby-Crawl",
+      "username": "rodion_kudrin2015"
     }
   ],
-  "updated_at": "2026-07-15T00:26:48.080040+00:00"
+  "updated_at": "2026-07-15T00:27:50.512849+00:00"
 }
