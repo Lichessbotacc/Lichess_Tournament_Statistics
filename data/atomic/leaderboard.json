@@ -17178,7 +17178,7 @@
     "levraibos": 11,
     "levraipaya12": 0,
     "levru": 0,
-    "levsakharov": 280,
+    "levsakharov": 255,
     "levsatv": 0,
     "levselim19": 0,
     "levtheog": 0,
@@ -17592,7 +17592,7 @@
     "lorigine": 273,
     "losdy": 0,
     "lose2evryone": 0,
-    "loseratheart": 52,
+    "loseratheart": 53,
     "loserfncs": 0,
     "losergl": 460,
     "loshivan": 2,
@@ -48595,7 +48595,7 @@
     "levraibos": "2026-07-15T08:15:18.210893+00:00",
     "levraipaya12": "2026-07-13T14:47:09.647749+00:00",
     "levru": "2026-07-15T07:20:26.966006+00:00",
-    "levsakharov": "2026-07-15T00:00:43.821073+00:00",
+    "levsakharov": "2026-07-15T18:51:16.198405+00:00",
     "levsatv": "2026-07-14T15:24:57.239294+00:00",
     "levselim19": "2026-07-15T15:01:55.805549+00:00",
     "levtheog": "2026-07-12T11:42:53.622903+00:00",
@@ -49009,7 +49009,7 @@
     "lorigine": "2026-07-14T20:15:07.766769+00:00",
     "losdy": "2026-07-12T08:07:00.212629+00:00",
     "lose2evryone": "2026-07-13T22:37:37.462210+00:00",
-    "loseratheart": "2026-07-15T00:25:05.317197+00:00",
+    "loseratheart": "2026-07-15T18:51:27.327485+00:00",
     "loserfncs": "2026-07-12T17:03:24.109392+00:00",
     "losergl": "2026-07-14T21:10:45.398382+00:00",
     "loshivan": "2026-07-13T05:21:03.579274+00:00",
@@ -63334,17 +63334,9 @@
       "username": "burakemin29"
     },
     {
-      "games": 280,
-      "profile": "https://lichess.org/@/levsakharov",
-      "rank": 63,
-      "rating": 2165,
-      "source": "?",
-      "username": "levsakharov"
-    },
-    {
       "games": 279,
       "profile": "https://lichess.org/@/ch33zi",
-      "rank": 64,
+      "rank": 63,
       "rating": 1212,
       "source": "Lobby-Crawl",
       "username": "ch33zi"
@@ -63352,7 +63344,7 @@
     {
       "games": 278,
       "profile": "https://lichess.org/@/rampagegoalie13",
-      "rank": 65,
+      "rank": 64,
       "rating": 1471,
       "source": "Lobby-Crawl",
       "username": "rampagegoalie13"
@@ -63360,7 +63352,7 @@
     {
       "games": 273,
       "profile": "https://lichess.org/@/lorigine",
-      "rank": 66,
+      "rank": 65,
       "rating": 1522,
       "source": "Lobby-Crawl",
       "username": "lorigine"
@@ -63368,7 +63360,7 @@
     {
       "games": 272,
       "profile": "https://lichess.org/@/gpluis",
-      "rank": 67,
+      "rank": 66,
       "rating": 1879,
       "source": "Lobby-Crawl",
       "username": "gpluis"
@@ -63376,7 +63368,7 @@
     {
       "games": 270,
       "profile": "https://lichess.org/@/iagoluedersvega",
-      "rank": 68,
+      "rank": 67,
       "rating": 1901,
       "source": "Lobby-Crawl",
       "username": "iagoluedersvega"
@@ -63384,7 +63376,7 @@
     {
       "games": 268,
       "profile": "https://lichess.org/@/claudioenrique",
-      "rank": 69,
+      "rank": 68,
       "rating": 1828,
       "source": "Lobby-Crawl",
       "username": "claudioenrique"
@@ -63392,7 +63384,7 @@
     {
       "games": 267,
       "profile": "https://lichess.org/@/resnam",
-      "rank": 70,
+      "rank": 69,
       "rating": 2020,
       "source": "Lobby-Crawl",
       "username": "resnam"
@@ -63400,7 +63392,7 @@
     {
       "games": 262,
       "profile": "https://lichess.org/@/magizhshivakumar",
-      "rank": 71,
+      "rank": 70,
       "rating": 1525,
       "source": "Lobby-Crawl",
       "username": "magizhshivakumar"
@@ -63408,7 +63400,7 @@
     {
       "games": 260,
       "profile": "https://lichess.org/@/tysliuk",
-      "rank": 72,
+      "rank": 71,
       "rating": 1180,
       "source": "Lobby-Crawl",
       "username": "tysliuk"
@@ -63416,7 +63408,7 @@
     {
       "games": 259,
       "profile": "https://lichess.org/@/hyper_slug",
-      "rank": 73,
+      "rank": 72,
       "rating": 1637,
       "source": "Lobby-Crawl",
       "username": "hyper_slug"
@@ -63424,10 +63416,18 @@
     {
       "games": 259,
       "profile": "https://lichess.org/@/mental_suicide",
-      "rank": 74,
+      "rank": 73,
       "rating": 1705,
       "source": "Lobby-Crawl",
       "username": "mental_suicide"
+    },
+    {
+      "games": 255,
+      "profile": "https://lichess.org/@/levsakharov",
+      "rank": 74,
+      "rating": 2165,
+      "source": "?",
+      "username": "levsakharov"
     },
     {
       "games": 252,
@@ -67839,8 +67839,16 @@
     },
     {
       "games": 53,
-      "profile": "https://lichess.org/@/mayflower1234",
+      "profile": "https://lichess.org/@/loseratheart",
       "rank": 626,
+      "rating": 1740,
+      "source": "Lobby-Crawl",
+      "username": "loseratheart"
+    },
+    {
+      "games": 53,
+      "profile": "https://lichess.org/@/mayflower1234",
+      "rank": 627,
       "rating": 1056,
       "source": "Lobby-Crawl",
       "username": "mayflower1234"
@@ -67848,7 +67856,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/ranasanathan",
-      "rank": 627,
+      "rank": 628,
       "rating": 1243,
       "source": "Lobby-Crawl",
       "username": "ranasanathan"
@@ -67856,7 +67864,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/raydentanmingze",
-      "rank": 628,
+      "rank": 629,
       "rating": 1656,
       "source": "Lobby-Crawl",
       "username": "raydentanmingze"
@@ -67864,7 +67872,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/shachmatguest",
-      "rank": 629,
+      "rank": 630,
       "rating": 1046,
       "source": "Lobby-Crawl",
       "username": "shachmatguest"
@@ -67872,7 +67880,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/tihon_karpenko",
-      "rank": 630,
+      "rank": 631,
       "rating": 1180,
       "source": "Lobby-Crawl",
       "username": "tihon_karpenko"
@@ -67880,7 +67888,7 @@
     {
       "games": 53,
       "profile": "https://lichess.org/@/vvilik",
-      "rank": 631,
+      "rank": 632,
       "rating": 1510,
       "source": "Lobby-Crawl",
       "username": "vvilik"
@@ -67888,7 +67896,7 @@
     {
       "games": 52,
       "profile": "https://lichess.org/@/abcdefgghij",
-      "rank": 632,
+      "rank": 633,
       "rating": 1594,
       "source": "Lobby-Crawl",
       "username": "abcdefgghij"
@@ -67896,7 +67904,7 @@
     {
       "games": 52,
       "profile": "https://lichess.org/@/antontihomi",
-      "rank": 633,
+      "rank": 634,
       "rating": 1224,
       "source": "Lobby-Crawl",
       "username": "antontihomi"
@@ -67904,7 +67912,7 @@
     {
       "games": 52,
       "profile": "https://lichess.org/@/arsenii_sablin",
-      "rank": 634,
+      "rank": 635,
       "rating": 1350,
       "source": "Lobby-Crawl",
       "username": "arsenii_sablin"
@@ -67912,7 +67920,7 @@
     {
       "games": 52,
       "profile": "https://lichess.org/@/denidimides",
-      "rank": 635,
+      "rank": 636,
       "rating": 1395,
       "source": "Lobby-Crawl",
       "username": "denidimides"
@@ -67920,7 +67928,7 @@
     {
       "games": 52,
       "profile": "https://lichess.org/@/grx_bullet",
-      "rank": 636,
+      "rank": 637,
       "rating": 2201,
       "source": "?",
       "username": "grx_bullet"
@@ -67928,7 +67936,7 @@
     {
       "games": 52,
       "profile": "https://lichess.org/@/insanlog",
-      "rank": 637,
+      "rank": 638,
       "rating": 1448,
       "source": "Lobby-Crawl",
       "username": "insanlog"
@@ -67936,7 +67944,7 @@
     {
       "games": 52,
       "profile": "https://lichess.org/@/jamesjb2017",
-      "rank": 638,
+      "rank": 639,
       "rating": 1546,
       "source": "?",
       "username": "jamesjb2017"
@@ -67944,18 +67952,10 @@
     {
       "games": 52,
       "profile": "https://lichess.org/@/kushagra_mehta",
-      "rank": 639,
+      "rank": 640,
       "rating": 1109,
       "source": "Lobby-Crawl",
       "username": "kushagra_mehta"
-    },
-    {
-      "games": 52,
-      "profile": "https://lichess.org/@/loseratheart",
-      "rank": 640,
-      "rating": 1740,
-      "source": "Lobby-Crawl",
-      "username": "loseratheart"
     },
     {
       "games": 52,
@@ -314222,5 +314222,5 @@
       "username": "thibautiti"
     }
   ],
-  "updated_at": "2026-07-15T18:50:21.935613+00:00"
+  "updated_at": "2026-07-15T18:51:27.334539+00:00"
 }
