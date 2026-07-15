@@ -18914,6 +18914,7 @@
     "maxcrack15": 0,
     "maxdimi": 48,
     "maxemall": 0,
+    "maxencedevaux": 0,
     "maxentius9": 0,
     "maxextend": 0,
     "maxfeo": 0,
@@ -50372,6 +50373,7 @@
     "maxcrack15": "2026-07-12T13:33:37.474909+00:00",
     "maxdimi": "2026-07-15T15:54:13.894091+00:00",
     "maxemall": "2026-07-11T15:33:39.191989+00:00",
+    "maxencedevaux": "2026-07-15T19:20:26.379613+00:00",
     "maxentius9": "2026-07-13T08:41:13.850295+00:00",
     "maxextend": "2026-07-13T14:01:34.818835+00:00",
     "maxfeo": "2026-07-10T21:48:50.433927+00:00",
@@ -314630,7 +314632,15 @@
       "rating": 1119,
       "source": "Lobby-Crawl",
       "username": "masterv_003"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/maxencedevaux",
+      "rank": 31465,
+      "rating": 1073,
+      "source": "Lobby-Crawl",
+      "username": "maxencedevaux"
     }
   ],
-  "updated_at": "2026-07-15T19:15:02.680900+00:00"
+  "updated_at": "2026-07-15T19:20:26.395237+00:00"
 }
