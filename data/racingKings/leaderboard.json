@@ -1094,7 +1094,7 @@
     "adboy6767": 0,
     "adcdbm": 0,
     "add5": 0,
-    "addi_gg": 15,
+    "addi_gg": 16,
     "addie_chess": 0,
     "addirigan": 0,
     "addu0503": 0,
@@ -34186,7 +34186,7 @@
     "adboy6767": "2026-07-10T01:40:40.125799+00:00",
     "adcdbm": "2026-07-10T01:40:41.457864+00:00",
     "add5": "2026-07-13T17:14:52.644056+00:00",
-    "addi_gg": "2026-07-13T05:23:02.526073+00:00",
+    "addi_gg": "2026-07-15T00:31:21.838886+00:00",
     "addie_chess": "2026-07-14T10:14:33.782053+00:00",
     "addirigan": "2026-07-13T08:02:32.313125+00:00",
     "addu0503": "2026-07-12T03:55:11.436885+00:00",
@@ -68598,8 +68598,16 @@
     },
     {
       "games": 16,
-      "profile": "https://lichess.org/@/aneyanko",
+      "profile": "https://lichess.org/@/addi_gg",
       "rank": 317,
+      "rating": 1666,
+      "source": "Lobby-Crawl",
+      "username": "addi_gg"
+    },
+    {
+      "games": 16,
+      "profile": "https://lichess.org/@/aneyanko",
+      "rank": 318,
       "rating": 1598,
       "source": "?",
       "username": "aneyanko"
@@ -68607,7 +68615,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/carlisle_c",
-      "rank": 318,
+      "rank": 319,
       "rating": 1468,
       "source": "Lobby-Crawl",
       "username": "carlisle_c"
@@ -68615,7 +68623,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/ganiev9",
-      "rank": 319,
+      "rank": 320,
       "rating": 1949,
       "source": "?",
       "username": "ganiev9"
@@ -68623,7 +68631,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/granddragons-039",
-      "rank": 320,
+      "rank": 321,
       "rating": 1662,
       "source": "Lobby-Crawl",
       "username": "granddragons-039"
@@ -68631,7 +68639,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/jmy635",
-      "rank": 321,
+      "rank": 322,
       "rating": 1799,
       "source": "Lobby-Crawl",
       "username": "jmy635"
@@ -68639,7 +68647,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/jos369c",
-      "rank": 322,
+      "rank": 323,
       "rating": 1635,
       "source": "Lobby-Crawl",
       "username": "jos369c"
@@ -68647,7 +68655,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/leon1345",
-      "rank": 323,
+      "rank": 324,
       "rating": 1667,
       "source": "Lobby-Crawl",
       "username": "leon1345"
@@ -68655,7 +68663,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/locust_attack",
-      "rank": 324,
+      "rank": 325,
       "rating": 2020,
       "source": "?",
       "username": "locust_attack"
@@ -68663,7 +68671,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/lodestoneaura_2026",
-      "rank": 325,
+      "rank": 326,
       "rating": 2126,
       "source": "?",
       "username": "lodestoneaura_2026"
@@ -68671,7 +68679,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/musaevta",
-      "rank": 326,
+      "rank": 327,
       "rating": 1482,
       "source": "Lobby-Crawl",
       "username": "musaevta"
@@ -68679,7 +68687,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/nikos2017",
-      "rank": 327,
+      "rank": 328,
       "rating": 1461,
       "source": "Lobby-Crawl",
       "username": "nikos2017"
@@ -68687,7 +68695,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/nirukthekha_1",
-      "rank": 328,
+      "rank": 329,
       "rating": 1380,
       "source": "Turnier",
       "username": "nirukthekha_1"
@@ -68695,7 +68703,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/queeneatingdragon",
-      "rank": 329,
+      "rank": 330,
       "rating": 2509,
       "source": "?",
       "username": "queeneatingdragon"
@@ -68703,7 +68711,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/rodionkel",
-      "rank": 330,
+      "rank": 331,
       "rating": 2175,
       "source": "?",
       "username": "rodionkel"
@@ -68711,7 +68719,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/seima_nazar",
-      "rank": 331,
+      "rank": 332,
       "rating": 1679,
       "source": "Lobby-Crawl",
       "username": "seima_nazar"
@@ -68719,7 +68727,7 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/the711",
-      "rank": 332,
+      "rank": 333,
       "rating": 1691,
       "source": "Lobby-Crawl",
       "username": "the711"
@@ -68727,18 +68735,10 @@
     {
       "games": 16,
       "profile": "https://lichess.org/@/velvetvenom",
-      "rank": 333,
+      "rank": 334,
       "rating": 2011,
       "source": "?",
       "username": "velvetvenom"
-    },
-    {
-      "games": 15,
-      "profile": "https://lichess.org/@/addi_gg",
-      "rank": 334,
-      "rating": 1666,
-      "source": "Lobby-Crawl",
-      "username": "addi_gg"
     },
     {
       "games": 15,
@@ -330789,5 +330789,5 @@
       "username": "vossenstaart9"
     }
   ],
-  "updated_at": "2026-07-15T00:30:21.188863+00:00"
+  "updated_at": "2026-07-15T00:31:21.848996+00:00"
 }
