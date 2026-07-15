@@ -16192,6 +16192,7 @@
     "kpbl5616": 1,
     "kperplex": 3,
     "kpgt_chess": 0,
+    "kphanminh662": 0,
     "kpmc23": 484,
     "kpotu4444": 9,
     "kprasek": 0,
@@ -30248,7 +30249,7 @@
     "wantedninjarook": 0,
     "wanttobesupergm": 0,
     "wantyouso": 2,
-    "wanyonyi": 363,
+    "wanyonyi": 324,
     "war_fright": 0,
     "warchess_0001": 0,
     "warlock_dabee": 0,
@@ -47732,6 +47733,7 @@
     "kpbl5616": "2026-07-12T13:19:30.214067+00:00",
     "kperplex": "2026-07-13T10:28:00.641114+00:00",
     "kpgt_chess": "2026-07-13T18:23:36.144819+00:00",
+    "kphanminh662": "2026-07-15T07:16:50.031846+00:00",
     "kpmc23": "2026-07-14T11:42:52.543376+00:00",
     "kpotu4444": "2026-07-10T16:14:50.320998+00:00",
     "kprasek": "2026-07-10T09:36:20.045465+00:00",
@@ -61699,7 +61701,7 @@
     "wantedninjarook": "2026-07-13T17:14:59.830334+00:00",
     "wanttobesupergm": "2026-07-14T00:13:38.128365+00:00",
     "wantyouso": "2026-07-15T03:37:25.011532+00:00",
-    "wanyonyi": "2026-07-14T07:38:24.732911+00:00",
+    "wanyonyi": "2026-07-15T07:17:57.596681+00:00",
     "war_fright": "2026-07-13T00:11:22.622356+00:00",
     "warchess_0001": "2026-07-13T00:04:00.954915+00:00",
     "warlock_dabee": "2026-07-12T04:37:47.806005+00:00",
@@ -63253,17 +63255,9 @@
       "username": "fangmcfrost"
     },
     {
-      "games": 363,
-      "profile": "https://lichess.org/@/wanyonyi",
-      "rank": 24,
-      "rating": 2108,
-      "source": "Lobby-Crawl",
-      "username": "wanyonyi"
-    },
-    {
       "games": 356,
       "profile": "https://lichess.org/@/neutralizerr",
-      "rank": 25,
+      "rank": 24,
       "rating": 2669,
       "source": "?",
       "username": "neutralizerr"
@@ -63271,7 +63265,7 @@
     {
       "games": 355,
       "profile": "https://lichess.org/@/leocuevas",
-      "rank": 26,
+      "rank": 25,
       "rating": 2127,
       "source": "Lobby-Crawl",
       "username": "leocuevas"
@@ -63279,7 +63273,7 @@
     {
       "games": 349,
       "profile": "https://lichess.org/@/edarpega",
-      "rank": 27,
+      "rank": 26,
       "rating": 1542,
       "source": "Lobby-Crawl",
       "username": "edarpega"
@@ -63287,7 +63281,7 @@
     {
       "games": 349,
       "profile": "https://lichess.org/@/karachay09",
-      "rank": 28,
+      "rank": 27,
       "rating": 1991,
       "source": "Lobby-Crawl",
       "username": "karachay09"
@@ -63295,7 +63289,7 @@
     {
       "games": 347,
       "profile": "https://lichess.org/@/vcrazyhousev",
-      "rank": 29,
+      "rank": 28,
       "rating": 1867,
       "source": "Lobby-Crawl",
       "username": "vcrazyhousev"
@@ -63303,7 +63297,7 @@
     {
       "games": 336,
       "profile": "https://lichess.org/@/swl",
-      "rank": 30,
+      "rank": 29,
       "rating": 1881,
       "source": "Lobby-Crawl",
       "username": "swl"
@@ -63311,10 +63305,18 @@
     {
       "games": 334,
       "profile": "https://lichess.org/@/mahdiafshari63",
-      "rank": 31,
+      "rank": 30,
       "rating": 2063,
       "source": "Lobby-Crawl",
       "username": "mahdiafshari63"
+    },
+    {
+      "games": 324,
+      "profile": "https://lichess.org/@/wanyonyi",
+      "rank": 31,
+      "rating": 2108,
+      "source": "Lobby-Crawl",
+      "username": "wanyonyi"
     },
     {
       "games": 318,
@@ -316043,7 +316045,15 @@
       "rating": 1347,
       "source": "Lobby-Crawl",
       "username": "ulas1977"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/kphanminh662",
+      "rank": 31623,
+      "rating": 2100,
+      "source": "?",
+      "username": "kphanminh662"
     }
   ],
-  "updated_at": "2026-07-15T07:16:35.786051+00:00"
+  "updated_at": "2026-07-15T07:17:57.605620+00:00"
 }
