@@ -10546,7 +10546,7 @@
     "fe0fan": 0,
     "fe_10": 0,
     "fearlessdrynk": 0,
-    "featurenotbug": 200,
+    "featurenotbug": 192,
     "febinlloyd": 0,
     "fed1r": 0,
     "fed1r_p1lot": 0,
@@ -42021,7 +42021,7 @@
     "fe0fan": "2026-07-13T19:54:08.614973+00:00",
     "fe_10": "2026-07-11T18:21:21.105233+00:00",
     "fearlessdrynk": "2026-07-10T08:06:31.729968+00:00",
-    "featurenotbug": "2026-07-15T01:03:30.001355+00:00",
+    "featurenotbug": "2026-07-15T19:30:13.857377+00:00",
     "febinlloyd": "2026-07-13T03:13:11.397149+00:00",
     "fed1r": "2026-07-13T08:24:51.113202+00:00",
     "fed1r_p1lot": "2026-07-14T12:23:14.007523+00:00",
@@ -63855,16 +63855,8 @@
     },
     {
       "games": 200,
-      "profile": "https://lichess.org/@/featurenotbug",
-      "rank": 114,
-      "rating": 1688,
-      "source": "Lobby-Crawl",
-      "username": "featurenotbug"
-    },
-    {
-      "games": 200,
       "profile": "https://lichess.org/@/nacho1984",
-      "rank": 115,
+      "rank": 114,
       "rating": 1774,
       "source": "Lobby-Crawl",
       "username": "nacho1984"
@@ -63872,7 +63864,7 @@
     {
       "games": 199,
       "profile": "https://lichess.org/@/the_pigeon_cop",
-      "rank": 116,
+      "rank": 115,
       "rating": 1417,
       "source": "Lobby-Crawl",
       "username": "the_pigeon_cop"
@@ -63880,7 +63872,7 @@
     {
       "games": 198,
       "profile": "https://lichess.org/@/benya_min",
-      "rank": 117,
+      "rank": 116,
       "rating": 1874,
       "source": "Lobby-Crawl",
       "username": "benya_min"
@@ -63888,7 +63880,7 @@
     {
       "games": 197,
       "profile": "https://lichess.org/@/andrey_bagrov",
-      "rank": 118,
+      "rank": 117,
       "rating": 1260,
       "source": "Lobby-Crawl",
       "username": "andrey_bagrov"
@@ -63896,7 +63888,7 @@
     {
       "games": 197,
       "profile": "https://lichess.org/@/ngoctrinh4a2015",
-      "rank": 119,
+      "rank": 118,
       "rating": 1479,
       "source": "Lobby-Crawl",
       "username": "ngoctrinh4a2015"
@@ -63904,7 +63896,7 @@
     {
       "games": 196,
       "profile": "https://lichess.org/@/math_123",
-      "rank": 120,
+      "rank": 119,
       "rating": 1592,
       "source": "Lobby-Crawl",
       "username": "math_123"
@@ -63912,7 +63904,7 @@
     {
       "games": 195,
       "profile": "https://lichess.org/@/prkshtheboy1230",
-      "rank": 121,
+      "rank": 120,
       "rating": 992,
       "source": "Lobby-Crawl",
       "username": "prkshtheboy1230"
@@ -63920,7 +63912,7 @@
     {
       "games": 193,
       "profile": "https://lichess.org/@/pastor0810",
-      "rank": 122,
+      "rank": 121,
       "rating": 1391,
       "source": "Lobby-Crawl",
       "username": "pastor0810"
@@ -63928,10 +63920,18 @@
     {
       "games": 192,
       "profile": "https://lichess.org/@/allin1challenger2003",
-      "rank": 123,
+      "rank": 122,
       "rating": 1378,
       "source": "Lobby-Crawl",
       "username": "allin1challenger2003"
+    },
+    {
+      "games": 192,
+      "profile": "https://lichess.org/@/featurenotbug",
+      "rank": 123,
+      "rating": 1688,
+      "source": "Lobby-Crawl",
+      "username": "featurenotbug"
     },
     {
       "games": 191,
@@ -314782,5 +314782,5 @@
       "username": "mysteriousmister"
     }
   ],
-  "updated_at": "2026-07-15T19:29:05.114535+00:00"
+  "updated_at": "2026-07-15T19:30:13.864751+00:00"
 }
