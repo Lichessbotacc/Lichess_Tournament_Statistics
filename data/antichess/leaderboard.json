@@ -7591,7 +7591,7 @@
     "deadandforgotten": 0,
     "deadflash": 0,
     "deadiift": 0,
-    "deadnow": 386,
+    "deadnow": 400,
     "deadr1111222": 0,
     "deadsyllable": 0,
     "deal777": 2,
@@ -36244,7 +36244,7 @@
     "deadandforgotten": "2026-07-13T09:37:53.890994+00:00",
     "deadflash": "2026-07-13T20:15:00.501792+00:00",
     "deadiift": "2026-07-10T15:24:17.463955+00:00",
-    "deadnow": "2026-07-14T21:07:49.288520+00:00",
+    "deadnow": "2026-07-15T18:20:01.876521+00:00",
     "deadr1111222": "2026-07-14T09:56:54.188293+00:00",
     "deadsyllable": "2026-07-15T14:02:15.427863+00:00",
     "deal777": "2026-07-14T20:35:19.674223+00:00",
@@ -56932,9 +56932,17 @@
       "username": "mallo_c"
     },
     {
+      "games": 400,
+      "profile": "https://lichess.org/@/deadnow",
+      "rank": 41,
+      "rating": 1580,
+      "source": "Lobby-Crawl",
+      "username": "deadnow"
+    },
+    {
       "games": 399,
       "profile": "https://lichess.org/@/changeopening",
-      "rank": 41,
+      "rank": 42,
       "rating": 2294,
       "source": "?",
       "username": "changeopening"
@@ -56942,18 +56950,10 @@
     {
       "games": 395,
       "profile": "https://lichess.org/@/loveangelmusic",
-      "rank": 42,
+      "rank": 43,
       "rating": 1579,
       "source": "Lobby-Crawl",
       "username": "loveangelmusic"
-    },
-    {
-      "games": 386,
-      "profile": "https://lichess.org/@/deadnow",
-      "rank": 43,
-      "rating": 1580,
-      "source": "Lobby-Crawl",
-      "username": "deadnow"
     },
     {
       "games": 380,
@@ -285828,5 +285828,5 @@
       "username": "siddharth171"
     }
   ],
-  "updated_at": "2026-07-15T18:18:13.626555+00:00"
+  "updated_at": "2026-07-15T18:20:01.882273+00:00"
 }
