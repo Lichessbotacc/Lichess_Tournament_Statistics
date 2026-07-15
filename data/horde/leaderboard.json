@@ -8324,6 +8324,7 @@
     "cr7777y": 0,
     "cr7_88": 0,
     "cr7_chess_1": 0,
+    "cr7alwaysno1": 0,
     "cr7wechess": 0,
     "cr_chiriyaraja": 0,
     "crabjason": 0,
@@ -16560,6 +16561,7 @@
     "james_luo": 0,
     "jamesagadir": 0,
     "jamesb-hces": 0,
+    "jamesblm": 0,
     "jamescal1": 0,
     "jamesce": 0,
     "jamescolbytan": 0,
@@ -17466,6 +17468,7 @@
     "joshua_l": 0,
     "joshuafu2012": 0,
     "joshuaholloway2007": 0,
+    "joshuamoore5186": 0,
     "joshuaquintero": 0,
     "joshuasun919": 0,
     "joshuataco": 0,
@@ -32214,6 +32217,7 @@
     "simizu": 0,
     "simmis2021": 0,
     "simmy7g": 0,
+    "simnaeng": 0,
     "simon-fitz": 0,
     "simon0201": 0,
     "simon12311231345345": 0,
@@ -47275,6 +47279,7 @@
     "cr7777y": "2026-07-14T23:09:47.001792+00:00",
     "cr7_88": "2026-07-15T16:01:27.154597+00:00",
     "cr7_chess_1": "2026-07-11T16:23:13.433101+00:00",
+    "cr7alwaysno1": "2026-07-15T17:02:42.578150+00:00",
     "cr7wechess": "2026-07-13T19:21:49.078144+00:00",
     "cr_chiriyaraja": "2026-07-14T15:14:31.257296+00:00",
     "crabjason": "2026-07-11T19:56:46.049150+00:00",
@@ -55509,6 +55514,7 @@
     "james_luo": "2026-07-12T06:22:51.134933+00:00",
     "jamesagadir": "2026-07-13T03:20:38.328569+00:00",
     "jamesb-hces": "2026-07-13T19:57:19.713416+00:00",
+    "jamesblm": "2026-07-15T17:02:45.590929+00:00",
     "jamescal1": "2026-07-15T14:56:14.099079+00:00",
     "jamesce": "2026-07-14T09:04:03.058523+00:00",
     "jamescolbytan": "2026-07-10T18:22:11.658266+00:00",
@@ -56415,6 +56421,7 @@
     "joshua_l": "2026-07-10T21:17:01.514544+00:00",
     "joshuafu2012": "2026-07-15T05:01:43.222966+00:00",
     "joshuaholloway2007": "2026-07-12T01:34:04.669811+00:00",
+    "joshuamoore5186": "2026-07-15T17:02:33.610847+00:00",
     "joshuaquintero": "2026-07-10T03:50:35.212036+00:00",
     "joshuasun919": "2026-07-12T19:53:51.099055+00:00",
     "joshuataco": "2026-07-11T09:10:20.976814+00:00",
@@ -64175,7 +64182,7 @@
     "nithum200": "2026-07-14T11:39:46.290833+00:00",
     "nithyan35": "2026-07-10T04:32:14.793352+00:00",
     "nithyasri123": "2026-07-15T16:13:43.493141+00:00",
-    "nithyavallika": "2026-07-12T10:22:09.541321+00:00",
+    "nithyavallika": "2026-07-15T17:02:36.591762+00:00",
     "nitinguda": "2026-07-14T16:08:48.439068+00:00",
     "nitinprakash": "2026-07-10T22:14:06.348638+00:00",
     "nitka_11": "2026-07-15T12:07:29.933830+00:00",
@@ -70304,6 +70311,7 @@
     "simizu": "2026-07-14T19:42:06.892520+00:00",
     "simmis2021": "2026-07-13T05:00:55.987104+00:00",
     "simmy7g": "2026-07-12T01:04:14.256447+00:00",
+    "simnaeng": "2026-07-15T17:02:39.599146+00:00",
     "simon-fitz": "2026-07-14T08:25:40.330653+00:00",
     "simon0201": "2026-07-12T14:16:03.952145+00:00",
     "simon12311231345345": "2026-07-11T20:09:42.274650+00:00",
@@ -351565,7 +351573,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/timaand",
       "rank": 34316,
-      "rating": null,
+      "rating": 1375,
       "source": "Lobby-Crawl",
       "username": "timaand"
     },
@@ -388632,7 +388640,39 @@
       "rating": 1741,
       "source": "Lobby-Crawl",
       "username": "ivanapostolov"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/joshuamoore5186",
+      "rank": 38950,
+      "rating": 1245,
+      "source": "Lobby-Crawl",
+      "username": "joshuamoore5186"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/simnaeng",
+      "rank": 38951,
+      "rating": 1269,
+      "source": "Lobby-Crawl",
+      "username": "simnaeng"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/cr7alwaysno1",
+      "rank": 38952,
+      "rating": 1744,
+      "source": "Lobby-Crawl",
+      "username": "cr7alwaysno1"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/jamesblm",
+      "rank": 38953,
+      "rating": 1473,
+      "source": "Lobby-Crawl",
+      "username": "jamesblm"
     }
   ],
-  "updated_at": "2026-07-15T17:01:43.507042+00:00"
+  "updated_at": "2026-07-15T17:02:45.599412+00:00"
 }
