@@ -20776,7 +20776,7 @@
     "rmysterio619": 0,
     "rnabc": 0,
     "rnbastos": 0,
-    "rnbqkrva": 623,
+    "rnbqkrva": 512,
     "rniranjan25": 0,
     "roa_6734": 9,
     "road2agm": 0,
@@ -46851,7 +46851,7 @@
     "rmysterio619": "2026-07-13T19:13:50.590047+00:00",
     "rnabc": "2026-07-12T12:39:48.808487+00:00",
     "rnbastos": "2026-07-14T19:33:13.930754+00:00",
-    "rnbqkrva": "2026-07-14T03:17:40.541513+00:00",
+    "rnbqkrva": "2026-07-15T04:18:19.961728+00:00",
     "rniranjan25": "2026-07-12T21:19:39.297560+00:00",
     "roa_6734": "2026-07-12T06:59:04.468735+00:00",
     "road2agm": "2026-07-14T14:18:40.142120+00:00",
@@ -52924,17 +52924,9 @@
       "username": "barsik1004"
     },
     {
-      "games": 623,
-      "profile": "https://lichess.org/@/rnbqkrva",
-      "rank": 11,
-      "rating": 2127,
-      "source": "Lobby-Crawl",
-      "username": "rnbqkrva"
-    },
-    {
       "games": 609,
       "profile": "https://lichess.org/@/imrenable",
-      "rank": 12,
+      "rank": 11,
       "rating": 1934,
       "source": "Lobby-Crawl",
       "username": "imrenable"
@@ -52942,7 +52934,7 @@
     {
       "games": 574,
       "profile": "https://lichess.org/@/voidtyrant",
-      "rank": 13,
+      "rank": 12,
       "rating": 2499,
       "source": "?",
       "username": "voidtyrant"
@@ -52950,7 +52942,7 @@
     {
       "games": 573,
       "profile": "https://lichess.org/@/alijankos",
-      "rank": 14,
+      "rank": 13,
       "rating": 2001,
       "source": "Lobby-Crawl",
       "username": "alijankos"
@@ -52958,7 +52950,7 @@
     {
       "games": 561,
       "profile": "https://lichess.org/@/nopebblesleft",
-      "rank": 15,
+      "rank": 14,
       "rating": 2178,
       "source": "?",
       "username": "nopebblesleft"
@@ -52966,7 +52958,7 @@
     {
       "games": 559,
       "profile": "https://lichess.org/@/meowwolf",
-      "rank": 16,
+      "rank": 15,
       "rating": 1984,
       "source": "Lobby-Crawl",
       "username": "meowwolf"
@@ -52974,7 +52966,7 @@
     {
       "games": 537,
       "profile": "https://lichess.org/@/kingofblunder",
-      "rank": 17,
+      "rank": 16,
       "rating": 2015,
       "source": "Lobby-Crawl",
       "username": "kingofblunder"
@@ -52982,10 +52974,18 @@
     {
       "games": 514,
       "profile": "https://lichess.org/@/gur10",
-      "rank": 18,
+      "rank": 17,
       "rating": 2122,
       "source": "?",
       "username": "gur10"
+    },
+    {
+      "games": 512,
+      "profile": "https://lichess.org/@/rnbqkrva",
+      "rank": 18,
+      "rating": 2127,
+      "source": "Lobby-Crawl",
+      "username": "rnbqkrva"
     },
     {
       "games": 500,
@@ -267036,5 +267036,5 @@
       "username": "yamenshabban778"
     }
   ],
-  "updated_at": "2026-07-15T04:16:34.246540+00:00"
+  "updated_at": "2026-07-15T04:18:19.967329+00:00"
 }
