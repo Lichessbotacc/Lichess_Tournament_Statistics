@@ -7004,6 +7004,7 @@
     "chess_ella": 0,
     "chess_en0t": 0,
     "chess_expert007": 0,
+    "chess_experte": 0,
     "chess_fighter2806": 0,
     "chess_friend_71": 0,
     "chess_gamer_ssn": 0,
@@ -42534,6 +42535,7 @@
     "chess_ella": "2026-07-14T03:08:30.085511+00:00",
     "chess_en0t": "2026-07-15T04:45:19.262520+00:00",
     "chess_expert007": "2026-07-11T11:51:11.705674+00:00",
+    "chess_experte": "2026-07-15T15:42:40.176084+00:00",
     "chess_fighter2806": "2026-07-15T03:57:58.461669+00:00",
     "chess_friend_71": "2026-07-11T20:05:27.859255+00:00",
     "chess_gamer_ssn": "2026-07-14T23:41:23.299895+00:00",
@@ -354265,7 +354267,15 @@
       "rating": 2367,
       "source": "Lobby-Crawl",
       "username": "canis_lupus_1"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess_experte",
+      "rank": 35533,
+      "rating": 2012,
+      "source": "?",
+      "username": "chess_experte"
     }
   ],
-  "updated_at": "2026-07-15T15:41:06.944932+00:00"
+  "updated_at": "2026-07-15T15:42:40.184155+00:00"
 }
