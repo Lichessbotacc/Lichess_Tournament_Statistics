@@ -17546,6 +17546,7 @@
     "ivan_chess_pro": 0,
     "ivan_firsov": 0,
     "ivan_frank": 0,
+    "ivan_golodnyuk": 0,
     "ivan_guzhva": 0,
     "ivan_it3": 0,
     "ivan_k15": 0,
@@ -18142,6 +18143,7 @@
     "jayohyaa": 0,
     "jayplayingchese": 15,
     "jaypogi27": 0,
+    "jayshivasharan": 0,
     "jaysonw": 0,
     "jaysonz69420": 0,
     "jaystar1975": 0,
@@ -34265,6 +34267,7 @@
     "settledoyster": 0,
     "seub": 0,
     "seva0505": 0,
+    "seva_krasukov_2010": 0,
     "sevaarut18": 0,
     "sevachess": 1,
     "sevaevmenov": 0,
@@ -38509,6 +38512,7 @@
     "triminh022017": 0,
     "trinethran2019": 0,
     "trinhthanhlong011012": 0,
+    "trinhxuantrang4a2012": 0,
     "triniboit86": 0,
     "trinidad99": 0,
     "trinket9": 0,
@@ -39786,6 +39790,7 @@
     "vikranth_syamsundar": 2,
     "vikranths": 0,
     "viktek": 0,
+    "viktix": 0,
     "viktor-777": 0,
     "viktor-eriksson": 0,
     "viktor-slavuta": 0,
@@ -59804,6 +59809,7 @@
     "ivan_chess_pro": "2026-07-15T18:24:30.481741+00:00",
     "ivan_firsov": "2026-07-15T12:03:14.674207+00:00",
     "ivan_frank": "2026-07-13T20:28:05.814603+00:00",
+    "ivan_golodnyuk": "2026-07-16T12:28:57.087308+00:00",
     "ivan_guzhva": "2026-07-14T02:06:06.408491+00:00",
     "ivan_it3": "2026-07-16T10:58:44.697006+00:00",
     "ivan_k15": "2026-07-15T02:58:18.717977+00:00",
@@ -60400,6 +60406,7 @@
     "jayohyaa": "2026-07-13T04:08:09.575560+00:00",
     "jayplayingchese": "2026-07-15T08:41:13.633718+00:00",
     "jaypogi27": "2026-07-10T17:19:34.839302+00:00",
+    "jayshivasharan": "2026-07-16T12:27:30.083248+00:00",
     "jaysonw": "2026-07-12T19:32:26.423143+00:00",
     "jaysonz69420": "2026-07-10T17:19:37.862775+00:00",
     "jaystar1975": "2026-07-16T03:38:46.406780+00:00",
@@ -75678,6 +75685,7 @@
     "settledoyster": "2026-07-14T02:52:01.729836+00:00",
     "seub": "2026-07-12T01:16:38.763482+00:00",
     "seva0505": "2026-07-14T18:24:39.540476+00:00",
+    "seva_krasukov_2010": "2026-07-16T12:27:33.098048+00:00",
     "sevaarut18": "2026-07-14T21:20:51.800213+00:00",
     "sevachess": "2026-07-10T04:32:17.808654+00:00",
     "sevaevmenov": "2026-07-16T04:04:40.954901+00:00",
@@ -79917,6 +79925,7 @@
     "triminh022017": "2026-07-10T21:07:35.606979+00:00",
     "trinethran2019": "2026-07-16T09:34:34.463580+00:00",
     "trinhthanhlong011012": "2026-07-11T09:05:35.688412+00:00",
+    "trinhxuantrang4a2012": "2026-07-16T12:27:36.119800+00:00",
     "triniboit86": "2026-07-13T23:35:00.232777+00:00",
     "trinidad99": "2026-07-14T21:15:18.049236+00:00",
     "trinket9": "2026-07-12T01:35:17.824766+00:00",
@@ -81194,6 +81203,7 @@
     "vikranth_syamsundar": "2026-07-14T12:13:47.289316+00:00",
     "vikranths": "2026-07-15T04:27:51.687953+00:00",
     "viktek": "2026-07-16T12:18:27.020678+00:00",
+    "viktix": "2026-07-16T12:27:39.092215+00:00",
     "viktor-777": "2026-07-15T16:43:35.386669+00:00",
     "viktor-eriksson": "2026-07-11T13:46:20.507360+00:00",
     "viktor-slavuta": "2026-07-14T00:30:42.329274+00:00",
@@ -82433,7 +82443,7 @@
     "xmilk": "2026-07-12T10:45:50.126925+00:00",
     "xmindrow02": "2026-07-14T05:33:16.602003+00:00",
     "xmors": "2026-07-16T08:54:22.878899+00:00",
-    "xof_couvreur": "2026-07-12T13:07:19.418430+00:00",
+    "xof_couvreur": "2026-07-16T12:27:42.133171+00:00",
     "xolodofft": "2026-07-12T08:12:08.442997+00:00",
     "xomax2016": "2026-07-15T10:43:45.006787+00:00",
     "xornet_ss": "2026-07-16T10:38:35.460047+00:00",
@@ -421731,7 +421741,47 @@
       "rating": 1299,
       "source": "Lobby-Crawl",
       "username": "coolbro123yo"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/jayshivasharan",
+      "rank": 42259,
+      "rating": 1098,
+      "source": "Lobby-Crawl",
+      "username": "jayshivasharan"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/seva_krasukov_2010",
+      "rank": 42260,
+      "rating": 1098,
+      "source": "Lobby-Crawl",
+      "username": "seva_krasukov_2010"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/trinhxuantrang4a2012",
+      "rank": 42261,
+      "rating": 1604,
+      "source": "Lobby-Crawl",
+      "username": "trinhxuantrang4a2012"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/viktix",
+      "rank": 42262,
+      "rating": 1221,
+      "source": "Lobby-Crawl",
+      "username": "viktix"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ivan_golodnyuk",
+      "rank": 42263,
+      "rating": 1500,
+      "source": "Lobby-Crawl",
+      "username": "ivan_golodnyuk"
     }
   ],
-  "updated_at": "2026-07-16T12:27:14.694066+00:00"
+  "updated_at": "2026-07-16T12:28:57.097686+00:00"
 }
