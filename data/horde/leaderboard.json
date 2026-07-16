@@ -15617,7 +15617,7 @@
     "greg2017": 0,
     "gregkh2014": 0,
     "gregloxx": 0,
-    "grego77": 134,
+    "grego77": 145,
     "gregorchen": 0,
     "gregory-memory": 0,
     "gregory9701": 0,
@@ -40407,6 +40407,7 @@
     "turtlefriends": 0,
     "turtleistaken": 0,
     "turtlesbestfriend": 0,
+    "turtugeshev2018": 0,
     "turturm": 0,
     "tushar1309": 0,
     "tusharfightchess": 0,
@@ -43603,6 +43604,7 @@
     "yuyuus": 0,
     "yuz1": 0,
     "yuzenay": 13,
+    "yuzhili": 0,
     "yuzhoudiyi": 2,
     "yuzilemon": 1,
     "yvael3ro": 0,
@@ -59707,7 +59709,7 @@
     "greg2017": "2026-07-12T07:52:42.070173+00:00",
     "gregkh2014": "2026-07-12T07:16:23.722853+00:00",
     "gregloxx": "2026-07-13T09:02:39.434864+00:00",
-    "grego77": "2026-07-15T20:47:42.887649+00:00",
+    "grego77": "2026-07-16T21:05:12.554861+00:00",
     "gregorchen": "2026-07-16T13:41:04.145700+00:00",
     "gregory-memory": "2026-07-13T05:13:50.231307+00:00",
     "gregory9701": "2026-07-12T09:57:47.918987+00:00",
@@ -83653,6 +83655,7 @@
     "turtlefriends": "2026-07-15T03:46:34.753091+00:00",
     "turtleistaken": "2026-07-16T15:24:36.003861+00:00",
     "turtlesbestfriend": "2026-07-14T15:22:19.424569+00:00",
+    "turtugeshev2018": "2026-07-16T21:03:26.221088+00:00",
     "turturm": "2026-07-14T07:45:37.195209+00:00",
     "tushar1309": "2026-07-15T04:03:06.159303+00:00",
     "tusharfightchess": "2026-07-13T22:24:10.277381+00:00",
@@ -86849,6 +86852,7 @@
     "yuyuus": "2026-07-16T09:12:29.670310+00:00",
     "yuz1": "2026-07-12T04:25:22.157569+00:00",
     "yuzenay": "2026-07-14T03:48:50.950640+00:00",
+    "yuzhili": "2026-07-16T21:03:28.484710+00:00",
     "yuzhoudiyi": "2026-07-15T17:38:40.271080+00:00",
     "yuzilemon": "2026-07-10T06:35:01.546235+00:00",
     "yvael3ro": "2026-07-12T16:42:48.167508+00:00",
@@ -87667,9 +87671,17 @@
       "username": "leon1616"
     },
     {
+      "games": 145,
+      "profile": "https://lichess.org/@/grego77",
+      "rank": 42,
+      "rating": 2195,
+      "source": "Lobby-Crawl",
+      "username": "grego77"
+    },
+    {
       "games": 144,
       "profile": "https://lichess.org/@/apteryxmaxima",
-      "rank": 42,
+      "rank": 43,
       "rating": 2843,
       "source": "Lobby-Crawl",
       "username": "apteryxmaxima"
@@ -87677,7 +87689,7 @@
     {
       "games": 140,
       "profile": "https://lichess.org/@/gomerpile271",
-      "rank": 43,
+      "rank": 44,
       "rating": 1474,
       "source": "Lobby-Crawl",
       "username": "gomerpile271"
@@ -87685,7 +87697,7 @@
     {
       "games": 139,
       "profile": "https://lichess.org/@/deinebewegung",
-      "rank": 44,
+      "rank": 45,
       "rating": 2300,
       "source": "?",
       "username": "deinebewegung"
@@ -87693,7 +87705,7 @@
     {
       "games": 139,
       "profile": "https://lichess.org/@/karpovs_heir",
-      "rank": 45,
+      "rank": 46,
       "rating": 1587,
       "source": "Lobby-Crawl",
       "username": "karpovs_heir"
@@ -87701,18 +87713,10 @@
     {
       "games": 135,
       "profile": "https://lichess.org/@/sweetfighter",
-      "rank": 46,
+      "rank": 47,
       "rating": 1991,
       "source": "Lobby-Crawl",
       "username": "sweetfighter"
-    },
-    {
-      "games": 134,
-      "profile": "https://lichess.org/@/grego77",
-      "rank": 47,
-      "rating": 2195,
-      "source": "Lobby-Crawl",
-      "username": "grego77"
     },
     {
       "games": 133,
@@ -440057,7 +440061,23 @@
       "rating": 1255,
       "source": "Lobby-Crawl",
       "username": "zetaazariah"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/turtugeshev2018",
+      "rank": 44091,
+      "rating": 1258,
+      "source": "Lobby-Crawl",
+      "username": "turtugeshev2018"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/yuzhili",
+      "rank": 44092,
+      "rating": 1296,
+      "source": "Lobby-Crawl",
+      "username": "yuzhili"
     }
   ],
-  "updated_at": "2026-07-16T21:03:00.755911+00:00"
+  "updated_at": "2026-07-16T21:05:12.563701+00:00"
 }
