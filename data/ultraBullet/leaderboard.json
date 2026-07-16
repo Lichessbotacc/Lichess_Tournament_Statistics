@@ -18663,6 +18663,7 @@
     "mre03": 0,
     "mreinert": 1,
     "mreteddy": 0,
+    "mrexposure": 0,
     "mrezai": 454,
     "mrfatih7": 0,
     "mrfigg2": 0,
@@ -26385,7 +26386,7 @@
     "timo-polacek": 0,
     "timo219300": 0,
     "timoascollegecocteau": 0,
-    "timobjornson": 621,
+    "timobjornson": 646,
     "timofei700": 12,
     "timofei_boyko": 0,
     "timofei_good": 0,
@@ -42794,7 +42795,7 @@
     "jazztraining": "2026-07-13T16:14:40.804431+00:00",
     "jb1907": "2026-07-14T11:59:51.091676+00:00",
     "jbenso14": "2026-07-15T16:02:56.437776+00:00",
-    "jbk-15": "2026-07-15T07:37:59.305627+00:00",
+    "jbk-15": "2026-07-16T12:24:30.933153+00:00",
     "jblick": "2026-07-12T04:41:37.574181+00:00",
     "jboycook": "2026-07-15T22:13:29.143000+00:00",
     "jbradley3": "2026-07-15T17:56:47.778830+00:00",
@@ -47836,6 +47837,7 @@
     "mre03": "2026-07-15T00:41:41.496012+00:00",
     "mreinert": "2026-07-11T20:07:37.567062+00:00",
     "mreteddy": "2026-07-13T11:22:37.086632+00:00",
+    "mrexposure": "2026-07-16T12:24:33.892921+00:00",
     "mrezai": "2026-07-15T04:40:55.785249+00:00",
     "mrfatih7": "2026-07-15T10:59:53.952207+00:00",
     "mrfigg2": "2026-07-11T12:50:57.281587+00:00",
@@ -55495,7 +55497,7 @@
     "timo-polacek": "2026-07-15T20:28:02.394733+00:00",
     "timo219300": "2026-07-14T19:21:30.156294+00:00",
     "timoascollegecocteau": "2026-07-13T16:42:34.143382+00:00",
-    "timobjornson": "2026-07-15T14:56:19.723134+00:00",
+    "timobjornson": "2026-07-16T12:26:45.914143+00:00",
     "timofei700": "2026-07-15T04:33:37.795748+00:00",
     "timofei_boyko": "2026-07-11T16:47:48.783002+00:00",
     "timofei_good": "2026-07-12T10:38:43.936046+00:00",
@@ -59012,9 +59014,17 @@
       "username": "menocchio"
     },
     {
+      "games": 646,
+      "profile": "https://lichess.org/@/timobjornson",
+      "rank": 76,
+      "rating": 1807,
+      "source": "?",
+      "username": "timobjornson"
+    },
+    {
       "games": 644,
       "profile": "https://lichess.org/@/philippe640719",
-      "rank": 76,
+      "rank": 77,
       "rating": 1215,
       "source": "Lobby-Crawl",
       "username": "philippe640719"
@@ -59022,7 +59032,7 @@
     {
       "games": 643,
       "profile": "https://lichess.org/@/harryrajesh",
-      "rank": 77,
+      "rank": 78,
       "rating": 1911,
       "source": "Lobby-Crawl",
       "username": "harryrajesh"
@@ -59030,7 +59040,7 @@
     {
       "games": 639,
       "profile": "https://lichess.org/@/cupidust123",
-      "rank": 78,
+      "rank": 79,
       "rating": 2213,
       "source": "?",
       "username": "cupidust123"
@@ -59038,7 +59048,7 @@
     {
       "games": 637,
       "profile": "https://lichess.org/@/mrsst",
-      "rank": 79,
+      "rank": 80,
       "rating": 2065,
       "source": "?",
       "username": "mrsst"
@@ -59046,7 +59056,7 @@
     {
       "games": 637,
       "profile": "https://lichess.org/@/toastbread_1",
-      "rank": 80,
+      "rank": 81,
       "rating": 2134,
       "source": "Lobby-Crawl",
       "username": "toastbread_1"
@@ -59054,7 +59064,7 @@
     {
       "games": 636,
       "profile": "https://lichess.org/@/csaban",
-      "rank": 81,
+      "rank": 82,
       "rating": 1731,
       "source": "Lobby-Crawl",
       "username": "csaban"
@@ -59062,7 +59072,7 @@
     {
       "games": 633,
       "profile": "https://lichess.org/@/nilsewon",
-      "rank": 82,
+      "rank": 83,
       "rating": 1951,
       "source": "Lobby-Crawl",
       "username": "nilsewon"
@@ -59070,7 +59080,7 @@
     {
       "games": 627,
       "profile": "https://lichess.org/@/runai",
-      "rank": 83,
+      "rank": 84,
       "rating": 1785,
       "source": "Lobby-Crawl",
       "username": "runai"
@@ -59078,18 +59088,10 @@
     {
       "games": 624,
       "profile": "https://lichess.org/@/orangeking2504",
-      "rank": 84,
+      "rank": 85,
       "rating": 2174,
       "source": "?",
       "username": "orangeking2504"
-    },
-    {
-      "games": 621,
-      "profile": "https://lichess.org/@/timobjornson",
-      "rank": 85,
-      "rating": 1807,
-      "source": "?",
-      "username": "timobjornson"
     },
     {
       "games": 618,
@@ -293010,7 +293012,15 @@
       "rating": 1576,
       "source": "Lobby-Crawl",
       "username": "filiph10"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/mrexposure",
+      "rank": 29326,
+      "rating": 1218,
+      "source": "Lobby-Crawl",
+      "username": "mrexposure"
     }
   ],
-  "updated_at": "2026-07-16T12:24:14.546576+00:00"
+  "updated_at": "2026-07-16T12:26:45.919351+00:00"
 }
