@@ -6109,6 +6109,7 @@
     "bng_water0102": 13,
     "bnice_nbike": 0,
     "bnjkfnbjinbkn": 6,
+    "boadale": 0,
     "boajames": 0,
     "boanergesmabampu": 0,
     "boardfox3": 22,
@@ -45626,6 +45627,7 @@
     "bng_water0102": "2026-07-12T13:24:31.592362+00:00",
     "bnice_nbike": "2026-07-13T07:09:08.205896+00:00",
     "bnjkfnbjinbkn": "2026-07-14T02:31:18.687848+00:00",
+    "boadale": "2026-07-16T00:44:33.343169+00:00",
     "boajames": "2026-07-10T05:36:40.741803+00:00",
     "boanergesmabampu": "2026-07-12T09:46:09.492746+00:00",
     "boardfox3": "2026-07-12T10:26:42.445793+00:00",
@@ -348464,8 +348466,8 @@
       "games": 0,
       "profile": "https://lichess.org/@/pakhomoff",
       "rank": 33718,
-      "rating": null,
-      "source": "?",
+      "rating": 1729,
+      "source": "Lobby-Crawl",
       "username": "pakhomoff"
     },
     {
@@ -395187,7 +395189,15 @@
       "rating": 2060,
       "source": "Lobby-Crawl",
       "username": "yarob1"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/boadale",
+      "rank": 39559,
+      "rating": 1789,
+      "source": "Lobby-Crawl",
+      "username": "boadale"
     }
   ],
-  "updated_at": "2026-07-16T00:43:33.808843+00:00"
+  "updated_at": "2026-07-16T00:44:33.409596+00:00"
 }
