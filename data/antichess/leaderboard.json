@@ -5110,6 +5110,7 @@
     "bardovh": 0,
     "baremice1": 0,
     "bargavp10": 0,
+    "bari_kasparov": 0,
     "barielsi": 1,
     "barinoa": 6,
     "barisnamirti": 0,
@@ -36613,7 +36614,7 @@
     "artemijsz": "2026-07-16T17:20:09.153735+00:00",
     "artemio20": "2026-07-14T08:48:53.977394+00:00",
     "artemiy-2025": "2026-07-15T10:30:49.593512+00:00",
-    "artemiy2017b": "2026-07-10T23:22:40.980331+00:00",
+    "artemiy2017b": "2026-07-16T20:48:49.098654+00:00",
     "artemiy_stadnik": "2026-07-14T06:58:12.175235+00:00",
     "artemka6": "2026-07-11T08:55:58.101735+00:00",
     "artemking1": "2026-07-14T16:56:22.711722+00:00",
@@ -37546,6 +37547,7 @@
     "bardovh": "2026-07-16T20:04:20.987835+00:00",
     "baremice1": "2026-07-15T10:01:13.338399+00:00",
     "bargavp10": "2026-07-13T22:14:49.075878+00:00",
+    "bari_kasparov": "2026-07-16T20:50:03.324353+00:00",
     "barielsi": "2026-07-15T06:36:40.746118+00:00",
     "barinoa": "2026-07-16T06:34:56.073328+00:00",
     "barisnamirti": "2026-07-16T10:39:25.231286+00:00",
@@ -149761,7 +149763,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/artemiy2017b",
       "rank": 10697,
-      "rating": null,
+      "rating": 852,
       "source": "Lobby-Crawl",
       "username": "artemiy2017b"
     },
@@ -323668,7 +323670,15 @@
       "rating": 1314,
       "source": "Lobby-Crawl",
       "username": "d_karthikeya2015"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/bari_kasparov",
+      "rank": 32436,
+      "rating": 1117,
+      "source": "?",
+      "username": "bari_kasparov"
     }
   ],
-  "updated_at": "2026-07-16T20:48:29.014085+00:00"
+  "updated_at": "2026-07-16T20:50:03.332717+00:00"
 }
