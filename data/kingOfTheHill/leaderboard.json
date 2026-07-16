@@ -7637,6 +7637,7 @@
     "chess-lets-play": 0,
     "chess-lions": 0,
     "chess-network": 0,
+    "chess-queenie": 0,
     "chess-rex18": 0,
     "chess-ru": 0,
     "chess0412": 0,
@@ -47159,6 +47160,7 @@
     "chess-lets-play": "2026-07-12T17:17:09.097937+00:00",
     "chess-lions": "2026-07-12T03:39:14.422812+00:00",
     "chess-network": "2026-07-11T00:21:25.936246+00:00",
+    "chess-queenie": "2026-07-16T15:37:09.599147+00:00",
     "chess-rex18": "2026-07-14T11:50:08.214657+00:00",
     "chess-ru": "2026-07-13T20:33:56.856461+00:00",
     "chess0412": "2026-07-13T20:48:24.350769+00:00",
@@ -394196,7 +394198,15 @@
       "rating": 1479,
       "source": "Lobby-Crawl",
       "username": "vala_sarkar"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess-queenie",
+      "rank": 39525,
+      "rating": 849,
+      "source": "Lobby-Crawl",
+      "username": "chess-queenie"
     }
   ],
-  "updated_at": "2026-07-16T15:31:43.554470+00:00"
+  "updated_at": "2026-07-16T15:37:09.625179+00:00"
 }
