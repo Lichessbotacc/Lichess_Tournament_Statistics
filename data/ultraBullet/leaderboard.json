@@ -5789,7 +5789,7 @@
     "cgd1985": 0,
     "cgkarca_11_panabo": 2,
     "cgluongnguyenkhoi": 0,
-    "ch00_eg": 1459,
+    "ch00_eg": 2000,
     "ch1bureki": 0,
     "ch210": 0,
     "ch3ck-mates-sca0": 1,
@@ -34207,7 +34207,7 @@
     "cgd1985": "2026-07-11T21:06:55.192804+00:00",
     "cgkarca_11_panabo": "2026-07-15T19:43:29.688751+00:00",
     "cgluongnguyenkhoi": "2026-07-10T21:47:27.646117+00:00",
-    "ch00_eg": "2026-07-15T09:47:59.838065+00:00",
+    "ch00_eg": "2026-07-16T06:18:34.120670+00:00",
     "ch1bureki": "2026-07-15T10:08:47.945562+00:00",
     "ch210": "2026-07-13T16:40:53.758262+00:00",
     "ch3ck-mates-sca0": "2026-07-15T09:09:25.799963+00:00",
@@ -56709,9 +56709,17 @@
       "username": "lumbrerosky"
     },
     {
+      "games": 2000,
+      "profile": "https://lichess.org/@/ch00_eg",
+      "rank": 4,
+      "rating": 1957,
+      "source": "Lobby-Crawl",
+      "username": "ch00_eg"
+    },
+    {
       "games": 1687,
       "profile": "https://lichess.org/@/ahhh6e35e44e73e62nd5",
-      "rank": 4,
+      "rank": 5,
       "rating": 2319,
       "source": "?",
       "username": "ahhh6e35e44e73e62nd5"
@@ -56719,18 +56727,10 @@
     {
       "games": 1488,
       "profile": "https://lichess.org/@/mache80",
-      "rank": 5,
+      "rank": 6,
       "rating": 1344,
       "source": "Lobby-Crawl",
       "username": "mache80"
-    },
-    {
-      "games": 1459,
-      "profile": "https://lichess.org/@/ch00_eg",
-      "rank": 6,
-      "rating": 1957,
-      "source": "Lobby-Crawl",
-      "username": "ch00_eg"
     },
     {
       "games": 1457,
@@ -284389,5 +284389,5 @@
       "username": "zzzzzzzzzzzm"
     }
   ],
-  "updated_at": "2026-07-16T06:16:04.150221+00:00"
+  "updated_at": "2026-07-16T06:18:34.126498+00:00"
 }
