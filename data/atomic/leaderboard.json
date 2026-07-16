@@ -6957,7 +6957,7 @@
     "chessmole": 40,
     "chessmonkeymkr": 0,
     "chessmontekristo": 0,
-    "chessmuggler": 107,
+    "chessmuggler": 106,
     "chessmusman": 0,
     "chessn12": 0,
     "chessname0": 0,
@@ -39292,7 +39292,7 @@
     "chessmole": "2026-07-15T17:32:41.108137+00:00",
     "chessmonkeymkr": "2026-07-12T18:46:07.937028+00:00",
     "chessmontekristo": "2026-07-15T03:46:27.240082+00:00",
-    "chessmuggler": "2026-07-13T10:05:13.290552+00:00",
+    "chessmuggler": "2026-07-16T02:24:43.892846+00:00",
     "chessmusman": "2026-07-15T09:48:53.233398+00:00",
     "chessn12": "2026-07-12T06:09:37.894394+00:00",
     "chessname0": "2026-07-15T21:55:06.001924+00:00",
@@ -54375,7 +54375,7 @@
     "ntlgt": "2026-07-14T11:27:21.334643+00:00",
     "ntxxm": "2026-07-11T04:28:01.191176+00:00",
     "nubaid_adyan": "2026-07-15T03:11:42.046186+00:00",
-    "nubalu": "2026-07-15T01:35:25.759213+00:00",
+    "nubalu": "2026-07-16T02:23:07.896780+00:00",
     "nubbyadyan": "2026-07-15T05:54:34.763806+00:00",
     "nubie04": "2026-07-14T05:55:09.055133+00:00",
     "nuevomisterio": "2026-07-14T20:37:09.807055+00:00",
@@ -66871,16 +66871,8 @@
     },
     {
       "games": 107,
-      "profile": "https://lichess.org/@/chessmuggler",
-      "rank": 277,
-      "rating": 1810,
-      "source": "Lobby-Crawl",
-      "username": "chessmuggler"
-    },
-    {
-      "games": 107,
       "profile": "https://lichess.org/@/handyopticianant",
-      "rank": 278,
+      "rank": 277,
       "rating": 1382,
       "source": "Lobby-Crawl",
       "username": "handyopticianant"
@@ -66888,7 +66880,7 @@
     {
       "games": 107,
       "profile": "https://lichess.org/@/killua_the_assassin",
-      "rank": 279,
+      "rank": 278,
       "rating": 1666,
       "source": "?",
       "username": "killua_the_assassin"
@@ -66896,7 +66888,7 @@
     {
       "games": 107,
       "profile": "https://lichess.org/@/petititi1792",
-      "rank": 280,
+      "rank": 279,
       "rating": 1302,
       "source": "Lobby-Crawl",
       "username": "petititi1792"
@@ -66904,7 +66896,7 @@
     {
       "games": 106,
       "profile": "https://lichess.org/@/allhailkingjesus",
-      "rank": 281,
+      "rank": 280,
       "rating": 1768,
       "source": "Lobby-Crawl",
       "username": "allhailkingjesus"
@@ -66912,10 +66904,18 @@
     {
       "games": 106,
       "profile": "https://lichess.org/@/belali_peekq",
-      "rank": 282,
+      "rank": 281,
       "rating": 1434,
       "source": "Lobby-Crawl",
       "username": "belali_peekq"
+    },
+    {
+      "games": 106,
+      "profile": "https://lichess.org/@/chessmuggler",
+      "rank": 282,
+      "rating": 1810,
+      "source": "Lobby-Crawl",
+      "username": "chessmuggler"
     },
     {
       "games": 106,
@@ -323342,5 +323342,5 @@
       "username": "leroidesbrioches"
     }
   ],
-  "updated_at": "2026-07-16T02:23:02.120487+00:00"
+  "updated_at": "2026-07-16T02:24:43.898225+00:00"
 }
