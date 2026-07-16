@@ -28768,6 +28768,7 @@
     "schaak_knoeier": 0,
     "schablonski": 0,
     "schach4": 0,
+    "schach_11": 0,
     "schach_matto": 0,
     "schach_taktik": 0,
     "schach_vader_13": 0,
@@ -63708,6 +63709,7 @@
     "schaak_knoeier": "2026-07-14T00:36:28.503227+00:00",
     "schablonski": "2026-07-15T13:01:47.952168+00:00",
     "schach4": "2026-07-12T05:40:08.675952+00:00",
+    "schach_11": "2026-07-16T03:56:08.337484+00:00",
     "schach_matto": "2026-07-14T18:44:32.222145+00:00",
     "schach_taktik": "2026-07-15T03:28:08.889171+00:00",
     "schach_vader_13": "2026-07-15T15:27:35.377863+00:00",
@@ -355923,7 +355925,15 @@
       "rating": 1934,
       "source": "Lobby-Crawl",
       "username": "vol_lov"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/schach_11",
+      "rank": 35688,
+      "rating": 2090,
+      "source": "?",
+      "username": "schach_11"
     }
   ],
-  "updated_at": "2026-07-16T03:55:05.937817+00:00"
+  "updated_at": "2026-07-16T03:56:08.367016+00:00"
 }
