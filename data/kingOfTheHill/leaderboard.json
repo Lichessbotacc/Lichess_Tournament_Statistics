@@ -5948,6 +5948,7 @@
     "bers2016": 0,
     "bersekero": 0,
     "berserk2012": 0,
+    "berserk_67": 0,
     "berserk_acc": 0,
     "berserk_kabas": 0,
     "berserk_lev": 0,
@@ -10144,6 +10145,7 @@
     "deven2017": 0,
     "deven_durwas": 0,
     "devesh_p": 46,
+    "deveshkumartjp": 0,
     "deveshwar_23": 0,
     "devgudipudi": 0,
     "devicpratama": 0,
@@ -31182,6 +31184,7 @@
     "rsreenika": 0,
     "rst-blf": 0,
     "rsto": 6,
+    "rstranic": 0,
     "rsw123": 0,
     "rt_81": 0,
     "rtfgkcmvfssdv": 0,
@@ -34865,7 +34868,7 @@
     "sunshine_phoenex": 0,
     "suntaker": 8,
     "suntzu33": 0,
-    "sunwizard": 102,
+    "sunwizard": 120,
     "supelyel": 0,
     "super-ant": 0,
     "super-champion": 0,
@@ -46333,6 +46336,7 @@
     "bers2016": "2026-07-14T15:09:37.658557+00:00",
     "bersekero": "2026-07-14T09:56:13.651183+00:00",
     "berserk2012": "2026-07-15T07:44:26.428132+00:00",
+    "berserk_67": "2026-07-16T21:52:36.110799+00:00",
     "berserk_acc": "2026-07-12T00:03:04.537477+00:00",
     "berserk_kabas": "2026-07-15T05:41:03.189422+00:00",
     "berserk_lev": "2026-07-14T09:54:48.073865+00:00",
@@ -50529,6 +50533,7 @@
     "deven2017": "2026-07-14T23:29:38.791084+00:00",
     "deven_durwas": "2026-07-12T20:18:18.596427+00:00",
     "devesh_p": "2026-07-16T03:27:28.247201+00:00",
+    "deveshkumartjp": "2026-07-16T21:52:38.296440+00:00",
     "deveshwar_23": "2026-07-16T07:45:57.110402+00:00",
     "devgudipudi": "2026-07-14T00:10:53.957588+00:00",
     "devicpratama": "2026-07-16T19:01:25.706504+00:00",
@@ -70536,6 +70541,7 @@
     "rsreenika": "2026-07-15T16:51:18.024239+00:00",
     "rst-blf": "2026-07-16T10:23:12.646535+00:00",
     "rsto": "2026-07-14T19:02:07.818218+00:00",
+    "rstranic": "2026-07-16T21:54:18.189407+00:00",
     "rsw123": "2026-07-14T14:03:38.266418+00:00",
     "rt_81": "2026-07-15T04:09:05.295474+00:00",
     "rtfgkcmvfssdv": "2026-07-12T06:31:35.222944+00:00",
@@ -74214,7 +74220,7 @@
     "sunshine_phoenex": "2026-07-14T13:50:26.577919+00:00",
     "suntaker": "2026-07-13T21:46:13.521985+00:00",
     "suntzu33": "2026-07-14T19:11:29.896341+00:00",
-    "sunwizard": "2026-07-15T22:37:37.255713+00:00",
+    "sunwizard": "2026-07-16T21:53:05.105674+00:00",
     "supelyel": "2026-07-16T20:25:32.479071+00:00",
     "super-ant": "2026-07-14T05:27:29.626662+00:00",
     "super-champion": "2026-07-14T09:17:36.985526+00:00",
@@ -80064,9 +80070,17 @@
       "username": "kuki_2000"
     },
     {
+      "games": 120,
+      "profile": "https://lichess.org/@/sunwizard",
+      "rank": 42,
+      "rating": 1898,
+      "source": "Lobby-Crawl",
+      "username": "sunwizard"
+    },
+    {
       "games": 116,
       "profile": "https://lichess.org/@/zachttg",
-      "rank": 42,
+      "rank": 43,
       "rating": 1910,
       "source": "Lobby-Crawl",
       "username": "zachttg"
@@ -80074,7 +80088,7 @@
     {
       "games": 113,
       "profile": "https://lichess.org/@/frost_archer",
-      "rank": 43,
+      "rank": 44,
       "rating": 2076,
       "source": "Lobby-Crawl",
       "username": "frost_archer"
@@ -80082,7 +80096,7 @@
     {
       "games": 112,
       "profile": "https://lichess.org/@/kalichin",
-      "rank": 44,
+      "rank": 45,
       "rating": 1833,
       "source": "Lobby-Crawl",
       "username": "kalichin"
@@ -80090,7 +80104,7 @@
     {
       "games": 111,
       "profile": "https://lichess.org/@/yciycyi432",
-      "rank": 45,
+      "rank": 46,
       "rating": 1726,
       "source": "Lobby-Crawl",
       "username": "yciycyi432"
@@ -80098,7 +80112,7 @@
     {
       "games": 106,
       "profile": "https://lichess.org/@/ajedrez999",
-      "rank": 46,
+      "rank": 47,
       "rating": 2080,
       "source": "?",
       "username": "ajedrez999"
@@ -80106,7 +80120,7 @@
     {
       "games": 105,
       "profile": "https://lichess.org/@/alexeypushkarev1963",
-      "rank": 47,
+      "rank": 48,
       "rating": 2032,
       "source": "Lobby-Crawl",
       "username": "alexeypushkarev1963"
@@ -80114,7 +80128,7 @@
     {
       "games": 104,
       "profile": "https://lichess.org/@/themostunanonymous",
-      "rank": 48,
+      "rank": 49,
       "rating": 1673,
       "source": "Lobby-Crawl",
       "username": "themostunanonymous"
@@ -80122,7 +80136,7 @@
     {
       "games": 104,
       "profile": "https://lichess.org/@/yaroslavles",
-      "rank": 49,
+      "rank": 50,
       "rating": 1904,
       "source": "Lobby-Crawl",
       "username": "yaroslavles"
@@ -80130,7 +80144,7 @@
     {
       "games": 102,
       "profile": "https://lichess.org/@/docdidi",
-      "rank": 50,
+      "rank": 51,
       "rating": 1735,
       "source": "Lobby-Crawl",
       "username": "docdidi"
@@ -80138,7 +80152,7 @@
     {
       "games": 102,
       "profile": "https://lichess.org/@/mdgx",
-      "rank": 51,
+      "rank": 52,
       "rating": 1844,
       "source": "Lobby-Crawl",
       "username": "mdgx"
@@ -80146,18 +80160,10 @@
     {
       "games": 102,
       "profile": "https://lichess.org/@/megracia",
-      "rank": 52,
+      "rank": 53,
       "rating": 2179,
       "source": "Lobby-Crawl",
       "username": "megracia"
-    },
-    {
-      "games": 102,
-      "profile": "https://lichess.org/@/sunwizard",
-      "rank": 53,
-      "rating": 1898,
-      "source": "Lobby-Crawl",
-      "username": "sunwizard"
     },
     {
       "games": 101,
@@ -402830,7 +402836,31 @@
       "rating": 1521,
       "source": "Lobby-Crawl",
       "username": "racgiman"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/berserk_67",
+      "rank": 40388,
+      "rating": 1625,
+      "source": "Lobby-Crawl",
+      "username": "berserk_67"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/deveshkumartjp",
+      "rank": 40389,
+      "rating": 918,
+      "source": "Lobby-Crawl",
+      "username": "deveshkumartjp"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/rstranic",
+      "rank": 40390,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "rstranic"
     }
   ],
-  "updated_at": "2026-07-16T21:52:19.313112+00:00"
+  "updated_at": "2026-07-16T21:54:18.199229+00:00"
 }
