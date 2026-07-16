@@ -21829,7 +21829,7 @@
     "r22pqr": 0,
     "r2300": 7,
     "r2d2_z": 0,
-    "r2ino": 509,
+    "r2ino": 499,
     "r30-chess": 0,
     "r4diateur": 5,
     "r4ever": 0,
@@ -51298,7 +51298,7 @@
     "r22pqr": "2026-07-15T02:59:12.133444+00:00",
     "r2300": "2026-07-12T05:46:36.301212+00:00",
     "r2d2_z": "2026-07-15T10:02:22.279346+00:00",
-    "r2ino": "2026-07-16T01:16:40.306016+00:00",
+    "r2ino": "2026-07-16T19:19:21.886570+00:00",
     "r30-chess": "2026-07-13T06:00:53.366209+00:00",
     "r4diateur": "2026-07-11T09:00:15.580445+00:00",
     "r4ever": "2026-07-14T01:21:13.749885+00:00",
@@ -60021,17 +60021,9 @@
       "username": "mrezai"
     },
     {
-      "games": 509,
-      "profile": "https://lichess.org/@/r2ino",
-      "rank": 123,
-      "rating": 1663,
-      "source": "Lobby-Crawl",
-      "username": "r2ino"
-    },
-    {
       "games": 502,
       "profile": "https://lichess.org/@/dr_blunderstein",
-      "rank": 124,
+      "rank": 123,
       "rating": 1409,
       "source": "Lobby-Crawl",
       "username": "dr_blunderstein"
@@ -60039,10 +60031,18 @@
     {
       "games": 499,
       "profile": "https://lichess.org/@/a-m-b-a-s-s-a-d-o-r",
-      "rank": 125,
+      "rank": 124,
       "rating": 2096,
       "source": "Lobby-Crawl",
       "username": "a-m-b-a-s-s-a-d-o-r"
+    },
+    {
+      "games": 499,
+      "profile": "https://lichess.org/@/r2ino",
+      "rank": 125,
+      "rating": 1663,
+      "source": "Lobby-Crawl",
+      "username": "r2ino"
     },
     {
       "games": 497,
@@ -296165,5 +296165,5 @@
       "username": "jenya02042019"
     }
   ],
-  "updated_at": "2026-07-16T19:17:19.841023+00:00"
+  "updated_at": "2026-07-16T19:19:21.893289+00:00"
 }
