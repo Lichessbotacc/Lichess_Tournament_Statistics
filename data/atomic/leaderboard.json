@@ -2042,6 +2042,7 @@
     "alanriverside": 0,
     "alansigma228": 0,
     "alansklaucans": 0,
+    "alantigrmos": 0,
     "alantorresd": 0,
     "alanwalker27": 0,
     "alanwang2075": 0,
@@ -4430,7 +4431,7 @@
     "atomicmonster2201": 0,
     "atomicnegotiator": 0,
     "atomicochess": 0,
-    "atomicoverseer": 322,
+    "atomicoverseer": 283,
     "atomicplayer3092637": 0,
     "atomicroyalty": 0,
     "atomicruler2": 0,
@@ -28512,6 +28513,7 @@
     "sofia_cig": 0,
     "sofia_holopura": 0,
     "sofia_m1": 0,
+    "sofiabustosvieyra": 0,
     "sofiakolobovafifi": 0,
     "sofianorova": 0,
     "sofiasahal": 0,
@@ -36021,6 +36023,7 @@
     "alanriverside": "2026-07-16T08:13:01.944315+00:00",
     "alansigma228": "2026-07-12T18:04:44.779045+00:00",
     "alansklaucans": "2026-07-13T15:53:10.663755+00:00",
+    "alantigrmos": "2026-07-16T11:34:04.984670+00:00",
     "alantorresd": "2026-07-13T18:15:00.212559+00:00",
     "alanwalker27": "2026-07-10T02:50:54.454304+00:00",
     "alanwang2075": "2026-07-12T15:59:08.528540+00:00",
@@ -38408,7 +38411,7 @@
     "atomicmonster2201": "2026-07-14T16:40:12.772613+00:00",
     "atomicnegotiator": "2026-07-13T14:06:13.186445+00:00",
     "atomicochess": "2026-07-12T17:59:22.378369+00:00",
-    "atomicoverseer": "2026-07-15T13:30:55.412367+00:00",
+    "atomicoverseer": "2026-07-16T11:35:04.387944+00:00",
     "atomicplayer3092637": "2026-07-15T16:51:23.614594+00:00",
     "atomicroyalty": "2026-07-15T17:30:08.611118+00:00",
     "atomicruler2": "2026-07-13T11:31:53.574073+00:00",
@@ -62479,6 +62482,7 @@
     "sofia_cig": "2026-07-15T23:23:27.986468+00:00",
     "sofia_holopura": "2026-07-15T20:28:06.041745+00:00",
     "sofia_m1": "2026-07-15T14:53:39.758659+00:00",
+    "sofiabustosvieyra": "2026-07-16T11:34:01.980064+00:00",
     "sofiakolobovafifi": "2026-07-15T17:43:22.059087+00:00",
     "sofianorova": "2026-07-14T16:58:07.509288+00:00",
     "sofiasahal": "2026-07-15T05:53:47.710037+00:00",
@@ -68324,16 +68328,8 @@
     },
     {
       "games": 322,
-      "profile": "https://lichess.org/@/atomicoverseer",
-      "rank": 48,
-      "rating": 2378,
-      "source": "?",
-      "username": "atomicoverseer"
-    },
-    {
-      "games": 322,
       "profile": "https://lichess.org/@/egemenmaster",
-      "rank": 49,
+      "rank": 48,
       "rating": 1248,
       "source": "Lobby-Crawl",
       "username": "egemenmaster"
@@ -68341,7 +68337,7 @@
     {
       "games": 322,
       "profile": "https://lichess.org/@/gordon2035",
-      "rank": 50,
+      "rank": 49,
       "rating": 1676,
       "source": "Lobby-Crawl",
       "username": "gordon2035"
@@ -68349,7 +68345,7 @@
     {
       "games": 316,
       "profile": "https://lichess.org/@/ihatespammers",
-      "rank": 51,
+      "rank": 50,
       "rating": 2411,
       "source": "?",
       "username": "ihatespammers"
@@ -68357,7 +68353,7 @@
     {
       "games": 312,
       "profile": "https://lichess.org/@/applauchew",
-      "rank": 52,
+      "rank": 51,
       "rating": 1924,
       "source": "Lobby-Crawl",
       "username": "applauchew"
@@ -68365,7 +68361,7 @@
     {
       "games": 312,
       "profile": "https://lichess.org/@/bayoyayooo",
-      "rank": 53,
+      "rank": 52,
       "rating": 2251,
       "source": "?",
       "username": "bayoyayooo"
@@ -68373,7 +68369,7 @@
     {
       "games": 306,
       "profile": "https://lichess.org/@/pazdanielfre",
-      "rank": 54,
+      "rank": 53,
       "rating": 1952,
       "source": "Lobby-Crawl",
       "username": "pazdanielfre"
@@ -68381,7 +68377,7 @@
     {
       "games": 298,
       "profile": "https://lichess.org/@/resnam",
-      "rank": 55,
+      "rank": 54,
       "rating": 2020,
       "source": "Lobby-Crawl",
       "username": "resnam"
@@ -68389,7 +68385,7 @@
     {
       "games": 297,
       "profile": "https://lichess.org/@/aschorn",
-      "rank": 56,
+      "rank": 55,
       "rating": 2083,
       "source": "Lobby-Crawl",
       "username": "aschorn"
@@ -68397,10 +68393,18 @@
     {
       "games": 293,
       "profile": "https://lichess.org/@/theatomicstorm",
-      "rank": 57,
+      "rank": 56,
       "rating": 2139,
       "source": "?",
       "username": "theatomicstorm"
+    },
+    {
+      "games": 283,
+      "profile": "https://lichess.org/@/atomicoverseer",
+      "rank": 57,
+      "rating": 2378,
+      "source": "?",
+      "username": "atomicoverseer"
     },
     {
       "games": 279,
@@ -339761,7 +339765,23 @@
       "rating": 1240,
       "source": "Lobby-Crawl",
       "username": "eziok93"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/sofiabustosvieyra",
+      "rank": 33978,
+      "rating": 947,
+      "source": "Lobby-Crawl",
+      "username": "sofiabustosvieyra"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/alantigrmos",
+      "rank": 33979,
+      "rating": 1423,
+      "source": "Lobby-Crawl",
+      "username": "alantigrmos"
     }
   ],
-  "updated_at": "2026-07-16T11:33:45.002651+00:00"
+  "updated_at": "2026-07-16T11:35:04.394770+00:00"
 }
