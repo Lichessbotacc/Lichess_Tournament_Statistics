@@ -21597,6 +21597,7 @@
     "kmlrs": 0,
     "kmore": 0,
     "kmrcisgood": 0,
+    "kmto": 0,
     "kmut": 14,
     "kmw2021": 0,
     "kn7b": 0,
@@ -65235,6 +65236,7 @@
     "kmlrs": "2026-07-12T01:36:09.964986+00:00",
     "kmore": "2026-07-16T23:19:52.642635+00:00",
     "kmrcisgood": "2026-07-15T06:42:31.456094+00:00",
+    "kmto": "2026-07-16T23:33:13.477781+00:00",
     "kmut": "2026-07-15T17:55:04.728597+00:00",
     "kmw2021": "2026-07-14T04:50:03.951159+00:00",
     "kn7b": "2026-07-12T18:15:53.441890+00:00",
@@ -284195,7 +284197,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/lionsmb36",
       "rank": 24613,
-      "rating": null,
+      "rating": 1430,
       "source": "Lobby-Crawl",
       "username": "lionsmb36"
     },
@@ -436894,7 +436896,15 @@
       "rating": null,
       "source": "Turnier",
       "username": "obito_uchiha0"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/kmto",
+      "rank": 43701,
+      "rating": 1755,
+      "source": "Lobby-Crawl",
+      "username": "kmto"
     }
   ],
-  "updated_at": "2026-07-16T23:31:45.565136+00:00"
+  "updated_at": "2026-07-16T23:33:13.486840+00:00"
 }
