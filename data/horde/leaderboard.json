@@ -5102,7 +5102,7 @@
     "attackrider": 0,
     "attacksparrow": 0,
     "attlla": 0,
-    "atto12": 31,
+    "atto12": 33,
     "attull": 0,
     "atunjay": 0,
     "atus25": 0,
@@ -48307,7 +48307,7 @@
     "attackrider": "2026-07-15T17:52:54.603805+00:00",
     "attacksparrow": "2026-07-16T12:50:55.114764+00:00",
     "attlla": "2026-07-15T10:11:00.107502+00:00",
-    "atto12": "2026-07-15T20:35:28.724540+00:00",
+    "atto12": "2026-07-16T16:58:24.776921+00:00",
     "attull": "2026-07-13T21:40:36.282563+00:00",
     "atunjay": "2026-07-14T11:59:29.768296+00:00",
     "atus25": "2026-07-13T14:15:53.626044+00:00",
@@ -87362,8 +87362,16 @@
     },
     {
       "games": 33,
-      "profile": "https://lichess.org/@/babak-chalus",
+      "profile": "https://lichess.org/@/atto12",
       "rank": 226,
+      "rating": 1979,
+      "source": "Lobby-Crawl",
+      "username": "atto12"
+    },
+    {
+      "games": 33,
+      "profile": "https://lichess.org/@/babak-chalus",
+      "rank": 227,
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "babak-chalus"
@@ -87371,7 +87379,7 @@
     {
       "games": 33,
       "profile": "https://lichess.org/@/isuckatchess2012",
-      "rank": 227,
+      "rank": 228,
       "rating": 1925,
       "source": "Lobby-Crawl",
       "username": "isuckatchess2012"
@@ -87379,7 +87387,7 @@
     {
       "games": 33,
       "profile": "https://lichess.org/@/jers2018",
-      "rank": 228,
+      "rank": 229,
       "rating": null,
       "source": "Turnier",
       "username": "jers2018"
@@ -87387,7 +87395,7 @@
     {
       "games": 33,
       "profile": "https://lichess.org/@/kolisto",
-      "rank": 229,
+      "rank": 230,
       "rating": 1788,
       "source": "Lobby-Crawl",
       "username": "kolisto"
@@ -87395,7 +87403,7 @@
     {
       "games": 33,
       "profile": "https://lichess.org/@/martinfo11",
-      "rank": 230,
+      "rank": 231,
       "rating": 1667,
       "source": "Lobby-Crawl",
       "username": "martinfo11"
@@ -87403,7 +87411,7 @@
     {
       "games": 33,
       "profile": "https://lichess.org/@/sahdfaizal",
-      "rank": 231,
+      "rank": 232,
       "rating": 2275,
       "source": "?",
       "username": "sahdfaizal"
@@ -87411,7 +87419,7 @@
     {
       "games": 32,
       "profile": "https://lichess.org/@/cuchuflex",
-      "rank": 232,
+      "rank": 233,
       "rating": 1957,
       "source": "Lobby-Crawl",
       "username": "cuchuflex"
@@ -87419,7 +87427,7 @@
     {
       "games": 32,
       "profile": "https://lichess.org/@/juniperjelly",
-      "rank": 233,
+      "rank": 234,
       "rating": 1954,
       "source": "Lobby-Crawl",
       "username": "juniperjelly"
@@ -87427,7 +87435,7 @@
     {
       "games": 32,
       "profile": "https://lichess.org/@/luisls59",
-      "rank": 234,
+      "rank": 235,
       "rating": 1695,
       "source": "Lobby-Crawl",
       "username": "luisls59"
@@ -87435,18 +87443,10 @@
     {
       "games": 32,
       "profile": "https://lichess.org/@/maximus_schacharena",
-      "rank": 235,
+      "rank": 236,
       "rating": 2006,
       "source": "Lobby-Crawl",
       "username": "maximus_schacharena"
-    },
-    {
-      "games": 31,
-      "profile": "https://lichess.org/@/atto12",
-      "rank": 236,
-      "rating": 1979,
-      "source": "Lobby-Crawl",
-      "username": "atto12"
     },
     {
       "games": 31,
@@ -431185,5 +431185,5 @@
       "username": "adrdarwish"
     }
   ],
-  "updated_at": "2026-07-16T16:56:46.715883+00:00"
+  "updated_at": "2026-07-16T16:58:24.785394+00:00"
 }
