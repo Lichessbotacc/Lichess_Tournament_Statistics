@@ -20039,6 +20039,7 @@
     "kp970208": 0,
     "kparv": 0,
     "kpatsa": 0,
+    "kpbl5616": 0,
     "kphemraj": 0,
     "kplayery": 0,
     "kpolina": 0,
@@ -24385,6 +24386,7 @@
     "minhthuc2017": 0,
     "minhtri2016": 0,
     "minhtrietchesscom": 0,
+    "minhvuong2018": 0,
     "mini1984": 0,
     "mini_magnu": 0,
     "mini_nodirbek": 0,
@@ -29617,6 +29619,7 @@
     "queenin_kingin": 8,
     "queenjenn": 0,
     "queenmaster77": 1,
+    "queenmastermind": 0,
     "queenmenow1": 0,
     "queenmill": 0,
     "queenpancake100": 0,
@@ -30388,6 +30391,7 @@
     "reyansh_mallick": 0,
     "reyansh_sanoj": 0,
     "reyansh_singh071": 0,
+    "reyansh_swain": 0,
     "reyansh_the_chessgod": 0,
     "reyanshchauhan2018": 0,
     "reyanshdey": 0,
@@ -33668,6 +33672,7 @@
     "siyamokobe": 0,
     "siyingaem": 0,
     "sizil_gambit": 0,
+    "sizo17": 0,
     "sj4sh": 0,
     "sja2013": 0,
     "sjakknissen": 0,
@@ -60485,6 +60490,7 @@
     "kp970208": "2026-07-11T19:16:15.959169+00:00",
     "kparv": "2026-07-14T02:26:59.140471+00:00",
     "kpatsa": "2026-07-14T04:33:07.363309+00:00",
+    "kpbl5616": "2026-07-16T04:24:40.932650+00:00",
     "kphemraj": "2026-07-12T03:42:35.753034+00:00",
     "kplayery": "2026-07-14T05:02:18.066082+00:00",
     "kpolina": "2026-07-15T20:29:14.713246+00:00",
@@ -60549,7 +60555,7 @@
     "krishchessplayer213": "2026-07-13T08:07:37.003234+00:00",
     "krishia40": "2026-07-13T09:58:07.709078+00:00",
     "krishivdbs": "2026-07-15T04:50:55.909044+00:00",
-    "krishivk12": "2026-07-13T05:15:41.261156+00:00",
+    "krishivk12": "2026-07-16T04:24:43.901186+00:00",
     "krishkarkerachess": "2026-07-14T16:04:07.517569+00:00",
     "krishmahesh": "2026-07-16T00:37:20.303703+00:00",
     "krishna200456": "2026-07-14T09:43:38.517752+00:00",
@@ -64580,6 +64586,7 @@
     "minhthuc2017": "2026-07-11T10:42:42.731220+00:00",
     "minhtri2016": "2026-07-15T12:26:58.156960+00:00",
     "minhtrietchesscom": "2026-07-13T13:04:41.370674+00:00",
+    "minhvuong2018": "2026-07-16T04:24:46.906150+00:00",
     "mini1984": "2026-07-11T21:36:36.198730+00:00",
     "mini_magnu": "2026-07-15T03:02:28.169743+00:00",
     "mini_nodirbek": "2026-07-15T13:19:31.246012+00:00",
@@ -69523,6 +69530,7 @@
     "queenin_kingin": "2026-07-13T00:10:06.708438+00:00",
     "queenjenn": "2026-07-10T19:28:16.092983+00:00",
     "queenmaster77": "2026-07-16T01:31:46.150559+00:00",
+    "queenmastermind": "2026-07-16T04:24:49.911046+00:00",
     "queenmenow1": "2026-07-14T17:52:33.092134+00:00",
     "queenmill": "2026-07-13T23:22:56.618974+00:00",
     "queenpancake100": "2026-07-11T08:05:35.841671+00:00",
@@ -70244,6 +70252,7 @@
     "reyansh_mallick": "2026-07-11T02:58:40.698631+00:00",
     "reyansh_sanoj": "2026-07-13T05:38:52.727121+00:00",
     "reyansh_singh071": "2026-07-10T19:03:28.722999+00:00",
+    "reyansh_swain": "2026-07-16T04:24:52.949735+00:00",
     "reyansh_the_chessgod": "2026-07-13T15:30:03.079012+00:00",
     "reyanshchauhan2018": "2026-07-12T07:15:22.662266+00:00",
     "reyanshdey": "2026-07-14T15:42:21.810592+00:00",
@@ -73344,6 +73353,7 @@
     "siyamokobe": "2026-07-13T15:57:13.198099+00:00",
     "siyingaem": "2026-07-11T12:45:22.963725+00:00",
     "sizil_gambit": "2026-07-13T13:28:15.453668+00:00",
+    "sizo17": "2026-07-16T04:24:55.897807+00:00",
     "sj4sh": "2026-07-13T17:44:21.902747+00:00",
     "sja2013": "2026-07-14T19:50:01.701720+00:00",
     "sjakknissen": "2026-07-14T03:30:47.804608+00:00",
@@ -404447,7 +404457,47 @@
       "rating": 1258,
       "source": "Lobby-Crawl",
       "username": "chess_90909090"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/kpbl5616",
+      "rank": 40531,
+      "rating": 1192,
+      "source": "Lobby-Crawl",
+      "username": "kpbl5616"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/minhvuong2018",
+      "rank": 40532,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "minhvuong2018"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/queenmastermind",
+      "rank": 40533,
+      "rating": 1017,
+      "source": "Lobby-Crawl",
+      "username": "queenmastermind"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/reyansh_swain",
+      "rank": 40534,
+      "rating": 1295,
+      "source": "Lobby-Crawl",
+      "username": "reyansh_swain"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/sizo17",
+      "rank": 40535,
+      "rating": 1581,
+      "source": "Lobby-Crawl",
+      "username": "sizo17"
     }
   ],
-  "updated_at": "2026-07-16T04:23:53.092699+00:00"
+  "updated_at": "2026-07-16T04:24:55.907902+00:00"
 }
