@@ -7899,6 +7899,7 @@
     "chesssper": 0,
     "chessssbvgood": 0,
     "chesssssshg": 0,
+    "chessstark": 0,
     "chesstactica2018": 0,
     "chessteacher_iliakh": 0,
     "chessteamsix": 0,
@@ -47829,6 +47830,7 @@
     "chesssper": "2026-07-13T17:25:30.420107+00:00",
     "chessssbvgood": "2026-07-13T15:16:49.262632+00:00",
     "chesssssshg": "2026-07-15T17:41:51.177550+00:00",
+    "chessstark": "2026-07-16T00:32:15.278115+00:00",
     "chesstactica2018": "2026-07-13T11:40:51.107232+00:00",
     "chessteacher_iliakh": "2026-07-15T13:49:54.088413+00:00",
     "chessteamsix": "2026-07-15T09:38:55.565119+00:00",
@@ -398425,7 +398427,15 @@
       "rating": 1096,
       "source": "Lobby-Crawl",
       "username": "bsteyer"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chessstark",
+      "rank": 39929,
+      "rating": 1301,
+      "source": "Lobby-Crawl",
+      "username": "chessstark"
     }
   ],
-  "updated_at": "2026-07-16T00:26:52.054453+00:00"
+  "updated_at": "2026-07-16T00:32:15.288804+00:00"
 }
