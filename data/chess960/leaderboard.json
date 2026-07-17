@@ -20314,6 +20314,7 @@
     "knightymerkel": 0,
     "knochnmarc": 0,
     "knocklem": 1,
+    "knockmate": 0,
     "knockouter": 61,
     "knook_promotion": 0,
     "knop44": 2,
@@ -60086,6 +60087,7 @@
     "knightymerkel": "2026-07-15T18:52:18.180543+00:00",
     "knochnmarc": "2026-07-12T17:59:51.960058+00:00",
     "knocklem": "2026-07-11T10:22:41.922227+00:00",
+    "knockmate": "2026-07-17T09:50:54.270533+00:00",
     "knockouter": "2026-07-17T02:36:20.414506+00:00",
     "knook_promotion": "2026-07-15T12:35:43.176248+00:00",
     "knop44": "2026-07-16T10:34:12.097488+00:00",
@@ -400643,7 +400645,15 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "jebjeb567"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/knockmate",
+      "rank": 40148,
+      "rating": 1967,
+      "source": "Lobby-Crawl",
+      "username": "knockmate"
     }
   ],
-  "updated_at": "2026-07-17T09:45:23.636747+00:00"
+  "updated_at": "2026-07-17T09:50:54.281202+00:00"
 }
