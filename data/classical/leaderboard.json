@@ -6891,7 +6891,7 @@
     "boractn": 37,
     "borakazanova": 0,
     "boranyener": 0,
-    "bordskael": 80,
+    "bordskael": 81,
     "boreconstrictor": 0,
     "boremarxerry": 3,
     "borenboim": 0,
@@ -50840,7 +50840,7 @@
     "boractn": "2026-07-13T21:58:53.750504+00:00",
     "borakazanova": "2026-07-16T10:18:47.546146+00:00",
     "boranyener": "2026-07-13T09:14:01.216144+00:00",
-    "bordskael": "2026-07-15T18:45:08.433879+00:00",
+    "bordskael": "2026-07-17T07:23:26.491560+00:00",
     "boreconstrictor": "2026-07-14T00:52:48.330767+00:00",
     "boremarxerry": "2026-07-15T23:30:57.443722+00:00",
     "borenboim": "2026-07-10T11:34:51.353645+00:00",
@@ -88673,8 +88673,16 @@
     },
     {
       "games": 81,
-      "profile": "https://lichess.org/@/gurka5",
+      "profile": "https://lichess.org/@/bordskael",
       "rank": 133,
+      "rating": 1741,
+      "source": "Lobby-Crawl",
+      "username": "bordskael"
+    },
+    {
+      "games": 81,
+      "profile": "https://lichess.org/@/gurka5",
+      "rank": 134,
       "rating": 1480,
       "source": "Lobby-Crawl",
       "username": "gurka5"
@@ -88682,7 +88690,7 @@
     {
       "games": 81,
       "profile": "https://lichess.org/@/mohamednofal147",
-      "rank": 134,
+      "rank": 135,
       "rating": 1333,
       "source": "Lobby-Crawl",
       "username": "mohamednofal147"
@@ -88690,7 +88698,7 @@
     {
       "games": 81,
       "profile": "https://lichess.org/@/newarian",
-      "rank": 135,
+      "rank": 136,
       "rating": 1751,
       "source": "Lobby-Crawl",
       "username": "newarian"
@@ -88698,7 +88706,7 @@
     {
       "games": 81,
       "profile": "https://lichess.org/@/volna_259",
-      "rank": 136,
+      "rank": 137,
       "rating": 1936,
       "source": "Lobby-Crawl",
       "username": "volna_259"
@@ -88706,18 +88714,10 @@
     {
       "games": 80,
       "profile": "https://lichess.org/@/aleks040460",
-      "rank": 137,
+      "rank": 138,
       "rating": 1684,
       "source": "Lobby-Crawl",
       "username": "aleks040460"
-    },
-    {
-      "games": 80,
-      "profile": "https://lichess.org/@/bordskael",
-      "rank": 138,
-      "rating": 1741,
-      "source": "Lobby-Crawl",
-      "username": "bordskael"
     },
     {
       "games": 80,
@@ -439488,5 +439488,5 @@
       "username": "digenis"
     }
   ],
-  "updated_at": "2026-07-17T07:17:45.308196+00:00"
+  "updated_at": "2026-07-17T07:23:26.498102+00:00"
 }
