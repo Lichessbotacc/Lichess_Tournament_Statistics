@@ -30827,6 +30827,12 @@
     "checked_at": "2026-07-11T23:41:46.282321+00:00",
     "rating": 1759
   },
+  "bot_stockfish13": {
+    "banned": false,
+    "bot": true,
+    "checked_at": "2026-07-17T04:39:28.547759+00:00",
+    "rating": 2673
+  },
   "bot_vinnikq": {
     "banned": false,
     "bot": false,
@@ -107003,6 +107009,12 @@
     "checked_at": "2026-07-13T10:01:55.476748+00:00",
     "rating": null
   },
+  "kyojuro-rengoku1": {
+    "banned": true,
+    "bot": false,
+    "checked_at": "2026-07-17T04:39:28.547759+00:00",
+    "rating": null
+  },
   "kyonatan1": {
     "banned": true,
     "bot": false,
@@ -157408,6 +157420,12 @@
     "bot": false,
     "checked_at": "2026-07-14T14:38:18.701706+00:00",
     "rating": 1649
+  },
+  "raspfish": {
+    "banned": false,
+    "bot": true,
+    "checked_at": "2026-07-17T04:39:28.547759+00:00",
+    "rating": 2609
   },
   "rasputin20202": {
     "banned": false,
