@@ -4796,6 +4796,7 @@
     "arkad1040": 0,
     "arkadii14": 0,
     "arkadina_fidova": 0,
+    "arkadir": 0,
     "arkady211": 0,
     "arkady_19092015": 0,
     "arkan_777": 0,
@@ -33045,7 +33046,7 @@
     "pro7894": 0,
     "pro_100_misha_first": 0,
     "pro_438": 0,
-    "pro_atchess": 91,
+    "pro_atchess": 83,
     "pro_des_chess": 0,
     "pro_in_chess_hah": 0,
     "pro_joe_1234": 0,
@@ -37396,6 +37397,7 @@
     "shanvithsaitamil": 0,
     "shanyuwarriorz": 0,
     "shaparak92": 0,
+    "shaphankamanga": 0,
     "shapuchi23": 0,
     "shapunana": 0,
     "shaquilledigal": 0,
@@ -50676,6 +50678,7 @@
     "arkad1040": "2026-07-15T21:37:12.533514+00:00",
     "arkadii14": "2026-07-14T17:28:17.670638+00:00",
     "arkadina_fidova": "2026-07-12T07:29:30.575320+00:00",
+    "arkadir": "2026-07-17T14:01:40.905357+00:00",
     "arkady211": "2026-07-15T17:13:45.141474+00:00",
     "arkady_19092015": "2026-07-15T03:11:12.485468+00:00",
     "arkan_777": "2026-07-14T08:13:34.045518+00:00",
@@ -77148,7 +77151,7 @@
     "osvell19": "2026-07-14T09:15:15.900874+00:00",
     "oswin_yuen_en": "2026-07-15T14:13:20.068017+00:00",
     "osya_karyusya_hello": "2026-07-17T12:58:00.144992+00:00",
-    "otaranca": "2026-07-15T18:41:58.102689+00:00",
+    "otaranca": "2026-07-17T14:01:17.660366+00:00",
     "otellino_dagoen": "2026-07-17T02:24:49.824186+00:00",
     "otellino_lckb": "2026-07-13T01:50:42.140602+00:00",
     "otelulvesel": "2026-07-11T22:49:28.372530+00:00",
@@ -78853,7 +78856,7 @@
     "pro7894": "2026-07-12T13:53:19.426639+00:00",
     "pro_100_misha_first": "2026-07-13T00:42:53.783824+00:00",
     "pro_438": "2026-07-10T11:47:47.087546+00:00",
-    "pro_atchess": "2026-07-16T08:03:09.875993+00:00",
+    "pro_atchess": "2026-07-17T14:01:37.039089+00:00",
     "pro_des_chess": "2026-07-15T23:51:16.647589+00:00",
     "pro_in_chess_hah": "2026-07-16T17:34:14.098439+00:00",
     "pro_joe_1234": "2026-07-16T19:05:28.442190+00:00",
@@ -83194,6 +83197,7 @@
     "shanvithsaitamil": "2026-07-13T04:24:31.453258+00:00",
     "shanyuwarriorz": "2026-07-15T11:21:06.317526+00:00",
     "shaparak92": "2026-07-16T18:38:53.756010+00:00",
+    "shaphankamanga": "2026-07-17T14:01:37.940213+00:00",
     "shapuchi23": "2026-07-12T16:12:56.923545+00:00",
     "shapunana": "2026-07-14T11:57:38.148897+00:00",
     "shaquilledigal": "2026-07-12T10:54:06.400351+00:00",
@@ -92208,16 +92212,8 @@
     },
     {
       "games": 91,
-      "profile": "https://lichess.org/@/pro_atchess",
-      "rank": 68,
-      "rating": 1869,
-      "source": "Lobby-Crawl",
-      "username": "pro_atchess"
-    },
-    {
-      "games": 91,
       "profile": "https://lichess.org/@/reedy16",
-      "rank": 69,
+      "rank": 68,
       "rating": 1622,
       "source": "Lobby-Crawl",
       "username": "reedy16"
@@ -92225,10 +92221,18 @@
     {
       "games": 89,
       "profile": "https://lichess.org/@/jayan_2017",
-      "rank": 70,
+      "rank": 69,
       "rating": 1597,
       "source": "?",
       "username": "jayan_2017"
+    },
+    {
+      "games": 83,
+      "profile": "https://lichess.org/@/pro_atchess",
+      "rank": 70,
+      "rating": 1869,
+      "source": "Lobby-Crawl",
+      "username": "pro_atchess"
     },
     {
       "games": 82,
@@ -458757,7 +458761,23 @@
       "rating": 1584,
       "source": "Lobby-Crawl",
       "username": "minoskiran"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/shaphankamanga",
+      "rank": 45887,
+      "rating": 1376,
+      "source": "Lobby-Crawl",
+      "username": "shaphankamanga"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/arkadir",
+      "rank": 45888,
+      "rating": 1225,
+      "source": "Lobby-Crawl",
+      "username": "arkadir"
     }
   ],
-  "updated_at": "2026-07-17T14:00:40.007694+00:00"
+  "updated_at": "2026-07-17T14:01:40.916283+00:00"
 }
