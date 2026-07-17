@@ -38156,6 +38156,7 @@
     "toxicefeytb": 0,
     "toxicshocker": 0,
     "toxictoptop": 0,
+    "toychess": 0,
     "toyesh64": 1,
     "toz6161": 0,
     "tp63": 1,
@@ -79064,6 +79065,7 @@
     "toxicefeytb": "2026-07-17T01:03:28.611438+00:00",
     "toxicshocker": "2026-07-15T11:31:35.433214+00:00",
     "toxictoptop": "2026-07-15T12:39:50.791401+00:00",
+    "toychess": "2026-07-17T11:54:15.930476+00:00",
     "toyesh64": "2026-07-15T04:07:59.994106+00:00",
     "toz6161": "2026-07-14T13:43:20.172972+00:00",
     "tp63": "2026-07-14T09:30:30.350899+00:00",
@@ -418394,7 +418396,15 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "maro_muze_maro"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/toychess",
+      "rank": 41944,
+      "rating": 1416,
+      "source": "Lobby-Crawl",
+      "username": "toychess"
     }
   ],
-  "updated_at": "2026-07-17T11:52:54.489654+00:00"
+  "updated_at": "2026-07-17T11:54:15.941054+00:00"
 }
