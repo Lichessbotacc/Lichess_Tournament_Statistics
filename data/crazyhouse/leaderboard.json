@@ -14036,6 +14036,7 @@
     "gmsat2015": 0,
     "gmseungyoo": 0,
     "gmswaggy14": 0,
+    "gmtairom41": 0,
     "gmtobby": 0,
     "gmtolstovrob": 0,
     "gmtzcastilleja": 0,
@@ -17308,6 +17309,7 @@
     "jeffritz": 0,
     "jeffy3": 0,
     "jegatheesbnk22": 0,
+    "jegorsorokolot": 0,
     "jegymaster": 0,
     "jehgishgul2012": 0,
     "jeimov": 0,
@@ -20726,6 +20728,7 @@
     "lev_bartosh": 0,
     "lev_bezborodov": 42,
     "lev_bilous": 0,
+    "lev_borisenkov": 0,
     "lev_bro": 0,
     "lev_ent": 0,
     "lev_iakovlev": 0,
@@ -37291,7 +37294,7 @@
     "vvtb": 3,
     "vvv21": 0,
     "vvv555": 0,
-    "vvv7": 1029,
+    "vvv7": 1068,
     "vwgonzalez": 1,
     "vy_nguyen_vin": 0,
     "vyachesslav_rusakov": 0,
@@ -53083,6 +53086,7 @@
     "gmsat2015": "2026-07-10T16:37:53.148681+00:00",
     "gmseungyoo": "2026-07-11T03:32:40.629527+00:00",
     "gmswaggy14": "2026-07-14T02:10:52.703807+00:00",
+    "gmtairom41": "2026-07-17T06:34:22.212286+00:00",
     "gmtobby": "2026-07-13T08:33:01.528746+00:00",
     "gmtolstovrob": "2026-07-11T14:56:28.685958+00:00",
     "gmtzcastilleja": "2026-07-10T16:37:56.140572+00:00",
@@ -56343,6 +56347,7 @@
     "jeffritz": "2026-07-15T07:16:12.982999+00:00",
     "jeffy3": "2026-07-13T10:53:24.887284+00:00",
     "jegatheesbnk22": "2026-07-12T10:27:45.397410+00:00",
+    "jegorsorokolot": "2026-07-17T06:34:25.219778+00:00",
     "jegymaster": "2026-07-14T10:23:07.686386+00:00",
     "jehgishgul2012": "2026-07-11T13:55:07.700762+00:00",
     "jeimov": "2026-07-17T05:21:40.617876+00:00",
@@ -59749,6 +59754,7 @@
     "lev_bartosh": "2026-07-10T17:18:18.807211+00:00",
     "lev_bezborodov": "2026-07-17T01:42:26.069845+00:00",
     "lev_bilous": "2026-07-14T19:38:22.463396+00:00",
+    "lev_borisenkov": "2026-07-17T06:34:28.207484+00:00",
     "lev_bro": "2026-07-13T23:27:57.035679+00:00",
     "lev_ent": "2026-07-12T11:15:11.809665+00:00",
     "lev_iakovlev": "2026-07-12T03:52:26.701902+00:00",
@@ -76243,7 +76249,7 @@
     "vvtb": "2026-07-14T16:21:02.487628+00:00",
     "vvv21": "2026-07-15T05:31:06.378843+00:00",
     "vvv555": "2026-07-13T10:21:16.077702+00:00",
-    "vvv7": "2026-07-16T10:50:19.355734+00:00",
+    "vvv7": "2026-07-17T06:35:13.907731+00:00",
     "vwgonzalez": "2026-07-12T05:28:55.626408+00:00",
     "vy_nguyen_vin": "2026-07-11T09:35:22.894755+00:00",
     "vyachesslav_rusakov": "2026-07-16T23:36:51.174458+00:00",
@@ -78042,7 +78048,7 @@
   },
   "ranking": [
     {
-      "games": 1029,
+      "games": 1068,
       "profile": "https://lichess.org/@/vvv7",
       "rank": 1,
       "rating": 2102,
@@ -390792,7 +390798,31 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "alex0810"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/gmtairom41",
+      "rank": 39095,
+      "rating": 1915,
+      "source": "Lobby-Crawl",
+      "username": "gmtairom41"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/jegorsorokolot",
+      "rank": 39096,
+      "rating": 1449,
+      "source": "Lobby-Crawl",
+      "username": "jegorsorokolot"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/lev_borisenkov",
+      "rank": 39097,
+      "rating": 1411,
+      "source": "Lobby-Crawl",
+      "username": "lev_borisenkov"
     }
   ],
-  "updated_at": "2026-07-17T06:33:42.568780+00:00"
+  "updated_at": "2026-07-17T06:35:13.915184+00:00"
 }
