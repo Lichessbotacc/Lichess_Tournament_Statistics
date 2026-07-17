@@ -9872,6 +9872,7 @@
     "cientifico2030": 18,
     "cihan1000": 0,
     "cihan211": 0,
+    "cihan_alp": 0,
     "cihangir_15": 0,
     "cihangirsezgin": 12,
     "cihantahakumtepe": 0,
@@ -42008,6 +42009,7 @@
     "tupu92": 0,
     "turbo-charge_pigeon": 0,
     "turbo-tema": 11,
+    "turboplombir": 0,
     "turgutaliozoguz": 0,
     "turk-taha-baba": 0,
     "turkeish": 0,
@@ -55772,6 +55774,7 @@
     "cientifico2030": "2026-07-16T23:11:01.422295+00:00",
     "cihan1000": "2026-07-15T09:33:04.998626+00:00",
     "cihan211": "2026-07-13T12:27:29.296128+00:00",
+    "cihan_alp": "2026-07-17T14:27:11.476484+00:00",
     "cihangir_15": "2026-07-15T12:57:28.422348+00:00",
     "cihangirsezgin": "2026-07-12T23:56:24.612750+00:00",
     "cihantahakumtepe": "2026-07-15T12:57:13.458026+00:00",
@@ -87836,6 +87839,7 @@
     "tupu92": "2026-07-15T02:15:27.268653+00:00",
     "turbo-charge_pigeon": "2026-07-17T13:37:51.065588+00:00",
     "turbo-tema": "2026-07-16T13:43:38.288384+00:00",
+    "turboplombir": "2026-07-17T14:25:53.006317+00:00",
     "turgutaliozoguz": "2026-07-13T21:30:13.255564+00:00",
     "turk-taha-baba": "2026-07-14T17:03:00.458373+00:00",
     "turkeish": "2026-07-17T13:23:23.739015+00:00",
@@ -91322,7 +91326,7 @@
     "zakhar28": "2026-07-15T06:35:08.716022+00:00",
     "zakhar_20152015": "2026-07-12T17:41:38.560125+00:00",
     "zakharator1": "2026-07-11T19:48:37.341637+00:00",
-    "zakharelyashevich": "2026-07-13T12:45:11.315593+00:00",
+    "zakharelyashevich": "2026-07-17T14:25:55.997681+00:00",
     "zakharii3": "2026-07-10T10:40:00.036778+00:00",
     "zakharzyuzin": "2026-07-16T19:37:19.290479+00:00",
     "zakialekperzade": "2026-07-14T05:19:58.054776+00:00",
@@ -459127,7 +459131,23 @@
       "rating": 1808,
       "source": "?",
       "username": "spartakmos"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/turboplombir",
+      "rank": 45924,
+      "rating": 1619,
+      "source": "Lobby-Crawl",
+      "username": "turboplombir"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/cihan_alp",
+      "rank": 45925,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "cihan_alp"
     }
   ],
-  "updated_at": "2026-07-17T14:25:30.882793+00:00"
+  "updated_at": "2026-07-17T14:27:11.489218+00:00"
 }
