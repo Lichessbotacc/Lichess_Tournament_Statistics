@@ -3891,6 +3891,7 @@
     "apexx_1": 0,
     "apg1980": 0,
     "aphelios00": 56,
+    "aphrodim": 0,
     "apianomaster": 0,
     "apiwo": 0,
     "apkaszwedka": 0,
@@ -44840,6 +44841,7 @@
     "apexx_1": "2026-07-15T12:48:56.784749+00:00",
     "apg1980": "2026-07-14T11:11:07.205088+00:00",
     "aphelios00": "2026-07-16T05:33:17.506875+00:00",
+    "aphrodim": "2026-07-17T03:25:47.251876+00:00",
     "apianomaster": "2026-07-14T00:41:37.441644+00:00",
     "apiwo": "2026-07-16T22:55:34.280851+00:00",
     "apkaszwedka": "2026-07-11T07:15:42.132620+00:00",
@@ -408451,7 +408453,15 @@
       "rating": 2220,
       "source": "Lobby-Crawl",
       "username": "nadikos"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/aphrodim",
+      "rank": 40950,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "aphrodim"
     }
   ],
-  "updated_at": "2026-07-17T03:20:40.757597+00:00"
+  "updated_at": "2026-07-17T03:25:47.270411+00:00"
 }
