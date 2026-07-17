@@ -3742,7 +3742,7 @@
     "apostatlet": 0,
     "apostleofdemon": 0,
     "apparatprezidenta": 0,
-    "applauchew": 270,
+    "applauchew": 264,
     "apple0307": 40,
     "apple_and_orange": 0,
     "apple_zigzag": 0,
@@ -13439,6 +13439,7 @@
     "ghoshadhiraj": 35,
     "ghost-95": 17,
     "ghost-train": 0,
+    "ghost2404": 0,
     "ghostatlar": 0,
     "ghostfairy123": 0,
     "ghostmateantonio": 0,
@@ -40845,7 +40846,7 @@
     "apostatlet": "2026-07-11T03:09:47.949353+00:00",
     "apostleofdemon": "2026-07-13T01:54:32.239757+00:00",
     "apparatprezidenta": "2026-07-17T01:59:43.445761+00:00",
-    "applauchew": "2026-07-16T13:07:37.657205+00:00",
+    "applauchew": "2026-07-17T08:49:20.555972+00:00",
     "apple0307": "2026-07-17T03:36:08.153576+00:00",
     "apple_and_orange": "2026-07-13T10:01:47.255380+00:00",
     "apple_zigzag": "2026-07-15T05:19:42.503054+00:00",
@@ -50537,6 +50538,7 @@
     "ghoshadhiraj": "2026-07-15T15:01:42.178402+00:00",
     "ghost-95": "2026-07-14T11:44:49.053149+00:00",
     "ghost-train": "2026-07-12T10:17:40.604182+00:00",
+    "ghost2404": "2026-07-17T08:48:18.989414+00:00",
     "ghostatlar": "2026-07-17T06:00:57.630142+00:00",
     "ghostfairy123": "2026-07-10T22:41:11.626813+00:00",
     "ghostmateantonio": "2026-07-15T18:19:22.612688+00:00",
@@ -63743,7 +63745,7 @@
     "pjchess2010": "2026-07-13T23:04:53.102331+00:00",
     "pjsamuel": "2026-07-16T02:26:17.420886+00:00",
     "pk202622": "2026-07-12T19:19:27.290228+00:00",
-    "pk_gtm": "2026-07-13T13:59:53.099096+00:00",
+    "pk_gtm": "2026-07-17T08:48:21.970281+00:00",
     "pk_hai_kya": "2026-07-16T13:13:11.705945+00:00",
     "pk_pro": "2026-07-14T14:16:53.385204+00:00",
     "pkarpinskis": "2026-07-13T09:09:00.774376+00:00",
@@ -68569,7 +68571,7 @@
     "sreeram_k_8x8": "2026-07-15T19:58:35.697110+00:00",
     "sreerohan_2015": "2026-07-14T08:29:35.887752+00:00",
     "sreerudra_sreejith": "2026-07-13T11:25:15.520135+00:00",
-    "sreesha_pradeep": "2026-07-12T17:31:57.584537+00:00",
+    "sreesha_pradeep": "2026-07-17T08:48:12.996409+00:00",
     "sreevijayam": "2026-07-13T04:49:51.797445+00:00",
     "srevali": "2026-07-14T01:21:57.101180+00:00",
     "sri2008": "2026-07-16T07:25:55.842553+00:00",
@@ -68618,7 +68620,7 @@
     "srm62": "2026-07-12T18:57:32.501784+00:00",
     "sroo": "2026-07-15T02:20:24.635406+00:00",
     "srousht": "2026-07-14T01:23:20.548761+00:00",
-    "srpalomitas": "2026-07-14T13:46:11.348891+00:00",
+    "srpalomitas": "2026-07-17T08:48:24.955365+00:00",
     "srpanago": "2026-07-11T09:19:02.494154+00:00",
     "srptmc": "2026-07-13T18:26:39.909776+00:00",
     "srtprk": "2026-07-14T14:39:47.772518+00:00",
@@ -69083,7 +69085,7 @@
     "superelisa": "2026-07-10T20:22:05.597687+00:00",
     "superfly70": "2026-07-13T01:21:13.036894+00:00",
     "superfox1000": "2026-07-16T15:37:10.680048+00:00",
-    "supergafas2": "2026-07-10T23:23:15.277739+00:00",
+    "supergafas2": "2026-07-17T08:48:15.978451+00:00",
     "supergaurang": "2026-07-16T13:12:48.427200+00:00",
     "supergigachad": "2026-07-15T04:55:55.731166+00:00",
     "supergm3": "2026-07-16T13:13:14.709585+00:00",
@@ -74742,16 +74744,8 @@
     },
     {
       "games": 270,
-      "profile": "https://lichess.org/@/applauchew",
-      "rank": 69,
-      "rating": 1924,
-      "source": "Lobby-Crawl",
-      "username": "applauchew"
-    },
-    {
-      "games": 270,
       "profile": "https://lichess.org/@/ledagen",
-      "rank": 70,
+      "rank": 69,
       "rating": 1727,
       "source": "Lobby-Crawl",
       "username": "ledagen"
@@ -74759,10 +74753,18 @@
     {
       "games": 268,
       "profile": "https://lichess.org/@/atomicoverseer",
-      "rank": 71,
+      "rank": 70,
       "rating": 2378,
       "source": "?",
       "username": "atomicoverseer"
+    },
+    {
+      "games": 264,
+      "profile": "https://lichess.org/@/applauchew",
+      "rank": 71,
+      "rating": 1924,
+      "source": "Lobby-Crawl",
+      "username": "applauchew"
     },
     {
       "games": 262,
@@ -371011,7 +371013,15 @@
       "rating": 1008,
       "source": "Lobby-Crawl",
       "username": "sayantchess30"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/ghost2404",
+      "rank": 37103,
+      "rating": 1531,
+      "source": "Lobby-Crawl",
+      "username": "ghost2404"
     }
   ],
-  "updated_at": "2026-07-17T08:47:48.898132+00:00"
+  "updated_at": "2026-07-17T08:49:20.564347+00:00"
 }
