@@ -7547,6 +7547,7 @@
     "chess38_fra": 0,
     "chess3_1415": 0,
     "chess456lee_an": 0,
+    "chess475": 0,
     "chess4betterlife": 7,
     "chess4lif": 0,
     "chess4life256": 0,
@@ -8482,6 +8483,7 @@
     "cordobaaa": 0,
     "corduroy1": 0,
     "corentin_0128": 0,
+    "corgi_pack_leader": 0,
     "corksnapper": 46,
     "cormac_destroyer": 14,
     "corni7": 0,
@@ -10311,7 +10313,7 @@
     "dodonutmegfirestar": 0,
     "dodopo": 0,
     "dodosoft": 88,
-    "doeo": 390,
+    "doeo": 518,
     "doesnotexist5": 7,
     "dog_e_aquarius": 0,
     "dogacankamer": 0,
@@ -44576,6 +44578,7 @@
     "chess38_fra": "2026-07-11T07:56:39.910802+00:00",
     "chess3_1415": "2026-07-14T18:48:19.887576+00:00",
     "chess456lee_an": "2026-07-13T19:47:13.101821+00:00",
+    "chess475": "2026-07-17T08:09:08.619858+00:00",
     "chess4betterlife": "2026-07-16T21:39:29.795539+00:00",
     "chess4lif": "2026-07-14T04:13:15.356795+00:00",
     "chess4life256": "2026-07-13T13:54:51.410651+00:00",
@@ -45510,6 +45513,7 @@
     "cordobaaa": "2026-07-10T17:54:38.528593+00:00",
     "corduroy1": "2026-07-15T07:32:43.645529+00:00",
     "corentin_0128": "2026-07-15T15:37:51.059431+00:00",
+    "corgi_pack_leader": "2026-07-17T08:09:05.034133+00:00",
     "corksnapper": "2026-07-17T04:45:25.374251+00:00",
     "cormac_destroyer": "2026-07-17T05:31:29.356904+00:00",
     "corni7": "2026-07-10T17:45:05.121161+00:00",
@@ -47338,7 +47342,7 @@
     "dodonutmegfirestar": "2026-07-17T02:09:08.226535+00:00",
     "dodopo": "2026-07-17T00:05:04.633554+00:00",
     "dodosoft": "2026-07-17T03:24:51.233044+00:00",
-    "doeo": "2026-07-16T13:38:50.228885+00:00",
+    "doeo": "2026-07-17T08:10:54.234592+00:00",
     "doesnotexist5": "2026-07-13T15:51:36.572224+00:00",
     "dog_e_aquarius": "2026-07-17T02:58:05.036152+00:00",
     "dogacankamer": "2026-07-15T23:07:24.456400+00:00",
@@ -74211,9 +74215,17 @@
       "username": "renaudmerle"
     },
     {
+      "games": 518,
+      "profile": "https://lichess.org/@/doeo",
+      "rank": 21,
+      "rating": 2152,
+      "source": "?",
+      "username": "doeo"
+    },
+    {
       "games": 513,
       "profile": "https://lichess.org/@/matthevg",
-      "rank": 21,
+      "rank": 22,
       "rating": 2309,
       "source": "?",
       "username": "matthevg"
@@ -74221,7 +74233,7 @@
     {
       "games": 468,
       "profile": "https://lichess.org/@/burak-t",
-      "rank": 22,
+      "rank": 23,
       "rating": 1965,
       "source": "Lobby-Crawl",
       "username": "burak-t"
@@ -74229,7 +74241,7 @@
     {
       "games": 465,
       "profile": "https://lichess.org/@/paul8900",
-      "rank": 23,
+      "rank": 24,
       "rating": 2028,
       "source": "Lobby-Crawl",
       "username": "paul8900"
@@ -74237,7 +74249,7 @@
     {
       "games": 435,
       "profile": "https://lichess.org/@/sayalenna",
-      "rank": 24,
+      "rank": 25,
       "rating": 1780,
       "source": "Lobby-Crawl",
       "username": "sayalenna"
@@ -74245,7 +74257,7 @@
     {
       "games": 423,
       "profile": "https://lichess.org/@/cevlrl",
-      "rank": 25,
+      "rank": 26,
       "rating": 1970,
       "source": "Lobby-Crawl",
       "username": "cevlrl"
@@ -74253,7 +74265,7 @@
     {
       "games": 421,
       "profile": "https://lichess.org/@/jesu123",
-      "rank": 26,
+      "rank": 27,
       "rating": 1111,
       "source": "Lobby-Crawl",
       "username": "jesu123"
@@ -74261,7 +74273,7 @@
     {
       "games": 419,
       "profile": "https://lichess.org/@/ahyalandunyada",
-      "rank": 27,
+      "rank": 28,
       "rating": 1807,
       "source": "Lobby-Crawl",
       "username": "ahyalandunyada"
@@ -74269,7 +74281,7 @@
     {
       "games": 408,
       "profile": "https://lichess.org/@/saucecooker7598",
-      "rank": 28,
+      "rank": 29,
       "rating": 2121,
       "source": "?",
       "username": "saucecooker7598"
@@ -74277,7 +74289,7 @@
     {
       "games": 407,
       "profile": "https://lichess.org/@/nikita240712",
-      "rank": 29,
+      "rank": 30,
       "rating": 2137,
       "source": "?",
       "username": "nikita240712"
@@ -74285,18 +74297,10 @@
     {
       "games": 399,
       "profile": "https://lichess.org/@/grisha_pauli",
-      "rank": 30,
+      "rank": 31,
       "rating": 1821,
       "source": "?",
       "username": "grisha_pauli"
-    },
-    {
-      "games": 390,
-      "profile": "https://lichess.org/@/doeo",
-      "rank": 31,
-      "rating": 2152,
-      "source": "?",
-      "username": "doeo"
     },
     {
       "games": 388,
@@ -370281,7 +370285,23 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "taxiarchiskatsoulas"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/corgi_pack_leader",
+      "rank": 37030,
+      "rating": 1039,
+      "source": "Lobby-Crawl",
+      "username": "corgi_pack_leader"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/chess475",
+      "rank": 37031,
+      "rating": 1192,
+      "source": "Lobby-Crawl",
+      "username": "chess475"
     }
   ],
-  "updated_at": "2026-07-17T08:08:56.868545+00:00"
+  "updated_at": "2026-07-17T08:10:54.242963+00:00"
 }
