@@ -15626,6 +15626,7 @@
     "ilias_ghg": 0,
     "ilias_smr": 0,
     "iliasaf2015": 0,
+    "iliaspider": 0,
     "iliasrocky": 0,
     "ilicm": 0,
     "ilidiomartins": 0,
@@ -52776,6 +52777,7 @@
     "ilias_ghg": "2026-07-16T03:14:05.313136+00:00",
     "ilias_smr": "2026-07-17T00:45:43.832020+00:00",
     "iliasaf2015": "2026-07-10T17:12:58.470525+00:00",
+    "iliaspider": "2026-07-17T09:20:45.334647+00:00",
     "iliasrocky": "2026-07-15T18:06:21.156992+00:00",
     "ilicm": "2026-07-12T07:33:48.446054+00:00",
     "ilidiomartins": "2026-07-16T20:40:31.703800+00:00",
@@ -371531,7 +371533,15 @@
       "rating": null,
       "source": "Lobby-Crawl",
       "username": "ser-chess"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/iliaspider",
+      "rank": 37155,
+      "rating": 1225,
+      "source": "Lobby-Crawl",
+      "username": "iliaspider"
     }
   ],
-  "updated_at": "2026-07-17T09:15:19.839363+00:00"
+  "updated_at": "2026-07-17T09:20:45.345425+00:00"
 }
