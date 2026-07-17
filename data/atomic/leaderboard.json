@@ -26576,6 +26576,7 @@
     "pro8er": 0,
     "pro_atchess": 1,
     "pro_efe1545": 0,
+    "pro_in_atomic": 0,
     "pro_pman": 0,
     "proar": 0,
     "proayaangmailcom23": 0,
@@ -62919,6 +62920,7 @@
     "pro8er": "2026-07-15T03:37:33.598043+00:00",
     "pro_atchess": "2026-07-14T12:01:34.698663+00:00",
     "pro_efe1545": "2026-07-16T01:35:27.588619+00:00",
+    "pro_in_atomic": "2026-07-17T03:15:15.082695+00:00",
     "pro_pman": "2026-07-16T01:33:40.490484+00:00",
     "proar": "2026-07-11T05:02:14.980366+00:00",
     "proayaangmailcom23": "2026-07-14T05:20:10.480225+00:00",
@@ -363511,7 +363513,15 @@
       "rating": 949,
       "source": "Lobby-Crawl",
       "username": "leonelsalas_utp"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/pro_in_atomic",
+      "rank": 36353,
+      "rating": 1870,
+      "source": "?",
+      "username": "pro_in_atomic"
     }
   ],
-  "updated_at": "2026-07-17T03:09:41.827227+00:00"
+  "updated_at": "2026-07-17T03:15:15.089957+00:00"
 }
