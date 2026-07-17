@@ -10222,6 +10222,7 @@
     "croissantgaming": 0,
     "cromex35": 0,
     "crosscountrycat": 0,
+    "crosswen": 0,
     "crow1453": 0,
     "crow77": 0,
     "crow_gaming": 0,
@@ -22356,6 +22357,7 @@
     "knaden": 0,
     "knafil": 0,
     "knajfi": 0,
+    "knelli": 0,
     "knezwolf": 1,
     "kng_champ": 0,
     "kngsurya10": 0,
@@ -28055,7 +28057,7 @@
     "monkeylol1209864321": 0,
     "monkeyman007": 0,
     "monkeyman555": 0,
-    "monkielikechess": 191,
+    "monkielikechess": 219,
     "monoaxaco": 0,
     "monobeaver": 0,
     "monokeros2018": 0,
@@ -55495,6 +55497,7 @@
     "croissantgaming": "2026-07-16T02:54:35.773238+00:00",
     "cromex35": "2026-07-13T04:31:28.723174+00:00",
     "crosscountrycat": "2026-07-14T09:29:40.418146+00:00",
+    "crosswen": "2026-07-17T09:19:19.243095+00:00",
     "crow1453": "2026-07-12T16:12:51.095285+00:00",
     "crow77": "2026-07-16T21:29:28.977759+00:00",
     "crow_gaming": "2026-07-13T13:24:52.787473+00:00",
@@ -57969,7 +57972,7 @@
     "dragonchess2014": "2026-07-16T02:50:46.436724+00:00",
     "dragondeath969": "2026-07-15T22:09:24.945179+00:00",
     "dragonexplosions": "2026-07-15T16:02:08.227689+00:00",
-    "dragonindia": "2026-07-12T17:31:59.334481+00:00",
+    "dragonindia": "2026-07-17T09:19:25.286842+00:00",
     "dragoniplayer": "2026-07-17T02:06:13.200644+00:00",
     "dragonite2312": "2026-07-13T00:52:35.039965+00:00",
     "dragonkarate200": "2026-07-16T06:38:16.467130+00:00",
@@ -67594,6 +67597,7 @@
     "knaden": "2026-07-13T03:01:19.332345+00:00",
     "knafil": "2026-07-12T11:21:02.316816+00:00",
     "knajfi": "2026-07-13T10:33:25.541446+00:00",
+    "knelli": "2026-07-17T09:19:22.246980+00:00",
     "knezwolf": "2026-07-15T05:21:29.594374+00:00",
     "kng_champ": "2026-07-13T18:53:01.446016+00:00",
     "kngsurya10": "2026-07-14T16:23:36.553356+00:00",
@@ -73279,7 +73283,7 @@
     "monkeylol1209864321": "2026-07-10T03:51:03.015516+00:00",
     "monkeyman007": "2026-07-14T14:54:43.252221+00:00",
     "monkeyman555": "2026-07-13T04:14:15.184588+00:00",
-    "monkielikechess": "2026-07-16T07:38:48.717564+00:00",
+    "monkielikechess": "2026-07-17T09:20:11.845994+00:00",
     "monoaxaco": "2026-07-14T23:48:35.174055+00:00",
     "monobeaver": "2026-07-11T11:37:04.583916+00:00",
     "monokeros2018": "2026-07-15T05:54:35.469285+00:00",
@@ -90664,9 +90668,17 @@
       "username": "chen-rcc"
     },
     {
+      "games": 219,
+      "profile": "https://lichess.org/@/monkielikechess",
+      "rank": 22,
+      "rating": 2005,
+      "source": "?",
+      "username": "monkielikechess"
+    },
+    {
       "games": 211,
       "profile": "https://lichess.org/@/mkmojster",
-      "rank": 22,
+      "rank": 23,
       "rating": 1979,
       "source": "Lobby-Crawl",
       "username": "mkmojster"
@@ -90674,7 +90686,7 @@
     {
       "games": 209,
       "profile": "https://lichess.org/@/murad-1420",
-      "rank": 23,
+      "rank": 24,
       "rating": 2013,
       "source": "?",
       "username": "murad-1420"
@@ -90682,7 +90694,7 @@
     {
       "games": 198,
       "profile": "https://lichess.org/@/romankorol",
-      "rank": 24,
+      "rank": 25,
       "rating": 2110,
       "source": "?",
       "username": "romankorol"
@@ -90690,7 +90702,7 @@
     {
       "games": 193,
       "profile": "https://lichess.org/@/bisesking",
-      "rank": 25,
+      "rank": 26,
       "rating": 1842,
       "source": "Lobby-Crawl",
       "username": "bisesking"
@@ -90698,18 +90710,10 @@
     {
       "games": 192,
       "profile": "https://lichess.org/@/yahyavlad02",
-      "rank": 26,
+      "rank": 27,
       "rating": 1674,
       "source": "Lobby-Crawl",
       "username": "yahyavlad02"
-    },
-    {
-      "games": 191,
-      "profile": "https://lichess.org/@/monkielikechess",
-      "rank": 27,
-      "rating": 2005,
-      "source": "?",
-      "username": "monkielikechess"
     },
     {
       "games": 190,
@@ -452886,7 +452890,23 @@
       "rating": 1358,
       "source": "Lobby-Crawl",
       "username": "binario-2023"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/crosswen",
+      "rank": 45300,
+      "rating": 1500,
+      "source": "Lobby-Crawl",
+      "username": "crosswen"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/knelli",
+      "rank": 45301,
+      "rating": 1507,
+      "source": "Lobby-Crawl",
+      "username": "knelli"
     }
   ],
-  "updated_at": "2026-07-17T09:19:00.882178+00:00"
+  "updated_at": "2026-07-17T09:20:11.855571+00:00"
 }
