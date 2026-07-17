@@ -11845,7 +11845,7 @@
     "gmtairom41": 0,
     "gmtairon41": 13,
     "gmtzcastilleja": 0,
-    "gmud": 1110,
+    "gmud": 1041,
     "gmutyala": 0,
     "gn-knight": 0,
     "gnanasekaran_g": 1,
@@ -43195,7 +43195,7 @@
     "gmtairom41": "2026-07-17T04:31:42.116797+00:00",
     "gmtairon41": "2026-07-16T20:23:42.563769+00:00",
     "gmtzcastilleja": "2026-07-10T17:05:45.083500+00:00",
-    "gmud": "2026-07-16T16:19:54.743718+00:00",
+    "gmud": "2026-07-17T11:39:19.525245+00:00",
     "gmutyala": "2026-07-17T01:55:16.857145+00:00",
     "gn-knight": "2026-07-10T17:05:48.080983+00:00",
     "gnanasekaran_g": "2026-07-15T02:40:10.529572+00:00",
@@ -62796,17 +62796,9 @@
       "username": "fallen53"
     },
     {
-      "games": 1110,
-      "profile": "https://lichess.org/@/gmud",
-      "rank": 20,
-      "rating": 1534,
-      "source": "Lobby-Crawl",
-      "username": "gmud"
-    },
-    {
       "games": 1107,
       "profile": "https://lichess.org/@/bloodshot77",
-      "rank": 21,
+      "rank": 20,
       "rating": 2209,
       "source": "?",
       "username": "bloodshot77"
@@ -62814,7 +62806,7 @@
     {
       "games": 1086,
       "profile": "https://lichess.org/@/orangeking2504",
-      "rank": 22,
+      "rank": 21,
       "rating": 2174,
       "source": "?",
       "username": "orangeking2504"
@@ -62822,7 +62814,7 @@
     {
       "games": 1070,
       "profile": "https://lichess.org/@/spiderlosser3",
-      "rank": 23,
+      "rank": 22,
       "rating": 1432,
       "source": "?",
       "username": "spiderlosser3"
@@ -62830,10 +62822,18 @@
     {
       "games": 1048,
       "profile": "https://lichess.org/@/gt2rsweissach",
-      "rank": 24,
+      "rank": 23,
       "rating": 2472,
       "source": "?",
       "username": "gt2rsweissach"
+    },
+    {
+      "games": 1041,
+      "profile": "https://lichess.org/@/gmud",
+      "rank": 24,
+      "rating": 1534,
+      "source": "Lobby-Crawl",
+      "username": "gmud"
     },
     {
       "games": 1031,
@@ -314116,5 +314116,5 @@
       "username": "jangd"
     }
   ],
-  "updated_at": "2026-07-17T11:37:45.751952+00:00"
+  "updated_at": "2026-07-17T11:39:19.530611+00:00"
 }
