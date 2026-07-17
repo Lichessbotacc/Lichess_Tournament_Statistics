@@ -7184,6 +7184,7 @@
     "blue_air1": 0,
     "blue_cobra": 0,
     "blue_fire19": 0,
+    "blue_flash": 0,
     "blue_hurricane": 0,
     "blue_pantherr": 0,
     "blue_star_sal": 0,
@@ -51321,6 +51322,7 @@
     "blue_air1": "2026-07-14T17:42:27.448875+00:00",
     "blue_cobra": "2026-07-16T17:32:38.550681+00:00",
     "blue_fire19": "2026-07-10T03:46:02.267369+00:00",
+    "blue_flash": "2026-07-17T02:14:44.359557+00:00",
     "blue_hurricane": "2026-07-13T06:00:29.088758+00:00",
     "blue_pantherr": "2026-07-10T16:24:31.755750+00:00",
     "blue_star_sal": "2026-07-12T20:05:05.709317+00:00",
@@ -441454,7 +441456,15 @@
       "rating": 1550,
       "source": "Lobby-Crawl",
       "username": "ches_svv"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/blue_flash",
+      "rank": 44157,
+      "rating": 1906,
+      "source": "Lobby-Crawl",
+      "username": "blue_flash"
     }
   ],
-  "updated_at": "2026-07-17T02:13:19.813725+00:00"
+  "updated_at": "2026-07-17T02:14:44.369148+00:00"
 }
