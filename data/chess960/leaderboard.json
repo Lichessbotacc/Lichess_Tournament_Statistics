@@ -1077,6 +1077,7 @@
     "acrobati": 1,
     "acrrd": 0,
     "acrucio": 0,
+    "acrux_3": 0,
     "acs-kci": 0,
     "acs1": 0,
     "acshetty1054": 0,
@@ -29939,7 +29940,7 @@
     "pythor3": 0,
     "pythus": 0,
     "pytokland": 0,
-    "pyuria": 159,
+    "pyuria": 156,
     "pzkpfwvi": 0,
     "q1000": 0,
     "q123027": 0,
@@ -39603,6 +39604,7 @@
     "yarik_slav": 2,
     "yarin_k": 0,
     "yaromiko": 3,
+    "yaromir-k": 0,
     "yaromir299": 0,
     "yaroslav-rumyancev": 0,
     "yaroslav03": 0,
@@ -41606,6 +41608,7 @@
     "acrobati": "2026-07-14T13:52:17.686601+00:00",
     "acrrd": "2026-07-15T01:10:53.832809+00:00",
     "acrucio": "2026-07-10T02:26:04.161372+00:00",
+    "acrux_3": "2026-07-17T12:41:57.525272+00:00",
     "acs-kci": "2026-07-16T05:22:34.846944+00:00",
     "acs1": "2026-07-12T18:17:00.895578+00:00",
     "acshetty1054": "2026-07-14T15:26:42.216700+00:00",
@@ -69895,7 +69898,7 @@
     "python45": "2026-07-14T15:28:35.414913+00:00",
     "pythus": "2026-07-10T03:03:04.729922+00:00",
     "pytokland": "2026-07-17T10:09:00.162297+00:00",
-    "pyuria": "2026-07-16T17:45:52.654062+00:00",
+    "pyuria": "2026-07-17T12:41:55.479083+00:00",
     "pzkpfwvi": "2026-07-16T01:35:16.777115+00:00",
     "q1000": "2026-07-15T16:08:23.991737+00:00",
     "q123027": "2026-07-16T03:44:17.509277+00:00",
@@ -78731,7 +78734,7 @@
     "wertpublicaccount": "2026-07-13T00:37:06.637467+00:00",
     "wertsaw": "2026-07-17T06:39:00.803707+00:00",
     "wertyiop987": "2026-07-12T16:51:32.728450+00:00",
-    "weslati-23": "2026-07-14T01:05:07.302196+00:00",
+    "weslati-23": "2026-07-17T12:41:18.480171+00:00",
     "wesley2019": "2026-07-12T10:21:10.326823+00:00",
     "wesleyaraxa": "2026-07-13T16:50:54.253596+00:00",
     "wesleyoldaker": "2026-07-15T03:47:05.560532+00:00",
@@ -79341,6 +79344,7 @@
     "yarik_slav": "2026-07-16T00:57:31.577978+00:00",
     "yarin_k": "2026-07-13T19:32:26.030580+00:00",
     "yaromiko": "2026-07-14T00:44:40.012598+00:00",
+    "yaromir-k": "2026-07-17T12:41:21.469853+00:00",
     "yaromir299": "2026-07-17T00:46:13.703348+00:00",
     "yaroslav-rumyancev": "2026-07-12T17:26:11.105625+00:00",
     "yaroslav03": "2026-07-13T14:22:53.999708+00:00",
@@ -81283,16 +81287,8 @@
     },
     {
       "games": 159,
-      "profile": "https://lichess.org/@/pyuria",
-      "rank": 129,
-      "rating": 1845,
-      "source": "Lobby-Crawl",
-      "username": "pyuria"
-    },
-    {
-      "games": 159,
       "profile": "https://lichess.org/@/tablebased",
-      "rank": 130,
+      "rank": 129,
       "rating": 1711,
       "source": "Lobby-Crawl",
       "username": "tablebased"
@@ -81300,7 +81296,7 @@
     {
       "games": 158,
       "profile": "https://lichess.org/@/afacaassdf123as",
-      "rank": 131,
+      "rank": 130,
       "rating": 2085,
       "source": "Lobby-Crawl",
       "username": "afacaassdf123as"
@@ -81308,7 +81304,7 @@
     {
       "games": 158,
       "profile": "https://lichess.org/@/frankie-goes",
-      "rank": 132,
+      "rank": 131,
       "rating": 1663,
       "source": "Lobby-Crawl",
       "username": "frankie-goes"
@@ -81316,7 +81312,7 @@
     {
       "games": 157,
       "profile": "https://lichess.org/@/bcow",
-      "rank": 133,
+      "rank": 132,
       "rating": 2158,
       "source": "Lobby-Crawl",
       "username": "bcow"
@@ -81324,10 +81320,18 @@
     {
       "games": 157,
       "profile": "https://lichess.org/@/scaryhorse7787",
-      "rank": 134,
+      "rank": 133,
       "rating": 1895,
       "source": "Lobby-Crawl",
       "username": "scaryhorse7787"
+    },
+    {
+      "games": 156,
+      "profile": "https://lichess.org/@/pyuria",
+      "rank": 134,
+      "rating": 1845,
+      "source": "Lobby-Crawl",
+      "username": "pyuria"
     },
     {
       "games": 155,
@@ -404568,7 +404572,23 @@
       "rating": 1502,
       "source": "Lobby-Crawl",
       "username": "reynaldoo"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/yaromir-k",
+      "rank": 40540,
+      "rating": 1379,
+      "source": "Lobby-Crawl",
+      "username": "yaromir-k"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/acrux_3",
+      "rank": 40541,
+      "rating": 1221,
+      "source": "Lobby-Crawl",
+      "username": "acrux_3"
     }
   ],
-  "updated_at": "2026-07-17T12:40:56.174230+00:00"
+  "updated_at": "2026-07-17T12:41:57.535897+00:00"
 }
