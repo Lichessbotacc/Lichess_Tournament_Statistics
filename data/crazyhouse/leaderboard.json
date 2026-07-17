@@ -10437,6 +10437,7 @@
     "dishchess225": 0,
     "dishen_prajapati81": 0,
     "dislikebutton": 0,
+    "disrespected": 0,
     "dissident_with_love": 2,
     "distrimix": 0,
     "distrito": 0,
@@ -32969,6 +32970,7 @@
     "stalskyle": 5,
     "stamatinamarg": 0,
     "stamatis3": 5,
+    "stambolyan_daniil": 0,
     "stan6-6-6": 0,
     "standard_deviationx2": 0,
     "stanelvis": 1,
@@ -38450,6 +38452,7 @@
     "zeninclan": 14,
     "zeninemre": 0,
     "zenit29": 0,
+    "zenit5": 0,
     "zenmonkey": 0,
     "zeno-net": 0,
     "zenoverse": 0,
@@ -44966,7 +44969,7 @@
     "blackkemptactor": "2026-07-15T16:43:05.198146+00:00",
     "blackknight1956": "2026-07-16T05:10:56.758162+00:00",
     "blackknith": "2026-07-11T03:29:57.777666+00:00",
-    "blacklight_zh": "2026-07-11T12:26:53.306648+00:00",
+    "blacklight_zh": "2026-07-17T04:44:35.032818+00:00",
     "blacknotelau": "2026-07-15T11:06:35.878592+00:00",
     "blackpink44": "2026-07-16T20:52:23.762525+00:00",
     "blackqueen123": "2026-07-14T07:18:24.984551+00:00",
@@ -49157,6 +49160,7 @@
     "dishchess225": "2026-07-16T13:50:11.310194+00:00",
     "dishen_prajapati81": "2026-07-10T16:24:23.853159+00:00",
     "dislikebutton": "2026-07-10T16:24:26.844808+00:00",
+    "disrespected": "2026-07-17T04:44:38.048355+00:00",
     "dissident_with_love": "2026-07-15T10:16:22.337768+00:00",
     "distrimix": "2026-07-13T22:38:59.221983+00:00",
     "distrito": "2026-07-14T16:19:54.613321+00:00",
@@ -71598,6 +71602,7 @@
     "stalkerwew": "2026-07-12T16:13:33.888367+00:00",
     "stalskyle": "2026-07-14T02:21:41.337773+00:00",
     "stamatinamarg": "2026-07-15T08:55:43.931057+00:00",
+    "stambolyan_daniil": "2026-07-17T04:44:41.037615+00:00",
     "stan6-6-6": "2026-07-13T21:58:23.341378+00:00",
     "standard_deviationx2": "2026-07-15T02:56:51.522292+00:00",
     "stanelvis": "2026-07-16T06:37:46.145778+00:00",
@@ -73712,7 +73717,7 @@
     "torjo": "2026-07-14T17:46:32.746551+00:00",
     "tormentanegra": "2026-07-14T16:08:49.749628+00:00",
     "tornadoguy777": "2026-07-14T04:02:25.861375+00:00",
-    "tornon": "2026-07-11T03:22:04.579141+00:00",
+    "tornon": "2026-07-17T04:44:44.079081+00:00",
     "tornparty14": "2026-07-12T20:00:59.604192+00:00",
     "toro59": "2026-07-15T15:32:46.517243+00:00",
     "toroidalchess": "2026-07-13T15:18:17.208643+00:00",
@@ -76968,7 +76973,7 @@
     "zamfirakimark": "2026-07-16T21:36:19.144758+00:00",
     "zamirnicolas": "2026-07-11T03:48:01.593937+00:00",
     "zampiks": "2026-07-16T07:13:12.469750+00:00",
-    "zamyatin_petr": "2026-07-13T23:55:43.558291+00:00",
+    "zamyatin_petr": "2026-07-17T04:44:32.042749+00:00",
     "zan_2016": "2026-07-15T08:15:48.620233+00:00",
     "zaneramseyfv": "2026-07-12T20:18:59.759044+00:00",
     "zanfir07": "2026-07-13T10:55:58.334780+00:00",
@@ -77053,6 +77058,7 @@
     "zeninclan": "2026-07-16T07:56:45.043214+00:00",
     "zeninemre": "2026-07-17T04:21:15.896264+00:00",
     "zenit29": "2026-07-13T20:57:54.717986+00:00",
+    "zenit5": "2026-07-17T04:44:47.033825+00:00",
     "zenmonkey": "2026-07-14T05:21:28.268693+00:00",
     "zeno-net": "2026-07-14T06:10:09.698060+00:00",
     "zenoverse": "2026-07-16T11:48:08.695745+00:00",
@@ -186538,7 +186544,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/blacklight_zh",
       "rank": 13648,
-      "rating": null,
+      "rating": 2044,
       "source": "Lobby-Crawl",
       "username": "blacklight_zh"
     },
@@ -358250,7 +358256,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/tornon",
       "rank": 35112,
-      "rating": null,
+      "rating": 2399,
       "source": "Lobby-Crawl",
       "username": "tornon"
     },
@@ -387381,7 +387387,31 @@
       "rating": 1277,
       "source": "Lobby-Crawl",
       "username": "svyattafintsev"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/disrespected",
+      "rank": 38754,
+      "rating": 1706,
+      "source": "Lobby-Crawl",
+      "username": "disrespected"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/stambolyan_daniil",
+      "rank": 38755,
+      "rating": 1502,
+      "source": "Lobby-Crawl",
+      "username": "stambolyan_daniil"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/zenit5",
+      "rank": 38756,
+      "rating": 1947,
+      "source": "?",
+      "username": "zenit5"
     }
   ],
-  "updated_at": "2026-07-17T04:43:45.245841+00:00"
+  "updated_at": "2026-07-17T04:44:47.043819+00:00"
 }
