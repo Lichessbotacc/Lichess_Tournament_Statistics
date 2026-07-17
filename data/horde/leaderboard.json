@@ -12776,6 +12776,7 @@
     "eeiktish": 0,
     "eejie": 0,
     "eem_ridvan": 10,
+    "eemc78": 0,
     "eephelot": 1,
     "eesakazi1234": 1,
     "eeshabca": 0,
@@ -26007,6 +26008,7 @@
     "mari401": 0,
     "maria12345prokofeva": 0,
     "maria1346": 0,
+    "maria2901": 0,
     "maria39": 0,
     "maria_bachurina": 0,
     "maria_dr_chess": 0,
@@ -30414,7 +30416,7 @@
     "nimmit": 0,
     "nimon4a": 0,
     "nimreh": 0,
-    "nimzocanadian": 152,
+    "nimzocanadian": 147,
     "nimzowitschthis": 0,
     "nina2005": 0,
     "nina_rus_spb": 0,
@@ -56004,7 +56006,7 @@
     "coolmona": "2026-07-16T05:36:17.866092+00:00",
     "coolmoves16": "2026-07-15T10:29:27.211240+00:00",
     "coolpuretornado": "2026-07-11T20:18:52.734868+00:00",
-    "coolqueen-88": "2026-07-16T07:01:01.976209+00:00",
+    "coolqueen-88": "2026-07-17T08:55:52.211862+00:00",
     "coolshallowcatapult": "2026-07-15T02:14:59.717907+00:00",
     "coolthegaming24": "2026-07-10T19:13:28.170869+00:00",
     "cooltiger321": "2026-07-13T08:47:46.062878+00:00",
@@ -59094,6 +59096,7 @@
     "eeiktish": "2026-07-16T11:20:03.820908+00:00",
     "eejie": "2026-07-13T03:47:12.218785+00:00",
     "eem_ridvan": "2026-07-15T21:47:40.867720+00:00",
+    "eemc78": "2026-07-17T08:55:55.208654+00:00",
     "eephelot": "2026-07-14T22:55:53.236448+00:00",
     "eesakazi1234": "2026-07-16T04:22:44.689479+00:00",
     "eeshabca": "2026-07-15T08:26:31.663912+00:00",
@@ -65963,7 +65966,7 @@
     "jamooi": "2026-07-13T02:38:00.513195+00:00",
     "jamou_972ozm": "2026-07-13T06:26:51.632334+00:00",
     "jamper0000": "2026-07-15T23:10:42.705435+00:00",
-    "jampier_chambilla": "2026-07-12T12:35:45.116850+00:00",
+    "jampier_chambilla": "2026-07-17T08:55:49.258268+00:00",
     "jamrudchess": "2026-07-10T22:08:51.698422+00:00",
     "jamtchik": "2026-07-15T12:53:09.736397+00:00",
     "jamy0ung": "2026-07-13T12:21:46.969165+00:00",
@@ -72079,6 +72082,7 @@
     "mari401": "2026-07-13T05:56:53.259692+00:00",
     "maria12345prokofeva": "2026-07-14T22:02:01.998846+00:00",
     "maria1346": "2026-07-10T18:23:14.639214+00:00",
+    "maria2901": "2026-07-17T08:55:58.212963+00:00",
     "maria39": "2026-07-13T16:57:36.597288+00:00",
     "maria_bachurina": "2026-07-13T15:03:48.124904+00:00",
     "maria_dr_chess": "2026-07-11T01:24:31.994919+00:00",
@@ -76282,7 +76286,7 @@
     "nimmit": "2026-07-12T19:32:27.123302+00:00",
     "nimon4a": "2026-07-13T08:35:19.443644+00:00",
     "nimreh": "2026-07-16T17:12:48.170486+00:00",
-    "nimzocanadian": "2026-07-16T14:24:36.797658+00:00",
+    "nimzocanadian": "2026-07-17T08:56:35.039365+00:00",
     "nimzowitschthis": "2026-07-14T19:10:02.172832+00:00",
     "nina2005": "2026-07-14T08:35:43.255142+00:00",
     "nina_rus_spb": "2026-07-16T15:21:18.142162+00:00",
@@ -92106,17 +92110,9 @@
       "username": "glossum"
     },
     {
-      "games": 152,
-      "profile": "https://lichess.org/@/nimzocanadian",
-      "rank": 40,
-      "rating": 2062,
-      "source": "Lobby-Crawl",
-      "username": "nimzocanadian"
-    },
-    {
       "games": 151,
       "profile": "https://lichess.org/@/leon1616",
-      "rank": 41,
+      "rank": 40,
       "rating": 2230,
       "source": "?",
       "username": "leon1616"
@@ -92124,10 +92120,18 @@
     {
       "games": 150,
       "profile": "https://lichess.org/@/daggeredson",
-      "rank": 42,
+      "rank": 41,
       "rating": 2378,
       "source": "?",
       "username": "daggeredson"
+    },
+    {
+      "games": 147,
+      "profile": "https://lichess.org/@/nimzocanadian",
+      "rank": 42,
+      "rating": 2062,
+      "source": "Lobby-Crawl",
+      "username": "nimzocanadian"
     },
     {
       "games": 145,
@@ -384261,7 +384265,7 @@
       "games": 0,
       "profile": "https://lichess.org/@/rudransh-gbs",
       "rank": 36559,
-      "rating": null,
+      "rating": 1652,
       "source": "Lobby-Crawl",
       "username": "rudransh-gbs"
     },
@@ -462320,7 +462324,23 @@
       "rating": 1394,
       "source": "Lobby-Crawl",
       "username": "josepet"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/eemc78",
+      "rank": 46317,
+      "rating": null,
+      "source": "Lobby-Crawl",
+      "username": "eemc78"
+    },
+    {
+      "games": 0,
+      "profile": "https://lichess.org/@/maria2901",
+      "rank": 46318,
+      "rating": 1201,
+      "source": "Lobby-Crawl",
+      "username": "maria2901"
     }
   ],
-  "updated_at": "2026-07-17T08:55:25.200666+00:00"
+  "updated_at": "2026-07-17T08:56:35.048370+00:00"
 }
