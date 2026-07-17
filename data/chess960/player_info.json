@@ -85787,6 +85787,12 @@
     "checked_at": "2026-07-15T13:23:11.933672+00:00",
     "rating": 1807
   },
+  "interceptors": {
+    "banned": false,
+    "bot": false,
+    "checked_at": "2026-07-17T03:16:53.240939+00:00",
+    "rating": 1258
+  },
   "interesting_username": {
     "banned": false,
     "bot": false,
@@ -162676,6 +162682,12 @@
     "bot": false,
     "checked_at": "2026-07-14T19:37:01.622956+00:00",
     "rating": 1895
+  },
+  "rpc_tbr": {
+    "banned": true,
+    "bot": false,
+    "checked_at": "2026-07-17T03:16:45.453839+00:00",
+    "rating": null
   },
   "rpgrandmaster": {
     "banned": false,
