@@ -419,10 +419,25 @@ LIVE_GIT_PUSH = os.environ.get("GITHUB_ACTIONS", "").lower() == "true"
 # Falls die Repo-Groesse zum Problem wird: periodisch (z.B. woechentlich)
 # die Historie squashen/bereinigen (git filter-repo o.ae.) oder dieses
 # Intervall wieder erhoehen.
-GIT_PUSH_MIN_INTERVAL_SECONDS = float(os.environ.get("GIT_PUSH_MIN_INTERVAL_SECONDS", "60"))
+GIT_PUSH_MIN_INTERVAL_SECONDS = float(os.environ.get("GIT_PUSH_MIN_INTERVAL_SECONDS", "300"))
 _last_git_push_ts = 0.0
 GIT_PUSH_MAX_RETRIES = 8
 GIT_PUSH_RETRY_BASE_DELAY_SECONDS = 3
+
+# GEAENDERT (Repo-Groesse): Default-Push-Intervall von 60s auf 300s (5min)
+# erhoeht. Grund: bei 13 parallelen perf_type-Jobs x einem neuen Commit
+# alle 60s ueber Stunden ist die Git-Historie so unbegrenzt gewachsen,
+# bis GitHub das Repo wegen Ueberschreitung der Groessen-Quota komplett
+# gesperrt hat ("Repository is above its size quota" /
+# "pre-receive hook declined"). Der eigentliche Commit/Push-Mechanismus
+# bleibt bewusst UNVERAENDERT (normaler Commit + pull --rebase + push,
+# KEIN Force-Push): da jeder Job nur seinen eigenen data/<perf_type>-
+# Unterordner im Working Tree aktuell haelt, waere ein Force-Push riskant
+# - er koennte zwischenzeitliche Aenderungen anderer Jobs an IHREN
+# Unterordnern mit einem veralteten lokalen Stand ueberschreiben.
+# Die eigentliche Repo-Groesse wird stattdessen durch einen separaten,
+# woechentlichen Squash-Job im Workflow unter Kontrolle gehalten (siehe
+# .github/workflows/*.yml, Job "squash-history").
 
 
 def ensure_on_branch() -> None:
@@ -486,6 +501,15 @@ def git_commit_and_push(message: str) -> bool:
                 return True
             except subprocess.CalledProcessError as exc:
                 last_error = exc
+                stderr = exc.stderr or ""
+                if "quota" in stderr.lower():
+                    # Kein transientes Kollisions-Problem, sondern das Repo
+                    # ist ueber die Groessen-Quota - Retries helfen hier
+                    # nicht. Sofort abbrechen statt 8x sinnlos zu warten.
+                    print(f"  [FEHLER] Repo ist ueber der Groessen-Quota - "
+                          f"Push wird abgebrochen, bitte Historie bereinigen "
+                          f"(siehe README/Runbook): {stderr.strip()}")
+                    return False
                 if attempt < GIT_PUSH_MAX_RETRIES:
                     delay = GIT_PUSH_RETRY_BASE_DELAY_SECONDS * (2 ** (attempt - 1))
                     delay += random.uniform(0, delay * 0.5)
