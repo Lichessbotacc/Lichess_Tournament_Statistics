@@ -5,7 +5,7 @@ from collections import defaultdict
 
 # 🔥 SETTINGS
 TARGET_TEAM = "darkonteams"
-TOURNEY_IDS = ["WxgaONHC", "HQxblt5W", "woTLfiqv", "NHp5rNCJ",]
+TOURNEY_IDS = ["WxgaONHC", "HQxblt5W", "woTLfiqv", "NHp5rNCJ", "JF7GRSK3", "fA8FJzfw", "4HuAY6QE", "a74yCuoB", "1SaoCBrB",]
 REQUEST_DELAY = 0  # Sekunden Pause zwischen Requests (Rate-Limit-Schutz)
 MAX_RETRIES = 3
 
